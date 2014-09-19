@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23802C9919CC150900387768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9819CC150900387768 /* AppDelegate.swift */; };
+		23802C9B19CC150900387768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9A19CC150900387768 /* ViewController.swift */; };
+		23802C9E19CC150900387768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9C19CC150900387768 /* Main.storyboard */; };
+		23802CA019CC150900387768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9F19CC150900387768 /* Images.xcassets */; };
+		23802CA319CC150900387768 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23802CA119CC150900387768 /* LaunchScreen.xib */; };
+		23802CAF19CC150900387768 /* CigarettesAndMoneyCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23802CA919CC150900387768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23802C8B19CC150900387768 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23802C9219CC150900387768;
+			remoteInfo = CigarettesAndMoneyCounter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23802C9A19CC150900387768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23802C9D19CC150900387768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23802C9F19CC150900387768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23802CA219CC150900387768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarettesAndMoneyCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23802CAD19CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigarettesAndMoneyCounterTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23802C9019CC150900387768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23802CA519CC150900387768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23802C8A19CC150900387768 = {
+			isa = PBXGroup;
+			children = (
+				23802C9519CC150900387768 /* CigarettesAndMoneyCounter */,
+				23802CAB19CC150900387768 /* CigarettesAndMoneyCounterTests */,
+				23802C9419CC150900387768 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23802C9419CC150900387768 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */,
+				23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
+			isa = PBXGroup;
+			children = (
+				23802C9819CC150900387768 /* AppDelegate.swift */,
+				23802C9A19CC150900387768 /* ViewController.swift */,
+				23802C9C19CC150900387768 /* Main.storyboard */,
+				23802C9F19CC150900387768 /* Images.xcassets */,
+				23802CA119CC150900387768 /* LaunchScreen.xib */,
+				23802C9619CC150900387768 /* Supporting Files */,
+			);
+			path = CigarettesAndMoneyCounter;
+			sourceTree = "<group>";
+		};
+		23802C9619CC150900387768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23802C9719CC150900387768 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23802CAB19CC150900387768 /* CigarettesAndMoneyCounterTests */ = {
+			isa = PBXGroup;
+			children = (
+				23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */,
+				23802CAC19CC150900387768 /* Supporting Files */,
+			);
+			path = CigarettesAndMoneyCounterTests;
+			sourceTree = "<group>";
+		};
+		23802CAC19CC150900387768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23802CAD19CC150900387768 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23802C9219CC150900387768 /* CigarettesAndMoneyCounter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23802CB219CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounter" */;
+			buildPhases = (
+				23802C8F19CC150900387768 /* Sources */,
+				23802C9019CC150900387768 /* Frameworks */,
+				23802C9119CC150900387768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CigarettesAndMoneyCounter;
+			productName = CigarettesAndMoneyCounter;
+			productReference = 23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23802CA719CC150900387768 /* CigarettesAndMoneyCounterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23802CB519CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounterTests" */;
+			buildPhases = (
+				23802CA419CC150900387768 /* Sources */,
+				23802CA519CC150900387768 /* Frameworks */,
+				23802CA619CC150900387768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23802CAA19CC150900387768 /* PBXTargetDependency */,
+			);
+			name = CigarettesAndMoneyCounterTests;
+			productName = CigarettesAndMoneyCounterTests;
+			productReference = 23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23802C8B19CC150900387768 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Tania Berezovski";
+				TargetAttributes = {
+					23802C9219CC150900387768 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					23802CA719CC150900387768 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 23802C9219CC150900387768;
+					};
+				};
+			};
+			buildConfigurationList = 23802C8E19CC150900387768 /* Build configuration list for PBXProject "CigarettesAndMoneyCounter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23802C8A19CC150900387768;
+			productRefGroup = 23802C9419CC150900387768 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23802C9219CC150900387768 /* CigarettesAndMoneyCounter */,
+				23802CA719CC150900387768 /* CigarettesAndMoneyCounterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23802C9119CC150900387768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23802C9E19CC150900387768 /* Main.storyboard in Resources */,
+				23802CA319CC150900387768 /* LaunchScreen.xib in Resources */,
+				23802CA019CC150900387768 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23802CA619CC150900387768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23802C8F19CC150900387768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23802C9B19CC150900387768 /* ViewController.swift in Sources */,
+				23802C9919CC150900387768 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23802CA419CC150900387768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23802CAF19CC150900387768 /* CigarettesAndMoneyCounterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23802CAA19CC150900387768 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23802C9219CC150900387768 /* CigarettesAndMoneyCounter */;
+			targetProxy = 23802CA919CC150900387768 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23802C9C19CC150900387768 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23802C9D19CC150900387768 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23802CA119CC150900387768 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23802CA219CC150900387768 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23802CB019CC150900387768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		23802CB119CC150900387768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23802CB319CC150900387768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		23802CB419CC150900387768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		23802CB619CC150900387768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
+			};
+			name = Debug;
+		};
+		23802CB719CC150900387768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23802C8E19CC150900387768 /* Build configuration list for PBXProject "CigarettesAndMoneyCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23802CB019CC150900387768 /* Debug */,
+				23802CB119CC150900387768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23802CB219CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23802CB319CC150900387768 /* Debug */,
+				23802CB419CC150900387768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23802CB519CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23802CB619CC150900387768 /* Debug */,
+				23802CB719CC150900387768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23802C8B19CC150900387768 /* Project object */;
+}
