@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
+		235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235E256D1A56AD840050EBAA /* RowManagerViewController.swift */; };
+		23679BC119D5664A003354C7 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC019D5664A003354C7 /* Levels.swift */; };
+		23679BC319D56707003354C7 /* TableLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC219D56707003354C7 /* TableLevels.swift */; };
 		23802C9919CC150900387768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9819CC150900387768 /* AppDelegate.swift */; };
 		23802C9B19CC150900387768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9A19CC150900387768 /* ViewController.swift */; };
 		23802C9E19CC150900387768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9C19CC150900387768 /* Main.storyboard */; };
 		23802CA019CC150900387768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9F19CC150900387768 /* Images.xcassets */; };
 		23802CA319CC150900387768 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23802CA119CC150900387768 /* LaunchScreen.xib */; };
 		23802CAF19CC150900387768 /* CigarettesAndMoneyCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */; };
+		23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */; };
+		239232711A45D6F9000714AA /* CigaretteRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */; };
+		239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239232721A45D7EA000714AA /* CigaretteRecord.swift */; };
+		23A85D0D1B11657B000740F6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A85D0C1B11657B000740F6 /* Common.swift */; };
+		23B46BE719E6DE5600CA8984 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */; };
+		23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0285E1B4857E9009FA6D6 /* NavViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		235E256D1A56AD840050EBAA /* RowManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowManagerViewController.swift; path = ../RowManagerViewController.swift; sourceTree = "<group>"; };
+		23679BC019D5664A003354C7 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		23679BC219D56707003354C7 /* TableLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableLevels.swift; sourceTree = "<group>"; };
 		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +50,12 @@
 		23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarettesAndMoneyCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802CAD19CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigarettesAndMoneyCounterTests.swift; sourceTree = "<group>"; };
+		23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataController.swift; sourceTree = "<group>"; };
+		239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CigaretteRecord.xcdatamodel; sourceTree = "<group>"; };
+		239232721A45D7EA000714AA /* CigaretteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecord.swift; sourceTree = "<group>"; };
+		23A85D0C1B11657B000740F6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
+		23E0285E1B4857E9009FA6D6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		233A38A11A34E26A00661CDD /* Extantion */ = {
+			isa = PBXGroup;
+			children = (
+				233A38A21A34E34700661CDD /* String.swift */,
+			);
+			name = Extantion;
+			sourceTree = "<group>";
+		};
 		23802C8A19CC150900387768 = {
 			isa = PBXGroup;
 			children = (
@@ -77,9 +105,18 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				23ED1A7C1B3ED1810034F8A2 /* FetchResults */,
+				239232721A45D7EA000714AA /* CigaretteRecord.swift */,
+				2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */,
+				233A38A11A34E26A00661CDD /* Extantion */,
+				23802CB819CDBD0600387768 /* Model */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
 				23802C9A19CC150900387768 /* ViewController.swift */,
+				23A85D0C1B11657B000740F6 /* Common.swift */,
+				23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */,
+				23679BC219D56707003354C7 /* TableLevels.swift */,
 				23802C9C19CC150900387768 /* Main.storyboard */,
+				23E0285E1B4857E9009FA6D6 /* NavViewController.swift */,
 				23802C9F19CC150900387768 /* Images.xcassets */,
 				23802CA119CC150900387768 /* LaunchScreen.xib */,
 				23802C9619CC150900387768 /* Supporting Files */,
@@ -110,6 +147,23 @@
 				23802CAD19CC150900387768 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23802CB819CDBD0600387768 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
+				23679BC019D5664A003354C7 /* Levels.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		23ED1A7C1B3ED1810034F8A2 /* FetchResults */ = {
+			isa = PBXGroup;
+			children = (
+				235E256D1A56AD840050EBAA /* RowManagerViewController.swift */,
+			);
+			name = FetchResults;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +266,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */,
 				23802C9B19CC150900387768 /* ViewController.swift in Sources */,
+				23679BC119D5664A003354C7 /* Levels.swift in Sources */,
 				23802C9919CC150900387768 /* AppDelegate.swift in Sources */,
+				23A85D0D1B11657B000740F6 /* Common.swift in Sources */,
+				239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */,
+				239232711A45D6F9000714AA /* CigaretteRecord.xcdatamodeld in Sources */,
+				233A38A31A34E34700661CDD /* String.swift in Sources */,
+				235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */,
+				23B46BE719E6DE5600CA8984 /* UserDefaultsController.swift in Sources */,
+				23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */,
+				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +469,7 @@
 				23802CB419CC150900387768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23802CB519CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -413,8 +478,22 @@
 				23802CB719CC150900387768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */,
+			);
+			currentVersion = 239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */;
+			path = CigaretteRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 23802C8B19CC150900387768 /* Project object */;
 }
