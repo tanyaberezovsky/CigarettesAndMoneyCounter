@@ -12,8 +12,13 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var ciggarets: UITextField!
     @IBOutlet weak var packCost: UITextField!
+    var segment = 0
+    
+   //ciggaretsEditingDidEnd
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
+        
+        segment = sender.selectedSegmentIndex
     }
     
     override func viewDidLoad() {
