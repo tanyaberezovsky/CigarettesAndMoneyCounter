@@ -4,7 +4,8 @@
 //
 //  Created by Tania on 7/12/15.
 //  Copyright (c) 2015 Tania Berezovski. All rights reserved.
-//
+// tau: shni
+// google: shir
 
 import UIKit
 
@@ -12,25 +13,93 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var ciggarets: UITextField!
     @IBOutlet weak var packCost: UITextField!
+    @IBOutlet weak var totalCost: UILabel!
+    
+    @IBOutlet weak var cigsDesc: UILabel!
+    
+
     var segment = 0
+    var calc = Calculator();
     
    //ciggaretsEditingDidEnd
+    
+    @IBAction func packCostChanged(sender: AnyObject) {
+        if isNumeric(packCost.text){
+            calc.packCost = packCost.text.toDouble()!
+        }
+    }
+    
+    @IBAction func ciggaretsChanged(sender: UITextField) {
+        if isNumeric(ciggarets.text){
+            calc.totalCiggarets = ciggarets.text.toDouble()!
+        }
+    }
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         
         segment = sender.selectedSegmentIndex
+        println("segment=\(segment)")
+        calc.segment  = segment
+        setDescription()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadDefaultValues()
-        
         // Do any additional setup after loading the view.
+        calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
+
+        LoadDefaultValues()
+       
+    }
+    
+    func setDescription()
+    {
+        var desc: String
+        switch segment{
+        case 0:
+            desc = "per day"
+        case 1:
+            desc = "per week"
+        case 2:
+            desc = "per month"
+        case 3:
+            desc = "per year"
+        default:
+            desc=""
+        }
+        cigsDesc.text = desc
+    }
+    
+    func onPropertyChanged(property: CalculatorProperty) {
+        println("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
+        
+        ciggarets.text = String(format: "%.1f", calc.totalCiggarets)
+        
+        var cost: Double = calc.calculateCost() //a(1) //calculateCost()
+        
+        totalCost.text = String(format: "%.1f", cost)
+
+        
     }
 
+    private func calculateCost() -> Double
+    {
+        
+        return  calc.totalCiggarets * (calc.packCost / 20)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        closeAllKeyboards()
+    }
+    
+    func closeAllKeyboards()
+    {
+        self.view.endEditing(true)
     }
     
     //++++++++++++++++++++++++++++++++++++
@@ -40,6 +109,10 @@ class CalculatorViewController: UIViewController {
         var defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
+        
+       calc.totalCiggarets = Double(userDefaults.dailyGoal)
+    
+        calc.packCost = userDefaults.averageCostOfOnePack
         
        ciggarets.text = String(userDefaults.dailyGoal)
         
