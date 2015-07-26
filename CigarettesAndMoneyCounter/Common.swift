@@ -10,6 +10,11 @@ import Foundation
 
 
 
+func isNumeric(a: String) -> Bool {
+    return a.toInt() != nil
+}
+
+
 /*
 reseive date and return string
 if date was in past hour
