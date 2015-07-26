@@ -29,15 +29,19 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         var defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         
+       if isNumeric(averageCost.text){
+                userDefaults.averageCostOfOnePack = averageCost.text.toDouble()!
+        }
+
         
-        userDefaults.averageCostOfOnePack = averageCost.text.toDouble()!
+        if isNumeric(dailyGoal.text){
+            userDefaults.dailyGoal = dailyGoal.text.toInt()!}
         
+        if isNumeric(levelOfEnjoyText){
+            userDefaults.levelOfEnjoyment = levelOfEnjoyText.toInt()!}
         
-        userDefaults.dailyGoal = dailyGoal.text.toInt()!
-        
-        userDefaults.levelOfEnjoyment = levelOfEnjoyText.toInt()!
-        
-        userDefaults.levelAsNeeded = levelAsNeededText.toInt()!
+        if isNumeric(levelAsNeededText){
+            userDefaults.levelAsNeeded = levelAsNeededText.toInt()!}
         
         defaults.saveUserDefaults(userDefaults)
         
