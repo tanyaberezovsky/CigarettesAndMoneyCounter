@@ -22,6 +22,7 @@
 		239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239232721A45D7EA000714AA /* CigaretteRecord.swift */; };
 		239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97301B52DCA80036332C /* CalculatorViewController.swift */; };
 		239C97331B52E7BD0036332C /* CalculatorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97321B52E7BD0036332C /* CalculatorModal.swift */; };
+		23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */; };
 		23A85D0D1B11657B000740F6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A85D0C1B11657B000740F6 /* Common.swift */; };
 		23B46BE719E6DE5600CA8984 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */; };
 		23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0285E1B4857E9009FA6D6 /* NavViewController.swift */; };
@@ -57,6 +58,7 @@
 		239232721A45D7EA000714AA /* CigaretteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecord.swift; sourceTree = "<group>"; };
 		239C97301B52DCA80036332C /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		239C97321B52E7BD0036332C /* CalculatorModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModal.swift; sourceTree = "<group>"; };
+		23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEvent.swift; sourceTree = "<group>"; };
 		23A85D0C1B11657B000740F6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		23E0285E1B4857E9009FA6D6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				239C97301B52DCA80036332C /* CalculatorViewController.swift */,
 				239C97321B52E7BD0036332C /* CalculatorModal.swift */,
+				23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */,
 			);
 			name = Calculator;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				233A38A31A34E34700661CDD /* String.swift in Sources */,
 				235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */,
 				23B46BE719E6DE5600CA8984 /* UserDefaultsController.swift in Sources */,
+				23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */,
 				239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */,
 				23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
