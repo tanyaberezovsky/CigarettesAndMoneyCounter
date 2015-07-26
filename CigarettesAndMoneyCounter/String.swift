@@ -12,6 +12,8 @@ extension String {
     func toDouble() -> Double? {
         return NSNumberFormatter().numberFromString(self)?.doubleValue
     }
+    
+
 }
 
 
