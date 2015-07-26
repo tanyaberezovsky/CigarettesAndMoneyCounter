@@ -68,8 +68,21 @@ import Foundation
         var userDefaults = UserDefaults()
         
         var defaults = NSUserDefaults.standardUserDefaults()
+        println(defaults)
+        println(defaults.integerForKey("levelAsNeeded"))
         
-        
+        if (defaults.objectForKey("levelAsNeeded") == nil) {
+           //then it loads for the first time
+            //init defaults values for start up
+            userDefaults.dailyGoal = 10
+            userDefaults.averageCostOfOnePack = 10
+            userDefaults.levelAsNeeded = 2
+            userDefaults.levelOfEnjoyment = 2
+            userDefaults.todaySmoked = 0
+            saveUserDefaults(userDefaults)
+            return userDefaults
+        }
+
         userDefaults.levelAsNeeded = defaults.integerForKey("levelAsNeeded")
         
         userDefaults.levelOfEnjoyment = defaults.integerForKey("levelOfEnjoyment")
