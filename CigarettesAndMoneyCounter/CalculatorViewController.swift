@@ -18,6 +18,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var cigsDesc: UILabel!
     
 
+    @IBOutlet weak var smokingTime: UILabel!
     var segment = 0
     var calc = Calculator();
     
@@ -70,16 +71,18 @@ class CalculatorViewController: UIViewController {
         cigsDesc.text = desc
     }
     
+    
+    
     func onPropertyChanged(property: CalculatorProperty) {
         println("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
         
-        ciggarets.text = String(format: "%.1f", calc.totalCiggarets)
+        ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
         
         var cost: Double = calc.calculateCost() //a(1) //calculateCost()
         
-        totalCost.text = String(format: "%.1f", cost)
-
-        
+        totalCost.text = decimalFormatToString(cost)//String(format: "%.1f", cost)
+//
+         smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment)
     }
 
     private func calculateCost() -> Double
@@ -116,8 +119,9 @@ class CalculatorViewController: UIViewController {
         
        ciggarets.text = String(userDefaults.dailyGoal)
         
-       packCost.text = String(stringInterpolationSegment: userDefaults.averageCostOfOnePack)
-        
+       packCost.text = decimalFormatToString(userDefaults.averageCostOfOnePack)
+       
+       
     }
 
     /*
