@@ -20,6 +20,8 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     @IBOutlet var txtCigarette: UITextField!
     @IBOutlet var levelOfEnjoy: UIButton!
     
+    @IBOutlet weak var causeOfSmoking: UIButton!
+    
     @IBOutlet var AddDate: UITextField!
     @IBOutlet var txtReason: UITextField!
    // @IBOutlet var pikerLvlAsNeed: UIPickerView!
@@ -145,8 +147,16 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
        
 //        //round button conners
-//        var btnLayer: CALayer = btnAdd.layer
-//        btnLayer.cornerRadius = 10
+        
+        //    var btnLayer: CALayer = btnAdd.layer
+      //  btnLayer.cornerRadius = 99
+        
+       // var button = UIButton.buttonWithType(.Custom) as UIButton
+      /*  btnAdd.frame = CGRectMake(160, 100, 50, 50)
+        btnAdd.layer.cornerRadius = 0.5 * btnAdd.bounds.size.width
+        btnAdd.setImage(UIImage(named:"thumbsUp.png"), forState: .Normal)
+        btnAdd.addTarget(self, action: "thumbsUpButtonPressed", forControlEvents: .TouchUpInside)*/
+        
 //        
         //set button look like text field
         var layerLevelAsNeeded: CALayer = levelAsNeeded.layer
@@ -158,6 +168,13 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
         layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+        layerLevelAsNeeded = causeOfSmoking.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+      
         
     }
     //++++++++++++++++++++++++++++++++++++
@@ -216,15 +233,18 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     received selected row value from TableLevels and set it to apropriate field
     */
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
-        if segueName == "segueLvlOfEnjoy"{
+        if segueName ==  segueNames.segueLvlOfEnjoy{
             levelOfEnjoyText = text;
             println(text)
             levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         }
-        if segueName == "segueLvlOfNeeded"{
+        if segueName == segueNames.segueLvlOfNeeded{
             levelAsNeededText = text;
             println(text)
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
+        }
+        if segueName == segueNames.segueCauseOfSmoking{
+            causeOfSmoking.setTitle(text, forState: UIControlState.Normal)
         }
         
         controller.navigationController?.popViewControllerAnimated(true)
@@ -244,13 +264,14 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             
         closeAllKeyboards()
             
+            println(segue.identifier)
             
-        if  segue.identifier == "segueLvlOfNeeded" || segue.identifier == "segueLvlOfEnjoy"{
+        if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy || segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
         }
-        else if (segue.identifier?.isEmpty != nil){
+        else if (segue.identifier == segueNames.userDefaults){
             let vc = segue.destinationViewController as! UserDefaultsController
             vc.myDelegate = self
         }
