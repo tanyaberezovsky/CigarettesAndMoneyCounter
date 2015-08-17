@@ -13,52 +13,68 @@ import UIKit
 
 class TableLavels: UITableViewController{
     
+    @IBOutlet weak var navigationHeader: UINavigationItem!
+    
     var myDelegate:TableLevelsControllerDelegate? = nil
     
-    var levels = [Levels]()
     
     var segueSourceName: String?
+  
+    var dataList: selectionList!
     
     @IBOutlet var tblLevels: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        levels = [Levels(nameLvl:"level 0", nameNum: "0"),Levels(nameLvl:"level 1", nameNum: "1"),Levels(nameLvl:"level 2", nameNum: "2"),Levels(nameLvl:"level 3", nameNum: "3"),Levels(nameLvl:"level 4", nameNum: "4")]
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        initView()
+        navigationHeader.title = dataList?.title
+        //tableView.scrollEnabled = true
+
     }
     
+    func initView(){
+        switch  segueSourceName!{
+        case segueNames.segueLvlOfNeeded:
+            dataList = neededList()
+        case segueNames.segueLvlOfEnjoy:
+            dataList = enjoyedList()
+        default:
+            dataList = causeList()
+        }
+    }
+/*  init()
+    {
+        dataList = selectionList()
+    }*/
+
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func  tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.levels.count
+        return dataList!.rowCount()
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        var lvl: Levels
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
         
-        lvl = levels[indexPath.row]
-        
-        cell.textLabel?.text = lvl.nameLvl
-        
+        //we know that cell is not empty now so we use ! to force unwrapping
+       
+        cell.textLabel!.text = dataList.text(indexPath.row)
+        cell.detailTextLabel!.text = dataList.detailText(indexPath.row);
+
         return cell
     }
-    
 
-    
-    
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var levelSelected = levels[indexPath.row].nameNum
+        var levelSelected = dataList.textValue(indexPath.row) //levels[indexPath.row].nameNum
         
       //  println("You selected level is #\(levelSelected)!")
         
