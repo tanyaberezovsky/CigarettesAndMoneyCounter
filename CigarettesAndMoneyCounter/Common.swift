@@ -51,8 +51,79 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
     
     if arrStrDate.count == 0
     {retStr += " just now"}
-        else
+    else
     {retStr +=  "".join(arrStrDate) + " ago"}
     
     return (retStr, bLastCigWasToday)
+}
+
+func decimalFormatToString(num: Double) -> String{
+    if (num % 1 == 0)
+    {
+        return String(format: "%.0f", num)
+    }
+    else
+    {
+        return String(format: "%.1f", num)
+    }
+}
+
+
+func decimalIsInteger(num: Double) -> Bool{
+    if (num % 1 == 0)
+    {
+        return true
+    }
+    else
+    {
+        return false
+    }
+}
+
+
+public func segmentToDays(segment: Int) -> Double
+{
+    var ret: Double = 1
+    
+    switch segment{
+    case 1:
+        ret = 7
+    case 2:
+        ret = 30
+    case 3:
+        ret = 360
+    default:
+        break
+    }
+    return ret
+}
+
+func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
+    var text: String = "Average smoking time "
+    
+    //var days = segmentToDays(segment)
+    
+    var smokingSigTimeMinets: Double = (Double(5) * totalSigs)
+    var smokingSigTime: Double = smokingSigTimeMinets / 60
+    
+    if(decimalIsInteger(smokingSigTime))
+    {
+        text += decimalFormatToString(smokingSigTime) + " hours"
+    }
+    else
+    {
+        if (smokingSigTimeMinets < 60){
+            text += String(format: "%.0f", smokingSigTimeMinets) + " minets"
+        }
+        else{
+            smokingSigTime =  (smokingSigTimeMinets - (smokingSigTimeMinets % 60)) / 60
+            
+            text += String(format: "%.0f", smokingSigTime) + " hours and "
+            
+            smokingSigTime = smokingSigTimeMinets % 60
+            
+            text += String(format: "%.0f", smokingSigTime) + " minets"
+        }
+    }
+    return text;
 }
