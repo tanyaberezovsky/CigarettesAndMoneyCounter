@@ -14,6 +14,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     var segment = 0
 
+    @IBOutlet weak var viewHeader: UIView!
     
    // @IBOutlet weak var segmentControl: UISegmentedControl!
     
@@ -38,7 +39,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         
         self.automaticallyAdjustsScrollViewInsets = true
         createControls()
-
+        
     }
     
     func createControls()
@@ -98,11 +99,37 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     func creteSegmentOnHeader()
     {
+        
+        let screenSize:CGRect = UIScreen.mainScreen().bounds
+        viewHeader.frame.size.height = screenSize.height * 0.30
+
         var mySegment = UISegmentedControl(items: ["Daily","Monthly", "Yearly"])
      
-        self.tableView.tableHeaderView = mySegment
+        viewHeader.addSubview(mySegment)
+//        self.tableView.tableHeaderView = mySegment
         mySegment.selectedSegmentIndex = 0
         mySegment.addTarget(self, action: "segmentAction:", forControlEvents: .ValueChanged)
+
+        
+        let items = ["Purple", "Green", "Blue"]
+        let customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        
+        // Set up Frame and SegmentedControl
+        let frame = UIScreen.mainScreen().bounds
+        customSC.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
+            frame.width , viewHeader.frame.height*0.15)
+        
+        // Style the Segmented Control
+        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+        customSC.backgroundColor = UIColor.blackColor()
+        customSC.tintColor = UIColor.whiteColor()
+        
+        // Add target action method
+        customSC.addTarget(self, action: "changeColor:", forControlEvents: .ValueChanged)
+        
+        // Add this custom Segmented Control to our view
+        viewHeader.addSubview(customSC)
 
     }
 
@@ -119,7 +146,8 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
     }
-    
+  
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
