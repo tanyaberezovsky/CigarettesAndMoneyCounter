@@ -23,10 +23,12 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     @IBOutlet weak var causeOfSmoking: UIButton!
     
     @IBOutlet var AddDate: UITextField!
-    @IBOutlet var txtReason: UITextField!
+  //  @IBOutlet var txtReason: UITextField!
    // @IBOutlet var pikerLvlAsNeed: UIPickerView!
+  //  @IBOutlet weak var txtReason: UIButton!
     
-   
+    //@IBOutlet weak var reason: UIButton!
+    
     @IBOutlet var dailySmokedCigs: UILabel!
     @IBOutlet var dailyGoal: UILabel!
     @IBOutlet var dailyCost: UILabel!
@@ -36,6 +38,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     var arrNumbers = [];
     var levelAsNeededText: String="0"
     var levelOfEnjoyText:String="0"
+    var reasonText:String=""
     
     var todaySmoked=0
     
@@ -79,7 +82,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         let dateString:String = AddDate.text
         let dateValue:NSDate?=dateFormatter.dateFromString(dateString)
         task.addDate = dateValue!
-        task.reason = txtReason.text!
+        task.reason = reasonText
         
         MyManagedObjectContext?.save(nil)
       
@@ -244,6 +247,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueCauseOfSmoking{
+            reasonText = text;
             causeOfSmoking.setTitle(text, forState: UIControlState.Normal)
         }
         
