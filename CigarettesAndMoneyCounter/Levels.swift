@@ -68,7 +68,7 @@ protocol selectionList: class {
 
 class enjoyedList:selectionList {
     
-    var title: String = "Level of enjoyment";
+    var title: String = "Levels of enjoyment";
     
     func rowCount()->Int{
         return levels.count;
@@ -90,7 +90,7 @@ class enjoyedList:selectionList {
 
 class neededList:selectionList {
     
-    var title: String = "Level of needed";
+    var title: String = "Levels of needed";
     
     func rowCount()->Int{
         return levels.count;
@@ -109,7 +109,7 @@ class neededList:selectionList {
 
 class causeList:selectionList {
     
-    var title: String = "Cause of smoking";
+    var title: String = "Reasons of smoking";
     
     func rowCount()->Int{
         return cause.count
