@@ -91,6 +91,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         }
         sortedKeysResultsMonthly = Array(fetchDictResultsMonthly.keys)
         sortedKeysResultsYearly = Array(fetchDictResultsYearly.keys)
+        
         creteSegmentOnHeader()
     
     }
