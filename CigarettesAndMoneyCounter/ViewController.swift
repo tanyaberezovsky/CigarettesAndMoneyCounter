@@ -61,6 +61,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         let entityDescripition = NSEntityDescription.entityForName("CigaretteRecord", inManagedObjectContext: MyManagedObjectContext!)
         
         let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
+        
         if isNumeric(self.levelOfEnjoyText){
         if let addedCigs = self.txtCigarette.text.toInt(){
             if addedCigs>0 {
@@ -71,6 +72,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         }
         else{AlertError("Illegal value of cigarette")}
         }
+        
        if isNumeric(self.levelOfEnjoyText){
         task.levelOfEnjoy = self.levelOfEnjoyText.toInt()!}
         
