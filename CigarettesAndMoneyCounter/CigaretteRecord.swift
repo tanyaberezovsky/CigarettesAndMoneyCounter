@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+/*record that will fetched from coredata*/
 class CigaretteRecord: NSManagedObject {
 
     @NSManaged var cigarettes: NSNumber
