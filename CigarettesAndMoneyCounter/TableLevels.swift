@@ -46,7 +46,7 @@ class TableLavels: UITableViewController{
         }
     }
 /*  init()
-    {
+    { eshlej medison
         dataList = selectionList()
     }*/
 
