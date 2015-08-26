@@ -21,8 +21,30 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var smokingTime: UILabel!
     var segment = 0
     var calc = Calculator();
+    var tempValue:String!
     
    //ciggaretsEditingDidEnd
+    @IBAction func cigarettesEditingBegin(sender: UITextField) {
+        tempValue = ciggarets.text
+        ciggarets.text = ""
+    }
+    @IBAction func cigarettsEditingEnd(sender: UITextField) {
+        if (ciggarets.text == "")
+        {
+        ciggarets.text = tempValue
+        }
+    }
+    
+    @IBAction func packCostEditingBegin(sender: UITextField) {
+        tempValue = packCost.text
+        packCost.text = ""
+    }
+    @IBAction func packCostEditingEnd(sender: UITextField) {
+        if (packCost.text == "")
+        {
+            packCost.text = tempValue
+        }
+    }
     
     @IBAction func packCostChanged(sender: AnyObject) {
         if isNumeric(packCost.text){
