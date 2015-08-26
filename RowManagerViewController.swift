@@ -109,27 +109,42 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
 //        self.tableView.tableHeaderView = mySegment
         mySegment.selectedSegmentIndex = 0
         mySegment.addTarget(self, action: "segmentAction:", forControlEvents: .ValueChanged)
-
+  
+        let frame = UIScreen.mainScreen().bounds
+        mySegment.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
+            frame.width , viewHeader.frame.height*0.15)
+       
+        mySegment.layer.cornerRadius = 5.0  // Don't let background bleed
         
-        let items = ["Purple", "Green", "Blue"]
-        let customSC = UISegmentedControl(items: items)
-        customSC.selectedSegmentIndex = 0
+        
+        var red = 0 / 255
+        var green = 184 / 255
+        var blue = 156 / 255
+        var alpha: Double = 1.0
+        let colorTurquoise: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        
+       mySegment.backgroundColor =  colorTurquoise
+        
+        
+//        let items = ["Purple", "Green", "Blue"]
+//        let customSC = UISegmentedControl(items: items)
+//        customSC.selectedSegmentIndex = 0
         
         // Set up Frame and SegmentedControl
-        let frame = UIScreen.mainScreen().bounds
-        customSC.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
-            frame.width , viewHeader.frame.height*0.15)
+//        let frame = UIScreen.mainScreen().bounds
+//        customSC.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
+//            frame.width , viewHeader.frame.height*0.15)
         
         // Style the Segmented Control
-        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
-        customSC.backgroundColor = UIColor.blackColor()
-        customSC.tintColor = UIColor.whiteColor()
-        
-        // Add target action method
-        customSC.addTarget(self, action: "changeColor:", forControlEvents: .ValueChanged)
-        
-        // Add this custom Segmented Control to our view
-        viewHeader.addSubview(customSC)
+//        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+//        customSC.backgroundColor = UIColor.blackColor()
+//        customSC.tintColor = UIColor.whiteColor()
+//        
+//        // Add target action method
+//        customSC.addTarget(self, action: "changeColor:", forControlEvents: .ValueChanged)
+//        
+//        // Add this custom Segmented Control to our view
+//        viewHeader.addSubview(customSC)
 
     }
 
