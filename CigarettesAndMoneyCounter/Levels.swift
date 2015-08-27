@@ -27,8 +27,9 @@ let descriptionNeeded = ["Not need at all",
 public let descriptionEnjoyed = ["Nothing",
     "Unremarkable","Some fun","Good", "Magnificent"]
 
+let defaultReason = "Social Integration"
 //cause of smoking
-let cause = ["Bored", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After Coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation", "Nervous","psychological pleasure"
+let cause = ["Bored", "Social Integration", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After Coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation", "Nervous","psychological pleasure"
 ,"self-expression"
 ,"Fun"
 ,"first cigaret"
