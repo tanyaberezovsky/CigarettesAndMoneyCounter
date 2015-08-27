@@ -114,6 +114,10 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="189" y="102" width="173" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="cigarettesEditingBegin:" destination="vXZ-lx-hvc" eventType="editingDidBegin" id="cre-ov-J8Z"/>
+                                            <action selector="cigarettesEditingEnd:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="KMD-fW-2pX"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ky-Bm-RuI">
                                         <rect key="frame" x="138" y="0.0" width="67" height="27"/>
@@ -381,6 +385,8 @@
                                     <rect key="frame" x="131" y="327" width="128" height="30"/>
                                 </variation>
                                 <connections>
+                                    <action selector="cigarettesEditingBegin:" destination="50F-oe-K5A" eventType="editingDidBegin" id="del-xl-eqd"/>
+                                    <action selector="cigarettsEditingEnd:" destination="50F-oe-K5A" eventType="editingDidEnd" id="CIy-wp-gaa"/>
                                     <action selector="ciggaretsChanged:" destination="50F-oe-K5A" eventType="editingDidEnd" id="Jxj-tH-AQB"/>
                                 </connections>
                             </textField>
@@ -402,6 +408,8 @@
                                 </variation>
                                 <connections>
                                     <action selector="packCostChanged:" destination="50F-oe-K5A" eventType="editingDidEnd" id="qDZ-kp-cHl"/>
+                                    <action selector="packCostEditingBegin:" destination="50F-oe-K5A" eventType="editingDidBegin" id="6uQ-LX-s4y"/>
+                                    <action selector="packCostEditingEnd:" destination="50F-oe-K5A" eventType="editingDidEnd" id="jSL-Ca-CwW"/>
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C7e-xY-z0o">
@@ -526,10 +534,14 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EmU-RX-yBD">
                                         <rect key="frame" x="244" y="187" width="56" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="239" y="163" width="56" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="costPack:" destination="mbO-FQ-nFC" eventType="editingDidBegin" id="Ryo-Ul-aEF"/>
+                                            <action selector="costPackEditingEnd:" destination="mbO-FQ-nFC" eventType="editingDidEnd" id="F3C-ba-y4h"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily limit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGf-l0-kuX">
                                         <rect key="frame" x="15" y="234" width="75" height="21"/>
@@ -547,6 +559,10 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="114" y="201" width="181" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="dailyLimitEditingBegin:" destination="mbO-FQ-nFC" eventType="editingDidBegin" id="bIZ-07-D27"/>
+                                            <action selector="dailyLimitEditingEnd:" destination="mbO-FQ-nFC" eventType="editingDidEnd" id="VLi-Hn-ei4"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4II-jn-Fxi">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -586,6 +602,47 @@
                                             <rect key="frame" x="-36" y="37" width="380" height="28"/>
                                         </variation>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-DM-XnW">
+                                        <rect key="frame" x="15" y="234" width="75" height="21"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="10" y="246" width="74" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="segueCauseOfSmoking" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfZ-4b-l0l">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="reason">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="125" y="246" width="173" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="kgl-ea-dWM" kind="show" identifier="segueCauseOfSmoking" id="WUR-5J-QbY"/>
+                                        </connections>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-R4-4DN">
+                                        <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="246" y="299" width="51" height="31"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="switchOnChange:" destination="mbO-FQ-nFC" eventType="valueChanged" id="CHQ-az-w99"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open in minimal mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAV-wZ-X9W">
+                                        <rect key="frame" x="15" y="150" width="153" height="21"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="10" y="304" width="173" height="21"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
@@ -599,6 +656,10 @@
                                         <exclude reference="4II-jn-Fxi"/>
                                         <exclude reference="0Pd-ti-Xcr"/>
                                         <exclude reference="lbb-sN-sY1"/>
+                                        <exclude reference="Qgl-DM-XnW"/>
+                                        <exclude reference="wfZ-4b-l0l"/>
+                                        <exclude reference="bOT-R4-4DN"/>
+                                        <exclude reference="PAV-wZ-X9W"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -613,6 +674,10 @@
                                         <include reference="4II-jn-Fxi"/>
                                         <include reference="0Pd-ti-Xcr"/>
                                         <include reference="lbb-sN-sY1"/>
+                                        <include reference="Qgl-DM-XnW"/>
+                                        <include reference="wfZ-4b-l0l"/>
+                                        <include reference="bOT-R4-4DN"/>
+                                        <include reference="PAV-wZ-X9W"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -634,11 +699,13 @@
                         <outlet property="dailyGoal" destination="lQZ-7N-dsJ" id="TPg-Mq-1cN"/>
                         <outlet property="levelAsNeeded" destination="0Pd-ti-Xcr" id="MYe-1Y-vMo"/>
                         <outlet property="levelOfEnjoy" destination="4II-jn-Fxi" id="wYk-dH-PTc"/>
+                        <outlet property="minimalMode" destination="bOT-R4-4DN" id="Ljr-Gg-Os4"/>
+                        <outlet property="reason" destination="wfZ-4b-l0l" id="WlZ-iF-bdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7a-bH-Gs1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2419.5" y="1033"/>
+            <point key="canvasLocation" x="2172" y="759"/>
         </scene>
         <!--Level of enjoyment-->
         <scene sceneID="Wlw-kF-LaV">
@@ -682,7 +749,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy4-kp-iiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2230.5" y="332"/>
+            <point key="canvasLocation" x="3031.5" y="601"/>
         </scene>
         <!--Row Manager View Controller-->
         <scene sceneID="bPO-cS-j5v">
@@ -762,6 +829,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vvm-L0-g0r"/>
+        <segue reference="WUR-5J-QbY"/>
     </inferredMetricsTieBreakers>
 </document>
