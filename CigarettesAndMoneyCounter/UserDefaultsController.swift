@@ -13,15 +13,63 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     
     @IBOutlet var levelAsNeeded: UIButton!
     @IBOutlet var levelOfEnjoy: UIButton!
+    @IBOutlet weak var reason: UIButton!
     
     @IBOutlet var averageCost: UITextField!
+   
+    var reasonText:String!
     var levelAsNeededText: String="0"
     var levelOfEnjoyText:String="0"
+    var tempValue:String!
     
     @IBOutlet var dailyGoal: UITextField!
     
-    
+    @IBOutlet weak var minimalMode: UISwitch!
+    var minimalModeOn:Bool!
     var myDelegate:UserDefaultsControllerDelegate? = nil
+    
+    override func viewDidLoad() {
+        loadGraphicsSettings()
+        LoadDefaultValues()
+        //  self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "barButtonItemClicked:"), animated: true)
+        
+    }
+    @IBAction func costPack(sender: UITextField) {
+        tempValue = sender.text
+        sender.text = ""
+    }
+    @IBAction func costPackEditingEnd(sender: UITextField) {
+        if (sender.text == "")
+        {
+            sender.text = tempValue
+        }
+    }
+    
+    @IBAction func dailyLimitEditingBegin(sender: UITextField) {
+        tempValue = sender.text
+        sender.text = ""
+    }
+    @IBAction func dailyLimitEditingEnd(sender: UITextField) {
+        if (sender.text == "")
+        {
+            sender.text = tempValue
+        }
+    }
+    
+    /*  @IBAction func packCostEditingBegin(sender: UITextField) {
+    tempValue = packCost.text
+    packCost.text = ""
+    }
+    @IBAction func packCostEditingEnd(sender: UITextField) {
+    if (packCost.text == "")
+    {
+    packCost.text = tempValue
+    }
+    }*/
+    
+    @IBAction func switchOnChange(sender: UISwitch) {
+        minimalModeOn = sender.on
+    }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         if parent == nil {
@@ -48,13 +96,19 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         if isNumeric(levelAsNeededText){
             userDefaults.levelAsNeeded = levelAsNeededText.toInt()!}
         
-        defaults.saveUserDefaults(userDefaults)
+        if (reasonText != nil)
+        {
+            userDefaults.reason = reasonText
+        }
+        if(minimalModeOn != nil){
+            userDefaults.minimalModeOn = minimalModeOn
+        }
         
+        defaults.saveUserDefaults(userDefaults)
         
         if(myDelegate != nil){
             myDelegate!.ReloadUserDefaults()
         }
-      
     }
     
     func barButtonItemClicked(){
@@ -71,7 +125,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     
     //init variable and set segueid into it
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy{
+        if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy || segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
@@ -81,12 +135,6 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         }*/
     }
     
-    override func viewDidLoad() {
-        loadGraphicsSettings()
-        LoadDefaultValues()
-      //  self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "barButtonItemClicked:"), animated: true)
-
-    }
     
     
     //++++++++++++++++++++++++++++++++++++
@@ -107,6 +155,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         layerLevelAsNeeded.borderWidth = 0.5
         layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
         
+        //set button look like text field
+        layerLevelAsNeeded = reason.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
     }
     
     //++++++++++++++++++++++++++++++++++++
@@ -115,8 +169,10 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     func LoadDefaultValues(){
         var defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
+        
         userDefaults = defaults.loadUserDefaults()
-        averageCost.text = String(format:"%.1f", userDefaults.averageCostOfOnePack)
+        
+        averageCost.text = decimalFormatToString(userDefaults.averageCostOfOnePack)//String(format:"%.1f", userDefaults.averageCostOfOnePack)
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
@@ -127,6 +183,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         levelAsNeededText = String(userDefaults.levelAsNeeded)
         
         levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
+        
+        reasonText = String(userDefaults.reason)
+        
+        reason.setTitle(reasonText, forState: UIControlState.Normal)
+        
+        minimalMode.on = userDefaults.minimalModeOn
         
     }
     
@@ -145,7 +207,11 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
             println(text)
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         }
-        
+        if segueName == segueNames.segueCauseOfSmoking{
+            reasonText = text;
+            println(text)
+            reason.setTitle(reasonText, forState: UIControlState.Normal)
+        }
         controller.navigationController?.popViewControllerAnimated(true)
         // println(segueName)
     }
