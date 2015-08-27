@@ -18,8 +18,10 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     @IBOutlet weak var txtLastCig: UILabel!
     @IBOutlet var levelAsNeeded: UIButton!
     @IBOutlet var txtCigarette: UITextField!
+    var cigaretts: String!
     @IBOutlet var levelOfEnjoy: UIButton!
     
+  
     @IBOutlet weak var causeOfSmoking: UIButton!
     
     @IBOutlet var AddDate: UITextField!
@@ -32,13 +34,26 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     @IBOutlet var dailySmokedCigs: UILabel!
     @IBOutlet var dailyGoal: UILabel!
     @IBOutlet var dailyCost: UILabel!
+    
+    @IBAction func cigarettesEditingEnd(sender: UITextField) {
+        if(sender.text == "")
+        {
+            sender.text = cigaretts
+        }
+    }
+    
+    @IBAction func cigarettesEditingBegin(sender: UITextField) {
+        cigaretts = sender.text
+        sender.text = ""
+        
+    }
    
     @IBOutlet var btnAdd: UIButton!
     
     var arrNumbers = [];
     var levelAsNeededText: String="0"
     var levelOfEnjoyText:String="0"
-    var reasonText:String=""
+    var reasonText:String!
     
     var todaySmoked=0
     
@@ -76,7 +91,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
        if isNumeric(self.levelOfEnjoyText){
         task.levelOfEnjoy = self.levelOfEnjoyText.toInt()!}
         
-          if isNumeric(self.levelAsNeededText){
+        if isNumeric(self.levelAsNeededText){
             task.levelAsNeeded = self.levelAsNeededText.toInt()!}
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
@@ -201,6 +216,10 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         levelAsNeededText = String(userDefaults.levelAsNeeded)
         
         levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
+        
+        reasonText = String(userDefaults.reason)
+        
+        causeOfSmoking.setTitle(reasonText, forState: UIControlState.Normal)
         
         if var lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
