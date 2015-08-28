@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import QuartzCore
+import UIKit
 
 extension String {
     func toDouble() -> Double? {
@@ -30,5 +32,27 @@ extension NSDate {
         println(strMonthYear)
         
         return strMonthYear
+    }
+}
+
+
+//2015-08-28 add gradient to nav-bar
+extension CAGradientLayer {
+    class func gradientLayerForBounds(bounds: CGRect) -> CAGradientLayer {
+        var layer = CAGradientLayer()
+        layer.frame = bounds
+        layer.colors = [colorNavigationBarTop.CGColor, colorNavigationBarBottom.CGColor]
+        return layer
+    }
+}
+
+extension UIColor {
+    class func rgb(#r: Double, g: Double, b: Double, alpha: Double) -> UIColor{
+        // UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        
+        return UIColor(red: CGFloat(r / 255.0), green: CGFloat(g / 255.0), blue: CGFloat(b / 255.0), alpha: CGFloat(alpha))
+    }
+    class func MainColor() -> UIColor {
+        return UIColor.rgb(r: 24, g: 135, b: 208, alpha: 1.0)
     }
 }
