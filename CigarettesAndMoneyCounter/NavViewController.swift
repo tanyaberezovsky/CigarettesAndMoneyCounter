@@ -10,40 +10,46 @@ import UIKit
 
 class NavViewController: UINavigationController {
 
+ 
+    
+    //gradient bar
     override func viewDidLoad() {
-        
-        var red = 24 / 255
-        var green = 25 / 255
-        var blue = 35 / 255
-        var alpha: Double = 1.0
-        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
-        
-        UINavigationBar.appearance().barTintColor = color
-        
-        
-      //  UINavigationBar.appearance().backgroundColor = color// UIColor.greenColor()
-       
-//        red = 253 / 255
-//        green = 253 / 255
-//        blue = 253 / 255
-//         color = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
-        
-        UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
-       UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-      /*  let font: UIFont = UIFont()//(name: "fontName", size: 17)!
-        let color2 = UIColor.orangeColor()
-        
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: font,NSForegroundColorAttributeName: color2], forState: .Normal)
-        
-        // UINavigationBar.appearance().titleTextAttributes = [UITextAttributeTextColor: UIColor.blueColor()]
-        UITabBar.appearance().backgroundColor = UIColor.yellowColor();
-*/
         super.viewDidLoad()
+        gradientBar()
+    }
+    //black bar
+    func blackBar() {
         
+        UINavigationBar.appearance().barTintColor = colorNavigationBarBlack
+        UINavigationBar.appearance().translucent = false
+        UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         // Status bar white font
         self.navigationBar.barStyle = UIBarStyle.Black
-       self.navigationBar.tintColor = UIColor.lightGrayColor()//whiteColor()
-
+        self.navigationBar.tintColor = UIColor.lightGrayColor()
+    }
+    
+    func gradientBar(){
+      //  super.viewDidLoad()
+        self.navigationBar.translucent = false
+        self.navigationBar.tintColor = UIColor.whiteColor()
+        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.whiteColor() ]
+        self.navigationBar.titleTextAttributes = fontDictionary
+        self.navigationBar.setBackgroundImage(imageLayerForGradientBackground(), forBarMetrics: UIBarMetrics.Default)
+        //colored the iphone upper font bar to white
+        self.navigationBar.barStyle = UIBarStyle.Black
+    }
+    
+    private func imageLayerForGradientBackground() -> UIImage {
+        var updatedFrame = self.navigationBar.bounds
+        // take into account the status bar
+        updatedFrame.size.height += 20
+        var layer = CAGradientLayer.gradientLayerForBounds(updatedFrame)
+        UIGraphicsBeginImageContext(layer.bounds.size)
+        layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
     override func didReceiveMemoryWarning() {
