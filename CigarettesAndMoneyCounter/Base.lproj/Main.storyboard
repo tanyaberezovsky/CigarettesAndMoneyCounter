@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-31-fIn">
@@ -246,7 +246,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="10" y="71" width="380" height="460"/>
+                                    <rect key="frame" x="10" y="0.0" width="380" height="460"/>
                                     <mask key="subviews">
                                         <include reference="tDF-tB-0VQ"/>
                                         <include reference="RHA-A7-z1d"/>
@@ -287,6 +287,7 @@
                             <outletCollection property="gestureRecognizers" destination="5Dc-Bp-YtG" appends="YES" id="mrF-4y-Mkt"/>
                         </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems>
                         <barButtonItem title="Item" id="p5b-9D-Mie"/>
                     </toolbarItems>
@@ -356,7 +357,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="115" width="286" height="31"/>
+                                    <rect key="frame" x="16" y="0.0" width="286" height="31"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3600008.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRP-fT-D36">
@@ -365,7 +366,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="138" width="368" height="92"/>
+                                    <rect key="frame" x="16" y="23" width="368" height="92"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciggarets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llT-Dr-uBg">
@@ -374,7 +375,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="338" width="74" height="21"/>
+                                    <rect key="frame" x="16" y="223" width="74" height="21"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-F1-nRF">
@@ -382,7 +383,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="131" y="327" width="128" height="30"/>
+                                    <rect key="frame" x="131" y="212" width="128" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="cigarettesEditingBegin:" destination="50F-oe-K5A" eventType="editingDidBegin" id="del-xl-eqd"/>
@@ -396,7 +397,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="403" width="99" height="21"/>
+                                    <rect key="frame" x="16" y="288" width="99" height="21"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doe-3a-PZP">
@@ -404,7 +405,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="130" y="394" width="129" height="30"/>
+                                    <rect key="frame" x="130" y="279" width="129" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="packCostChanged:" destination="50F-oe-K5A" eventType="editingDidEnd" id="qDZ-kp-cHl"/>
@@ -423,7 +424,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="259" width="400" height="29"/>
+                                    <rect key="frame" x="0.0" y="144" width="400" height="29"/>
                                 </variation>
                                 <connections>
                                     <action selector="segmentChanged:" destination="50F-oe-K5A" eventType="valueChanged" id="Og4-Uf-Fuf"/>
@@ -435,7 +436,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="335" width="114" height="21"/>
+                                    <rect key="frame" x="275" y="220" width="114" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total smoking time is 5 minets" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-Ke-hRz">
@@ -445,7 +446,7 @@
                                 <color key="textColor" red="0.0" green="0.72156862749999995" blue="0.61176470589999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="218" width="373" height="28"/>
+                                    <rect key="frame" x="16" y="103" width="373" height="28"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -477,6 +478,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="ciggarets" destination="TFQ-F1-nRF" id="KKy-A7-ynt"/>
                         <outlet property="cigsDesc" destination="6fQ-yf-kdA" id="ItF-mm-N5W"/>
@@ -498,7 +500,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uIm-9o-6Ep"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lv4-79-AVe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVU-ZT-Gol">
@@ -663,7 +665,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="46" y="56" width="308" height="488"/>
+                                    <rect key="frame" x="46" y="0.0" width="308" height="488"/>
                                     <mask key="subviews">
                                         <include reference="tLw-JM-5gm"/>
                                         <include reference="uMD-HM-ZSq"/>
@@ -694,6 +696,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="averageCost" destination="EmU-RX-yBD" id="aQS-1b-gxh"/>
                         <outlet property="dailyGoal" destination="lQZ-7N-dsJ" id="TPg-Mq-1cN"/>
@@ -712,7 +715,7 @@
             <objects>
                 <tableViewController id="kgl-ea-dWM" customClass="TableLavels" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s1P-jq-bn5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -739,6 +742,7 @@
                             <outlet property="delegate" destination="kgl-ea-dWM" id="HWR-oP-zC1"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Level of enjoyment" id="B99-fz-8X8">
                         <barButtonItem key="backBarButtonItem" title="Save" id="d5r-es-LEy"/>
                     </navigationItem>
@@ -749,7 +753,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy4-kp-iiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031.5" y="601"/>
+            <point key="canvasLocation" x="3040.5" y="570"/>
         </scene>
         <!--Row Manager View Controller-->
         <scene sceneID="bPO-cS-j5v">
@@ -797,6 +801,7 @@
                             <outlet property="delegate" destination="Gzh-w3-kuY" id="tEI-Ah-N2S"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="woS-Ki-1aR"/>
                     <connections>
                         <outlet property="viewHeader" destination="ogv-n3-TSn" id="wfj-Hv-sYU"/>
@@ -829,6 +834,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WUR-5J-QbY"/>
+        <segue reference="vvm-L0-g0r"/>
     </inferredMetricsTieBreakers>
 </document>
