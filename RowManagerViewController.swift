@@ -117,14 +117,8 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         mySegment.layer.cornerRadius = 5.0  // Don't let background bleed
         
         
-        var red = 0 / 255
-        var green = 184 / 255
-        var blue = 156 / 255
-        var alpha: Double = 1.0
-        let colorTurquoise: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
-        
-       mySegment.backgroundColor =  colorTurquoise
-        
+        mySegment.backgroundColor =  colorSegmentBackground
+        mySegment.tintColor = colorSegmentTint
         
 //        let items = ["Purple", "Green", "Blue"]
 //        let customSC = UISegmentedControl(items: items)
