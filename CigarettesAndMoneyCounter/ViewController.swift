@@ -13,7 +13,9 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
 
     let MyManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-   
+    
+    var datePickerView  : UIDatePicker = UIDatePicker()
+    
     
     @IBOutlet weak var txtLastCig: UILabel!
     @IBOutlet var levelAsNeeded: UIButton!
@@ -148,6 +150,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     func setNowDate(){
         var curentDate = NSDate()
         AddDate.text = self.getStringDate(curentDate)
+        datePickerView.date = curentDate
     }
     
     func loadInitiatedValues()
@@ -159,25 +162,11 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     
     func loadScreenGraphics()
     {
-    
-        var datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-       
-//        //round button conners
         
-        //    var btnLayer: CALayer = btnAdd.layer
-      //  btnLayer.cornerRadius = 99
-        
-       // var button = UIButton.buttonWithType(.Custom) as UIButton
-      /*  btnAdd.frame = CGRectMake(160, 100, 50, 50)
-        btnAdd.layer.cornerRadius = 0.5 * btnAdd.bounds.size.width
-        btnAdd.setImage(UIImage(named:"thumbsUp.png"), forState: .Normal)
-        btnAdd.addTarget(self, action: "thumbsUpButtonPressed", forControlEvents: .TouchUpInside)*/
-        
-//        
         //set button look like text field
         var layerLevelAsNeeded: CALayer = levelAsNeeded.layer
         layerLevelAsNeeded.cornerRadius = 5
@@ -193,7 +182,6 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
         layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-        
       
         
     }
