@@ -57,13 +57,44 @@ import Foundation
     
     @objc  func saveLastAddedCig(lastDateCig: NSDate, todaySmoked: Int) {
         
-        
-        var defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.setObject(todaySmoked, forKey: "todaySmoked")
+        if lastDateCig.timeIntervalSinceNow.isSignMinus {
+            //myDate is earlier than Now (date and time)
+        } else {
+            //myDate is equal or after than Now (date and time)
+        }
+        if newDateIsLatest(lastDateCig){
 
-        defaults.setObject(NSDate(), forKey: "dateLastCig")
+            var defaults = NSUserDefaults.standardUserDefaults()
         
+            defaults.setObject(todaySmoked, forKey: "todaySmoked")
+
+            defaults.setObject(lastDateCig, forKey: "dateLastCig")
+        }
+    }
+    
+    func newDateIsLatest(newDate: NSDate) -> Bool
+    {
+        //Get Current Date/Time
+        var currentDateTime = NSDate()
+
+        var ret = false;
+        var defaults = UserDefaultsDataController()
+        var userDefaults = UserDefaults()
+        userDefaults = defaults.loadUserDefaults()
+        
+        if var lastCig = userDefaults.dateLastCig{
+            if newDate > lastCig && newDate <= currentDateTime {
+                ret = true
+            }
+        }
+        else
+        {
+            if newDate <= currentDateTime {
+                ret = true
+            }
+        }
+        
+        return ret;
     }
     
     //++++++++++++++++++++++++++++++++++++
