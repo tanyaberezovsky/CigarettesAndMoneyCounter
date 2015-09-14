@@ -71,7 +71,7 @@ class CalculatorViewController: UIViewController {
         // Do any additional setup after loading the view.
         calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
 
-        LoadDefaultValues()
+       LoadDefaultValues()
        
     }
     
