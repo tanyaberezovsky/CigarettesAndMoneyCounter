@@ -69,6 +69,10 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         LoadDefaultValues()
     }
     
+    override func viewWillAppear(animated: Bool) {
+      //  self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     func closeAllKeyboards()
     {
         self.view.endEditing(true)
@@ -128,6 +132,19 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         loadScreenGraphics()
         loadInitiatedValues()
         LoadDefaultValues()
+        
+        
+        
+        var swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
+        
+     
+
+    }
+    
+    func showFirstViewController() {
+        self.performSegueWithIdentifier("idFirstSegueUnwind", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
