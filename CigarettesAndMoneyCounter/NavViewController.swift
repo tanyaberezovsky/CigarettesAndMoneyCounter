@@ -55,4 +55,50 @@ class NavViewController: UINavigationController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    override func segueForUnwindingToViewController(toViewController: UIViewController,
+        fromViewController: UIViewController,
+        identifier: String?) -> UIStoryboardSegue {
+            return UIStoryboardSegue(identifier: identifier, source: fromViewController, destination: toViewController) {
+                let fromView = fromViewController.view
+                let toView = toViewController.view
+                if let containerView = fromView.superview {
+                    let initialFrame = fromView.frame
+                    var offscreenRect = initialFrame
+                  //  offscreenRect.origin.x -= CGRectGetWidth(initialFrame)
+                    offscreenRect.origin.y -= CGRectGetHeight(initialFrame)
+                    toView.frame = offscreenRect
+                    containerView.addSubview(toView)
+                    // Being explicit with the types NSTimeInterval and CGFloat are important
+                    // otherwise the swift compiler will complain
+                    var duration: NSTimeInterval = 0.4
+                   
+                    UIView.animateWithDuration(duration, animations: {
+                            toView.frame = initialFrame
+                        }, completion: { finished in
+                            toView.removeFromSuperview()
+                            if let navController = toViewController.navigationController {
+                                navController.popToViewController(toViewController, animated: false)
+                            }
+                    })
+                    
+                    duration = 1.0
+                    let delay: NSTimeInterval = 0.0
+                    let options = UIViewAnimationOptions.CurveEaseInOut
+                    let damping: CGFloat = 0.5
+                    let velocity: CGFloat = 4.0
+//                    UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping,
+//                        initialSpringVelocity: velocity, options: options, animations: {
+//                            toView.frame = initialFrame
+//                        }, completion: { finished in
+//                            toView.removeFromSuperview()
+//                            if let navController = toViewController.navigationController {
+//                                navController.popToViewController(toViewController, animated: false)
+//                            }
+//                    })
+                }
+            }
+    }
+
 }
