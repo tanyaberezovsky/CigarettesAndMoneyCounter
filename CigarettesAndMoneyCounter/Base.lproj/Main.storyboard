@@ -315,7 +315,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="AddDate" destination="dIO-za-q6U" id="SgT-X2-mkD"/>
@@ -328,9 +328,11 @@
                         <outlet property="levelOfEnjoy" destination="0F8-j1-xpe" id="dFY-Ch-ulS"/>
                         <outlet property="txtCigarette" destination="rV8-go-agZ" id="LFg-5X-j61"/>
                         <outlet property="txtLastCig" destination="WSo-oW-hvT" id="DTZ-hk-gVq"/>
+                        <segue destination="Y7R-Zg-Au4" kind="unwind" identifier="idFirstSegueUnwind" unwindAction="returnFromSegueActions:" id="bbB-UL-nwz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <exit id="Y7R-Zg-Au4" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="5Dc-Bp-YtG">
                     <connections>
                         <action selector="TapGesture:" destination="vXZ-lx-hvc" id="aZY-6x-gnL"/>
@@ -837,11 +839,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wxo-9j-pqb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JM4-W1-uFD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxX-jz-CSZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="K3N-Az-vv9">
+                                        <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="284" y="357" width="39" height="37"/>
+                                        </variation>
+                                    </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9py-cQ-oca">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.72156862749999995" blue="0.61176470589999998" alpha="1" colorSpace="deviceRGB"/>
@@ -851,32 +860,25 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="26" y="445" width="348" height="92"/>
+                                            <rect key="frame" x="35" y="424" width="348" height="92"/>
                                         </variation>
                                         <connections>
                                             <action selector="addCigarettes:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Spv-PO-T7l"/>
-                                            <segue destination="vXZ-lx-hvc" kind="show" id="Fn2-OD-gu8"/>
                                         </connections>
                                     </button>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="K3N-Az-vv9">
-                                        <rect key="frame" x="-19" y="-18" width="39" height="37"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="284" y="357" width="39" height="37"/>
-                                        </variation>
-                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="9py-cQ-oca"/>
                                         <exclude reference="K3N-Az-vv9"/>
+                                        <exclude reference="9py-cQ-oca"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                                     <mask key="subviews">
-                                        <include reference="9py-cQ-oca"/>
                                         <include reference="K3N-Az-vv9"/>
+                                        <include reference="9py-cQ-oca"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -893,18 +895,29 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="8M2-zP-Tzx"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="a6c-q2-prF"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="8M2-zP-Tzx">
+                        <barButtonItem key="leftBarButtonItem" title="Details" id="Dei-TQ-f2I">
+                            <connections>
+                                <segue destination="Gzh-w3-kuY" kind="show" id="92a-co-9K5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="custom" identifier="idFirstSegue" customClass="FirstCustomSegue" customModule="CigarettesAndMoneyCounter" id="syy-lm-u1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSo-e7-zti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="-33"/>
+            <point key="canvasLocation" x="996" y="-39"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fn2-OD-gu8"/>
+        <segue reference="92a-co-9K5"/>
         <segue reference="xxV-5h-86p"/>
     </inferredMetricsTieBreakers>
 </document>
