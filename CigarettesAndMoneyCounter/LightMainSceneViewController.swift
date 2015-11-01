@@ -10,6 +10,9 @@ import UIKit
 
 class LightMainSceneViewController: UIViewController {
 
+    @IBOutlet weak var txtLastCig: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,10 +23,6 @@ class LightMainSceneViewController: UIViewController {
     }
     
         override func viewWillAppear(animated: Bool) {
-    ////        self.navigationController setNavigationBarHidden:NO animated:NO];
-    ////        [self.navigationController setToolbarHidden:NO animated:NO]
-      //      self.navigationController?.setNavigationBarHidden(false, animated: false)
-          //  var firstVC: AnyObject = self.sourceViewController
             if            self.childViewControllers.count > 0 {
 println(self.childViewControllers.count)
             var secondVC: AnyObject = childViewControllers[0]
