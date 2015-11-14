@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class LightMainSceneViewController: UIViewController {
 
@@ -19,12 +21,44 @@ class LightMainSceneViewController: UIViewController {
         var swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-
+        LoadDefaultValues()
     }
     
+    @IBAction func addCigarettes(sender: AnyObject) {
+        
+        var cigRecord = CigaretteRecordManager()
+        cigRecord.saveCigaretteRecordEntityFromDefaultsValues()
+        
+        // loadInitiatedValues()
+        LoadDefaultValues()
+    }
+    
+    
+    
+    
+    //++++++++++++++++++++++++++++++++++++
+    //  Load Default Values from controller
+    //++++++++++++++++++++++++++++++++++++
+    func LoadDefaultValues(){
+        var defaults = UserDefaultsDataController()
+        var userDefaults = UserDefaults()
+        userDefaults = defaults.loadUserDefaults()
+        
+        
+        if var lastCig = userDefaults.dateLastCig{
+            let calcRet = calculateLastCigaretTime(lastCig)
+            txtLastCig.text = calcRet.txtLastCig
+        }
+        else{
+            txtLastCig.text = ""
+        }
+    }
+
+    
+    
         override func viewWillAppear(animated: Bool) {
-            if            self.childViewControllers.count > 0 {
-println(self.childViewControllers.count)
+            if self.childViewControllers.count > 0 {
+
             var secondVC: AnyObject = childViewControllers[0]
                  var navCtr  = self.navigationController as UINavigationController!
             //

@@ -79,20 +79,26 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     }
     
     func saveCigaretteRecordEntity() {
+        
+        if let addedCigs = self.txtCigarette.text.toInt(){
+            if addedCigs <= 0 {
+                AlertError("Illegal value of cigarette")
+                return
+            }
+        }
+        else{
+            AlertError("Illegal value of cigarette")
+            return
+        }
+
+        
         let entityDescripition = NSEntityDescription.entityForName("CigaretteRecord", inManagedObjectContext: MyManagedObjectContext!)
         
         let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
         
-        if isNumeric(self.levelOfEnjoyText){
-        if let addedCigs = self.txtCigarette.text.toInt(){
-            if addedCigs>0 {
-                task.cigarettes = addedCigs
-                todaySmoked = todaySmoked + self.txtCigarette.text.toInt()!
-            }
-            else {AlertError("Illegal value of cigarette")}
-        }
-        else{AlertError("Illegal value of cigarette")}
-        }
+        task.cigarettes = self.txtCigarette.text.toInt()!
+        todaySmoked = todaySmoked + self.txtCigarette.text.toInt()!
+        
         
        if isNumeric(self.levelOfEnjoyText){
         task.levelOfEnjoy = self.levelOfEnjoyText.toInt()!}
@@ -202,6 +208,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
       
         
     }
+    
     //++++++++++++++++++++++++++++++++++++
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
