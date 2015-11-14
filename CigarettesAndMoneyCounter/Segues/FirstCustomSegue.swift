@@ -9,8 +9,7 @@
 import UIKit
 import CoreData
 
-class FirstCustomSegue:
-UIStoryboardSegue {
+class FirstCustomSegue:UIStoryboardSegue {
     
     override func perform() {
         
