@@ -250,10 +250,10 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     func getStringDate(dDate: NSDate)->String
     {
-        
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
-        return dateFormatter.stringFromDate(dDate)
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
+            return dateFormatter.stringFromDate(dDate)
+
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
