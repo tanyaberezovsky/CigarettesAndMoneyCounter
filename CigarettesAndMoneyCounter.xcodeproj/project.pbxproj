@@ -30,6 +30,7 @@
 		23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0285E1B4857E9009FA6D6 /* NavViewController.swift */; };
 		23EDCD5E1B9076E500F96F4A /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5D1B9076E500F96F4A /* constants.swift */; };
 		23EDCD601B90782300F96F4A /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5F1B90782300F96F4A /* RGB.swift */; };
+		23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		23E0285E1B4857E9009FA6D6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		23EDCD5D1B9076E500F96F4A /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		23EDCD5F1B90782300F96F4A /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecordManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				23B47C611BA593A500FB881F /* Segues */,
-				23B47C5D1BA5935900FB881F /* FirstCustomSegue.swift */,
 				23EDCD5C1B9076C900F96F4A /* MISC */,
 				239C972F1B52DC3B0036332C /* Calculator */,
 				23ED1A7C1B3ED1810034F8A2 /* FetchResults */,
@@ -190,6 +191,7 @@
 		23B47C611BA593A500FB881F /* Segues */ = {
 			isa = PBXGroup;
 			children = (
+				23B47C5D1BA5935900FB881F /* FirstCustomSegue.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				235E256D1A56AD840050EBAA /* RowManagerViewController.swift */,
+				23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */,
 			);
 			name = FetchResults;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EDCD601B90782300F96F4A /* RGB.swift in Sources */,
+				23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */,
 				23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */,
 				23802C9B19CC150900387768 /* ViewController.swift in Sources */,
 				23679BC119D5664A003354C7 /* Levels.swift in Sources */,
