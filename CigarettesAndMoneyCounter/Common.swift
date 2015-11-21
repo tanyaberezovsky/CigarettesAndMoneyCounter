@@ -41,18 +41,18 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
         toDate: laterDate, options: nil)
     
     var arrStrDate = [String]()
-    var retStr:String = "Free of smoking "
+    var retStr:String = ""
     
-    if components.year>0 {arrStrDate.append(" \(components.year) years"); bLastCigWasToday=false;}
-    if components.month>0 {arrStrDate.append(" \(components.month) months"); bLastCigWasToday=false;}
-    if components.day>0 {arrStrDate.append(" \(components.day) days"); bLastCigWasToday=false;}
-    if components.hour>0 {arrStrDate.append(" \(components.hour) hours")}
-    if components.minute>0 {arrStrDate.append(" \(components.minute) minutes")}
+    if components.year>0 {arrStrDate.append(" \(components.year) Years"); bLastCigWasToday=false;}
+    if components.month>0 {arrStrDate.append(" \(components.month) Months"); bLastCigWasToday=false;}
+    if components.day>0 {arrStrDate.append(" \(components.day) Days"); bLastCigWasToday=false;}
+    if components.hour>0 {arrStrDate.append(" \(components.hour) Hours")}
+    if components.minute>0 {arrStrDate.append(" \(components.minute) Minutes")}
     
     if arrStrDate.count == 0
-    {retStr = "Last cigarette was just now"}
+    {retStr = "Just smoked a cigarette"}
     else
-    {retStr +=  "".join(arrStrDate) + ""}
+    {retStr +=  "".join(arrStrDate) + " Free of Smoking"}
     
     return (retStr, bLastCigWasToday)
 }

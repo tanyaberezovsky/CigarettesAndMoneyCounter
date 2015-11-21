@@ -117,6 +117,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
       
         var defaults = UserDefaultsDataController()
         
+        
         defaults.saveLastAddedCig( dateValue!, todaySmoked: todaySmoked)
     }
 
@@ -236,13 +237,12 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         if var lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
             txtLastCig.text = calcRet.txtLastCig
+            
             if calcRet.bLastCigWasToday == true{
 
                 dailyCost.text = String(format:"%.1f", (userDefaults.averageCostOfOnePack / 20) * Double( userDefaults.todaySmoked))
                 todaySmoked = userDefaults.todaySmoked
-                println(userDefaults.dailyGoal)
-                println(todaySmoked)
-                
+            
                 if  userDefaults.dailyGoal > todaySmoked {
                     dailyGoal.text = String(userDefaults.dailyGoal - todaySmoked)
                 }

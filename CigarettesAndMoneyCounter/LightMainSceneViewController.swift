@@ -15,13 +15,16 @@ class LightMainSceneViewController: UIViewController {
     @IBOutlet weak var txtLastCig: UILabel!
     
     
+    
+    @IBOutlet weak var dailySmokedCigs: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-        LoadDefaultValues()
+       // LoadDefaultValues()
     }
     
     @IBAction func addCigarettes(sender: AnyObject) {
@@ -33,7 +36,9 @@ class LightMainSceneViewController: UIViewController {
         LoadDefaultValues()
     }
     
-    
+    override func  viewDidAppear(animated: Bool) {
+        LoadDefaultValues()
+    }
     
     
     //++++++++++++++++++++++++++++++++++++
@@ -44,14 +49,21 @@ class LightMainSceneViewController: UIViewController {
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
-        
+        var todaySmoked = 0
+
         if var lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
             txtLastCig.text = calcRet.txtLastCig
+            if calcRet.bLastCigWasToday == true{
+                todaySmoked = userDefaults.todaySmoked
+            }
+ 
         }
         else{
             txtLastCig.text = ""
         }
+        dailySmokedCigs.text = String(Int(todaySmoked))
+
     }
 
     
