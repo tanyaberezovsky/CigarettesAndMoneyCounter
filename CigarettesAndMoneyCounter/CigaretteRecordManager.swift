@@ -40,8 +40,22 @@ class CigaretteRecordManager {
         
         MyManagedObjectContext?.save(nil)
         
+        var todaySmoked = 0
+        
+        if var lastCig = userDefaults.dateLastCig{
+            let calcRet = calculateLastCigaretTime(lastCig)
+            if calcRet.bLastCigWasToday == true{
+                todaySmoked = userDefaults.todaySmoked + 1
+            }
+            else
+            {
+                todaySmoked = 1
+            }
+            
+        }
+        
        
-        defaults.saveLastAddedCig(nowDate, todaySmoked: userDefaults.todaySmoked + addedCigs)
+        defaults.saveLastAddedCig(nowDate, todaySmoked: todaySmoked)
     }
 
 }
