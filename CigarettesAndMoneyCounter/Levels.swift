@@ -24,6 +24,7 @@ struct Levels {
 let descriptionNeeded = ["Not need at all",
     "Could avoid","Desired","Must have", "Absolutely necessary"]
 
+//None, Just a littel, Very much
 public let descriptionEnjoyed = ["Nothing",
     "Unremarkable","Some fun","Good", "Magnificent"]
 
