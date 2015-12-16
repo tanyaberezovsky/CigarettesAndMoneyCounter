@@ -9,7 +9,7 @@
 import Foundation
 
 
-@objc class UserDefaults{
+class UserDefaults{
     
     class func newInstance() -> UserDefaults {
         return UserDefaults();
@@ -25,19 +25,19 @@ import Foundation
     var minimalModeOn: Bool!
 }
 
-@objc class UserDefaultsDataController{
+class UserDefaultsDataController{
     
     class func newInstance() -> UserDefaultsDataController {
         return UserDefaultsDataController();
     }
-    
+  
     //++++++++++++++++++++++++++++++++++++
     //  will save user defaults
     //++++++++++++++++++++++++++++++++++++
-    @objc  func saveUserDefaults(userDefaults: UserDefaults) {
+      func saveUserDefaults(userDefaults: UserDefaults) {
         
         
-        var defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults.standardUserDefaults()
         
   //      userDefaults.levelAsNeeded = 10
         
@@ -64,7 +64,7 @@ import Foundation
         }
         if newDateIsLatest(lastDateCig){
 
-            var defaults = NSUserDefaults.standardUserDefaults()
+            let defaults = NSUserDefaults.standardUserDefaults()
         
             defaults.setObject(todaySmoked, forKey: "todaySmoked")
 
@@ -75,14 +75,14 @@ import Foundation
     func newDateIsLatest(newDate: NSDate) -> Bool
     {
         //Get Current Date/Time
-        var currentDateTime = NSDate()
+        let currentDateTime = NSDate()
 
         var ret = false;
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
-        if var lastCig = userDefaults.dateLastCig{
+        if let lastCig = userDefaults.dateLastCig{
             if newDate > lastCig && newDate <= currentDateTime {
                 ret = true
             }
@@ -100,11 +100,11 @@ import Foundation
     //++++++++++++++++++++++++++++++++++++
     //  load user defaults into object
     //++++++++++++++++++++++++++++++++++++
-    @objc  func loadUserDefaults() -> UserDefaults{
+      func loadUserDefaults() -> UserDefaults{
         
-        var userDefaults = UserDefaults()
+        let userDefaults = UserDefaults()
         
-        var defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults.standardUserDefaults()
        // println(defaults)
         //println(defaults.integerForKey("levelAsNeeded"))
         
