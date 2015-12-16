@@ -50,18 +50,21 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
       
         fetchedResultControllerDaily = getFetchedResultControllerDaily()
         fetchedResultControllerDaily.delegate = self
-        fetchedResultControllerDaily.performFetch(nil)
+        do {
+            try fetchedResultControllerDaily.performFetch()
+        } catch _ {
+        }
         
         fetchDictResultsMonthly = Dictionary()
         fetchDictResultsYearly = Dictionary()
-        var selection=0
+        let selection=0
         if let objCount = fetchedResultControllerDaily.sections?[selection].numberOfObjects{
             
             for var index=0; index < objCount - 1; index++
             {
-                var ind = NSIndexPath(forRow: index, inSection: selection)
+                let ind = NSIndexPath(forRow: index, inSection: selection)
                 let task = fetchedResultControllerDaily.objectAtIndexPath(ind) as! CigaretteRecord
-                var yearMonth:String = task.yearMonth()
+                let yearMonth:String = task.yearMonth()
                 
                 if let cigsSum = fetchDictResultsMonthly[yearMonth]{
                     
@@ -75,7 +78,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                     fetchDictResultsMonthly[yearMonth] = task.cigarettes
                 }
                 
-                var year:String = task.year()
+                let year:String = task.year()
                 
                 if let cigsSum = fetchDictResultsYearly[year]{
                     
@@ -103,7 +106,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         let screenSize:CGRect = UIScreen.mainScreen().bounds
         viewHeader.frame.size.height = screenSize.height * 0.30
 
-        var mySegment = UISegmentedControl(items: ["Daily","Monthly", "Yearly"])
+        let mySegment = UISegmentedControl(items: ["Daily","Monthly", "Yearly"])
      
         viewHeader.addSubview(mySegment)
 //        self.tableView.tableHeaderView = mySegment
@@ -196,18 +199,18 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         switch segment {
             case 0:
                 
-                cell = tableView.dequeueReusableCellWithIdentifier("CellDaily", forIndexPath: indexPath) as! UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("CellDaily", forIndexPath: indexPath) 
                 
                 let task = fetchedResultControllerDaily.objectAtIndexPath(indexPath) as! CigaretteRecord
-                var s:String = task.yearMonth()
-                println(s)
+                let s:String = task.yearMonth()
+                print(s)
                 cell.textLabel?.text = task.cigarettes.stringValue + "; " + task.levelAsNeeded.stringValue + "; CellDaily " + getStringDate(task.addDate) + " " + s
                 
             case 1:
                 
-                cell = tableView.dequeueReusableCellWithIdentifier("CellMonthly", forIndexPath: indexPath) as! UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("CellMonthly", forIndexPath: indexPath) 
                
-                var yearMonth:String = sortedKeysResultsMonthly[indexPath.row] as! String
+                let yearMonth:String = sortedKeysResultsMonthly[indexPath.row] as! String
                 
                 if let cigsSum: NSNumber! = fetchDictResultsMonthly[yearMonth]{
                     
@@ -222,9 +225,9 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             
             
             case 2:
-                cell = tableView.dequeueReusableCellWithIdentifier("CellYearly", forIndexPath: indexPath) as! UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("CellYearly", forIndexPath: indexPath) 
                 
-                var year:String = sortedKeysResultsYearly[indexPath.row] as! String
+                let year:String = sortedKeysResultsYearly[indexPath.row] as! String
                 
                 if let cigsSum: NSNumber! = fetchDictResultsYearly[year]{
                     
@@ -239,7 +242,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             default:
                 break
             }
-            println(segment)
+            print(segment)
             
         
       //  }
@@ -250,7 +253,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     func getStringDate(dDate: NSDate)->String
     {
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
             return dateFormatter.stringFromDate(dDate)
 
@@ -259,7 +262,10 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let managedObject:NSManagedObject = fetchedResultControllerDaily.objectAtIndexPath(indexPath) as! NSManagedObject
         managedObjectContext?.deleteObject(managedObject)
-        managedObjectContext?.save(nil)
+        do {
+            try managedObjectContext?.save()
+        } catch _ {
+        }
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
@@ -277,7 +283,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         default:
             break
         }
-        println(segment)
+        print(segment)
 
         tableView.reloadData()
     }
