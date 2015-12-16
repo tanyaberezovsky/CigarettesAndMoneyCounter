@@ -13,8 +13,8 @@ class FirstCustomSegue:UIStoryboardSegue {
     
     override func perform() {
         
-        var fromViewController: AnyObject = self.sourceViewController
-        var toViewController: AnyObject = self.destinationViewController
+        let fromViewController: AnyObject = self.sourceViewController
+        let toViewController: AnyObject = self.destinationViewController
     
         let fromView = fromViewController.view as UIView!
         let toView: UIView = toViewController.view as UIView!
@@ -25,16 +25,16 @@ class FirstCustomSegue:UIStoryboardSegue {
             toView.frame = offscreenRect
             containerView.addSubview(toView)
             
-            var navCtr  = fromViewController.navigationController as UINavigationController!
+            let navCtr  = fromViewController.navigationController as UINavigationController!
             
             // Being explicit with the types NSTimeInterval and CGFloat are important
             // otherwise the swift compiler will complain
-            var duration: NSTimeInterval = 0.4
+            let duration: NSTimeInterval = 0.4
             
             UIView.animateWithDuration(duration, animations: {
                 toView.frame = initialFrame
                 }, completion: { finished in
-                    navCtr.viewControllers.append(toViewController)
+                    navCtr.viewControllers.append(toViewController as! UIViewController)
                     navCtr.popToViewController(toViewController as! UIViewController, animated: false)
 
     
