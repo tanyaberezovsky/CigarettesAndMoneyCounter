@@ -47,21 +47,21 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func packCostChanged(sender: AnyObject) {
-        if isNumeric(packCost.text){
-            calc.packCost = packCost.text.toDouble()!
+        if isNumeric(packCost.text!){
+            calc.packCost = packCost.text!.toDouble()!
         }
     }
     
     @IBAction func ciggaretsChanged(sender: UITextField) {
-        if isNumeric(ciggarets.text){
-            calc.totalCiggarets = ciggarets.text.toDouble()!
+        if isNumeric(ciggarets.text!){
+            calc.totalCiggarets = ciggarets.text!.toDouble()!
         }
     }
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         
         segment = sender.selectedSegmentIndex
-        println("segment=\(segment)")
+        print("segment=\(segment)")
         calc.segment  = segment
         setDescription()
     }
@@ -96,15 +96,15 @@ class CalculatorViewController: UIViewController {
     
     
     func onPropertyChanged(property: CalculatorProperty) {
-        println("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
+        print("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
         
         ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
         
-        var cost: Double = calc.calculateCost() //a(1) //calculateCost()
+        let cost: Double = calc.calculateCost() //a(1) //calculateCost()
         
         totalCost.text = decimalFormatToString(cost)//String(format: "%.1f", cost)
 //
-         smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment)
+         smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
 
     private func calculateCost() -> Double
@@ -118,7 +118,7 @@ class CalculatorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         closeAllKeyboards()
     }
     
@@ -131,7 +131,7 @@ class CalculatorViewController: UIViewController {
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
