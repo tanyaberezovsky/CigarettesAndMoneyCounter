@@ -21,15 +21,15 @@ extension String {
 
 extension NSDate {
     func monthAndYear(addDate1: NSDate) -> String {
-        var txtMonthYear: String
+    //    var txtMonthYear: String
         
         let components = NSCalendar.currentCalendar().components(
-            .CalendarUnitMonth | .CalendarUnitYear, fromDate: addDate1)
+            [.Month, .Year], fromDate: addDate1)
         
         var strMonthYear:String
         strMonthYear = "\(components.month)-\(components.year)"
         
-        println(strMonthYear)
+        print(strMonthYear)
         
         return strMonthYear
     }
@@ -50,7 +50,7 @@ extension NSDate: Comparable { }
 //2015-08-28 add gradient to nav-bar
 extension CAGradientLayer {
     class func gradientLayerForBounds(bounds: CGRect) -> CAGradientLayer {
-        var layer = CAGradientLayer()
+        let layer = CAGradientLayer()
         layer.frame = bounds
         layer.colors = [colorNavigationBarTop.CGColor, colorNavigationBarBottom.CGColor]
         return layer
@@ -58,7 +58,7 @@ extension CAGradientLayer {
 }
 
 extension UIColor {
-    class func rgb(#r: Double, g: Double, b: Double, alpha: Double) -> UIColor{
+    class func rgb(r r: Double, g: Double, b: Double, alpha: Double) -> UIColor{
         // UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
         
         return UIColor(red: CGFloat(r / 255.0), green: CGFloat(g / 255.0), blue: CGFloat(b / 255.0), alpha: CGFloat(alpha))
