@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 func isNumeric(a: String) -> Bool {
-    return a.toInt() != nil
+    return Int(a) != nil
 }
 
 
@@ -32,13 +32,11 @@ return: last cigarette was x years x month x days x hours x minutes ago
 
 func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLastCigWasToday: Bool){
     
-    var laterDate = NSDate()
+    let laterDate = NSDate()
     var bLastCigWasToday:Bool = true
     
-    let components = NSCalendar.currentCalendar().components(.CalendarUnitSecond |
-        .CalendarUnitMinute | .CalendarUnitHour | .CalendarUnitDay |
-        .CalendarUnitMonth | .CalendarUnitYear, fromDate: earlierDate,
-        toDate: laterDate, options: nil)
+    let components = NSCalendar.currentCalendar().components([.Second, .Minute, .Hour, .Day, .Month, .Year], fromDate: earlierDate,
+        toDate: laterDate, options: [])
     
     var arrStrDate = [String]()
     var retStr:String = ""
@@ -52,7 +50,7 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
     if arrStrDate.count == 0
     {retStr = "Just smoked a cigarette"}
     else
-    {retStr +=  "".join(arrStrDate) + " Free of Smoking"}
+    {retStr +=  arrStrDate.joinWithSeparator("") + " Free of Smoking"}
     
     return (retStr, bLastCigWasToday)
 }
@@ -103,7 +101,7 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
     
     //var days = segmentToDays(segment)
     
-    var smokingSigTimeMinets: Double = (Double(5) * totalSigs)
+    let smokingSigTimeMinets: Double = (Double(5) * totalSigs)
     var smokingSigTime: Double = smokingSigTimeMinets / 60
     
     if(decimalIsInteger(smokingSigTime))

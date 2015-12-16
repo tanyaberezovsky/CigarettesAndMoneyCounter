@@ -80,7 +80,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     
     func saveCigaretteRecordEntity() {
         
-        if let addedCigs = self.txtCigarette.text.toInt(){
+        if let addedCigs = Int(self.txtCigarette.text!){
             if addedCigs <= 0 {
                 AlertError("Illegal value of cigarette")
                 return
@@ -96,26 +96,29 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         
         let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
         
-        task.cigarettes = self.txtCigarette.text.toInt()!
-        todaySmoked = todaySmoked + self.txtCigarette.text.toInt()!
+        task.cigarettes = Int(self.txtCigarette.text!)!
+        todaySmoked = todaySmoked + Int(self.txtCigarette.text!)!
         
         
        if isNumeric(self.levelOfEnjoyText){
-        task.levelOfEnjoy = self.levelOfEnjoyText.toInt()!}
+        task.levelOfEnjoy = Int(self.levelOfEnjoyText)!}
         
         if isNumeric(self.levelAsNeededText){
-            task.levelAsNeeded = self.levelAsNeededText.toInt()!}
-        var dateFormatter = NSDateFormatter()
+            task.levelAsNeeded = Int(self.levelAsNeededText)!}
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
 
-        let dateString:String = AddDate.text
+        let dateString:String = AddDate.text!
         let dateValue:NSDate?=dateFormatter.dateFromString(dateString)
         task.addDate = dateValue!
         task.reason = reasonText
         
-        MyManagedObjectContext?.save(nil)
+        do {
+            try MyManagedObjectContext?.save()
+        } catch _ {
+        }
       
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         
         
         defaults.saveLastAddedCig( dateValue!, todaySmoked: todaySmoked)
@@ -142,7 +145,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         
         
         
-        var swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
@@ -159,20 +162,20 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         // Dispose of any resources that can be recreated.
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         closeAllKeyboards()
     }
     
     func getStringDate(dDate: NSDate)->String
     {
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
         return dateFormatter.stringFromDate(dDate)
     }
     
     func setNowDate(){
-        var curentDate = NSDate()
+        let curentDate = NSDate()
         AddDate.text = self.getStringDate(curentDate)
         datePickerView.date = curentDate
     }
@@ -214,7 +217,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
@@ -234,7 +237,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         
         causeOfSmoking.setTitle(reasonText, forState: UIControlState.Normal)
         
-        if var lastCig = userDefaults.dateLastCig{
+        if let lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
             txtLastCig.text = calcRet.txtLastCig
             
@@ -253,7 +256,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             }
         }
         else{
-            txtLastCig.text = ""
+            txtLastCig.text = "How long has it been since last cigarette"
         }
        dailySmokedCigs.text = String(Int( todaySmoked))
     }
@@ -271,12 +274,12 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
         if segueName ==  segueNames.segueLvlOfEnjoy{
             levelOfEnjoyText = text;
-            println(text)
+            print(text)
             levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueLvlOfNeeded{
             levelAsNeededText = text;
-            println(text)
+            print(text)
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueCauseOfSmoking{
@@ -301,7 +304,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             
         closeAllKeyboards()
             
-            println(segue.identifier)
+            print(segue.identifier)
             
         if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy || segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels

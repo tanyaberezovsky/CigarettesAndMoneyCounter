@@ -45,6 +45,7 @@ class TableLavels: UITableViewController{
             dataList = causeList()
         }
     }
+    
 /*  init()
     { eshlej medison
         dataList = selectionList()
@@ -74,7 +75,7 @@ class TableLavels: UITableViewController{
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var levelSelected = dataList.textValue(indexPath.row) //levels[indexPath.row].nameNum
+        let levelSelected = dataList.textValue(indexPath.row) //levels[indexPath.row].nameNum
         
       //  println("You selected level is #\(levelSelected)!")
         

@@ -44,9 +44,9 @@ class NavViewController: UINavigationController {
         var updatedFrame = self.navigationBar.bounds
         // take into account the status bar
         updatedFrame.size.height += 20
-        var layer = CAGradientLayer.gradientLayerForBounds(updatedFrame)
+        let layer = CAGradientLayer.gradientLayerForBounds(updatedFrame)
         UIGraphicsBeginImageContext(layer.bounds.size)
-        layer.renderInContext(UIGraphicsGetCurrentContext())
+        layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
@@ -84,10 +84,10 @@ class NavViewController: UINavigationController {
                     })
                     
                     duration = 1.0
-                    let delay: NSTimeInterval = 0.0
-                    let options = UIViewAnimationOptions.CurveEaseInOut
-                    let damping: CGFloat = 0.5
-                    let velocity: CGFloat = 4.0
+//                    let delay: NSTimeInterval = 0.0
+//                    let options = UIViewAnimationOptions.CurveEaseInOut
+//                    let damping: CGFloat = 0.5
+//                    let velocity: CGFloat = 4.0
 //                    UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping,
 //                        initialSpringVelocity: velocity, options: options, animations: {
 //                            toView.frame = initialFrame

@@ -21,15 +21,15 @@ class LightMainSceneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-       // LoadDefaultValues()
+        //LoadDefaultValues()
     }
     
     @IBAction func addCigarettes(sender: AnyObject) {
         
-        var cigRecord = CigaretteRecordManager()
+        let cigRecord = CigaretteRecordManager()
         cigRecord.saveCigaretteRecordEntityFromDefaultsValues()
         
         // loadInitiatedValues()
@@ -45,13 +45,13 @@ class LightMainSceneViewController: UIViewController {
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
         var todaySmoked = 0
 
-        if var lastCig = userDefaults.dateLastCig{
+        if let lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
             txtLastCig.text = calcRet.txtLastCig
             if calcRet.bLastCigWasToday == true{
@@ -60,7 +60,7 @@ class LightMainSceneViewController: UIViewController {
  
         }
         else{
-            txtLastCig.text = ""
+            txtLastCig.text = "How long has it been since last cigarette"//"Free of smoking time"
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
 
@@ -71,8 +71,8 @@ class LightMainSceneViewController: UIViewController {
         override func viewWillAppear(animated: Bool) {
             if self.childViewControllers.count > 0 {
 
-            var secondVC: AnyObject = childViewControllers[0]
-                 var navCtr  = self.navigationController as UINavigationController!
+            let secondVC: AnyObject = childViewControllers[0]
+                 let navCtr  = self.navigationController as UINavigationController!
             //
             //
                 navCtr.pushViewController(secondVC as! UIViewController, animated: false)

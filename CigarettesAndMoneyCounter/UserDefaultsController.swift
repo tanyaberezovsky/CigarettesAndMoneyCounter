@@ -79,22 +79,22 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
 
     
     func SaveDafaultsTouch() {
-        var defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
+        let defaults = UserDefaultsDataController()
+        let userDefaults = UserDefaults()
         
-       if isNumeric(averageCost.text){
-                userDefaults.averageCostOfOnePack = averageCost.text.toDouble()!
+       if isNumeric(averageCost.text!){
+                userDefaults.averageCostOfOnePack = averageCost.text!.toDouble()!
         }
 
         
-        if isNumeric(dailyGoal.text){
-            userDefaults.dailyGoal = dailyGoal.text.toInt()!}
+        if isNumeric(dailyGoal.text!){
+            userDefaults.dailyGoal = Int(dailyGoal.text!)!}
         
         if isNumeric(levelOfEnjoyText){
-            userDefaults.levelOfEnjoyment = levelOfEnjoyText.toInt()!}
+            userDefaults.levelOfEnjoyment = Int(levelOfEnjoyText)!}
         
         if isNumeric(levelAsNeededText){
-            userDefaults.levelAsNeeded = levelAsNeededText.toInt()!}
+            userDefaults.levelAsNeeded = Int(levelAsNeededText)!}
         
         if (reasonText != nil)
         {
@@ -118,7 +118,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true);
     }
     
@@ -167,7 +167,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        var defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController()
         var userDefaults = UserDefaults()
         
         userDefaults = defaults.loadUserDefaults()
@@ -199,17 +199,17 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
         if segueName == segueNames.segueLvlOfEnjoy{
             levelOfEnjoyText = text;
-            println(text)
+            print(text)
             levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueLvlOfNeeded{
             levelAsNeededText = text;
-            println(text)
+            print(text)
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueCauseOfSmoking{
             reasonText = text;
-            println(text)
+            print(text)
             reason.setTitle(reasonText, forState: UIControlState.Normal)
         }
         controller.navigationController?.popViewControllerAnimated(true)

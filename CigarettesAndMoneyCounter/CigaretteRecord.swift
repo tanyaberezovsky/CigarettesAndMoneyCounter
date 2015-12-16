@@ -19,24 +19,24 @@ class CigaretteRecord: NSManagedObject {
     @NSManaged var reason: String
     
     func yearMonth()-> String{
-        var txtMonthYear: String
+    //    var txtMonthYear: String
         
         let components = NSCalendar.currentCalendar().components(
-            .CalendarUnitMonth | .CalendarUnitYear, fromDate: addDate)
+            [.Month, .Year], fromDate: addDate)
         
         var strMonthYear:String
         strMonthYear = "\(components.year)-\(components.month)"
         
-        println(strMonthYear)
+        print(strMonthYear)
         
         return strMonthYear
     }
     
     func year()-> String{
-        var txtMonthYear: String
+      //  var txtMonthYear: String
         
         let components = NSCalendar.currentCalendar().components(
-             .CalendarUnitYear, fromDate: addDate)
+             .Year, fromDate: addDate)
         
         
         return "\(components.year)"
