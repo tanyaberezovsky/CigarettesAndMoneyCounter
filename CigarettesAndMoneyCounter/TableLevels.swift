@@ -75,9 +75,10 @@ class TableLavels: UITableViewController{
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let levelSelected = dataList.textValue(indexPath.row) //levels[indexPath.row].nameNum
+        let levelSelected = dataList.textValue(indexPath.row)  //+ " " + dataList.detailText(indexPath.row)//levels[indexPath.row].nameNum
         
       //  println("You selected level is #\(levelSelected)!")
+//var details =        dataList.detailText(indexPath.row)
         
         if(myDelegate != nil){
             myDelegate!.myColumnDidSelected(self, text: levelSelected,segueName: segueSourceName!)
