@@ -17,6 +17,7 @@ class CigaretteRecord: NSManagedObject {
     @NSManaged var levelOfEnjoy: NSNumber
     @NSManaged var addDate: NSDate
     @NSManaged var reason: String
+    @NSManaged var cost: Double
     
     func yearMonth()-> String{
     //    var txtMonthYear: String
