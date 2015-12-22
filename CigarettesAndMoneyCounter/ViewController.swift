@@ -99,7 +99,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         task.cigarettes = Int(self.txtCigarette.text!)!
         todaySmoked = todaySmoked + Int(self.txtCigarette.text!)!
         
-        
+
        if isNumeric(self.levelOfEnjoyText){
         task.levelOfEnjoy = Int(self.levelOfEnjoyText)!}
         
@@ -112,15 +112,19 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         let dateValue:NSDate?=dateFormatter.dateFromString(dateString)
         task.addDate = dateValue!
         task.reason = reasonText
+      
+        
+        let defaults = UserDefaultsDataController()
+        var userDefaults = UserDefaults()
+        userDefaults = defaults.loadUserDefaults()
+        
+        task.cost = userDefaults.averageCostOfOneCigarett * Double(task.cigarettes)
         
         do {
             try MyManagedObjectContext?.save()
         } catch _ {
         }
       
-        let defaults = UserDefaultsDataController()
-        
-        
         defaults.saveLastAddedCig( dateValue!, todaySmoked: todaySmoked)
     }
 
