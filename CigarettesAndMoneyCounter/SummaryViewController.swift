@@ -18,14 +18,23 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     var datePickerView  : UIDatePicker = UIDatePicker()
     var myPicker: UIPickerView = UIPickerView()
     var curentDate:NSDate = NSDate()
+    var toDate:NSDate = NSDate()
     
+    @IBOutlet weak var smoked: UILabel!
+    @IBOutlet weak var cost: UILabel!
     
     @IBOutlet weak var segmentDateType: UISegmentedControl!
     @IBOutlet weak var selectedDate: UITextField!
     
+    @IBOutlet weak var segmentGraphType: UISegmentedControl!
     var pickerData = [ ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]]
     
     var arrYear = [String]()
+    
+    @IBAction func graphTypeChanged(sender: UISegmentedControl) {
+        
+      
+    }
     
     func createYearArr()
     {
@@ -54,9 +63,7 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         super.viewDidLoad()
         createYearArr()
         loadScreenGraphics();
-        let cigRecord = CigaretteRecordManager()
-        cigRecord.calculateAmountAndCost()
-        
+
     }
     
     enum pickerComponent:Int{
@@ -87,10 +94,14 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     }
     
     @IBAction func segmentDateTypeChanged(sender: UISegmentedControl) {
+        
         currentSegmentDateType = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!.lowercaseString
+        
         closeAllKeyboards()
+        
         curentDate = NSDate()
-        drawSelectedDate()
+        calculateSelectedDate(0)
+       
     }
     
     
@@ -122,18 +133,30 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     
     
     func calculateSelectedDate(shiftFactor: Int = 0){
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        let userCalendar = NSCalendar.currentCalendar()
+        let dateComponents = NSDateComponents()
         
         var unitDate : NSCalendarUnit = NSCalendarUnit.Day
         
         switch(currentSegmentDateType){
-        case Constants.SegmentDateType.month://month
-            unitDate = NSCalendarUnit.Month
         case Constants.SegmentDateType.year:
             unitDate = NSCalendarUnit.Year
+            dateComponents.month = 1
+            dateComponents.day = 1
+        case Constants.SegmentDateType.month://month
+            unitDate = NSCalendarUnit.Month
+            dateComponents.month = components.month
+            dateComponents.day = 1
         default:
             unitDate = NSCalendarUnit.Day
-            
+            dateComponents.month = components.month
+            dateComponents.day = components.day
+ 
         }
+        
+        dateComponents.year = components.year
+        curentDate = userCalendar.dateFromComponents(dateComponents)!
         
         curentDate = NSCalendar.currentCalendar().dateByAddingUnit(
             unitDate,
@@ -141,11 +164,28 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
             toDate: curentDate,
             options: NSCalendarOptions(rawValue: 0))!
 
+        toDate = NSCalendar.currentCalendar().dateByAddingUnit(
+            unitDate,
+            value: 1,
+            toDate: curentDate,
+            options: NSCalendarOptions(rawValue: 0))!
+        print(curentDate)
+        print(toDate)
+        
         drawSelectedDate()
+        drawCostAndSmoked()
     }
     
+    func  drawCostAndSmoked()
+    {
     
-
+        let cigRecord = CigaretteRecordManager()
+        let smokeAndCost = cigRecord.calculateAmountAndCost(curentDate, toDate: toDate)
+        
+        smoked.text  = String(smokeAndCost.smoked)
+        cost.text = decimalFormatToString(smokeAndCost.cost)
+    }
+    
     func getStringDate(dDate: NSDate, currentDateFormat: String)->String
     {
         let dateFormatter = NSDateFormatter()
@@ -165,9 +205,11 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
      
         //set selected date to text field
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-        
+     //todo
         //set init value
-        showSelectedDate(NSDate(), dateFormat: Constants.dateFormat.day)
+    //    showSelectedDate(NSDate(), dateFormat: Constants.dateFormat.day)
+        
+        calculateSelectedDate(0)
     }
     
     //set selected date to text field

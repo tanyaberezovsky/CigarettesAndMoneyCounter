@@ -21,6 +21,8 @@ struct Levels {
     let nameNum : String
 }
 
+
+
 let descriptionNeeded = ["Not need at all",
     "Could avoid","Desired","Must have", "Absolutely necessary"]
 
@@ -44,18 +46,6 @@ let cause = ["Bored", "Social Integration", "Thinking", "Working", "Learning", "
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3"),Levels(nameLvl:"Level 4", nameNum: "4")]
 
 
-/*class A {
-    func c()->String {
-        return "A"
-    }
-}
-class B: A {
-    override func c()->String {
-        return "B"
-    }
-}
-var a = A()
-a = B()*/
 protocol selectionList: class {
     var title: String { get }
 

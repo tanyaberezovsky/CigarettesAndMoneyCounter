@@ -17,12 +17,14 @@ class UserDefaults{
     
     var levelAsNeeded = 0
     var levelOfEnjoyment = 0
-    var averageCostOfOnePack = 0.0
     var dailyGoal = 0
     var todaySmoked = 0
     var dateLastCig: NSDate!
     var reason: String!
     var minimalModeOn: Bool!
+    var averageCostOfOnePack = 0.0
+    var averageCostOfOneCigarett = 0.0
+    var amountOfCigarettsInOnePack = 0
 }
 
 class UserDefaultsDataController{
@@ -49,6 +51,11 @@ class UserDefaultsDataController{
     
         defaults.setDouble(userDefaults.averageCostOfOnePack, forKey: "averageCostOfOnePack")
         
+        defaults.setDouble(userDefaults.averageCostOfOneCigarett, forKey: "averageCostOfOneCigarett")
+ 
+        
+        defaults.setInteger(userDefaults.amountOfCigarettsInOnePack, forKey: "amountOfCigarettsInOnePack")
+ 
         defaults.setValue(userDefaults.reason, forKey: "reason")
         
         defaults.setValue(userDefaults.minimalModeOn, forKey: "minimalModeOn")
@@ -113,6 +120,8 @@ class UserDefaultsDataController{
             //init defaults values for start up
             userDefaults.dailyGoal = 10
             userDefaults.averageCostOfOnePack = 10
+            userDefaults.amountOfCigarettsInOnePack = 20
+            userDefaults.averageCostOfOneCigarett = 10 / 20
             userDefaults.levelAsNeeded = 2
             userDefaults.levelOfEnjoyment = 2
             userDefaults.todaySmoked = 0
@@ -126,7 +135,11 @@ class UserDefaultsDataController{
         userDefaults.levelOfEnjoyment = defaults.integerForKey("levelOfEnjoyment")
         userDefaults.dailyGoal = defaults.integerForKey("dailyGoal")
         userDefaults.averageCostOfOnePack = defaults.doubleForKey("averageCostOfOnePack")
-        userDefaults.todaySmoked = defaults.integerForKey("todaySmoked")
+       
+            userDefaults.amountOfCigarettsInOnePack = defaults.integerForKey("amountOfCigarettsInOnePack")
+            userDefaults.averageCostOfOneCigarett = defaults.doubleForKey("averageCostOfOneCigarett")
+                
+            userDefaults.todaySmoked = defaults.integerForKey("todaySmoked")
             
             if let d:NSDate = defaults.objectForKey("dateLastCig") as? NSDate{
                 userDefaults.dateLastCig = d
