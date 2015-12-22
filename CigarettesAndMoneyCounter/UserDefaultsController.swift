@@ -22,6 +22,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     var levelOfEnjoyText:String="0"
     var tempValue:String!
     
+    @IBOutlet weak var amountOfCigarettsInOnePack: UITextField!
     @IBOutlet var dailyGoal: UITextField!
     
     @IBOutlet weak var minimalMode: UISwitch!
@@ -86,6 +87,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
                 userDefaults.averageCostOfOnePack = averageCost.text!.toDouble()!
         }
 
+        
+        if isNumeric(amountOfCigarettsInOnePack.text!){
+            userDefaults.amountOfCigarettsInOnePack = Int(amountOfCigarettsInOnePack.text!)!
+        }
+
+        userDefaults.averageCostOfOneCigarett = userDefaults.averageCostOfOnePack / Double(userDefaults.amountOfCigarettsInOnePack)
         
         if isNumeric(dailyGoal.text!){
             userDefaults.dailyGoal = Int(dailyGoal.text!)!}
@@ -160,7 +167,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
         layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+       
         
+       
+        
+        
+
     }
     
     //++++++++++++++++++++++++++++++++++++
@@ -188,7 +200,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         
         reason.setTitle(reasonText, forState: UIControlState.Normal)
         
-        minimalMode.on = userDefaults.minimalModeOn
+        //minimalMode.on = userDefaults.minimalModeOn
         
     }
     
@@ -199,19 +211,21 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
         if segueName == segueNames.segueLvlOfEnjoy{
             levelOfEnjoyText = text;
-            print(text)
+          //  print(text)
             levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueLvlOfNeeded{
             levelAsNeededText = text;
-            print(text)
+           // print(text)
             levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         }
         if segueName == segueNames.segueCauseOfSmoking{
             reasonText = text;
-            print(text)
+           // print(text)
             reason.setTitle(reasonText, forState: UIControlState.Normal)
         }
+        
+      
         controller.navigationController?.popViewControllerAnimated(true)
         // println(segueName)
     }
