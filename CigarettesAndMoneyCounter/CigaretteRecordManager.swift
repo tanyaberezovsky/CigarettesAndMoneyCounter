@@ -25,9 +25,11 @@ class CigaretteRecordManager {
         var userDefaults = UserDefaults()
         userDefaults = defaults.loadUserDefaults()
         
-        
+        //2015-12-16 into cigarettes save the cost of ciggarets
         task.cigarettes = addedCigs
         
+        task.cost = userDefaults.averageCostOfOneCigarett
+
         task.levelOfEnjoy = userDefaults.levelOfEnjoyment
         task.levelAsNeeded  = userDefaults.levelAsNeeded
         
@@ -61,15 +63,29 @@ class CigaretteRecordManager {
         defaults.saveLastAddedCig(nowDate, todaySmoked: todaySmoked)
     }
 
-    func  calculateAmountAndCost()
+    
+    
+    func  calculateAmountAndCost(fromDate: NSDate, toDate: NSDate) -> (smoked:Int32, cost: Double)
     {
-//        You create an "expression description" for the sum of all totalWorkTimeInHours values:
+        //where condition
+        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
         
-        let expressionDesc = NSExpressionDescription()
-        expressionDesc.name = "sumOftotalCigarettes"
-        expressionDesc.expression = NSExpression(forFunction: "sum:",
+        var smoked:Int32 = 0
+        var cost:Double = 0
+        
+        let expressionSumCigarettes = NSExpressionDescription()
+        expressionSumCigarettes.name = "sumOftotalCigarettes"
+        expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
             arguments:[NSExpression(forKeyPath: "cigarettes")])
-        expressionDesc.expressionResultType = .Integer32AttributeType
+        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
+      
+        
+        let expressionSumCost = NSExpressionDescription()
+        expressionSumCost.name = "sumCost"
+        expressionSumCost.expression = NSExpression(forFunction: "sum:",
+            arguments:[NSExpression(forKeyPath: "cost")])
+        expressionSumCost.expressionResultType = .DoubleAttributeType
+        
         
         let expresionCount = NSExpressionDescription()
         expresionCount.name = "countLines"
@@ -79,9 +95,11 @@ class CigaretteRecordManager {
 //    and then a fetch request which fetches only this sum:
         
         let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        fetchRequest.propertiesToFetch = [expressionDesc, expresionCount]
+        fetchRequest.propertiesToFetch = [expressionSumCigarettes, expressionSumCost, expresionCount]
         fetchRequest.resultType = .DictionaryResultType
-
+        
+       fetchRequest.predicate = predicate
+        
         
         do {
             let result:NSArray = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest) //as! [DictionaryResultType]
@@ -89,51 +107,38 @@ class CigaretteRecordManager {
             
             if (result.count > 0) {
              
-                if let a = result[0].valueForKey("countLines")   as? NSNumber {
+                if let a = result[0].valueForKey("countLines") as? NSNumber {
                     let aString = a.stringValue
                     print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
                 
-                if let a = result[0].valueForKey("sumOftotalCigarettes")   as? NSNumber {
+                if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
+                    smoked = Int32(aString)!
                     print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
 
+                
+                if let a = result[0].valueForKey("sumCost") as? NSNumber {
+                    let aString = a.stringValue
+                    cost = Double(aString)!
+                    print(aString) // -1
+                } else {
+                    // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
+                }
 
-//            let name1: String = result[0].valueForKey("sumOftotalCigarettes")  as! String
-//            // let name1: Int32? = result[0].valueForKey("sumOftotalCigarettes") as? Int32
-//                print("1 - \(name1)")
-//                let name: String? = result[0].valueForKey("sumOftotalCigarettes") as? String
-//                print("1 - \(name)")
-                
-                
-//                let person = result[0] as CigaretteRecord
-//                
-//                
-//                if let first = person.valueForKey("sumOftotalCigarettes"){
-//                    print("\(first) ")
-//                }
-//                
-//                print("2 - \(person)")
             }
-
-//            var myArray = [AnyObject]()
-//            
-//            myArray = results[0] as Array<AnyObject>
-//            
-//        print(results[0]["sumOftotalCigarettes"])
 
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-            //return nil
+            return (0, 0)
         }
-        
-//        let dict = results[0] as [String:Double]
-//        let totalHoursWorkedSum = dict["sumOftotalWorkTimeInHours"]!
+        return (smoked, cost)
 
     }
+    
 }
