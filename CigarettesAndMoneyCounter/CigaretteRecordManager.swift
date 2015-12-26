@@ -141,4 +141,73 @@ class CigaretteRecordManager {
 
     }
     
+    
+    //field name = reason/
+    func  calculateGraphDataByFieldName(fromDate: NSDate, toDate: NSDate, fieldName: String) -> NSArray
+    {
+        //where condition
+        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
+        
+        
+        let expressionSumCigarettes = NSExpressionDescription()
+        expressionSumCigarettes.name = "sumOftotalCigarettes"
+        expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
+            arguments:[NSExpression(forKeyPath: "cigarettes")])
+        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
+        
+        
+                //    and then a fetch request which fetches only this sum:
+        
+        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+        fetchRequest.propertiesToFetch = [ fieldName, expressionSumCigarettes]
+        fetchRequest.resultType = .DictionaryResultType
+        
+        fetchRequest.predicate = predicate
+        
+        fetchRequest.propertiesToGroupBy = [fieldName]
+        
+        let sort = NSSortDescriptor(key: fieldName, ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+
+        var result:NSArray = NSArray()
+        
+        do {
+            result = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest) //as! [DictionaryResultType]
+            
+            
+//            if (result.count > 0) {
+//                
+//                if let a = result[0].valueForKey("countLines") as? NSNumber {
+//                    let aString = a.stringValue
+//                    print(aString) // -1
+//                } else {
+//                    // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
+//                }
+//                
+//                if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
+//                    let aString = a.stringValue
+//                    smoked = Int32(aString)!
+//                    print(aString) // -1
+//                } else {
+//                    // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
+//                }
+//                
+//                
+//                if let a = result[0].valueForKey("sumCost") as? NSNumber {
+//                    let aString = a.stringValue
+//                    cost = Double(aString)!
+//                    print(aString) // -1
+//                } else {
+//                    // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
+//                }
+//                
+//            }
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            return result
+        }
+        return result
+        
+    }
 }
