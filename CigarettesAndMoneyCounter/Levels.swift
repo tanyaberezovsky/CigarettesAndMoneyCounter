@@ -32,15 +32,15 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social Integration"
 //cause of smoking
-let cause = ["Bored", "Social Integration", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After Coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation", "Nervous","psychological pleasure"
-,"self-expression"
+let cause = ["Bored", "Social Integration", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After Coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation", "Nervous","Psychological pleasure"
+,"Self-expression"
 ,"Fun"
-,"first cigaret"
-,"last cigarette"
-,"in car"
-,"reward after"
-,"wanting"
-    ,"concentrate"].sort { $0 < $1 }
+,"First cigaret"
+,"Last cigarette"
+,"In car"
+,"Reward after"
+,"Wanting"
+    ,"Concentrate"].sort { $0 < $1 }
 
 
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3"),Levels(nameLvl:"Level 4", nameNum: "4")]
