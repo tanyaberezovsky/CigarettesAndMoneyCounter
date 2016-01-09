@@ -143,7 +143,7 @@ class CigaretteRecordManager {
     
     
     //field name = reason/
-    func  calculateGraphDataByFieldName(fromDate: NSDate, toDate: NSDate, fieldName: String) -> NSArray
+    func  calculateGraphDataByFieldName(fromDate: NSDate, toDate: NSDate, fieldName: String, orderByField: String = "cigarettes") -> NSArray
     {
         //where condition
         let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
@@ -166,7 +166,7 @@ class CigaretteRecordManager {
         
         fetchRequest.propertiesToGroupBy = [fieldName]
         
-        let sort = NSSortDescriptor(key: fieldName, ascending: false)
+        let sort = NSSortDescriptor(key: orderByField, ascending: false)
         fetchRequest.sortDescriptors = [sort]
 
         var result:NSArray = NSArray()

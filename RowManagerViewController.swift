@@ -46,7 +46,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     {
         let defaults = UserDefaultsDataController()
         let userDefaults = defaults.loadUserDefaults()
-        averageCostOfOneCigarette = userDefaults.averageCostOfOnePack / 20
+        averageCostOfOneCigarette = userDefaults.averageCostOfOnePack / Double( userDefaults.amountOfCigarettsInOnePack)
       
         fetchedResultControllerDaily = getFetchedResultControllerDaily()
         fetchedResultControllerDaily.delegate = self
