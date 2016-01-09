@@ -10,8 +10,8 @@ import Foundation
 
 
 struct segueNames {
-    static let segueLvlOfNeeded = "segueLvlOfNeeded"
-    static let segueLvlOfEnjoy = "segueLvlOfEnjoy"
+  //  static let segueLvlOfNeeded = "segueLvlOfNeeded"
+  //  static let segueLvlOfEnjoy = "segueLvlOfEnjoy"
     static let segueCauseOfSmoking = "segueCauseOfSmoking"
     static let userDefaults = "userDefaults"
 }
