@@ -17,7 +17,7 @@ protocol PropertyObservable {
 
 
 enum CalculatorProperty {
-    case PackCost, TotalCiggarets, Segment// totalCost
+    case PackCost, CigsPerPack, TotalCiggarets, Segment// totalCost
 }
 
 //model
@@ -71,11 +71,21 @@ class Calculator{
         }
     }
 
-        
+    dynamic var cigsPerPack: Int = 1
+        {
+        didSet {
+            // if packCost != oldValue
+            //{
+            propertyChanged.raise(.CigsPerPack)
+            //}
+        }
+    }
+        //
+    
    internal func calculateCost()-> Double
     {
         
-        return totalCiggarets * (packCost / 20)
+        return totalCiggarets * (packCost / Double( cigsPerPack))
     }
    
 

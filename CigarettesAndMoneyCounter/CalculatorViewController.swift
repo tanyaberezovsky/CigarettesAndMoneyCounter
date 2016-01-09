@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var cigsDesc: UILabel!
     
+    @IBOutlet weak var cigsPerPack: UITextField!
 
     @IBOutlet weak var smokingTime: UILabel!
     var segment = 0
@@ -28,10 +29,29 @@ class CalculatorViewController: UIViewController {
         tempValue = ciggarets.text
         ciggarets.text = ""
     }
+    
     @IBAction func cigarettsEditingEnd(sender: UITextField) {
         if (ciggarets.text == "")
         {
         ciggarets.text = tempValue
+        }
+    }
+    
+    @IBAction func cigsPerPackEditingBegin(sender: AnyObject) {
+        tempValue = cigsPerPack.text
+        cigsPerPack.text = ""
+    }
+    
+    @IBAction func cigsPerPackEditingEnd(sender: AnyObject) {
+        if (cigsPerPack.text == "")
+        {
+            cigsPerPack.text = tempValue
+        }
+    }
+    
+    @IBAction func cigsPerPackChanged(sender: AnyObject) {
+        if isNumeric(cigsPerPack.text!){
+            calc.cigsPerPack = Int( cigsPerPack.text!)!
         }
     }
     
@@ -90,7 +110,7 @@ class CalculatorViewController: UIViewController {
         default:
             desc=""
         }
-        cigsDesc.text = desc
+        cigsDesc.text = "Cigaretts " + desc
     }
     
     
@@ -110,7 +130,7 @@ class CalculatorViewController: UIViewController {
     private func calculateCost() -> Double
     {
         
-        return  calc.totalCiggarets * (calc.packCost / 20)
+        return  calc.totalCiggarets * (calc.packCost / Double( calc.cigsPerPack))
     }
     
     override func didReceiveMemoryWarning() {
@@ -139,11 +159,13 @@ class CalculatorViewController: UIViewController {
     
         calc.packCost = userDefaults.averageCostOfOnePack
         
+        calc.cigsPerPack = userDefaults.amountOfCigarettsInOnePack
+        
        ciggarets.text = String(userDefaults.dailyGoal)
         
        packCost.text = decimalFormatToString(userDefaults.averageCostOfOnePack)
        
-       
+       cigsPerPack.text = String(userDefaults.amountOfCigarettsInOnePack)
     }
 
     /*
