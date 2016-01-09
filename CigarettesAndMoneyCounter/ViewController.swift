@@ -16,52 +16,37 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     
     var datePickerView  : UIDatePicker = UIDatePicker()
     
+    @IBOutlet weak var txtCigarette: UILabel!
     
     @IBOutlet weak var txtLastCig: UILabel!
-    @IBOutlet var levelAsNeeded: UIButton!
-    @IBOutlet var txtCigarette: UITextField!
     var cigaretts: String!
-    @IBOutlet var levelOfEnjoy: UIButton!
     
+    @IBOutlet weak var levelAsNeeded: UISegmentedControl!
+    @IBOutlet weak var levelOfEnjoy: UISegmentedControl!
   
     @IBOutlet weak var causeOfSmoking: UIButton!
     
     @IBOutlet var AddDate: UITextField!
-  //  @IBOutlet var txtReason: UITextField!
-   // @IBOutlet var pikerLvlAsNeed: UIPickerView!
-  //  @IBOutlet weak var txtReason: UIButton!
-    
-    //@IBOutlet weak var reason: UIButton!
-    
+  
     @IBOutlet var dailySmokedCigs: UILabel!
     @IBOutlet var dailyGoal: UILabel!
     @IBOutlet var dailyCost: UILabel!
     
-    @IBAction func cigarettesEditingEnd(sender: UITextField) {
-        if(sender.text == "")
-        {
-            sender.text = cigaretts
-        }
-    }
-    
-    @IBAction func cigarettesEditingBegin(sender: UITextField) {
-        cigaretts = sender.text
-        sender.text = ""
-        
-    }
    
+    @IBOutlet weak var ciggaretsSlider: UISlider!
     @IBOutlet var btnAdd: UIButton!
     
     var arrNumbers = [];
-    var levelAsNeededText: String="0"
-    var levelOfEnjoyText:String="0"
+   
     var reasonText:String!
     
     var todaySmoked=0
     
-    @IBAction func SettingsTouch(sender: UIBarButtonItem) {
+    @IBAction func cigarettsSliderValueChanged(sender: AnyObject) {
+        txtCigarette.text = String(Int32( ciggaretsSlider.value))
         
     }
+    
     @IBAction func addCigarettes(sender: AnyObject) {
         closeAllKeyboards()
         saveCigaretteRecordEntity()
@@ -99,12 +84,12 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         task.cigarettes = Int(self.txtCigarette.text!)!
         todaySmoked = todaySmoked + Int(self.txtCigarette.text!)!
         
-
-       if isNumeric(self.levelOfEnjoyText){
-        task.levelOfEnjoy = Int(self.levelOfEnjoyText)!}
+        task.levelOfEnjoy = self.levelOfEnjoy.selectedSegmentIndex + 1
         
-        if isNumeric(self.levelAsNeededText){
-            task.levelAsNeeded = Int(self.levelAsNeededText)!}
+        
+        task.levelAsNeeded = levelAsNeeded.selectedSegmentIndex + 1
+        
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
 
@@ -199,15 +184,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
         //set button look like text field
-        var layerLevelAsNeeded: CALayer = levelAsNeeded.layer
-        layerLevelAsNeeded.cornerRadius = 5
-        layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-       
-        layerLevelAsNeeded = levelOfEnjoy.layer
-        layerLevelAsNeeded.cornerRadius = 5
-        layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        var layerLevelAsNeeded: CALayer
         
         layerLevelAsNeeded = causeOfSmoking.layer
         layerLevelAsNeeded.cornerRadius = 5
@@ -229,13 +206,11 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
-        levelOfEnjoyText = String(userDefaults.levelOfEnjoyment)
+        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment - 1
         
-        levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         
-        levelAsNeededText = String(userDefaults.levelAsNeeded)
+        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded - 1
         
-        levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
         
         reasonText = String(userDefaults.reason)
         
@@ -247,7 +222,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             
             if calcRet.bLastCigWasToday == true{
 
-                dailyCost.text = String(format:"%.1f", (userDefaults.averageCostOfOnePack / 20) * Double( userDefaults.todaySmoked))
+                dailyCost.text = String(format:"%.1f", (userDefaults.averageCostOfOnePack / Double( userDefaults.amountOfCigarettsInOnePack)) * Double( userDefaults.todaySmoked))
                 todaySmoked = userDefaults.todaySmoked
             
                 if  userDefaults.dailyGoal > todaySmoked {
@@ -276,16 +251,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
     received selected row value from TableLevels and set it to apropriate field
     */
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
-        if segueName ==  segueNames.segueLvlOfEnjoy{
-            levelOfEnjoyText = text;
-            print(text)
-            levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
-        }
-        if segueName == segueNames.segueLvlOfNeeded{
-            levelAsNeededText = text;
-            print(text)
-            levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
-        }
+       
         if segueName == segueNames.segueCauseOfSmoking{
             reasonText = text;
             causeOfSmoking.setTitle(text, forState: UIControlState.Normal)
@@ -294,6 +260,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         controller.navigationController?.popViewControllerAnimated(true)
        // println(segueName)
     }
+    
     
     /*
     delegated function from TableLavels.swift
@@ -310,7 +277,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             
             print(segue.identifier)
             
-        if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy || segue.identifier == segueNames.segueCauseOfSmoking{
+        if  segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
@@ -319,9 +286,7 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
             let vc = segue.destinationViewController as! UserDefaultsController
             vc.myDelegate = self
         }
-       /* if segue.identifier == "segueLvlOfNeeded"{
-        
-        }*/
+      
     }
 
 }
