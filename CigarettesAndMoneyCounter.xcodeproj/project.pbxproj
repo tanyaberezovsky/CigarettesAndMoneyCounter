@@ -10,9 +10,11 @@
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
 		235A0DFD1C2D499A00F12DAD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235A0DF81C29F2D600F12DAD /* Charts.framework */; };
 		235A0DFE1C2D499A00F12DAD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 235A0DF81C29F2D600F12DAD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */; };
 		235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235E256D1A56AD840050EBAA /* RowManagerViewController.swift */; };
 		23679BC119D5664A003354C7 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC019D5664A003354C7 /* Levels.swift */; };
 		23679BC319D56707003354C7 /* TableLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC219D56707003354C7 /* TableLevels.swift */; };
+		2372058A1C3FF70D0051ABD8 /* ChartConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 237205891C3FF70D0051ABD8 /* ChartConverter.m */; };
 		23802C9919CC150900387768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9819CC150900387768 /* AppDelegate.swift */; };
 		23802C9B19CC150900387768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9A19CC150900387768 /* ViewController.swift */; };
 		23802C9E19CC150900387768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9C19CC150900387768 /* Main.storyboard */; };
@@ -91,9 +93,13 @@
 /* Begin PBXFileReference section */
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
+		235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColorTemplates.swift; sourceTree = "<group>"; };
 		235E256D1A56AD840050EBAA /* RowManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowManagerViewController.swift; path = ../RowManagerViewController.swift; sourceTree = "<group>"; };
 		23679BC019D5664A003354C7 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		23679BC219D56707003354C7 /* TableLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableLevels.swift; sourceTree = "<group>"; };
+		237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CigarettesAndMoneyCounter-Bridging-Header.h"; sourceTree = "<group>"; };
+		237205881C3FF6E30051ABD8 /* ChartConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartConverter.h; sourceTree = "<group>"; };
+		237205891C3FF70D0051ABD8 /* ChartConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConverter.m; sourceTree = "<group>"; };
 		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +164,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		237205811C3FF67E0051ABD8 /* ObjectiveCLib */ = {
+			isa = PBXGroup;
+			children = (
+				237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */,
+				237205881C3FF6E30051ABD8 /* ChartConverter.h */,
+				237205891C3FF70D0051ABD8 /* ChartConverter.m */,
+			);
+			name = ObjectiveCLib;
+			sourceTree = "<group>";
+		};
 		23802C8A19CC150900387768 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +195,7 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
 				235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */,
 				23B47C611BA593A500FB881F /* Segues */,
 				23EDCD5C1B9076C900F96F4A /* MISC */,
@@ -232,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
-				23679BC019D5664A003354C7 /* Levels.swift */,
 				23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */,
 			);
 			name = Model;
@@ -268,6 +284,8 @@
 		23EDCD5C1B9076C900F96F4A /* MISC */ = {
 			isa = PBXGroup;
 			children = (
+				23679BC019D5664A003354C7 /* Levels.swift */,
+				235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */,
 				23EDCD5D1B9076E500F96F4A /* constants.swift */,
 				23EDCD5F1B90782300F96F4A /* RGB.swift */,
 			);
@@ -321,7 +339,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Tania Berezovski";
 				TargetAttributes = {
@@ -419,6 +437,7 @@
 				23A85D0D1B11657B000740F6 /* Common.swift in Sources */,
 				23B47C5E1BA5935900FB881F /* FirstCustomSegue.swift in Sources */,
 				23B47C5C1BA5911500FB881F /* LightMainSceneViewController.swift in Sources */,
+				2372058A1C3FF70D0051ABD8 /* ChartConverter.m in Sources */,
 				239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */,
 				23EDCD5E1B9076E500F96F4A /* constants.swift in Sources */,
 				239232711A45D6F9000714AA /* CigaretteRecord.xcdatamodeld in Sources */,
@@ -428,6 +447,7 @@
 				23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */,
 				239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */,
 				23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */,
+				235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,10 +577,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -568,10 +591,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 			};
 			name = Release;
 		};
