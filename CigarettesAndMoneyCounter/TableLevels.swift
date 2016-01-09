@@ -36,14 +36,15 @@ class TableLavels: UITableViewController{
     }
     
     func initView(){
-        switch  segueSourceName!{
+     /*   switch  segueSourceName!{
         case segueNames.segueLvlOfNeeded:
             dataList = neededList()
         case segueNames.segueLvlOfEnjoy:
             dataList = enjoyedList()
         default:
             dataList = causeList()
-        }
+        }*/
+         dataList = causeList()
     }
     
 /*  init()
