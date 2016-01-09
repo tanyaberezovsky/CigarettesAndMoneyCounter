@@ -10,18 +10,15 @@ import UIKit
 
 
 class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
-    
-    @IBOutlet var levelAsNeeded: UIButton!
-    @IBOutlet var levelOfEnjoy: UIButton!
     @IBOutlet weak var reason: UIButton!
     
     @IBOutlet var averageCost: UITextField!
    
+    @IBOutlet weak var levelAsNeeded: UISegmentedControl!
     var reasonText:String!
-    var levelAsNeededText: String="0"
-    var levelOfEnjoyText:String="0"
     var tempValue:String!
     
+    @IBOutlet weak var levelOfEnjoy: UISegmentedControl!
     @IBOutlet weak var amountOfCigarettsInOnePack: UITextField!
     @IBOutlet var dailyGoal: UITextField!
     
@@ -35,10 +32,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         //  self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "barButtonItemClicked:"), animated: true)
         
     }
+    
     @IBAction func costPack(sender: UITextField) {
         tempValue = sender.text
         sender.text = ""
     }
+    
     @IBAction func costPackEditingEnd(sender: UITextField) {
         if (sender.text == "")
         {
@@ -57,16 +56,6 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         }
     }
     
-    /*  @IBAction func packCostEditingBegin(sender: UITextField) {
-    tempValue = packCost.text
-    packCost.text = ""
-    }
-    @IBAction func packCostEditingEnd(sender: UITextField) {
-    if (packCost.text == "")
-    {
-    packCost.text = tempValue
-    }
-    }*/
     
     @IBAction func switchOnChange(sender: UISwitch) {
         minimalModeOn = sender.on
@@ -97,11 +86,10 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         if isNumeric(dailyGoal.text!){
             userDefaults.dailyGoal = Int(dailyGoal.text!)!}
         
-        if isNumeric(levelOfEnjoyText){
-            userDefaults.levelOfEnjoyment = Int(levelOfEnjoyText)!}
+
+            userDefaults.levelOfEnjoyment = levelOfEnjoy.selectedSegmentIndex + 1
         
-        if isNumeric(levelAsNeededText){
-            userDefaults.levelAsNeeded = Int(levelAsNeededText)!}
+            userDefaults.levelAsNeeded = levelAsNeeded.selectedSegmentIndex + 1
         
         if (reasonText != nil)
         {
@@ -132,14 +120,12 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     
     //init variable and set segueid into it
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if  segue.identifier == segueNames.segueLvlOfNeeded || segue.identifier == segueNames.segueLvlOfEnjoy || segue.identifier == segueNames.segueCauseOfSmoking{
+        if  segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
         }
-        /* if segue.identifier == "segueLvlOfNeeded"{
-        #2980B9  22A091
-        }*/
+     
     }
     
     
@@ -150,17 +136,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     func loadGraphicsSettings() {
         
         //set button look like text field
-        var layerLevelAsNeeded: CALayer = levelAsNeeded.layer
-        layerLevelAsNeeded.cornerRadius = 5
-        layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-        
-        
-        //set button look like text field
-        layerLevelAsNeeded = levelOfEnjoy.layer
-        layerLevelAsNeeded.cornerRadius = 5
-        layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        var layerLevelAsNeeded: CALayer
         
         //set button look like text field
         layerLevelAsNeeded = reason.layer
@@ -168,10 +144,6 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         layerLevelAsNeeded.borderWidth = 0.5
         layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
        
-        
-       
-        
-        
 
     }
     
@@ -188,13 +160,11 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
-        levelOfEnjoyText = String(userDefaults.levelOfEnjoyment)
+        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment - 1
         
-        levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
         
-        levelAsNeededText = String(userDefaults.levelAsNeeded)
-        
-        levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
+        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded - 1
+    
         
         reasonText = String(userDefaults.reason)
         
@@ -209,16 +179,7 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
     received selected row value from TableLevels and set it to apropriate field
     */
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
-        if segueName == segueNames.segueLvlOfEnjoy{
-            levelOfEnjoyText = text;
-          //  print(text)
-            levelOfEnjoy.setTitle(levelOfEnjoyText, forState: UIControlState.Normal)
-        }
-        if segueName == segueNames.segueLvlOfNeeded{
-            levelAsNeededText = text;
-           // print(text)
-            levelAsNeeded.setTitle(levelAsNeededText, forState: UIControlState.Normal)
-        }
+        
         if segueName == segueNames.segueCauseOfSmoking{
             reasonText = text;
            // print(text)
