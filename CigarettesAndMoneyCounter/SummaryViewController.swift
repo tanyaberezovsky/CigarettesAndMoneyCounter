@@ -446,9 +446,10 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         let t = ChartConverter()
         let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
-        
-        
+
+     //setDrawValueAboveBar
         chartData.groupSpace = 1
+ //       chartData.setDrawValues(true)
         barChart.data = chartData
     }
     
