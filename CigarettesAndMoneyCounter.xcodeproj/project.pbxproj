@@ -15,6 +15,12 @@
 		23679BC119D5664A003354C7 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC019D5664A003354C7 /* Levels.swift */; };
 		23679BC319D56707003354C7 /* TableLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC219D56707003354C7 /* TableLevels.swift */; };
 		2372058A1C3FF70D0051ABD8 /* ChartConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 237205891C3FF70D0051ABD8 /* ChartConverter.m */; };
+		237205931C49701F0051ABD8 /* Settings-66 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 2372058D1C49701F0051ABD8 /* Settings-66 (1).png */; };
+		237205941C49701F0051ABD8 /* Settings-44 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 2372058E1C49701F0051ABD8 /* Settings-44 (1).png */; };
+		237205951C49701F0051ABD8 /* Bar Chart-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 2372058F1C49701F0051ABD8 /* Bar Chart-44.png */; };
+		237205961C49701F0051ABD8 /* Bar Chart-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 237205901C49701F0051ABD8 /* Bar Chart-66.png */; };
+		237205971C49701F0051ABD8 /* Calculator-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 237205911C49701F0051ABD8 /* Calculator-66.png */; };
+		237205981C49701F0051ABD8 /* Calculator-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 237205921C49701F0051ABD8 /* Calculator-44.png */; };
 		23802C9919CC150900387768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9819CC150900387768 /* AppDelegate.swift */; };
 		23802C9B19CC150900387768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9A19CC150900387768 /* ViewController.swift */; };
 		23802C9E19CC150900387768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9C19CC150900387768 /* Main.storyboard */; };
@@ -100,6 +106,12 @@
 		237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CigarettesAndMoneyCounter-Bridging-Header.h"; sourceTree = "<group>"; };
 		237205881C3FF6E30051ABD8 /* ChartConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartConverter.h; sourceTree = "<group>"; };
 		237205891C3FF70D0051ABD8 /* ChartConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConverter.m; sourceTree = "<group>"; };
+		2372058D1C49701F0051ABD8 /* Settings-66 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-66 (1).png"; sourceTree = "<group>"; };
+		2372058E1C49701F0051ABD8 /* Settings-44 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-44 (1).png"; sourceTree = "<group>"; };
+		2372058F1C49701F0051ABD8 /* Bar Chart-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bar Chart-44.png"; sourceTree = "<group>"; };
+		237205901C49701F0051ABD8 /* Bar Chart-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bar Chart-66.png"; sourceTree = "<group>"; };
+		237205911C49701F0051ABD8 /* Calculator-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calculator-66.png"; sourceTree = "<group>"; };
+		237205921C49701F0051ABD8 /* Calculator-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calculator-44.png"; sourceTree = "<group>"; };
 		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +186,19 @@
 			name = ObjectiveCLib;
 			sourceTree = "<group>";
 		};
+		237205991C4970420051ABD8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2372058D1C49701F0051ABD8 /* Settings-66 (1).png */,
+				2372058E1C49701F0051ABD8 /* Settings-44 (1).png */,
+				2372058F1C49701F0051ABD8 /* Bar Chart-44.png */,
+				237205901C49701F0051ABD8 /* Bar Chart-66.png */,
+				237205911C49701F0051ABD8 /* Calculator-66.png */,
+				237205921C49701F0051ABD8 /* Calculator-44.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		23802C8A19CC150900387768 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +220,7 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				237205991C4970420051ABD8 /* Images */,
 				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
 				235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */,
 				23B47C611BA593A500FB881F /* Segues */,
@@ -408,7 +434,13 @@
 			files = (
 				23802C9E19CC150900387768 /* Main.storyboard in Resources */,
 				23802CA319CC150900387768 /* LaunchScreen.xib in Resources */,
+				237205941C49701F0051ABD8 /* Settings-44 (1).png in Resources */,
+				237205981C49701F0051ABD8 /* Calculator-44.png in Resources */,
+				237205951C49701F0051ABD8 /* Bar Chart-44.png in Resources */,
+				237205961C49701F0051ABD8 /* Bar Chart-66.png in Resources */,
+				237205931C49701F0051ABD8 /* Settings-66 (1).png in Resources */,
 				23802CA019CC150900387768 /* Images.xcassets in Resources */,
+				237205971C49701F0051ABD8 /* Calculator-66.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
