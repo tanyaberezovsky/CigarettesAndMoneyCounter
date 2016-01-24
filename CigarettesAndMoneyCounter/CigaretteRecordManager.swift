@@ -38,7 +38,7 @@ class CigaretteRecordManager {
         
         let nowDate = NSDate()
         task.addDate = nowDate
-        task.reason = ""
+        task.reason = userDefaults.reason
         
         do {
             try MyManagedObjectContext?.save()
