@@ -44,6 +44,25 @@ public class ColorTemplates{
             UIColor(red: 255/255.0, green: 140/255.0, blue: 157/255.0, alpha: 1.0)
         ]
     }
+    
+    public func purpleGray() -> [CGColor]
+    {
+        return [
+            
+            UIColor(red: 68/255, green: 69/255, blue: 121/255, alpha: 1).CGColor,
+            UIColor(red: 138/255, green: 102/255, blue: 163/255, alpha: 1).CGColor,
+            UIColor(red: 151/255, green: 110/255, blue: 168/255, alpha: 1).CGColor,
+            UIColor(red: 42/255, green: 46/255, blue: 79/255, alpha: 1).CGColor
+            
+            
+        ]
+        /*
+        444579
+        8A66A3
+        976EA8
+        2A2E4F
+        */
+    }
 
     public class func Enjoyment () -> [UIColor]
     {
