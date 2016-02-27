@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
+		234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */; };
+		234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D91C82208C00185D9C /* CircularLoaderView.swift */; };
 		235A0DFD1C2D499A00F12DAD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235A0DF81C29F2D600F12DAD /* Charts.framework */; };
 		235A0DFE1C2D499A00F12DAD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 235A0DF81C29F2D600F12DAD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */; };
@@ -98,6 +100,8 @@
 
 /* Begin PBXFileReference section */
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
+		234E42D91C82208C00185D9C /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColorTemplates.swift; sourceTree = "<group>"; };
 		235E256D1A56AD840050EBAA /* RowManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowManagerViewController.swift; path = ../RowManagerViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,14 @@
 			name = Extantion;
 			sourceTree = "<group>";
 		};
+		234E42D61C82206500185D9C /* CircularLoader */ = {
+			isa = PBXGroup;
+			children = (
+				234E42D91C82208C00185D9C /* CircularLoaderView.swift */,
+			);
+			name = CircularLoader;
+			sourceTree = "<group>";
+		};
 		235A0DF21C29F2D600F12DAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				234E42D61C82206500185D9C /* CircularLoader */,
 				237205991C4970420051ABD8 /* Images */,
 				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
 				235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */,
@@ -233,6 +246,7 @@
 				23802CB819CDBD0600387768 /* Model */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
 				23802C9A19CC150900387768 /* ViewController.swift */,
+				234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */,
 				23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */,
 				23A85D0C1B11657B000740F6 /* Common.swift */,
 				23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */,
@@ -479,6 +493,8 @@
 				23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */,
 				239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */,
 				23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */,
+				234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */,
+				234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */,
 				235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 			);
