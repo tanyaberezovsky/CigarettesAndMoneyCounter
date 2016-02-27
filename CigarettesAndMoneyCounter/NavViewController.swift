@@ -15,8 +15,37 @@ class NavViewController: UINavigationController {
     //gradient bar
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientBar()
+       // gradientBar()
+       perpleBar()
     }
+    
+    func opacityBar() {
+
+       // UINavigationBar.appearance().barTintColor = colorNavigationBarBlack
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().translucent = true
+        //UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
+        //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.9)
+
+        // Status bar white font
+        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.tintColor = UIColor.lightGrayColor()
+    }
+    //colorNavigationBarDarkPurpleGray
+    //black bar
+    func perpleBar() {
+        
+        UINavigationBar.appearance().barTintColor = colorNavigationBarDarkPurpleGray
+        UINavigationBar.appearance().translucent = false
+        UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        // Status bar white font
+        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.tintColor = UIColor.lightGrayColor()
+    }
+
     //black bar
     func blackBar() {
         
