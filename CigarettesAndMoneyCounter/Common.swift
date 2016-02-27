@@ -39,18 +39,27 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
         toDate: laterDate, options: [])
     
     var arrStrDate = [String]()
-    var retStr:String = ""
+    var retStr:String = "LAST CIGARETTE "
     
-    if components.year>0 {arrStrDate.append(" \(components.year) Years"); bLastCigWasToday=false;}
-    if components.month>0 {arrStrDate.append(" \(components.month) Months"); bLastCigWasToday=false;}
-    if components.day>0 {arrStrDate.append(" \(components.day) Days"); bLastCigWasToday=false;}
-    if components.hour>0 {arrStrDate.append(" \(components.hour) Hours")}
-    if components.minute>0 {arrStrDate.append(" \(components.minute) Minutes")}
+    if components.year>0 {
+        arrStrDate.append(" \(components.year) Years"); bLastCigWasToday=false;
+        if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;}
+    }
+    else if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;
+        if components.day>0 {arrStrDate.append(" \(components.day) DAYS"); bLastCigWasToday=false;}
+    }
+    else if components.day>0 {arrStrDate.append(" \(components.day) DAYS"); bLastCigWasToday=false;
+        if components.hour>0 {arrStrDate.append(" \(components.hour) HOURS")}
+    }
+    else{
+        if components.hour>0 {arrStrDate.append(" \(components.hour) HOURS")}
+        if components.minute>0 {arrStrDate.append(" \(components.minute) MINUTES")}
+    }
     
     if arrStrDate.count == 0
-    {retStr = "Just smoked a cigarette"}
+    {retStr = "JUST SMOKED A CIGARETTE"}
     else
-    {retStr +=  arrStrDate.joinWithSeparator("") + " Free of Smoking"}
+    {retStr +=  arrStrDate.joinWithSeparator("") + " AGO"}
     
     return (retStr, bLastCigWasToday)
 }
