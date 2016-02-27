@@ -10,11 +10,12 @@ import UIKit
 import CoreData
 
 
-class LightMainSceneViewController: UIViewController {
+class LightMainSceneViewController: GlobalUIViewController {
 
     @IBOutlet weak var txtLastCig: UILabel!
     
     
+    @IBOutlet weak var addSmoke: UIButton!
     
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
@@ -63,10 +64,16 @@ class LightMainSceneViewController: UIViewController {
             txtLastCig.text = "How long has it been since last cigarette"//"Free of smoking time"
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
-
+        roundButtonConers()
+        
     }
 
-    
+    func roundButtonConers(){
+       // addSmoke.backgroundColor = UIColor.clearColor()
+        addSmoke.layer.cornerRadius = addSmoke.layer.bounds.height / 2
+        addSmoke.layer.borderWidth = 1
+        addSmoke.layer.borderColor = addSmoke.backgroundColor?.CGColor
+    }
     
         override func viewWillAppear(animated: Bool) {
             if self.childViewControllers.count > 0 {
