@@ -12,8 +12,26 @@ import CoreData
 class CigaretteRecordManager {
     
     let MyManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+  /*  func saveCigaretteRecordEntityFromDefaultsValues() {
+        let defaults = UserDefaultsDataController()
+        var userDefaults = UserDefaults()
+        userDefaults = defaults.loadUserDefaults()
+        
+        saveCigaretteRecordEntity(userDefaults.levelOfEnjoyment, levelAsNeeded: userDefaults.levelAsNeeded, reason: userDefaults.reason, userDefaults: userDefaults)
+    }*/
+    
+    func saveCigaretteRecordEntity(levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String) {
+        let defaults = UserDefaultsDataController()
+        var userDefaults = UserDefaults()
+        userDefaults = defaults.loadUserDefaults()
+        
+      /*  saveCigaretteRecordEntity(levelOfEnjoyment, levelAsNeeded: levelAsNeeded, reason: reason, userDefaults: userDefaults)
 
-    func saveCigaretteRecordEntityFromDefaultsValues() {
+    }
+    
+    func saveCigaretteRecordEntity(levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String, userDefaults:UserDefaults) {
+    */
         
        let addedCigs = 1
         
@@ -21,24 +39,21 @@ class CigaretteRecordManager {
         
         let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
         
-        let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
         
         //2015-12-16 into cigarettes save the cost of ciggarets
         task.cigarettes = addedCigs
         
         task.cost = userDefaults.averageCostOfOneCigarett
 
-        task.levelOfEnjoy = userDefaults.levelOfEnjoyment
-        task.levelAsNeeded  = userDefaults.levelAsNeeded
+        task.levelOfEnjoy = levelOfEnjoyment
+        task.levelAsNeeded  = levelAsNeeded
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
         
         let nowDate = NSDate()
         task.addDate = nowDate
-        task.reason = userDefaults.reason
+        task.reason = reason
         
         do {
             try MyManagedObjectContext?.save()
