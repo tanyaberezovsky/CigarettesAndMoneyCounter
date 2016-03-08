@@ -21,6 +21,16 @@ let colorSegmentTint = RGB(239, 239, 244, alpha: 1)
 
 let colorSegmentBackground = RGB(0 , 184, 156, alpha: 1)
 
+struct UIColors{
+    struct  CircleLoaderColors {
+        static  let yellow = RGB(234 , 240, 142, alpha: 1)
+        static  let red = RGB(234 , 97, 157, alpha: 1)
+        static  let red1 = RGB(246 , 0, 62, alpha: 1)
+
+    }
+
+}
+
 struct Constants{
 
     struct SegmentDateType

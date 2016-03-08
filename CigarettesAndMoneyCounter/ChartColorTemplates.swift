@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public class ColorTemplates{
+ 
+
     
     public func chartPieColors() -> [UIColor]
     {
