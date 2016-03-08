@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefaultsControllerDelegate {
+class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, UserDefaultsControllerDelegate {
 
     let MyManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -84,10 +84,10 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         task.cigarettes = Int(self.txtCigarette.text!)!
         todaySmoked = todaySmoked + Int(self.txtCigarette.text!)!
         
-        task.levelOfEnjoy = self.levelOfEnjoy.selectedSegmentIndex + 1
+        task.levelOfEnjoy = self.levelOfEnjoy.selectedSegmentIndex
         
         
-        task.levelAsNeeded = levelAsNeeded.selectedSegmentIndex + 1
+        task.levelAsNeeded = levelAsNeeded.selectedSegmentIndex
         
         
         let dateFormatter = NSDateFormatter()
@@ -206,10 +206,10 @@ class ViewController: UIViewController, TableLevelsControllerDelegate, UserDefau
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
-        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment - 1
+        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
         
         
-        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded - 1
+        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded
         
         
         reasonText = String(userDefaults.reason)

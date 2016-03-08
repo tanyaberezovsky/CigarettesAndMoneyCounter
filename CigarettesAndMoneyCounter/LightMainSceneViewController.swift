@@ -10,10 +10,11 @@ import UIKit
 import CoreData
 
 
-class LightMainSceneViewController: GlobalUIViewController {
+class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate {
 
     @IBOutlet weak var txtLastCig: UILabel!
     
+    @IBOutlet weak var circularLoader: CircularLoaderView!
     
     @IBOutlet weak var addSmoke: UIButton!
     
@@ -25,20 +26,33 @@ class LightMainSceneViewController: GlobalUIViewController {
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-        //LoadDefaultValues()
+        LoadDefaultValues()
+ //self.viewWillAppear(false)
     }
     
     @IBAction func addCigarettes(sender: AnyObject) {
-        
+        /*
         let cigRecord = CigaretteRecordManager()
         cigRecord.saveCigaretteRecordEntityFromDefaultsValues()
         
-        // loadInitiatedValues()
         LoadDefaultValues()
+        circularLoader.setNeedsDisplay()
+*/
     }
     
-    override func  viewDidAppear(animated: Bool) {
+    
+    
+    /*
+    delegated function from dataReloadAfterSave
+    called while pressinf save button in defautls settings screen    */
+    func dataReloadAfterSave(){
         LoadDefaultValues()
+        circularLoader.setNeedsDisplay()
+    }
+
+    
+    override func  viewDidAppear(animated: Bool) {
+        roundButtonConers()
     }
     
     
@@ -65,9 +79,31 @@ class LightMainSceneViewController: GlobalUIViewController {
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
         roundButtonConers()
-        
+        loadCircularLoader(userDefaults.todaySmoked,   dailyLimit: userDefaults.dailyGoal)
     }
 
+    func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
+    {
+        let circileAngle: Double = Double(todaySmoked) / Double(dailyLimit) * 100;
+        
+        circularLoader.toValue = CGFloat( circileAngle);
+        
+        if (circileAngle <= 50)
+        {
+            circularLoader.fillColor = UIColor.whiteColor()
+        }
+        else   if (circileAngle > 100)
+        {
+            circularLoader.fillColor = UIColors.CircleLoaderColors.red
+        }
+        else
+        {
+            circularLoader.fillColor = UIColors.CircleLoaderColors.yellow
+        }
+    
+    }
+    
+    
     func roundButtonConers(){
        // addSmoke.backgroundColor = UIColor.clearColor()
         addSmoke.layer.cornerRadius = addSmoke.layer.bounds.height / 2
@@ -85,6 +121,7 @@ class LightMainSceneViewController: GlobalUIViewController {
                 navCtr.pushViewController(secondVC as! UIViewController, animated: false)
             }
         }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,6 +129,73 @@ class LightMainSceneViewController: GlobalUIViewController {
     
     func showSecondViewController() {
         self.performSegueWithIdentifier("idFirstSegue", sender: self)
+    }
+    
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showMenu" {
+            let popOverVC = segue.destinationViewController
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popOverVC.popoverPresentationController!.delegate = self
+        }
+        
+        
+        
+        if segue.identifier == "showPopForm"{
+            
+            let popOverVC = segue.destinationViewController as! popOverViewController
+            popOverVC.myDelegate = self
+            
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            
+            popOverVC.view.opaque = false;
+            popOverVC.view.alpha = 0.9;
+            
+        
+            
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            
+            if let pop = popOverVC.popoverPresentationController {
+                
+                var passthroughViews: [UIView]?
+                passthroughViews = [self.view]
+                
+
+                pop.permittedArrowDirections = .Any
+                //    pop.sourceView = myButton
+                pop.passthroughViews = passthroughViews
+                
+                pop.delegate = self
+                
+                
+                
+                pop.sourceRect = CGRect(
+                    x: 0,
+                    y: 0 + addSmoke.layer.bounds.height + 15,
+                    width: popOverVC.view.frame.width,
+                    height: popOverVC.view.frame.height)
+                /*
+                pop.sourceRect = CGRect(
+                    x: 0,
+                    y: self.view.frame.height / 4,
+                    width: popOverVC.view.frame.width,
+                    height: popOverVC.view.frame.height)
+                
+*/
+            }
+            
+            /*    self.presentViewController(
+            popOverVC,
+            animated: true,
+            completion: nil)
+            */
+            
+        }
+    }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
     }
     /*
     // MARK: - Navigation

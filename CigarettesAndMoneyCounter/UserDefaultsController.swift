@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
+class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate {
     @IBOutlet weak var reason: UIButton!
     
     @IBOutlet var averageCost: UITextField!
@@ -87,9 +87,9 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
             userDefaults.dailyGoal = Int(dailyGoal.text!)!}
         
 
-            userDefaults.levelOfEnjoyment = levelOfEnjoy.selectedSegmentIndex + 1
+            userDefaults.levelOfEnjoyment = levelOfEnjoy.selectedSegmentIndex
         
-            userDefaults.levelAsNeeded = levelAsNeeded.selectedSegmentIndex + 1
+            userDefaults.levelAsNeeded = levelAsNeeded.selectedSegmentIndex
         
         if (reasonText != nil)
         {
@@ -160,10 +160,10 @@ class UserDefaultsController: UIViewController,TableLevelsControllerDelegate {
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
-        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment - 1
+        levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
         
         
-        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded - 1
+        levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded 
     
         
         reasonText = String(userDefaults.reason)
