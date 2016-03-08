@@ -35,6 +35,8 @@
 		239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97301B52DCA80036332C /* CalculatorViewController.swift */; };
 		239C97331B52E7BD0036332C /* CalculatorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97321B52E7BD0036332C /* CalculatorModal.swift */; };
 		23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */; };
+		23A648701C8752CC00C67F58 /* popOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6486F1C8752CC00C67F58 /* popOverViewController.swift */; };
+		23A648741C8AFC6300C67F58 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A648731C8AFC6300C67F58 /* MenuViewController.swift */; };
 		23A85D0D1B11657B000740F6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A85D0C1B11657B000740F6 /* Common.swift */; };
 		23B46BE719E6DE5600CA8984 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */; };
 		23B47C5C1BA5911500FB881F /* LightMainSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */; };
@@ -132,6 +134,8 @@
 		239C97301B52DCA80036332C /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		239C97321B52E7BD0036332C /* CalculatorModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModal.swift; sourceTree = "<group>"; };
 		23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEvent.swift; sourceTree = "<group>"; };
+		23A6486F1C8752CC00C67F58 /* popOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popOverViewController.swift; sourceTree = "<group>"; };
+		23A648731C8AFC6300C67F58 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		23A85D0C1B11657B000740F6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightMainSceneViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				23A648751C8B1D8C00C67F58 /* Controller */,
 				234E42D61C82206500185D9C /* CircularLoader */,
 				237205991C4970420051ABD8 /* Images */,
 				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
@@ -245,14 +250,8 @@
 				233A38A11A34E26A00661CDD /* Extantion */,
 				23802CB819CDBD0600387768 /* Model */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
-				23802C9A19CC150900387768 /* ViewController.swift */,
-				234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */,
-				23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */,
 				23A85D0C1B11657B000740F6 /* Common.swift */,
-				23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */,
-				23679BC219D56707003354C7 /* TableLevels.swift */,
 				23802C9C19CC150900387768 /* Main.storyboard */,
-				23E0285E1B4857E9009FA6D6 /* NavViewController.swift */,
 				23802C9F19CC150900387768 /* Images.xcassets */,
 				23802CA119CC150900387768 /* LaunchScreen.xib */,
 				23802C9619CC150900387768 /* Supporting Files */,
@@ -302,6 +301,21 @@
 				23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */,
 			);
 			name = Calculator;
+			sourceTree = "<group>";
+		};
+		23A648751C8B1D8C00C67F58 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */,
+				23679BC219D56707003354C7 /* TableLevels.swift */,
+				23E0285E1B4857E9009FA6D6 /* NavViewController.swift */,
+				23A6486F1C8752CC00C67F58 /* popOverViewController.swift */,
+				23A648731C8AFC6300C67F58 /* MenuViewController.swift */,
+				23802C9A19CC150900387768 /* ViewController.swift */,
+				234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */,
+				23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		23B47C611BA593A500FB881F /* Segues */ = {
@@ -494,8 +508,10 @@
 				239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */,
 				23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */,
 				234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */,
+				23A648741C8AFC6300C67F58 /* MenuViewController.swift in Sources */,
 				234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */,
 				235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */,
+				23A648701C8752CC00C67F58 /* popOverViewController.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
