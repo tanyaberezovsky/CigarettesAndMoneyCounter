@@ -9,7 +9,7 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: GlobalUIViewController {
 
     @IBOutlet weak var ciggarets: UITextField!
     @IBOutlet weak var packCost: UITextField!
@@ -21,14 +21,12 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var smokingTime: UILabel!
     var segment = 0
-    var calc = Calculator();
+    var calc=Calculator()
     var tempValue:String!
     
-   //ciggaretsEditingDidEnd
-    @IBAction func cigarettesEditingBegin(sender: UITextField) {
-        tempValue = ciggarets.text
-        ciggarets.text = ""
-    }
+//    calc = Calculator()
+
+   
     
     @IBAction func cigarettsEditingEnd(sender: UITextField) {
         if (ciggarets.text == "")
