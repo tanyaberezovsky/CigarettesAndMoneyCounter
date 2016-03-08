@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class CircularLoaderView: UIView {
     let circlePathLayer = CAShapeLayer()
     let circlePathUpperLayer = CAShapeLayer()
@@ -18,7 +18,9 @@ class CircularLoaderView: UIView {
     @IBInspectable var borderColor:UIColor = UIColor.blackColor()
     
     @IBInspectable var circleRadius:CGFloat = 90.0
-    
+
+    @IBInspectable var toValue:CGFloat = 50.0
+
     
     var progress: CGFloat {
         get {
@@ -41,6 +43,8 @@ class CircularLoaderView: UIView {
         configure(circlePathLayer, layerColor: borderColor.CGColor)
         
         configure(circlePathUpperLayer, layerColor: fillColor.CGColor)
+        
+        self.backgroundColor = UIColor.clearColor()
     }
     
     func configure(circleLayer: CAShapeLayer, layerColor: CGColor) {
@@ -62,8 +66,8 @@ class CircularLoaderView: UIView {
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = CGFloat(0.0)
-        animation.toValue = CGFloat(0.75)
-        animation.duration = 1.0
+        animation.toValue = CGFloat(toValue / 100)
+        animation.duration = 0.5
         animation.delegate = self
         animation.removedOnCompletion = false
         animation.additive = true
