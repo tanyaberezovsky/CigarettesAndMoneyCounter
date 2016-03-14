@@ -61,7 +61,7 @@ class popOverViewController: UIViewController
         
         cancel.layer.cornerRadius = cancel.layer.bounds.height / 2
         cancel.layer.borderWidth = 1
-        cancel.layer.borderColor = cancel.backgroundColor?.CGColor
+        cancel.layer.borderColor = UIColor.whiteColor().CGColor //cancel.backgroundColor?.CGColor
         
     }
     
