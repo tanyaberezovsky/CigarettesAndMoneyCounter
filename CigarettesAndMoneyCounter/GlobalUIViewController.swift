@@ -13,10 +13,11 @@ class GlobalUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientBackgroundRegular()
+        
     }
     
-    
     func gradientBackgroundRegular() {
+        self.view.backgroundColor = UIColor.clearColor()
         let gradient : CAGradientLayer = CAGradientLayer()
         gradient.frame = view.bounds
         

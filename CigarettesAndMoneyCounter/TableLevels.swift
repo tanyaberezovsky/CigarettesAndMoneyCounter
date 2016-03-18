@@ -78,11 +78,23 @@ class TableLavels: UITableViewController{
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let levelSelected = dataList.textValue(indexPath.row)  //+ " " + dataList.detailText(indexPath.row)//levels[indexPath.row].nameNum
         
-      //  println("You selected level is #\(levelSelected)!")
-//var details =        dataList.detailText(indexPath.row)
         
         if(myDelegate != nil){
+
             myDelegate!.myColumnDidSelected(self, text: levelSelected,segueName: segueSourceName!)
+        
+        }
+        else{
+            
+            if presentingViewController is popOverViewController
+            {
+                let vc = self.presentingViewController
+                     as? popOverViewController
+                vc!.causeOfSmoking.setTitle(levelSelected, forState: UIControlState.Normal)
+                
+            }
+            self.dismissViewControllerAnimated(false, completion: nil)
+
         }
         
     }

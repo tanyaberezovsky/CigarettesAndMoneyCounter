@@ -8,7 +8,7 @@
 
 import UIKit
 
-class popOverViewController: UIViewController
+class popOverViewController: UIViewController, TableLevelsControllerDelegate
 {
 
     var myDelegate:popOverControllerDelegate? = nil
@@ -104,6 +104,100 @@ class popOverViewController: UIViewController
         
         self.dismissViewControllerAnimated(false, completion: nil)
     }
+    
+
+  /*  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == segueNames.segueCauseOfSmoking {
+            
+            let toViewController = segue.destinationViewController as! TableLavels
+            toViewController.segueSourceName = segue.identifier
+            
+            navigateToRoot(self, toViewController: toViewController)
+        }
+    }*/
+    
+    func navigateToRoot(viewController: UIViewController, toViewController: TableLavels)
+    {
+        var nc = viewController.navigationController
+        
+        // If this is a normal view with NavigationController, then we just pop to root.
+        if nc != nil
+        {
+            nc?.popToRootViewControllerAnimated(true)
+        }
+        
+        // Most likely we are in Modal view, so we will need to search for a view with NavigationController.
+        let vc = viewController.presentingViewController
+        
+        if nc == nil
+        {
+            nc = viewController.presentingViewController?.navigationController
+        }
+        
+        if nc == nil
+        {
+            nc = viewController.parentViewController?.navigationController
+        }
+        
+        if vc is UINavigationController
+        {
+            nc = vc as? UINavigationController
+        }
+        
+        if nc != nil
+        {
+            viewController.dismissViewControllerAnimated(false, completion:nil)
+            //nc!.pushViewController(destinationViewController , animated: false)
+            let fromViewController: LightMainSceneViewController = (nc?.viewControllers[0]) as! LightMainSceneViewController//.parentViewController!
+            
+            toViewController.myDelegate = fromViewController
+            
+            let fromView = fromViewController.view as UIView!
+            let toView: UIView = toViewController.view as UIView!
+            if let containerView = fromView.superview {
+                let initialFrame = fromView.frame
+                var offscreenRect = initialFrame
+                offscreenRect.origin.y += CGRectGetHeight(initialFrame)
+                toView.frame = offscreenRect
+                containerView.addSubview(toView)
+                
+                
+                // Being explicit with the types NSTimeInterval and CGFloat are important
+                // otherwise the swift compiler will complain
+                let duration: NSTimeInterval = 0.4
+                
+                UIView.animateWithDuration(duration, animations: {
+                    toView.frame = initialFrame
+                    }, completion: { finished in
+                            nc!.viewControllers.append(toViewController)
+                  
+                        nc!.popToViewController(toViewController, animated: false)
+                        
+                        
+                })
+            }
+        }
+        
+    }
+    
+    /*
+    delegated function from TableLavels.swift
+    received selected row value from TableLevels and set it to apropriate field
+    */
+    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+        
+        if segueName == segueNames.segueCauseOfSmoking{
+            reasonText = text;
+            // print(text)
+           // reason.setTitle(reasonText, forState: UIControlState.Normal)
+        }
+        
+        controller.navigationController?.popViewControllerAnimated(true)
+        // println(segueName)
+   //     self.presentingViewController(self, animated: true, completion: nil)
+ //       self.presentingViewController(self,) // (true, completion: nil)
+    }
+    
 }
 
 protocol popOverControllerDelegate{

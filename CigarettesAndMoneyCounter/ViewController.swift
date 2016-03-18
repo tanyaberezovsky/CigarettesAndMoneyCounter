@@ -56,6 +56,38 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     
     override func viewWillAppear(animated: Bool) {
       //  self.navigationController?.setNavigationBarHidden(false, animated: false)
+        roundButtonConers()
+    }
+    
+    func roundSegmentConers()
+    {
+        
+        //set button look like text field
+        var layerLevelAsNeeded: CALayer
+        
+        layerLevelAsNeeded = levelOfEnjoy.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+        layerLevelAsNeeded = levelAsNeeded.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+        
+        layerLevelAsNeeded = causeOfSmoking.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+    }
+    
+    
+    func roundButtonConers(){
+        btnAdd.layer.cornerRadius = btnAdd.layer.bounds.height / 2
+        btnAdd.layer.borderWidth = 1
+        btnAdd.layer.borderColor = btnAdd.backgroundColor?.CGColor
     }
     
     func closeAllKeyboards()
@@ -183,14 +215,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         //set selected date to text field
         datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
-        //set button look like text field
-        var layerLevelAsNeeded: CALayer
-        
-        layerLevelAsNeeded = causeOfSmoking.layer
-        layerLevelAsNeeded.cornerRadius = 5
-        layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-      
+      roundSegmentConers()
         
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate {
+class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, TableLevelsControllerDelegate {
 
     @IBOutlet weak var txtLastCig: UILabel!
     
@@ -22,11 +22,13 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         LoadDefaultValues()
+   
+
  //self.viewWillAppear(false)
     }
     
@@ -75,7 +77,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
  
         }
         else{
-            txtLastCig.text = "How long has it been since last cigarette"//"Free of smoking time"
+            txtLastCig.text = "How long has it been since last cigarette"//"Do not smoke at all"  "Free of smoking time"
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
         roundButtonConers()
@@ -153,7 +155,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             popOverVC.view.opaque = false;
             popOverVC.view.alpha = 0.9;
             
-        
+
             
             popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             
@@ -168,7 +170,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 pop.passthroughViews = passthroughViews
                 
                 pop.delegate = self
-                
                 
                 
                 pop.sourceRect = CGRect(
@@ -231,4 +232,25 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
     }
     */
+    
+    /*
+    delegated function from TableLavels.swift
+    received selected row value from TableLevels and set it to apropriate field
+    */
+    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+        
+        if segueName == segueNames.segueCauseOfSmoking{
+           // reasonText = text;
+            // print(text)
+            // reason.setTitle(reasonText, forState: UIControlState.Normal)
+        }
+        self.performSegueWithIdentifier("showPopForm", sender: self)
+        
+        controller.navigationController?.popViewControllerAnimated(true)
+        
+        // println(segueName)
+        //     self.presentingViewController(self, animated: true, completion: nil)
+        //       self.presentingViewController(self,) // (true, completion: nil)
+    }
+
 }
