@@ -157,7 +157,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         userDefaults = defaults.loadUserDefaults()
         
-        averageCost.text = decimalFormatToString(userDefaults.averageCostOfOnePack)//String(format:"%.1f", userDefaults.averageCostOfOnePack)
+        averageCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)
         
         dailyGoal.text = String(userDefaults.dailyGoal)
         
