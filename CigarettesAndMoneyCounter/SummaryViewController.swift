@@ -222,7 +222,7 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         let smokeAndCost = cigRecord.calculateAmountAndCost(curentDate, toDate: toDate)
         
         smoked.text  = String(smokeAndCost.smoked)
-        cost.text = decimalFormatToString(smokeAndCost.cost)
+        cost.text = decimalFormatToCurency(smokeAndCost.cost)
  
     }
     
