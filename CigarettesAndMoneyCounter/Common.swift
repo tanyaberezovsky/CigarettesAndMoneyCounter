@@ -87,6 +87,17 @@ func decimalIsInteger(num: Double) -> Bool{
     }
 }
 
+func decimalFormatToCurency(num: Double) -> String{
+    let unitedStatesLocale = NSLocale(localeIdentifier: "en_US")
+
+    let numberFormatter = NSNumberFormatter()
+    numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+    
+    numberFormatter.locale = unitedStatesLocale
+    return    numberFormatter.stringFromNumber(num)!
+
+
+}
 
 public func segmentToDays(segment: Int) -> Double
 {
