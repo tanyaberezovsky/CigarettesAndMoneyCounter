@@ -35,6 +35,11 @@ class CalculatorViewController: GlobalUIViewController {
         }
     }
     
+    @IBAction func cigarettsEditingBegin(sender: AnyObject) {
+        tempValue = ciggarets.text
+        ciggarets.text = ""
+    }
+    
     @IBAction func cigsPerPackEditingBegin(sender: AnyObject) {
         tempValue = cigsPerPack.text
         cigsPerPack.text = ""
@@ -120,7 +125,7 @@ class CalculatorViewController: GlobalUIViewController {
         
         let cost: Double = calc.calculateCost() //a(1) //calculateCost()
         
-        totalCost.text = decimalFormatToString(cost)//String(format: "%.1f", cost)
+        totalCost.text = decimalFormatToCurency(cost)
 //
          smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
@@ -161,7 +166,7 @@ class CalculatorViewController: GlobalUIViewController {
         
        ciggarets.text = String(userDefaults.dailyGoal)
         
-       packCost.text = decimalFormatToString(userDefaults.averageCostOfOnePack)
+       packCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)
        
        cigsPerPack.text = String(userDefaults.amountOfCigarettsInOnePack)
     }
