@@ -21,8 +21,14 @@ class layoutSubviewsButton: UIButton {
         if var imageFrame = imageFrame
         {
                 imageFrame.origin.x = self.frame.origin.x + self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
-                
-                self.imageView?.frame = imageFrame
+            
+            imageFrame.origin.x =  self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
+            imageFrame.origin.y  = (self.titleLabel?.frame.origin.y)!
+            
+            self.imageView?.frame = CGRectMake(imageFrame.origin.x  , imageFrame.origin.y, 35, 35)
+            
+
+            //self.imageView?.frame = imageFrame
                 
             
         }

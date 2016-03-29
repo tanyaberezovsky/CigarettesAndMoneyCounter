@@ -90,7 +90,7 @@ class UserDefaultsDataController{
         userDefaults = defaults.loadUserDefaults()
         
         if let lastCig = userDefaults.dateLastCig{
-            if newDate > lastCig && newDate <= currentDateTime {
+            if newDate >= lastCig && newDate <= currentDateTime {
                 ret = true
             }
         }
