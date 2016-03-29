@@ -205,11 +205,13 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     {
         setNowDate()
         
-        txtCigarette.text = "1";
+        txtCigarette.text = "1"
+        ciggaretsSlider.value = 1
     }
     
     func loadScreenGraphics()
     {
+        
         datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
