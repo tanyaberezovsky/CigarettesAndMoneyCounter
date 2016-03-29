@@ -60,18 +60,14 @@ class CigaretteRecordManager {
         } catch _ {
         }
         
-        var todaySmoked = 0
+        var todaySmoked = 1
+    
         
         if let lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
             if calcRet.bLastCigWasToday == true{
                 todaySmoked = userDefaults.todaySmoked + 1
             }
-            else
-            {
-                todaySmoked = 1
-            }
-            
         }
         
        
