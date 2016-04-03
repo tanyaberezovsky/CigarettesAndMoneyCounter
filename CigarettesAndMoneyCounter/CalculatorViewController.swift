@@ -19,6 +19,7 @@ class CalculatorViewController: GlobalUIViewController {
     
     @IBOutlet weak var cigsPerPack: UITextField!
 
+    @IBOutlet weak var segmentPeriod: UISegmentedControl!
     @IBOutlet weak var smokingTime: UILabel!
     var segment = 0
     var calc=Calculator()
@@ -98,22 +99,36 @@ class CalculatorViewController: GlobalUIViewController {
        
     }
     
+    func roundSegmentConers()
+    {
+        
+        //set button look like text field
+        var layerLevelAsNeeded: CALayer
+        
+        layerLevelAsNeeded = segmentPeriod.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+       // layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        
+        
+    }
+
     func setDescription()
     {
         var desc: String
         switch segment{
         case 0:
-            desc = "per day"
+            desc = "PER DAY"
         case 1:
-            desc = "per week"
+            desc = "PER WEEK"
         case 2:
-            desc = "per month"
+            desc = "PER MONTH"
         case 3:
-            desc = "per year"
+            desc = "PER YEAR"
         default:
             desc=""
         }
-        cigsDesc.text = "Cigaretts " + desc
+        cigsDesc.text = "CIGS " + desc
     }
     
     
