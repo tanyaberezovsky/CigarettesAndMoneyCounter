@@ -28,6 +28,10 @@ struct UIColors{
         static  let red1 = RGB(246 , 0, 62, alpha: 1)
 
     }
+    
+    struct Segment {
+        static  let selected = RGB(66 , 62, 76, alpha: 1)
+    }
 
 }
 
