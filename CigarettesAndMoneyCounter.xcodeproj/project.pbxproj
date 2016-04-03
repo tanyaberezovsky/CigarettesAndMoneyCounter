@@ -25,6 +25,7 @@
 		23802CA319CC150900387768 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23802CA119CC150900387768 /* LaunchScreen.xib */; };
 		23802CAF19CC150900387768 /* CigarettesAndMoneyCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */; };
 		23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */; };
+		238798731CAE9D6100131663 /* layoutSubviewsButtonArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */; };
 		239232711A45D6F9000714AA /* CigaretteRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */; };
 		239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239232721A45D7EA000714AA /* CigaretteRecord.swift */; };
 		239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97301B52DCA80036332C /* CalculatorViewController.swift */; };
@@ -121,6 +122,7 @@
 		23802CAD19CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigarettesAndMoneyCounterTests.swift; sourceTree = "<group>"; };
 		23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataController.swift; sourceTree = "<group>"; };
+		238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButtonArrow.swift; sourceTree = "<group>"; };
 		239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CigaretteRecord.xcdatamodel; sourceTree = "<group>"; };
 		239232721A45D7EA000714AA /* CigaretteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecord.swift; sourceTree = "<group>"; };
 		239C97301B52DCA80036332C /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
 				23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */,
 				2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */,
+				238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				2372058A1C3FF70D0051ABD8 /* ChartConverter.m in Sources */,
 				239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */,
 				23EDCD5E1B9076E500F96F4A /* constants.swift in Sources */,
+				238798731CAE9D6100131663 /* layoutSubviewsButtonArrow.swift in Sources */,
 				239232711A45D6F9000714AA /* CigaretteRecord.xcdatamodeld in Sources */,
 				233A38A31A34E34700661CDD /* String.swift in Sources */,
 				235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */,
