@@ -9,6 +9,7 @@
 import UIKit
 
 class layoutSubviewsButton: UIButton {
+  //  override func wi
     
     override func layoutSubviews()
     {
@@ -16,13 +17,13 @@ class layoutSubviewsButton: UIButton {
         
         let imageFrame = self.imageView?.frame;
         
-//        let inset: CGFloat = 13
+       let inset: CGFloat = 13
         
         if var imageFrame = imageFrame
         {
-                imageFrame.origin.x = self.frame.origin.x + self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
+             //   imageFrame.origin.x = self.frame.origin.x + self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
             
-            imageFrame.origin.x =  self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
+            imageFrame.origin.x =  self.frame.width - imageFrame.width - inset//- (imageFrame.width/2)
             imageFrame.origin.y  = (self.titleLabel?.frame.origin.y)!
             
             self.imageView?.frame = CGRectMake(imageFrame.origin.x  , imageFrame.origin.y, 35, 35)
