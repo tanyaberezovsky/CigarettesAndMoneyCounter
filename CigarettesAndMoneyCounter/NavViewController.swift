@@ -39,7 +39,7 @@ class NavViewController: UINavigationController {
         
         UINavigationBar.appearance().barTintColor = colorNavigationBarDarkPurpleGray
         UINavigationBar.appearance().translucent = false
-        UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         // Status bar white font
         self.navigationBar.barStyle = UIBarStyle.Black

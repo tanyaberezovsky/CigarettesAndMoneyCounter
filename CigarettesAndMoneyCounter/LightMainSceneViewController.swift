@@ -86,22 +86,23 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
 
     func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
     {
+        if(todaySmoked>0){
         let circileAngle: Double = Double(todaySmoked) / Double(dailyLimit) * 100;
         
         circularLoader.toValue = CGFloat( circileAngle);
-        
-        if (circileAngle <= 50)
-        {
-            circularLoader.fillColor = UIColor.whiteColor()
         }
-        else   if (circileAngle > 100)
-        {
-            circularLoader.fillColor = UIColors.CircleLoaderColors.red
-        }
-        else
-        {
-            circularLoader.fillColor = UIColors.CircleLoaderColors.yellow
-        }
+//        if (circileAngle <= 50)
+//        {
+//            circularLoader.fillColor = UIColor.whiteColor()
+//        }
+//        else   if (circileAngle > 100)
+//        {
+//            circularLoader.fillColor = UIColors.CircleLoaderColors.red
+//        }
+//        else
+//        {
+//            circularLoader.fillColor = UIColors.CircleLoaderColors.yellow
+//        }
     
     }
     
@@ -122,6 +123,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             //
                 navCtr.pushViewController(secondVC as! UIViewController, animated: false)
             }
+            LoadDefaultValues()
         }
     
     override func didReceiveMemoryWarning() {

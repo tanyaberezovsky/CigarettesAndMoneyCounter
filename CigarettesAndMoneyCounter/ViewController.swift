@@ -68,18 +68,27 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         layerLevelAsNeeded = levelOfEnjoy.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+
         
         layerLevelAsNeeded = levelAsNeeded.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+
         
         
         layerLevelAsNeeded = causeOfSmoking.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = AddDate.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
         
     }
     
