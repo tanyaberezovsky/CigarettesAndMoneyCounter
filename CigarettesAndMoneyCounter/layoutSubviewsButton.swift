@@ -34,4 +34,11 @@ class layoutSubviewsButton: UIButton {
             
         }
     }
+   /* override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    //    layoutSubviews()
+    }
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+//layoutSubviews()
+    }*/
 }
