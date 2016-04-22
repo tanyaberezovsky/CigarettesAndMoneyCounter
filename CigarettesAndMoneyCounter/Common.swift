@@ -99,6 +99,31 @@ func decimalFormatToCurency(num: Double) -> String{
 
 }
 
+public func cigarettesToPackDescription(cigs: Int, sufix: String) -> String
+{
+
+    let defaults = UserDefaultsDataController()
+    var userDefaults = UserDefaults()
+    userDefaults = defaults.loadUserDefaults()
+    let cigsInPack = userDefaults.amountOfCigarettsInOnePack
+    var ret = sufix
+    if (cigsInPack < cigs)
+    {
+        let packs = cigs/cigsInPack
+        
+        if(packs >= 2){
+            ret = "%@ (%d PACKS)"
+        }
+        else{
+            ret = "%@ (%d PACK)"}
+        
+        ret = NSString(format:ret, sufix, packs) as String
+    }
+    
+    return ret
+
+}
+
 public func segmentToDays(segment: Int) -> Double
 {
     var ret: Double = 1
@@ -117,7 +142,7 @@ public func segmentToDays(segment: Int) -> Double
 }
 
 func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
-    var text: String = "Average smoking time "
+    var text: String = "AVERAGE SMOKING TIME "
     
     //var days = segmentToDays(segment)
     
@@ -126,21 +151,21 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
     
     if(decimalIsInteger(smokingSigTime))
     {
-        text += decimalFormatToString(smokingSigTime) + " hours"
+        text += decimalFormatToString(smokingSigTime) + " HOURS"
     }
     else
     {
         if (smokingSigTimeMinets < 60){
-            text += String(format: "%.0f", smokingSigTimeMinets) + " minets"
+            text += String(format: "%.0f", smokingSigTimeMinets) + " MINETS"
         }
         else{
             smokingSigTime =  (smokingSigTimeMinets - (smokingSigTimeMinets % 60)) / 60
             
-            text += String(format: "%.0f", smokingSigTime) + " hours and "
+            text += String(format: "%.0f", smokingSigTime) + " HOURS AND "
             
             smokingSigTime = smokingSigTimeMinets % 60
             
-            text += String(format: "%.0f", smokingSigTime) + " minets"
+            text += String(format: "%.0f", smokingSigTime) + " MINETS"
         }
     }
     return text;
