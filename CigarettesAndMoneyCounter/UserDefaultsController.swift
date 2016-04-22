@@ -32,6 +32,20 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         LoadDefaultValues()
         //  self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "barButtonItemClicked:"), animated: true)
         
+        gradientBackgroundRegular()
+        
+    }
+    
+    override func gradientBackgroundRegular() {
+        self.view.backgroundColor = UIColor.clearColor()
+        let gradient : CAGradientLayer = CAGradientLayer()
+        gradient.frame = view.bounds
+        
+        
+        let colors:ColorTemplates = ColorTemplates();
+        gradient.colors = colors.purpleGray()
+        
+        view.layer.insertSublayer(gradient, atIndex: 0)
     }
     
     @IBAction func costPack(sender: UITextField) {
@@ -143,9 +157,39 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         layerLevelAsNeeded = reason.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-       
-
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = levelOfEnjoy.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = levelAsNeeded.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        
+        layerLevelAsNeeded = dailyGoal.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = amountOfCigarettsInOnePack.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        
+        layerLevelAsNeeded = averageCost.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
     }
     
     //++++++++++++++++++++++++++++++++++++

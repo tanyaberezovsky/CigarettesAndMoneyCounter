@@ -32,6 +32,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     
     func loadScreenGraphics()
     {
+    //    view.frame.width = super.parentViewController?.view.frame.width
         
         //set button look like text field
         var layerLevelAsNeeded: CALayer
@@ -95,7 +96,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
    
     @IBAction func finishTouch(sender: AnyObject) {
         let cigRecord = CigaretteRecordManager()
-        cigRecord.saveCigaretteRecordEntity(levelOfEnjoy.selectedSegmentIndex, levelAsNeeded: levelAsNeeded.selectedSegmentIndex, reason: reasonText)
+        cigRecord.saveCigaretteRecordEntity(levelOfEnjoy.selectedSegmentIndex, levelAsNeeded: levelAsNeeded.selectedSegmentIndex, reason: causeOfSmoking.currentTitle!)
         
         
         if(myDelegate != nil){

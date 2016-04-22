@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import Charts
 
-class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,NSFetchedResultsControllerDelegate
+class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPickerViewDelegate, NSFetchedResultsControllerDelegate
 {
    // @IBOutlet weak var barChartView: HorizontalBarChartView!
 
@@ -22,6 +22,7 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     var curentDate:NSDate = NSDate()
     var toDate:NSDate = NSDate()
     
+    @IBOutlet weak var smokedLabel: UILabel!
     @IBOutlet weak var smoked: UILabel!
     @IBOutlet weak var cost: UILabel!
     
@@ -223,7 +224,7 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         
         smoked.text  = String(smokeAndCost.smoked)
         cost.text = decimalFormatToCurency(smokeAndCost.cost)
- 
+ smokedLabel.text = cigarettesToPackDescription(smokeAndCost.smoked, sufix: "SMOKED")
     }
     
     
@@ -255,7 +256,7 @@ class SummaryViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         
         if arrReason.count > 0 {
             
-            for var i = 0; i < arrReason.count; i++
+            for i in 0..<arrReason.count
             {
                 if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
                     description.append(desc)
@@ -400,9 +401,13 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         fieldName = "levelAsNeeded"
         arrReason = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
-        for var k = 0; k < description.count; k++
-        {
-            for var i = 0; i < arrReason.count; i++
+        for k in 0..<description.count {
+            
+        //}
+
+        //for var k = 0; k < description.count; k++
+        //{
+            for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
                     

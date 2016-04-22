@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-
+@IBDesignable
 class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, TableLevelsControllerDelegate {
 
     @IBOutlet weak var txtLastCig: UILabel!
@@ -27,7 +27,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         LoadDefaultValues()
-   
+ //  addSmoke.layoutSubviews()
 
  //self.viewWillAppear(false)
     }
@@ -40,6 +40,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         LoadDefaultValues()
         circularLoader.setNeedsDisplay()
 */
+        
     }
     
     
@@ -81,7 +82,13 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
         roundButtonConers()
-        loadCircularLoader(userDefaults.todaySmoked,   dailyLimit: userDefaults.dailyGoal)
+      
+        if let lastCig = userDefaults.dateLastCig{
+            if(NSCalendar.currentCalendar().isDateInToday(lastCig)){
+                loadCircularLoader(userDefaults.todaySmoked, dailyLimit: userDefaults.dailyGoal)
+            }
+        }
+        
     }
 
     func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
@@ -177,8 +184,10 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 pop.sourceRect = CGRect(
                     x: 0,
                     y: 0 + addSmoke.layer.bounds.height + 15,
-                    width: popOverVC.view.frame.width,
-                    height: popOverVC.view.frame.height)
+                    width: view.frame.width,
+                    height: 250)
+                
+                popOverVC.preferredContentSize = CGSize(width: view.frame.width, height: 250)
                 /*
                 pop.sourceRect = CGRect(
                     x: 0,
@@ -242,7 +251,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
         
         if segueName == segueNames.segueCauseOfSmoking{
-           // reasonText = text;
+           //reasonText = text;
             // print(text)
             // reason.setTitle(reasonText, forState: UIControlState.Normal)
         }
