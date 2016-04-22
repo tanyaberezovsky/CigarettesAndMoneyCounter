@@ -76,12 +76,12 @@ class CigaretteRecordManager {
 
     
     
-    func  calculateAmountAndCost(fromDate: NSDate, toDate: NSDate) -> (smoked:Int32, cost: Double)
+    func  calculateAmountAndCost(fromDate: NSDate, toDate: NSDate) -> (smoked:Int, cost: Double)
     {
         //where condition
         let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
         
-        var smoked:Int32 = 0
+        var smoked:Int = 0
         var cost:Double = 0
         
         let expressionSumCigarettes = NSExpressionDescription()
@@ -127,7 +127,7 @@ class CigaretteRecordManager {
                 
                 if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
-                    smoked = Int32(aString)!
+                    smoked = Int(aString)!
                     print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
