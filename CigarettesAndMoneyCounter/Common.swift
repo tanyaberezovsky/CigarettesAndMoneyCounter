@@ -39,11 +39,13 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
         toDate: laterDate, options: [])
     
     var arrStrDate = [String]()
-    var retStr:String = "LAST CIGARETTE "
+    var retStr:String = "LAST CIGARETTE"
+    var counter = 0;
     
     if components.year>0 {
         arrStrDate.append(" \(components.year) Years"); bLastCigWasToday=false;
         if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;}
+        counter += 1
     }
     else if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;
         if components.day>0 {arrStrDate.append(" \(components.day) DAYS"); bLastCigWasToday=false;}
