@@ -40,6 +40,8 @@ class CircularLoaderView: UIView {
     override func drawRect(rect: CGRect) {
         borderColor.setFill()
         
+        circleRadius = self.frame.height / 2
+        
         configure(circlePathLayer, layerColor: borderColor.CGColor)
         
         configure(circlePathUpperLayer, layerColor: fillColor.CGColor)
