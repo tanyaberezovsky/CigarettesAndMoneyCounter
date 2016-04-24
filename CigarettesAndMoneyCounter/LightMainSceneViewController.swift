@@ -78,7 +78,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
  
         }
         else{
-            txtLastCig.text = "A TIME SINCE LAST CIGARETTE"// "How long has it been since last cigarette"//"Do not smoke at all"  "Free of smoking time"
+            txtLastCig.text = "TIME SINCE LAST CIGARETTE"// "How long has it been since last cigarette"//"Do not smoke at all"  "Free of smoking time"
         }
         dailySmokedCigs.text = String(Int(todaySmoked))
         roundButtonConers()

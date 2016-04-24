@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class CircularLoaderView: UIView {
     let circlePathLayer = CAShapeLayer()
     let circlePathUpperLayer = CAShapeLayer()
