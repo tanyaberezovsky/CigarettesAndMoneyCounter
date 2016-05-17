@@ -50,6 +50,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     @IBAction func addCigarettes(sender: AnyObject) {
         closeAllKeyboards()
         saveCigaretteRecordEntity()
+        //usleep(500000)
         loadInitiatedValues()
         LoadDefaultValues()
     }
@@ -105,7 +106,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
     
     func saveCigaretteRecordEntity() {
-        
         if let addedCigs = Int(self.txtCigarette.text!){
             if addedCigs <= 0 {
                 AlertError("Illegal value of cigarette")
@@ -141,13 +141,13 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
       
         
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         task.cost = userDefaults.averageCostOfOneCigarett * Double(task.cigarettes)
         
         do {
             try MyManagedObjectContext?.save()
+            MyManagedObjectContext?.reset()
         } catch _ {
         }
       
@@ -224,7 +224,10 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        //datePickerView.addTarget(self, action: Selector("handleDatePicker:"), //forControlEvents: UIControlEvents.ValueChanged)
+        
+        datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
+                         forControlEvents: UIControlEvents.ValueChanged)
         
       roundSegmentConers()
         
@@ -235,8 +238,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         dailyCost.text = "0"
         

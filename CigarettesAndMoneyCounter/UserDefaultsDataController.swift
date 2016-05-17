@@ -69,7 +69,7 @@ class UserDefaultsDataController{
         } else {
             //myDate is equal or after than Now (date and time)
         }
-        if newDateIsLatest(lastDateCig){
+        if newDateIsToday(lastDateCig){
 
             let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -79,6 +79,12 @@ class UserDefaultsDataController{
         }
     }
     
+    func newDateIsToday(newDate: NSDate) -> Bool
+    {
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.isDateInToday(newDate)
+    }
+    
     func newDateIsLatest(newDate: NSDate) -> Bool
     {
         //Get Current Date/Time
@@ -86,11 +92,14 @@ class UserDefaultsDataController{
 
         var ret = false;
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+       // var userDefaults = UserDefaults()
         
-        if let lastCig = userDefaults.dateLastCig{
-            if newDate >= lastCig && newDate <= currentDateTime {
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        
+        
+        
+        if let lastDateOfCig = userDefaults.dateLastCig{
+            if newDate >= lastDateOfCig && newDate <= currentDateTime {
                 ret = true
             }
         }
@@ -99,7 +108,9 @@ class UserDefaultsDataController{
             if newDate <= currentDateTime {
                 ret = true
             }
+            }
         }
+        
         
         return ret;
     }

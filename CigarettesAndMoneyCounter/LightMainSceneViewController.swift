@@ -64,8 +64,8 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+      //  var userDefaults = UserDefaults()
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
         
         var todaySmoked = 0
 
@@ -88,7 +88,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 loadCircularLoader(userDefaults.todaySmoked, dailyLimit: userDefaults.dailyGoal)
             }
         }
-        
+        }
     }
 
     func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)

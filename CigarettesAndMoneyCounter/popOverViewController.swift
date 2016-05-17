@@ -73,8 +73,8 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+      //  var userDefaults = UserDefaults()
+     if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
         
         
         levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
@@ -87,7 +87,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         
         causeOfSmoking.setTitle(reasonText, forState: UIControlState.Normal)
         
-       
+        }
     }
 
     @IBAction func cancelTouch(sender: AnyObject) {

@@ -245,6 +245,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         managedObjectContext?.deleteObject(managedObject)
         do {
             try managedObjectContext?.save()
+            managedObjectContext?.reset()
         } catch _ {
         }
     }

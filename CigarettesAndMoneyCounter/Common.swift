@@ -105,10 +105,13 @@ public func cigarettesToPackDescription(cigs: Int, sufix: String) -> String
 {
 
     let defaults = UserDefaultsDataController()
-    var userDefaults = UserDefaults()
-    userDefaults = defaults.loadUserDefaults()
-    let cigsInPack = userDefaults.amountOfCigarettsInOnePack
+    //var userDefaults = UserDefaults()
+   
     var ret = sufix
+    if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        
+    let cigsInPack = userDefaults.amountOfCigarettsInOnePack
+        
     if (cigsInPack < cigs)
     {
         let packs = cigs/cigsInPack
@@ -121,7 +124,7 @@ public func cigarettesToPackDescription(cigs: Int, sufix: String) -> String
         
         ret = NSString(format:ret, sufix, packs) as String
     }
-    
+    }
     return ret
 
 }
@@ -144,7 +147,7 @@ public func segmentToDays(segment: Int) -> Double
 }
 
 func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
-    var text: String = "AVERAGE SMOKING TIME "
+    var text: String = "SMOKING TIME "
     
     //var days = segmentToDays(segment)
     
@@ -158,7 +161,7 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
     else
     {
         if (smokingSigTimeMinets < 60){
-            text += String(format: "%.0f", smokingSigTimeMinets) + " MINETS"
+            text += String(format: "%.0f", smokingSigTimeMinets) + " MINUTES"
         }
         else{
             smokingSigTime =  (smokingSigTimeMinets - (smokingSigTimeMinets % 60)) / 60
@@ -167,7 +170,7 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
             
             smokingSigTime = smokingSigTimeMinets % 60
             
-            text += String(format: "%.0f", smokingSigTime) + " MINETS"
+            text += String(format: "%.0f", smokingSigTime) + " MINUTES"
         }
     }
     return text;

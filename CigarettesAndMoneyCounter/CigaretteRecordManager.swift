@@ -23,8 +23,8 @@ class CigaretteRecordManager {
     
     func saveCigaretteRecordEntity(levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String) {
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+    //    var userDefaults = UserDefaults()
+      if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
         
       /*  saveCigaretteRecordEntity(levelOfEnjoyment, levelAsNeeded: levelAsNeeded, reason: reason, userDefaults: userDefaults)
 
@@ -57,6 +57,7 @@ class CigaretteRecordManager {
         
         do {
             try MyManagedObjectContext?.save()
+            MyManagedObjectContext?.reset()
         } catch _ {
         }
         
@@ -69,9 +70,9 @@ class CigaretteRecordManager {
                 todaySmoked = userDefaults.todaySmoked + 1
             }
         }
-        
-       
         defaults.saveLastAddedCig(nowDate, todaySmoked: todaySmoked)
+        }
+    
     }
 
     

@@ -197,9 +197,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        
-        userDefaults = defaults.loadUserDefaults()
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         averageCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)
         

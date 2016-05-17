@@ -14,6 +14,8 @@ class CalculatorViewController: GlobalUIViewController {
     @IBOutlet weak var ciggarets: UITextField!
     @IBOutlet weak var packCost: UITextField!
     @IBOutlet weak var totalCost: UILabel!
+    @IBOutlet weak var totalCigs: UILabel!
+    @IBOutlet weak var totalPacks: UILabel!
     
     @IBOutlet weak var cigsDesc: UILabel!
     
@@ -118,17 +120,17 @@ class CalculatorViewController: GlobalUIViewController {
         var desc: String
         switch segment{
         case 0:
-            desc = "PER DAY"
+            desc = "per Day"
         case 1:
-            desc = "PER WEEK"
+            desc = "per Week"
         case 2:
-            desc = "PER MONTH"
+            desc = "per Month"
         case 3:
-            desc = "PER YEAR"
+            desc = "per Year"
         default:
             desc=""
         }
-        cigsDesc.text = "CIGS " + desc
+        cigsDesc.text = "Cigarettes " + desc
     }
     
     
@@ -138,9 +140,14 @@ class CalculatorViewController: GlobalUIViewController {
         
         ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
         
+        if let cigsPack = cigsPerPack.text?.toDouble(){
+            totalCigs.text = String(format: "%.0f", calc.totalCiggarets / cigsPack)
+        }
+        
         let cost: Double = calc.calculateCost() //a(1) //calculateCost()
         
         totalCost.text = decimalFormatToCurency(cost)
+        
 //
          smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
@@ -170,8 +177,8 @@ class CalculatorViewController: GlobalUIViewController {
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
+    //    var userDefaults = UserDefaults()
+      if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
         
        calc.totalCiggarets = Double(userDefaults.dailyGoal)
     
@@ -184,6 +191,7 @@ class CalculatorViewController: GlobalUIViewController {
        packCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)
        
        cigsPerPack.text = String(userDefaults.amountOfCigarettsInOnePack)
+        }
     }
 
     /*

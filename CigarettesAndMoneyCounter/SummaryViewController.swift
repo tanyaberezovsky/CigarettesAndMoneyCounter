@@ -489,7 +489,10 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         selectedDate.inputView = datePickerView
      
         //set selected date to text field
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+     //   datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
+                                 forControlEvents: UIControlEvents.ValueChanged)
      //todo
         //set init value
     //    showSelectedDate(NSDate(), dateFormat: Constants.dateFormat.day)
