@@ -40,6 +40,67 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     var arrYear = [String]()
     
+    enum pickerComponent:Int{
+        case size = 0
+        case topping = 1
+    }
+    
+   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        pieChart.noDataTextDescription = "Have five"
+        pieChart.noDataText = "congratulation, you don't smoke at this period"
+
+     //   barChart.drawGridBackgroundEnabled = true
+
+        barChart.backgroundColor = UIColor.clearColor()
+        barChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
+        
+        //barChart.xAxis.drawAxisLineEnabled = false
+        barChart.xAxis.drawGridLinesEnabled = false
+        barChart.gridBackgroundColor = UIColor.clearColor()
+        barChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
+        
+        barChart.xAxis.labelTextColor = UIColor.whiteColor()
+      //  barChart.leftAxis.customAxisMin = 0
+        
+   /*   //  let numberFormatter = NSNumberFormatter()
+       // numberFormatter.generatesDecimalNumbers = false
+       // chartDataSet.valueFormatter = numberFormatter
+
+        barChart.leftAxis.valueFormatter?.minimumFractionDigits = 1
+
+        
+        barChart.leftAxis.valueFormatter?.maximumFractionDigits = 1
+        barChart.leftAxis.forceLabelsEnabled = true
+        barChart.leftAxis.labelCount = 3
+        */
+        barChart.leftAxis.valueFormatter = NSNumberFormatter()
+        barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
+        barChart.leftAxis.customAxisMin = 0
+        //barChart.leftAxis.customAxisMax = 3
+        //barChart.leftAxis.labelCount = 4
+        
+        //barChart.leftAxis.customAxisMax = 1000
+        barChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        barChart.leftAxis.drawGridLinesEnabled = false
+        barChart.rightAxis.drawGridLinesEnabled = false
+        barChart.rightAxis.drawAxisLineEnabled = false
+        barChart.rightAxis.drawLabelsEnabled = false
+        
+        pieChart.hidden = true
+        
+       // barChartView.delegate = self
+        
+        createYearArr()
+        loadScreenGraphics();
+
+    }
+    
+    
+    
     @IBAction func graphTypeChanged(sender: UISegmentedControl) {
         
         showChartBySegmntIndex(sender.selectedSegmentIndex)
@@ -73,7 +134,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         for i in 1...10 {
             arrYear.append(String(2013 + i))
         }
-
+        
         pickerData.append(arrYear)
     }
     //password azriely 80B53D53B6
@@ -87,25 +148,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     @IBAction func selectedDateTouchDown(sender: UITextField) {
         myPicker.hidden = false
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        pieChart.noDataTextDescription = "Have five"
-        pieChart.noDataText = "congratulation, you don't smoke at this period"
-    
-        
-       pieChart.hidden = true;
-       // barChartView.delegate = self
-        
-        createYearArr()
-        loadScreenGraphics();
-
-    }
-        enum pickerComponent:Int{
-        case size = 0
-        case topping = 1
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -302,7 +344,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     
     pieChart.data = pieChartData
     
-    
+    pieChart.backgroundColor = UIColor.clearColor()
 }
     
     
@@ -378,10 +420,11 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         var sumOfCigsEnjoy = [Double]()
         var sumOfCigsNeed = [Double]()
   
-        
-        for var j = 0; j < description.count; j++
+       // for var j = 0; j < description.count; j++
+        for j in 0..<description.count
         {
-            for var i = 0; i < arrReason.count; i++
+           // for var i = 0; i < arrReason.count; i++
+           for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
 
@@ -423,9 +466,24 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             }
         }
        
+        setMaxMilAxisElementBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed)
+        
         setMultiBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed, xVals: description)
         
     
+    }
+    
+    func setMaxMilAxisElementBarChart( values: [Double], values2: [Double])
+    {
+        guard let number1 = values.maxElement(), number2 = values2.maxElement() else { return }
+
+        
+        let maxVal = max(number1, number2)
+        
+        barChart.leftAxis.customAxisMax = maxVal
+      //  barChart.leftAxis.customAxisMax = barChart.data!.yMax + 1.0
+        barChart.leftAxis.labelCount = Int(maxVal)  // Int(barChart.leftAxis.customAxisMax - 1)
+        
     }
     
     func setMultiBarChart( values: [Double], values2: [Double], xVals: NSMutableArray)
@@ -447,7 +505,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         let chartDataSet2 = BarChartDataSet(yVals: dataEntries2, label: "Needed")
         chartDataSet1.colors = ColorTemplates.Enjoyment()
         chartDataSet2.colors = ColorTemplates.Needed()
-        
+        chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
+        chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
         
         let t = ChartConverter()
         let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)

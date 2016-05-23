@@ -16,7 +16,21 @@ public class ColorTemplates{
     public func chartPieColors() -> [UIColor]
     {
         return [
-      
+      //green
+               UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0),
+       //yellow
+            UIColor(red: 233/255.0, green: 235/255.0, blue: 152/255.0, alpha: 1.0),
+       //orange
+            
+            UIColor(red: 235/255.0, green: 196/255.0, blue: 152/255.0, alpha: 1.0),
+//red
+            UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0),
+            //purple
+            UIColor(red: 196/255.0, green: 152/255.0, blue: 235/255.0, alpha: 1.0),
+            //blue
+            UIColor(red: 152/255.0, green: 191/255.0, blue: 235/255.0, alpha: 1.0),
+
+            
             UIColor(red: 217/255.0, green: 80/255.0, blue: 138/255.0, alpha: 1.0),
             UIColor(red: 254/255.0, green: 149/255.0, blue: 7/255.0, alpha: 1.0),
             UIColor(red: 118/255.0, green: 174/255.0, blue: 175/255.0, alpha: 1.0),
@@ -69,15 +83,14 @@ public class ColorTemplates{
     public class func Enjoyment () -> [UIColor]
     {
         return [
-            UIColor(red: 217/255.0, green: 80/255.0, blue: 138/255.0, alpha: 1.0)
-            
+                UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0)
         ]
     }
     
     public class func Needed () -> [UIColor]
     {
         return [
-            UIColor(red: 53/255.0, green: 194/255.0, blue: 209/255.0, alpha: 1.0)
+            UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0)
         ]
     }
 
