@@ -184,7 +184,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                 
                 let task = fetchedResultControllerDaily.objectAtIndexPath(indexPath) as! CigaretteRecord
                 let s:String = task.yearMonth()
-                print(s)
+                //print(s)
                 cell.textLabel?.text = task.cigarettes.stringValue + "; " + task.levelAsNeeded.stringValue + "; CellDaily " + getStringDate(task.addDate) + " " + s
                 
             case 1:
@@ -223,7 +223,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             default:
                 break
             }
-            print(segment)
+            //print(segment)
             
         
       //  }
@@ -265,7 +265,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         default:
             break
         }
-        print(segment)
+        //print(segment)
 
         tableView.reloadData()
     }

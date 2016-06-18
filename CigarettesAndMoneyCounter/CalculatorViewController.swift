@@ -87,7 +87,7 @@ class CalculatorViewController: GlobalUIViewController {
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         
         segment = sender.selectedSegmentIndex
-        print("segment=\(segment)")
+        //print("segment=\(segment)")
         calc.segment  = segment
         setDescription()
     }
@@ -136,7 +136,7 @@ class CalculatorViewController: GlobalUIViewController {
     
     
     func onPropertyChanged(property: CalculatorProperty) {
-        print("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
+        //print("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
         
         ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
         

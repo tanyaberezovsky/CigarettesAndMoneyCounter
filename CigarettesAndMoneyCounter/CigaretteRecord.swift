@@ -28,7 +28,7 @@ public class CigaretteRecord: NSManagedObject {
         var strMonthYear:String
         strMonthYear = "\(components.year)-\(components.month)"
         
-        print(strMonthYear)
+        //print(strMonthYear)
         
         return strMonthYear
     }

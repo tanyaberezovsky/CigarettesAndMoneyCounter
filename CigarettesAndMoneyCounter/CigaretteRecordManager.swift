@@ -121,7 +121,7 @@ class CigaretteRecordManager {
              
                 if let a = result[0].valueForKey("countLines") as? NSNumber {
                     let aString = a.stringValue
-                    print(aString) // -1
+                    //print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
@@ -129,7 +129,7 @@ class CigaretteRecordManager {
                 if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
                     smoked = Int(aString)!
-                    print(aString) // -1
+                    //print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
@@ -138,7 +138,7 @@ class CigaretteRecordManager {
                 if let a = result[0].valueForKey("sumCost") as? NSNumber {
                     let aString = a.stringValue
                     cost = Double(aString)!
-                    print(aString) // -1
+                    //print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }

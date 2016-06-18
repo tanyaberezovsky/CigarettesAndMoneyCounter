@@ -29,7 +29,7 @@ extension NSDate {
         var strMonthYear:String
         strMonthYear = "\(components.month)-\(components.year)"
         
-        print(strMonthYear)
+        //print(strMonthYear)
         
         return strMonthYear
     }

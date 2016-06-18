@@ -19,6 +19,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     var datePickerView  : UIDatePicker = UIDatePicker()
     var monthPicker: UIPickerView = UIPickerView()
+    var yearPicker: UIPickerView = UIPickerView()
     var curentDate:NSDate = NSDate()
     var toDate:NSDate = NSDate()
     
@@ -35,6 +36,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     @IBOutlet weak var segmentGraphType: UISegmentedControl!
     var pickerData = [ ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]]
+    var pickerYearData = [String]()
+
     
     var arrYear = [String]()
     
@@ -165,6 +168,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         }
         
         pickerData.append(arrYear)
+        pickerYearData = arrYear
     }
 
     @IBAction func shiftBtnDateSubOnTouch(sender: UIButton) {
@@ -176,19 +180,49 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     @IBAction func selectedDateTouchDown(sender: UITextField) {
-        monthPicker.hidden = false
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.month:
+            monthPicker.hidden = false
+            yearPicker.hidden = true
+        case Constants.SegmentDateType.year:
+            monthPicker.hidden = true
+            yearPicker.hidden = false
+        default:
+            return
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return pickerData.count
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.month:
+            return pickerData.count
+        case Constants.SegmentDateType.year:
+            return 1
+        default:
+            return 0
+        }
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData[component].count
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.month:
+            return pickerData[component].count
+        case Constants.SegmentDateType.year:
+            return pickerYearData.count
+        default:
+            return 0
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-          return (pickerData[component][row] )
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.month:
+            return pickerData[component][row]
+        case Constants.SegmentDateType.year:
+            return pickerYearData[row]
+        default:
+            return nil
+        }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -196,9 +230,28 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     //MARK -Instance Methods
     func updateLabel(){
-        let month = pickerData[0][monthPicker.selectedRowInComponent(0)]
-        let year = pickerData[1][monthPicker.selectedRowInComponent(1)]
-        selectedDate.text =  (month ) + " " + (year )
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        var currentDateStr:String
+        var month:String
+        var year:String
+        
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.month:
+            month = pickerData[0][monthPicker.selectedRowInComponent(0)]
+            year = pickerData[1][monthPicker.selectedRowInComponent(1)]
+            selectedDate.text =   String(format: "%@ %@", month, year)
+            currentDateStr = String(format: "%d-01-%@", monthPicker.selectedRowInComponent(0) + 1, year)
+        case Constants.SegmentDateType.year:
+            year = pickerYearData[yearPicker.selectedRowInComponent(0)]
+            selectedDate.text =  year
+            currentDateStr = String(format: "01-01-%@", year)
+        default:
+            return;
+        }
+        curentDate = dateFormatter.dateFromString(currentDateStr)!
+        calculateSelectedDate(0)
+        
     }
     
     @IBAction func segmentDateTypeChanged(sender: UISegmentedControl) {
@@ -216,7 +269,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     func drawSelectedDate(){
         let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
      
-        let indexOfYear =  pickerData[1].indexOf(String(components.year))
         
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.day: //day
@@ -224,14 +276,16 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             showSelectedDate(curentDate, dateFormat: Constants.dateFormat.day)
             datePickerView.date = curentDate
         case Constants.SegmentDateType.month://month
+            let indexOfYear =  pickerData[1].indexOf(String(components.year))
             self.selectedDate.inputView = monthPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.month)
             monthPicker.selectRow(components.month - 1, inComponent: 0, animated: true)
             monthPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
         case Constants.SegmentDateType.year:
-            self.selectedDate.inputView = monthPicker
+            let indexOfYear =  pickerYearData.indexOf(String(components.year))
+            self.selectedDate.inputView = yearPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.year)
-            monthPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
+            yearPicker.selectRow(indexOfYear!, inComponent: 0, animated: true)
        default:
             return;
         }
@@ -277,8 +331,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             value: 1,
             toDate: curentDate,
             options: NSCalendarOptions(rawValue: 0))!
-        print(curentDate)
-        print(toDate)
+        //print(curentDate)
+        //print(toDate)
         
         drawSelectedDate()
         drawCostAndSmoked()
@@ -458,14 +512,14 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         let months = dateFormatter.shortMonthSymbols
         var monthSymbol: String
-        print(months.count)
+        //print(months.count)
         let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
         
         
         var description = [String]()
         var sumOfCigs = [Double]()
         for (index,number) in (0...10).reverse().enumerate() {
-            print("index \(index) , number \(number)")
+            //print("index \(index) , number \(number)")
         }
         let currenDate = NSDate()
         
@@ -481,8 +535,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             }
             
             dateValueEnd = dateValueStart!.endOfMonth()
-            print("month")
-            print(monthSymbol)
+            //print("month")
+            //print(monthSymbol)
             
             let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
             for i in 0..<arrCiggs.count
@@ -600,6 +654,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         monthPicker.delegate = self
         monthPicker.hidden = true
+        
+        yearPicker.delegate = self
+        yearPicker.hidden = true
         
         segmentDateType.selectedSegmentIndex = 1
         

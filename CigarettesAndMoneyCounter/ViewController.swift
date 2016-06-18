@@ -313,7 +313,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
             
         closeAllKeyboards()
             
-            print(segue.identifier)
+            //print(segue.identifier)
             
         if  segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destinationViewController as! TableLavels
