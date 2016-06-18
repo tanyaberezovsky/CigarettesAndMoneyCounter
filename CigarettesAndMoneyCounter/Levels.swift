@@ -43,7 +43,7 @@ let cause = ["Bored", "Thinking", "Working", "Learning", "Gaming", "After sleep"
     ,"Concentrate", "Other"].sort { $0 < $1 }
 
 
-var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3"),Levels(nameLvl:"Level 4", nameNum: "4")]
+var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3")]
 
 
 protocol selectionList: class {

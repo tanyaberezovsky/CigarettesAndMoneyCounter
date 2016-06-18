@@ -33,6 +33,17 @@ extension NSDate {
         
         return strMonthYear
     }
+    
+    func endOfMonth() -> NSDate? {
+        guard
+            let cal: NSCalendar = NSCalendar.currentCalendar(),
+            let comp: NSDateComponents = NSDateComponents() else { return nil }
+        
+        comp.month = 1
+        comp.day -= 1
+        return cal.dateByAddingComponents(comp, toDate: self, options: [])!
+    }
+
 }
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {

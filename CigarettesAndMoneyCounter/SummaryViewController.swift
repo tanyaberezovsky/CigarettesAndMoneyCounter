@@ -18,7 +18,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     var currentSegmentDateType  = Constants.SegmentDateType.month
     
     var datePickerView  : UIDatePicker = UIDatePicker()
-    var myPicker: UIPickerView = UIPickerView()
+    var monthPicker: UIPickerView = UIPickerView()
     var curentDate:NSDate = NSDate()
     var toDate:NSDate = NSDate()
     
@@ -28,9 +28,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
-  //  @IBOutlet weak var barChartView: BarChartView!
-
- //   @IBOutlet weak var pieChart: pieChart!
+    @IBOutlet weak var horizontChart: HorizontalBarChartView!
    
     @IBOutlet weak var segmentDateType: UISegmentedControl!
     @IBOutlet weak var selectedDate: UITextField!
@@ -50,56 +48,83 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pieChart.noDataTextDescription = "Have five"
-        pieChart.noDataText = "congratulation, you don't smoke at this period"
+      
+        initBarChartUI()
+        initHorizontalChartUI()
+        initPieChartUI()
+        createYearArr()
+        loadScreenGraphics();
 
-     //   barChart.drawGridBackgroundEnabled = true
-
+    }
+    
+    func initBarChartUI()
+    {
+        barChart.descriptionText = ""
         barChart.backgroundColor = UIColor.clearColor()
         barChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
         
-        //barChart.xAxis.drawAxisLineEnabled = false
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.gridBackgroundColor = UIColor.clearColor()
         barChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
         
         barChart.xAxis.labelTextColor = UIColor.whiteColor()
-      //  barChart.leftAxis.customAxisMin = 0
-        
-   /*   //  let numberFormatter = NSNumberFormatter()
-       // numberFormatter.generatesDecimalNumbers = false
-       // chartDataSet.valueFormatter = numberFormatter
-
-        barChart.leftAxis.valueFormatter?.minimumFractionDigits = 1
-
-        
-        barChart.leftAxis.valueFormatter?.maximumFractionDigits = 1
-        barChart.leftAxis.forceLabelsEnabled = true
-        barChart.leftAxis.labelCount = 3
-        */
         barChart.leftAxis.valueFormatter = NSNumberFormatter()
         barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
         barChart.leftAxis.customAxisMin = 0
-        //barChart.leftAxis.customAxisMax = 3
-        //barChart.leftAxis.labelCount = 4
-        
-        //barChart.leftAxis.customAxisMax = 1000
         barChart.leftAxis.labelTextColor = UIColor.whiteColor()
         barChart.leftAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawAxisLineEnabled = false
         barChart.rightAxis.drawLabelsEnabled = false
         
-        pieChart.hidden = true
         
-       // barChartView.delegate = self
-        
-        createYearArr()
-        loadScreenGraphics();
-
     }
     
     
+    func initHorizontalChartUI()
+    {
+        
+        horizontChart.descriptionText = ""
+        horizontChart.backgroundColor = UIColor.clearColor()
+        horizontChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
+        
+        horizontChart.xAxis.drawGridLinesEnabled = false
+        horizontChart.gridBackgroundColor = UIColor.clearColor()
+        horizontChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
+        
+        horizontChart.xAxis.labelTextColor = UIColor.whiteColor()
+        horizontChart.leftAxis.valueFormatter = NSNumberFormatter()
+        horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
+        horizontChart.leftAxis.customAxisMin = 0
+        horizontChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        horizontChart.leftAxis.drawGridLinesEnabled = false
+        horizontChart.rightAxis.drawGridLinesEnabled = false
+        horizontChart.rightAxis.drawAxisLineEnabled = false
+        horizontChart.rightAxis.drawLabelsEnabled = false
+        horizontChart.hidden = true
+        
+    }
+    
+    func initPieChartUI()
+    {
+        pieChart.descriptionText = ""
+        
+        //pieChart.noDataTextDescription = "Have five"
+        pieChart.noDataText = "you don't smoke at this period"
+        
+        pieChart.backgroundColor = UIColor.clearColor()
+       
+        pieChart.holeColor = ColorTemplates.purpleGray()[1]
+        
+        pieChart.legend.labels = ["why"]
+        pieChart.legend.textColor = UIColor.whiteColor()
+        
+        pieChart.legend.position = ChartLegend.ChartLegendPosition.LeftOfChart
+        
+        pieChart.hidden = true
+        
+        
+    }
     
     @IBAction func graphTypeChanged(sender: UISegmentedControl) {
         
@@ -110,17 +135,21 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     {
         drawChart()
         
-        if (index == 1)
+        barChart.hidden = true
+        pieChart.hidden = true
+        horizontChart.hidden = true
+
+        if (index == 0)
         {
-            
-            barChart.hidden = false
-            pieChart.hidden = true
-            
-        }
-        else
-        {
-            barChart.hidden = true
             pieChart.hidden = false
+        }
+        else if (index == 1)
+        {
+            barChart.hidden = false
+        }
+        else  if (index == 2)
+        {
+            horizontChart.hidden = false
         }
         
     }
@@ -137,7 +166,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         pickerData.append(arrYear)
     }
-    //password azriely 80B53D53B6
+
     @IBAction func shiftBtnDateSubOnTouch(sender: UIButton) {
         calculateSelectedDate(-1)
     }
@@ -147,7 +176,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     @IBAction func selectedDateTouchDown(sender: UITextField) {
-        myPicker.hidden = false
+        monthPicker.hidden = false
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -167,8 +196,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     //MARK -Instance Methods
     func updateLabel(){
-        let month = pickerData[0][myPicker.selectedRowInComponent(0)]
-        let year = pickerData[1][myPicker.selectedRowInComponent(1)]
+        let month = pickerData[0][monthPicker.selectedRowInComponent(0)]
+        let year = pickerData[1][monthPicker.selectedRowInComponent(1)]
         selectedDate.text =  (month ) + " " + (year )
     }
     
@@ -195,14 +224,14 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             showSelectedDate(curentDate, dateFormat: Constants.dateFormat.day)
             datePickerView.date = curentDate
         case Constants.SegmentDateType.month://month
-            self.selectedDate.inputView = myPicker
+            self.selectedDate.inputView = monthPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.month)
-            myPicker.selectRow(components.month - 1, inComponent: 0, animated: true)
-            myPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
+            monthPicker.selectRow(components.month - 1, inComponent: 0, animated: true)
+            monthPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
         case Constants.SegmentDateType.year:
-            self.selectedDate.inputView = myPicker
+            self.selectedDate.inputView = monthPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.year)
-            myPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
+            monthPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
        default:
             return;
         }
@@ -273,14 +302,20 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     func  drawChart()
     {
         
+        
         if(segmentGraphType.selectedSegmentIndex == 0){
         
             calculateAdnDrowChartPie()
         }
-        else
+        else if(segmentGraphType.selectedSegmentIndex == 1)
         {
             calculateAdnDrowChartMultiBar()
         }
+        else if(segmentGraphType.selectedSegmentIndex == 2)
+        {
+            calculateAndDrowHorizontalChart()
+        }
+
     }
     
     
@@ -290,8 +325,9 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let cigRecord = CigaretteRecordManager()
         
         let fieldName = "reason"
-        let arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName)
-       
+        let arrReason:AnyObject = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName) //.sort {return $0 < $1}
+
+
         var description = [String]()
         var sumOfCigs = [Double]()
         
@@ -308,10 +344,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 }
             }
             
-          //  setChartPie(description, values: sumOfCigs)
-        //    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-          //  let unitsSoldPie = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-        
         }
         setChartPie(description, values: sumOfCigs)//(months, values: unitsSoldPie)
 
@@ -319,7 +351,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
 
 
-
+//load data
 func setChartPie(dataPoints: [String], values: [Double]) {
     
     var dataEntries: [ChartDataEntry] = []
@@ -332,111 +364,46 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
     
     
-    
-    pieChartDataSet.colors = ChartColorTemplates.joyful()
+    pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
     
     let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
     
-//pieChartData.setDrawValues(true)
-    pieChart.legend.labels = ["why"]
-    
-    pieChart.legend.position = ChartLegend.ChartLegendPosition.LeftOfChart
     
     pieChart.data = pieChartData
     
-    pieChart.backgroundColor = UIColor.clearColor()
+   
 }
     
     
-    
-    func setChartPieOld(dataPoints: [String], values: [Double]) {
-        
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-         //   print("\(values[i])")
-            dataEntries.append(dataEntry)
-        }
-        
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "why")
-        
-        pieChartDataSet.valueTextColor = UIColor.darkGrayColor()
-        
-        let colors:ColorTemplates = ColorTemplates();
-        
-        pieChartDataSet.colors = colors.chartPieColors()
-        
-        /* var colors: [UIColor] = []
-        
-        for _ in 0..<dataPoints.count {
-        let red = Double(arc4random_uniform(256))
-        let green = Double(arc4random_uniform(256))
-        let blue = Double(arc4random_uniform(256))
-        print("\(red) \(green) \(blue)")
-        let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-        
-        colors.append(color)
-        
-        }
-        
-        pieChartDataSet.colors = colors
-        */
-        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        
-       // pieChartData.setDrawValues(false)
-        pieChart.legend.labels = ["why"]
-        
-        pieChart.legend.position = ChartLegend.ChartLegendPosition.LeftOfChart
-        
-        pieChart.data = pieChartData
-        
-        //    pieChart.animate(xAxisDuration: NSTimeInterval(2))
-        
-    }
-    /*
-    let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: label)
-    
-    let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-    pieChartData.setDrawValues(false)
-    pieChartView.legend.labels = [label]
-    pieChartView.data = pieChartData
-    pieChartView.animate(xAxisDuration: NSTimeInterval(5))
-    
-    */
-    
-
-
-    func  calculateAdnDrowChartMultiBar()
+    func calculateAdnDrowChartMultiBar()
     {
-        
         let cigRecord = CigaretteRecordManager()
         
         var fieldName = "levelOfEnjoy"
         
         var arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
-        let description: NSMutableArray = ["Level 1", "Level 2", "Level 3", "Level 4"]
+        let description: NSMutableArray = ["Level 0", "Level 1", "Level 2", "Level 3"]
         var sumOfCigsEnjoy = [Double]()
         var sumOfCigsNeed = [Double]()
-  
-       // for var j = 0; j < description.count; j++
+        
+        // for var j = 0; j < description.count; j++
         for j in 0..<description.count
         {
-           // for var i = 0; i < arrReason.count; i++
-           for i in 0..<arrReason.count
+            // for var i = 0; i < arrReason.count; i++
+            for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
-
-                    if(desc == j + 1){
+                    
+                    if(desc == j){
                         if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                             sumOfCigsEnjoy.append(Double(cigs))
                         }
                     }
                 }
             }
-            if(sumOfCigsEnjoy.count < j + 1){
-                    sumOfCigsEnjoy.append(0)
+            if(sumOfCigsEnjoy.count <= j ){
+                sumOfCigsEnjoy.append(0)
             }
         }
         
@@ -444,33 +411,104 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         fieldName = "levelAsNeeded"
         arrReason = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
-        for k in 0..<description.count {
+        for k in 0..<description.count  {
             
-        //}
-
-        //for var k = 0; k < description.count; k++
-        //{
+            //}
+            
+            //for var k = 0; k < description.count; k++
+            //{
             for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
                     
-                    if(desc == k + 1){
+                    if(desc == k){
                         if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                             sumOfCigsNeed.append(Double(cigs))
                         }
                     }
                 }
             }
-            if(sumOfCigsNeed.count < k + 1){
+            if(sumOfCigsNeed.count <= k){
                 sumOfCigsNeed.append(0)
             }
         }
-       
+        
         setMaxMilAxisElementBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed)
         
         setMultiBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed, xVals: description)
         
-    
+    }
+
+
+    func   calculateAndDrowHorizontalChart()
+    {
+       
+        let cigRecord = CigaretteRecordManager()
+        
+        var dataStringStart:String
+        let dateFormatterStart = NSDateFormatter()
+        dateFormatterStart.dateFormat = "MM-dd-yyyy"
+        
+        // convert string into date
+        var dateValueStart:NSDate? //= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueEnd:NSDate? //= dateFormatterStart.dateFromString(dataStringStart)
+
+        
+        let dateFormatter = NSDateFormatter()
+        
+        let months = dateFormatter.shortMonthSymbols
+        var monthSymbol: String
+        print(months.count)
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        
+        
+        var description = [String]()
+        var sumOfCigs = [Double]()
+        for (index,number) in (0...10).reverse().enumerate() {
+            print("index \(index) , number \(number)")
+        }
+        let currenDate = NSDate()
+        
+        var evens = [Int]()
+        for (_,i) in (0...11).reverse().enumerate() {
+            evens.append(i)
+            monthSymbol = months[i] // month - from your date components
+            dataStringStart = String(format: "%d-01-%d", i+1, components.year)
+            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            
+            if dateValueStart > currenDate {
+                continue
+            }
+            
+            dateValueEnd = dateValueStart!.endOfMonth()
+            print("month")
+            print(monthSymbol)
+            
+            let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
+            for i in 0..<arrCiggs.count
+            {
+            
+                        if let cigs = (arrCiggs[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
+                            sumOfCigs.append(Double(cigs))
+                            description.append(monthSymbol)
+                        }
+                        else if sumOfCigs.count > 0 {
+                            sumOfCigs.append(Double(0))
+                            description.append(monthSymbol)
+                }
+                
+                  
+            }
+        }
+        
+        //setMaxMilAxisElement
+        if let maxVal = sumOfCigs.maxElement(){
+            horizontChart.leftAxis.customAxisMax = maxVal
+            horizontChart.leftAxis.labelCount = Int(maxVal)
+        }
+        
+        setHorizontalChartData(sumOfCigs, xVals: description)
+ 
     }
     
     func setMaxMilAxisElementBarChart( values: [Double], values2: [Double])
@@ -485,6 +523,29 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         barChart.leftAxis.labelCount = Int(maxVal)  // Int(barChart.leftAxis.customAxisMax - 1)
         
     }
+    
+    
+    
+    func setHorizontalChartData( values: [Double], xVals: [String])
+    {
+        
+        barChart.noDataText = "You need to provide data for the chart."
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<xVals.count {
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
+        chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
+        
+        let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
+        chartData.groupSpace = 1
+        horizontChart.data = chartData
+    }
+    
+    
     
     func setMultiBarChart( values: [Double], values2: [Double], xVals: NSMutableArray)
     {
@@ -536,11 +597,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     {
         showChartBySegmntIndex(segmentGraphType.selectedSegmentIndex)
         
-        barChart.descriptionText = ""
-        pieChart.descriptionText = ""
         
-        myPicker.delegate = self
-        myPicker.hidden = true
+        monthPicker.delegate = self
+        monthPicker.hidden = true
         
         segmentDateType.selectedSegmentIndex = 1
         
@@ -565,6 +624,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     //set selected date to text field
     func handleDatePicker(sender: UIDatePicker) {
         showSelectedDate(sender.date, dateFormat: Constants.dateFormat.day)
+        curentDate = sender.date
+        calculateSelectedDate(0)
     }
 
     func showSelectedDate(date: NSDate, dateFormat: String){
