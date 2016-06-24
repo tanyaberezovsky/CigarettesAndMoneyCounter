@@ -69,6 +69,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.gridBackgroundColor = UIColor.clearColor()
         barChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
+        barChart.legend.textColor = UIColor.whiteColor()
         
         barChart.xAxis.labelTextColor = UIColor.whiteColor()
         barChart.leftAxis.valueFormatter = NSNumberFormatter()
@@ -94,12 +95,19 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         horizontChart.xAxis.drawGridLinesEnabled = false
         horizontChart.gridBackgroundColor = UIColor.clearColor()
         horizontChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
-        
+        horizontChart.legend.textColor = UIColor.whiteColor()
+        horizontChart.rightAxis.labelTextColor = UIColor.whiteColor()
+       
+        horizontChart.infoTextColor = UIColor.whiteColor()
+       horizontChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
         horizontChart.xAxis.labelTextColor = UIColor.whiteColor()
+        horizontChart.xAxis.axisLineColor = UIColor.whiteColor()
         horizontChart.leftAxis.valueFormatter = NSNumberFormatter()
         horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
         horizontChart.leftAxis.customAxisMin = 0
         horizontChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        
+        horizontChart.leftAxis.axisLineColor = UIColor.whiteColor()
         horizontChart.leftAxis.drawGridLinesEnabled = false
         horizontChart.rightAxis.drawGridLinesEnabled = false
         horizontChart.rightAxis.drawAxisLineEnabled = false
@@ -492,9 +500,179 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         setMultiBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed, xVals: description)
         
     }
-
-
+    
     func   calculateAndDrowHorizontalChart()
+    {
+        switch(currentSegmentDateType){
+        case Constants.SegmentDateType.day:
+            calculateAndDrowHorizontalChartByDay();
+        case Constants.SegmentDateType.month:
+            calculateAndDrowHorizontalChartByMonth();
+        case Constants.SegmentDateType.year:
+            calculateAndDrowHorizontalChartByYear();
+        default:
+            return
+        }
+    
+    }
+    
+    func   calculateAndDrowHorizontalChartByDay()
+    {
+        
+        
+        let cigRecord = CigaretteRecordManager()
+        
+        var dataStringStart:String
+        var dataStringEnd:String
+        let dateFormatterStart = NSDateFormatter()
+        dateFormatterStart.dateFormat = "MM-dd-yyyy HH:mm"
+        
+        // convert string into date
+        var dateValueStart:NSDate?
+        var dateValueEnd:NSDate?
+        
+        let dateFormatter = NSDateFormatter()
+        
+        let months = dateFormatter.shortMonthSymbols
+        var monthSymbol: String
+        //print(months.count)
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        
+        
+        var description = [String]()
+        var sumOfCigs = [Double]()
+        
+        let currenDate = NSDate()
+        
+        var evens = [Int]()
+        
+        for (_,i) in (0...23).reverse().enumerate() {
+            evens.append(i)
+            //monthSymbol = months[components.month] // month - from your date components
+            dataStringStart = String(format: "%d-%d-%d %d:00", components.month, components.day ,components.year, i)
+            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            
+            if dateValueStart > currenDate {
+                continue
+            }
+            
+            dataStringEnd = String(format: "%d-%d-%d %d:59", components.month, components.day ,components.year, i)
+            dateValueEnd = dateFormatterStart.dateFromString(dataStringEnd)
+            //print("month")
+            //print(monthSymbol)
+            monthSymbol = String(format: "%d:00", i)
+            
+            let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
+            for i in 0..<arrCiggs.count
+            {
+                
+                if let cigs = (arrCiggs[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
+                    sumOfCigs.append(Double(cigs))
+                    description.append(monthSymbol)
+                }
+                else if sumOfCigs.count > 0 {
+                    sumOfCigs.append(Double(0))
+                    description.append(monthSymbol)
+                }
+                
+                
+            }
+        }
+        
+        //setMaxMilAxisElement
+        if let maxVal = sumOfCigs.maxElement(){
+            horizontChart.leftAxis.customAxisMax = maxVal
+            horizontChart.leftAxis.labelCount = Int(maxVal)
+        }
+        
+        setHorizontalChartData(sumOfCigs, xVals: description)
+
+        
+    }
+    
+
+    
+    func   calculateAndDrowHorizontalChartByMonth()
+    {
+        
+        let cigRecord = CigaretteRecordManager()
+        
+        var dataStringStart:String
+        var dataStringEnd:String
+        let dateFormatterStart = NSDateFormatter()
+        dateFormatterStart.dateFormat = "MM-dd-yyyy HH:mm"
+        
+        // convert string into date
+        var dateValueStart:NSDate?
+        var dateValueEnd:NSDate?
+        
+        let dateFormatter = NSDateFormatter()
+        
+        let months = dateFormatter.shortMonthSymbols
+        var monthSymbol: String
+        //print(months.count)
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        
+        
+        var description = [String]()
+        var sumOfCigs = [Double]()
+      
+        let currenDate = NSDate()
+        
+        var evens = [Int]()
+
+        //let range = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: date)
+        // Swift 1.2:
+        let range = NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: curentDate)
+        
+        let numDays = range.length
+
+        for (_,i) in (1...numDays).reverse().enumerate() {
+            evens.append(i)
+            //monthSymbol = months[components.month] // month - from your date components
+            dataStringStart = String(format: "%d-%d-%d 00:00", components.month, i ,components.year)
+            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            
+            if dateValueStart > currenDate {
+                continue
+            }
+            
+            dataStringEnd = String(format: "%d-%d-%d 23:59", components.month, i ,components.year)
+            dateValueEnd = dateFormatterStart.dateFromString(dataStringEnd)
+            //print("month")
+            //print(monthSymbol)
+            monthSymbol = String(format: "%@ %d", months[components.month], i)
+            
+            let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
+            for i in 0..<arrCiggs.count
+            {
+                
+                if let cigs = (arrCiggs[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
+                    sumOfCigs.append(Double(cigs))
+                    description.append(monthSymbol)
+                }
+                else if sumOfCigs.count > 0 {
+                    sumOfCigs.append(Double(0))
+                    description.append(monthSymbol)
+                }
+                
+                
+            }
+        }
+        
+        //setMaxMilAxisElement
+        if let maxVal = sumOfCigs.maxElement(){
+            horizontChart.leftAxis.customAxisMax = maxVal
+            horizontChart.leftAxis.labelCount = Int(maxVal)
+        }
+        
+        setHorizontalChartData(sumOfCigs, xVals: description)
+        
+    }
+    
+
+
+    func   calculateAndDrowHorizontalChartByYear()
     {
        
         let cigRecord = CigaretteRecordManager()
@@ -518,9 +696,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         var description = [String]()
         var sumOfCigs = [Double]()
-        for (index,number) in (0...10).reverse().enumerate() {
+       /* for (index, number) in (0...10).reverse().enumerate() {
             //print("index \(index) , number \(number)")
-        }
+        }*/
         let currenDate = NSDate()
         
         var evens = [Int]()
