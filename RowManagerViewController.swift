@@ -60,9 +60,9 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         let selection=0
         if let objCount = fetchedResultControllerDaily.sections?[selection].numberOfObjects{
             
-            for var index=0; index < objCount - 1; index++
+            for index in 0..<objCount - 1
             {
-                let ind = NSIndexPath(forRow: index, inSection: selection)
+                    let ind = NSIndexPath(forRow: index, inSection: selection)
                 let task = fetchedResultControllerDaily.objectAtIndexPath(ind) as! CigaretteRecord
                 let yearMonth:String = task.yearMonth()
                 

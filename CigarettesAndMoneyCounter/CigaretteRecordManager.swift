@@ -119,12 +119,6 @@ class CigaretteRecordManager {
             
             if (result.count > 0) {
              
-                if let a = result[0].valueForKey("countLines") as? NSNumber {
-                    let aString = a.stringValue
-                    //print(aString) // -1
-                } else {
-                    // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
-                }
                 
                 if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
@@ -247,90 +241,13 @@ class CigaretteRecordManager {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-
-    var rows = cigRec.fetchedResultsController.sections?.count
-        
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let task = cigRec.fetchedResultsController.objectAtIndexPath(indexPath) 
-
-        let firstProduct = cigRec.fetchedResultsController.sections![0].objects![0]
-        
-        /*
-        
-       ////////////////////////
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        
-        let sort = NSSortDescriptor(key: "addDate", ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        
-        fetchRequest.fetchBatchSize = 20
-        
-        //where condition
-        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
-        fetchRequest.predicate  = predicate
-        
-        let expressionSumCigarettes = NSExpressionDescription()
-        expressionSumCigarettes.name = "sumOftotalCigarettes"
-        expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
-                                                          arguments:[NSExpression(forKeyPath: "cigarettes")])
-        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
-      
-        fetchRequest.propertiesToFetch = [ fieldName, expressionSumCigarettes]
-        
-        
-        let result = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
-        //result.delegate = self
-        
-        ///////////////
-        */
-        var resultArr:NSArray = NSArray()
+        let resultArr:NSArray = NSArray()
         
         return resultArr
         
-        /*
-        
-        //    and then a fetch request which fetches only this sum:
-        
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        
-        fetchRequest.propertiesToFetch = [ fieldName, expressionSumCigarettes]
-        fetchRequest.resultType = .DictionaryResultType
-        
-        fetchRequest.predicate = predicate
-        
-        fetchRequest.propertiesToGroupBy = [fieldName]
-        
-        let sort = NSSortDescriptor(key: orderByField, ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        
-        var result:NSArray = NSArray()
-        
-        do {
-            result = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest)
-            
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-            return result
-        }
-        return result
-        */
-    }
+         }
     
     
     //http://stackoverflow.com/questions/32776375/grouping-core-data-with-nsfetchedresultscontroller-in-swift
-    
-  /*  var fetchedResultsController: NSFetchedResultsController = {
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        
-        let sort = NSSortDescriptor(key: "addDate", ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        
-        fetchRequest.fetchBatchSize = 20
-        
-        let result = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: CigaretteRecord.groupByMonth(), cacheName: nil)
-        result.delegate = self
-        
-        return result
-    }()*/
 
 }

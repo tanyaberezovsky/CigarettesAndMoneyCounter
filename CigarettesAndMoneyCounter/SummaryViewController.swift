@@ -531,9 +531,6 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         var dateValueStart:NSDate?
         var dateValueEnd:NSDate?
         
-        let dateFormatter = NSDateFormatter()
-        
-        let months = dateFormatter.shortMonthSymbols
         var monthSymbol: String
         //print(months.count)
         let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
@@ -771,7 +768,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
         chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
-        
+        chartDataSet.valueTextColor = UIColor.whiteColor()// ColorTemplates.HorizontalBarChartColor()[0]
         let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
         chartData.groupSpace = 1
         horizontChart.data = chartData
@@ -827,6 +824,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     
     func loadScreenGraphics()
     {
+        
+        loadGraphicsSettings()
+        
         showChartBySegmntIndex(segmentGraphType.selectedSegmentIndex)
         
         
@@ -855,6 +855,32 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
     }
     
+    //++++++++++++++++++++++++++++++++++++
+    //  load Graphics Settings
+    //++++++++++++++++++++++++++++++++++++
+    func loadGraphicsSettings() {
+        
+        //set button look like text field
+        var layerLevelAsNeeded: CALayer
+        
+        //set button look like text field
+        layerLevelAsNeeded = selectedDate.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = segmentDateType.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = segmentGraphType.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+    }
     
     //set selected date to text field
     func handleDatePicker(sender: UIDatePicker) {

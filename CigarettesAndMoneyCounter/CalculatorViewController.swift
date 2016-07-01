@@ -96,8 +96,9 @@ class CalculatorViewController: GlobalUIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
-
-       LoadDefaultValues()
+        loadGraphicsSettings()
+        
+        LoadDefaultValues()
        
     }
     
@@ -170,6 +171,39 @@ class CalculatorViewController: GlobalUIViewController {
     func closeAllKeyboards()
     {
         self.view.endEditing(true)
+    }
+    
+    //++++++++++++++++++++++++++++++++++++
+    //  load Graphics Settings
+    //++++++++++++++++++++++++++++++++++++
+    func loadGraphicsSettings() {
+        
+        //set button look like text field
+        var layerLevelAsNeeded: CALayer
+        
+        //set button look like text field
+        layerLevelAsNeeded = packCost.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = cigsPerPack.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = ciggarets.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        
+        
+        layerLevelAsNeeded = segmentPeriod.layer
+        layerLevelAsNeeded.cornerRadius = 5
+        layerLevelAsNeeded.borderWidth = 0.5
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
     }
     
     //++++++++++++++++++++++++++++++++++++
