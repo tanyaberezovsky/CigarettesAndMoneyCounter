@@ -32,15 +32,30 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["Bored", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After Coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation", "Nervous","Pleasure"
-,"Self-expression"
+let cause = ["Boredom", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
+,"Self-expression",
+    "After Something", "Before Something", "Fear Feeling"
 ,"Fun"
 ,"First cigaret"
 ,"Last cigarette"
 ,"In car"
 ,"Reward after"
-,"Wanting"
-    ,"Concentrate", "Other"].sort { $0 < $1 }
+    ,"Emptiness",
+    "Insecure Feeling",
+    "Hunger",
+    "Stress",
+    "Discomfort",
+    "Panic",
+    "Nerves"
+    ,"Pleasure illusion",
+     "Satisfaction illusion",
+     "Concentration illusion",
+    "Enjoy illusion",
+    "Smell enjoy illusion",
+    "Taste enjoy illusion",
+    "Relax illusion",
+    "State of peace illusion",
+    "Courage illusion", "Other"].sort { $0 < $1 }
 
 
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3")]

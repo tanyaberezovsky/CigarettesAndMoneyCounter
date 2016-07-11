@@ -15,6 +15,13 @@ func isNumeric(a: String) -> Bool {
 }
 
 
+func createSmokeText(unitTimeValue:NSInteger, unitName:String) -> String
+{
+    var unitName1 = unitName
+    if unitTimeValue == 1 {  unitName1 = unitName.substringToIndex(unitName.endIndex.advancedBy(-1))}
+    return " \(unitTimeValue) \(unitName1)"
+}
+
 /*
 reseive date and return string
 if date was in past hour
@@ -35,6 +42,9 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
     let laterDate = NSDate()
     var bLastCigWasToday:Bool = true
     
+    if(!NSCalendar.currentCalendar().isDateInToday(earlierDate)){
+        bLastCigWasToday  = false    }
+    
     let components = NSCalendar.currentCalendar().components([.Second, .Minute, .Hour, .Day, .Month, .Year], fromDate: earlierDate,
         toDate: laterDate, options: [])
     
@@ -43,19 +53,21 @@ func calculateLastCigaretTime(earlierDate: NSDate)  -> (txtLastCig: String, bLas
     var counter = 0;
     
     if components.year>0 {
-        arrStrDate.append(" \(components.year) Years"); bLastCigWasToday=false;
-        if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;}
+        arrStrDate.append(createSmokeText(components.year, unitName:"EARS")); bLastCigWasToday=false;
+        if components.month>0 {arrStrDate.append(createSmokeText(components.month, unitName:"MONTHS")); bLastCigWasToday=false;}
         counter += 1
     }
-    else if components.month>0 {arrStrDate.append(" \(components.month) MONTHS"); bLastCigWasToday=false;
-        if components.day>0 {arrStrDate.append(" \(components.day) DAYS"); bLastCigWasToday=false;}
+    else if components.month>0 {arrStrDate.append(createSmokeText(components.month, unitName:"MONTHS")); bLastCigWasToday=false;
+        if components.day>0 {arrStrDate.append(createSmokeText(components.day, unitName:"DAYS")); bLastCigWasToday=false;}
     }
-    else if components.day>0 {arrStrDate.append(" \(components.day) DAYS"); bLastCigWasToday=false;
-        if components.hour>0 {arrStrDate.append(" \(components.hour) HOURS")}
+    else if components.day>0 {arrStrDate.append(createSmokeText(components.day, unitName:"DAYS")); bLastCigWasToday=false;
+        if components.hour>0 {arrStrDate.append(createSmokeText(components.hour, unitName:"HOURS"))}
     }
     else{
-        if components.hour>0 {arrStrDate.append(" \(components.hour) HOURS")}
-        if components.minute>0 {arrStrDate.append(" \(components.minute) MINUTES")}
+        if components.hour>0 {arrStrDate.append(createSmokeText(components.hour, unitName:"HOURS"))
+         if components.minute>0 {arrStrDate.append(" \(components.minute) MIN")}
+        }
+        else if components.minute>0 {arrStrDate.append(createSmokeText(components.minute, unitName:"MINUTES"))}
     }
     
     if arrStrDate.count == 0
@@ -146,11 +158,11 @@ public func segmentToDays(segment: Int) -> Double
     return ret
 }
 
-func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
+func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> NSMutableAttributedString{
     var text: String = "SMOKING TIME "
-    
+    var myMutableString = NSMutableAttributedString()
     //var days = segmentToDays(segment)
-    
+   
     let smokingSigTimeMinets: Double = (Double(5) * totalSigs)
     var smokingSigTime: Double = smokingSigTimeMinets / 60
     
@@ -173,5 +185,10 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> String{
             text += String(format: "%.0f", smokingSigTime) + " MINUTES"
         }
     }
-    return text;
+    
+    myMutableString = NSMutableAttributedString(string: text)
+    
+    myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColors.GreenAddButton.green, range: NSRange(location:13, length: text.characters.count - 13))
+
+    return myMutableString;
 }

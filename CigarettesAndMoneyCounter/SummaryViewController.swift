@@ -387,17 +387,17 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let cigRecord = CigaretteRecordManager()
         
         let fieldName = "reason"
-        let arrReason:AnyObject = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName) //.sort {return $0 < $1}
+        let arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName) //.sort {return $0 < $1}
 
 
         var description = [String]()
         var sumOfCigs = [Double]()
         
-        
         if arrReason.count > 0 {
             
             for i in 0..<arrReason.count
             {
+                
                 if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
                     description.append(desc)
                 }
@@ -578,8 +578,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal
-            horizontChart.leftAxis.labelCount = Int(maxVal)
+            horizontChart.leftAxis.customAxisMax = maxVal + 2
+            setLabelCount(maxVal)
         }
         
         setHorizontalChartData(sumOfCigs, xVals: description)
@@ -587,6 +587,13 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
     }
     
+    func setLabelCount(maxVal:Double){
+        var labelCount = maxVal
+        if maxVal > 15 {labelCount = 15}
+        horizontChart.leftAxis.labelCount = Int(labelCount)
+    
+    
+    }
 
     
     func   calculateAndDrowHorizontalChartByMonth()
@@ -659,8 +666,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal
-            horizontChart.leftAxis.labelCount = Int(maxVal)
+            horizontChart.leftAxis.customAxisMax = maxVal + 2
+            setLabelCount(maxVal)
         }
         
         setHorizontalChartData(sumOfCigs, xVals: description)
@@ -698,9 +705,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         }*/
         let currenDate = NSDate()
         
-        var evens = [Int]()
+      //  var evens = [Int]()
         for (_,i) in (0...11).reverse().enumerate() {
-            evens.append(i)
+          //  evens.append(i)
             monthSymbol = months[i] // month - from your date components
             dataStringStart = String(format: "%d-01-%d", i+1, components.year)
             dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
@@ -732,8 +739,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal
-            horizontChart.leftAxis.labelCount = Int(maxVal)
+            horizontChart.leftAxis.customAxisMax = maxVal + 10
+            setLabelCount(maxVal)
         }
         
         setHorizontalChartData(sumOfCigs, xVals: description)

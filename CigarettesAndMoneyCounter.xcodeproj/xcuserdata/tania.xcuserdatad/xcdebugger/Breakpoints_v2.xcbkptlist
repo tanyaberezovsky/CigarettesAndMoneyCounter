@@ -338,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "674"
-            endingLineNumber = "674"
+            startingLineNumber = "681"
+            endingLineNumber = "681"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489432599.731429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "calculateAdnDrowChartPie()"
             landmarkType = "5">
          </BreakpointContent>
@@ -558,11 +558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "707"
-            endingLineNumber = "707"
+            startingLineNumber = "714"
+            endingLineNumber = "714"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -574,11 +574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "708"
-            endingLineNumber = "708"
+            startingLineNumber = "715"
+            endingLineNumber = "715"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -670,11 +670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488461122.959242"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "853"
-            endingLineNumber = "853"
+            startingLineNumber = "860"
+            endingLineNumber = "860"
             landmarkName = "loadScreenGraphics()"
             landmarkType = "5">
          </BreakpointContent>
@@ -686,11 +686,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "887"
-            endingLineNumber = "887"
+            startingLineNumber = "894"
+            endingLineNumber = "894"
             landmarkName = "handleDatePicker(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -702,11 +702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "902"
-            endingLineNumber = "902"
+            startingLineNumber = "909"
+            endingLineNumber = "909"
             landmarkName = "touchesBegan(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -942,11 +942,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
             landmarkName = "calculateAndDrowHorizontalChartByMonth()"
             landmarkType = "5">
          </BreakpointContent>
@@ -958,12 +958,444 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489006253.300921"
+            timestampString = "489769233.101101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
+            startingLineNumber = "650"
+            endingLineNumber = "650"
             landmarkName = "calculateAndDrowHorizontalChartByMonth()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762804.705995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "LoadDefaultValues()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/Common.swift"
+            timestampString = "489688058.7548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "calculateLastCigaretTime(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/Common.swift"
+            timestampString = "489688058.7548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "decimalFormatToString(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/Common.swift"
+            timestampString = "489688058.7548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "calculateLastCigaretTime(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489763036.626079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "loadCircularLoader(_:dailyLimit:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/ViewController.swift"
+            timestampString = "489074470.091702"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762804.705995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "addCigarettes(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762804.705995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "dataReloadAfterSave()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CigarettesAndMoneyCounter.LightMainSceneViewController.dataReloadAfterSave () -&gt; ()"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+                  timestampString = "489434151.105435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "protocol witness for CigarettesAndMoneyCounter.popOverControllerDelegate.dataReloadAfterSave () -&gt; () in conformance CigarettesAndMoneyCounter.LightMainSceneViewController : CigarettesAndMoneyCounter.popOverControllerDelegate in CigarettesAndMoneyCounter"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+                  timestampString = "489434151.105783"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "9">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762804.705995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "dataReloadAfterSave()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762804.705995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "addCigarettes(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/ViewController.swift"
+            timestampString = "489436306.86339"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "showFirstViewController()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489763036.626079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "returnFromSegueActions(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489769233.101101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "727"
+            endingLineNumber = "727"
+            landmarkName = "calculateAndDrowHorizontalChartByYear()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489762836.819452"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489769233.101101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "668"
+            endingLineNumber = "668"
+            landmarkName = "calculateAndDrowHorizontalChartByMonth()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489769308.737393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "743"
+            endingLineNumber = "743"
+            landmarkName = "calculateAndDrowHorizontalChartByYear()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489769339.98966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "591"
+            endingLineNumber = "591"
+            landmarkName = "setLabelCount(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/String.swift"
+            timestampString = "489782411.185135"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "endOfMonth()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in CigarettesAndMoneyCounter):__ObjC.NSDate.endOfMonth () -&gt; Swift.Optional&lt;__ObjC.NSDate&gt;"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/String.swift"
+                  timestampString = "489782411.188759"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in CigarettesAndMoneyCounter):__ObjC.NSDate.endOfMonth () -&gt; Swift.Optional&lt;__ObjC.NSDate&gt;"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/String.swift"
+                  timestampString = "489782411.18901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/String.swift"
+            timestampString = "489786880.583919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "endOfMonth()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/String.swift"
+            timestampString = "489786917.12299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "endOfMonth()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static CigarettesAndMoneyCounter.&lt; infix (__ObjC.NSDate, __ObjC.NSDate) -&gt; Swift.Bool"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/String.swift"
+                  timestampString = "489786917.125598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "protocol witness for static Swift.Comparable.&lt; infix (A, A) -&gt; Swift.Bool in conformance __ObjC.NSDate : Swift.Comparable in CigarettesAndMoneyCounter"
+                  moduleName = "CigarettesAndMoneyCounter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/String.swift"
+                  timestampString = "489786917.125788"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/String.swift"
+            timestampString = "489786919.472982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "endOfMonth()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -35,13 +35,13 @@ extension NSDate {
     }
     
     func endOfMonth() -> NSDate? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = NSDateComponents() else { return nil }
+        let components: NSDateComponents = NSDateComponents()
+        components.setValue(-1, forComponent: NSCalendarUnit.Day);
+        components.setValue(1, forComponent: NSCalendarUnit.Month);
         
-        comp.month = 1
-        comp.day -= 1
-        return cal.dateByAddingComponents(comp, toDate: self, options: [])!
+        let expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: self, options: NSCalendarOptions(rawValue: 0))
+        return expirationDate
+        
     }
 
 }

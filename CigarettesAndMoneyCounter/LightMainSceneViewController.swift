@@ -26,8 +26,10 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-        LoadDefaultValues()
- //  addSmoke.layoutSubviews()
+        
+       
+        
+        //  addSmoke.layoutSubviews()
 
  //self.viewWillAppear(false)
     }
@@ -40,7 +42,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         LoadDefaultValues()
         circularLoader.setNeedsDisplay()
 */
-        
+       
     }
     
     
@@ -50,12 +52,14 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     called while pressinf save button in defautls settings screen    */
     func dataReloadAfterSave(){
         LoadDefaultValues()
-        circularLoader.setNeedsDisplay()
+       // circularLoader.setNeedsDisplay()
     }
 
     
     override func  viewDidAppear(animated: Bool) {
         roundButtonConers()
+        LoadDefaultValues()
+
     }
     
     
@@ -89,6 +93,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             }
         }
         }
+         circularLoader.setNeedsDisplay()
     }
 
     func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
@@ -228,6 +233,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
 //                self.view.backgroundColor = originalColor
 //            })
 //        }
+        circularLoader.setNeedsDisplay()
     }
     
    /* override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue {

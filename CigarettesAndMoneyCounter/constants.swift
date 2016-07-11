@@ -32,6 +32,14 @@ struct UIColors{
     struct Segment {
         static  let selected = RGB(66 , 62, 76, alpha: 1)
     }
+    
+    
+    struct GreenAddButton {
+        static  let green = RGB(41 , 215, 134, alpha: 1)
+    }
+    
+    
+    
 
 }
 

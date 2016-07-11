@@ -150,7 +150,7 @@ class CalculatorViewController: GlobalUIViewController {
         totalCost.text = decimalFormatToCurency(cost)
         
 //
-         smokingTime.text = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
+         smokingTime.attributedText = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
 
     private func calculateCost() -> Double

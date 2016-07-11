@@ -30,7 +30,8 @@ class MenuViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showCalc" || segue.identifier == "showSettings" {
+        if segue.identifier == "showCalc" || segue.identifier == "showSettings" || segue.identifier == "showAbout"
+        {
              navigateToRoot(self, toViewController: segue.destinationViewController)
         }
     }
