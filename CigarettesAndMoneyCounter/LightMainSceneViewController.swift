@@ -84,7 +84,9 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         else{
             txtLastCig.text = "TIME SINCE LAST CIGARETTE"// "How long has it been since last cigarette"//"Do not smoke at all"  "Free of smoking time"
         }
-        dailySmokedCigs.text = String(Int(todaySmoked))
+       // dailySmokedCigs.text = String(Int(todaySmoked))
+            dailySmokedCigs.attributedText = dailySmokedToText(Int(todaySmoked), limit: userDefaults.dailyGoal)
+            
         roundButtonConers()
       
         if let lastCig = userDefaults.dateLastCig{
@@ -96,6 +98,29 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
          circularLoader.setNeedsDisplay()
     }
 
+    
+    func dailySmokedToText(totalSigs: Int, limit: Int) -> NSMutableAttributedString{
+        var myMutableString = NSMutableAttributedString()
+        
+        let remainder: Int = limit - totalSigs > 0 ? limit - totalSigs: 0
+
+        
+        
+        myMutableString = NSMutableAttributedString(string: String(format: "    %d/ %d", totalSigs, remainder))
+        
+        
+        
+        myMutableString.addAttribute(NSFontAttributeName,
+                                     value: UIFont.systemFontOfSize(13.0),
+                                     range: NSRange(location: 0, length: 4))
+        
+        myMutableString.addAttribute(NSFontAttributeName,
+                                     value: UIFont.systemFontOfSize(13.0),
+                                     range: NSRange(location:String(totalSigs).characters.count+4, length: String(remainder).characters.count+2))
+        return myMutableString;
+    }
+    
+    
     func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
     {
         if(todaySmoked>0){

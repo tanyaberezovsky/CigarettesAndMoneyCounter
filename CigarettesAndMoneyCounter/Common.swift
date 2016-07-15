@@ -114,7 +114,7 @@ func decimalFormatToCurency(num: Double) -> String{
 }
 
 public func cigarettesToPackDescription(cigs: Int, sufix: String) -> String
-{
+{ 
 
     let defaults = UserDefaultsDataController()
     //var userDefaults = UserDefaults()
@@ -188,7 +188,7 @@ func AverageOfSmokingTimeDescription(totalSigs: Double, segment: Int) -> NSMutab
     
     myMutableString = NSMutableAttributedString(string: text)
     
-    myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColors.GreenAddButton.green, range: NSRange(location:13, length: text.characters.count - 13))
+    myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location:13, length: text.characters.count - 13))
 
     return myMutableString;
 }

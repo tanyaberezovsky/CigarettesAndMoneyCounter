@@ -172,7 +172,7 @@ class CigaretteRecordManager {
         
         fetchRequest.propertiesToGroupBy = [fieldName]
         
-        let sort = NSSortDescriptor(key: orderByField, ascending: false)
+        let sort = NSSortDescriptor(key: orderByField, ascending: true)
         fetchRequest.sortDescriptors = [sort]
 
         var result:NSArray = NSArray()

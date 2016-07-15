@@ -387,22 +387,40 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let cigRecord = CigaretteRecordManager()
         
         let fieldName = "reason"
-        let arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName) //.sort {return $0 < $1}
+        let arrReason2:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName)//.sort {return $0 < $1}
 
 
         var description = [String]()
         var sumOfCigs = [Double]()
+        var cigsTotal:Int
+        
+        var arrReason = arrReason2.sortedArrayUsingComparator {
+            (obj1, obj2) -> NSComparisonResult in
+            
+            let first = Double(((obj1 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
+            let second = Double(((obj2 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
+            
+            if (first < second) {
+                return NSComparisonResult.OrderedDescending;
+            } else {
+                return NSComparisonResult.OrderedAscending;
+            }
+        }
+
         
         if arrReason.count > 0 {
             
             for i in 0..<arrReason.count
             {
-                
-                if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
-                    description.append(desc)
-                }
                 if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                     sumOfCigs.append(Double(cigs))
+                    cigsTotal = Int(cigs)
+                }
+                else{
+                    cigsTotal = 0}
+                
+                if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
+                    description.append(String(format: "%d-%@", cigsTotal, desc))
                 }
             }
             
@@ -578,7 +596,6 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal + 2
             setLabelCount(maxVal)
         }
         
@@ -587,12 +604,16 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
     }
     
-    func setLabelCount(maxVal:Double){
+    func setLabelCount(val:Double){
+        
+        var maxVal = val
         var labelCount = maxVal
-        if maxVal > 15 {labelCount = 15}
+        if maxVal > 15 {labelCount = 15
+            maxVal = maxVal + (maxVal / 100 * 1.5)
+        }
+        
+        horizontChart.leftAxis.customAxisMax = maxVal + 1
         horizontChart.leftAxis.labelCount = Int(labelCount)
-    
-    
     }
 
     
@@ -666,7 +687,6 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal + 2
             setLabelCount(maxVal)
         }
         
@@ -752,12 +772,16 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         guard let number1 = values.maxElement(), number2 = values2.maxElement() else { return }
 
         
-        let maxVal = max(number1, number2)
+        var maxVal = max(number1, number2)
         
-        barChart.leftAxis.customAxisMax = maxVal
-      //  barChart.leftAxis.customAxisMax = barChart.data!.yMax + 1.0
-        barChart.leftAxis.labelCount = Int(maxVal)  // Int(barChart.leftAxis.customAxisMax - 1)
+        var labelCount = maxVal
+        if maxVal > 15 {labelCount = 15
+            maxVal = maxVal + (maxVal / 100 * 1.5)
+        }
         
+        barChart.leftAxis.customAxisMax = maxVal + 1
+        barChart.leftAxis.labelCount = Int(labelCount)
+
     }
     
     

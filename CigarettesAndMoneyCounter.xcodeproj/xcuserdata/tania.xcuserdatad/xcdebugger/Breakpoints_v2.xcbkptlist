@@ -46,7 +46,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/AppDelegate.swift"
@@ -338,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "681"
-            endingLineNumber = "681"
+            startingLineNumber = "701"
+            endingLineNumber = "701"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -354,11 +354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "479"
-            endingLineNumber = "479"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489432599.731429"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "calculateAdnDrowChartPie()"
             landmarkType = "5">
          </BreakpointContent>
@@ -558,11 +558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "714"
-            endingLineNumber = "714"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -574,11 +574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "715"
-            endingLineNumber = "715"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -670,11 +670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "860"
-            endingLineNumber = "860"
+            startingLineNumber = "884"
+            endingLineNumber = "884"
             landmarkName = "loadScreenGraphics()"
             landmarkType = "5">
          </BreakpointContent>
@@ -686,11 +686,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "894"
-            endingLineNumber = "894"
+            startingLineNumber = "918"
+            endingLineNumber = "918"
             landmarkName = "handleDatePicker(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -702,11 +702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "909"
-            endingLineNumber = "909"
+            startingLineNumber = "933"
+            endingLineNumber = "933"
             landmarkName = "touchesBegan(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -718,11 +718,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -734,11 +734,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -750,11 +750,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -766,11 +766,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -782,7 +782,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "calculateAdnDrowChartMultiBar()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489955260.114392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
+            landmarkName = "calculateAdnDrowChartMultiBar()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "500"
@@ -798,11 +830,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -814,43 +846,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
+            timestampString = "489955260.114392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "482"
-            endingLineNumber = "482"
-            landmarkName = "calculateAdnDrowChartMultiBar()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
-            landmarkName = "calculateAdnDrowChartMultiBar()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "488308421.882188"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "492"
-            endingLineNumber = "492"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
             landmarkName = "calculateAdnDrowChartMultiBar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -942,11 +942,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
+            startingLineNumber = "651"
+            endingLineNumber = "651"
             landmarkName = "calculateAndDrowHorizontalChartByMonth()"
             landmarkType = "5">
          </BreakpointContent>
@@ -958,11 +958,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "650"
-            endingLineNumber = "650"
+            startingLineNumber = "671"
+            endingLineNumber = "671"
             landmarkName = "calculateAndDrowHorizontalChartByMonth()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1038,11 +1038,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "489763036.626079"
+            timestampString = "489949951.682757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "loadCircularLoader(_:dailyLimit:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1182,11 +1182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "489763036.626079"
+            timestampString = "489949951.682757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "returnFromSegueActions(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1198,11 +1198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "727"
-            endingLineNumber = "727"
+            startingLineNumber = "747"
+            endingLineNumber = "747"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1230,11 +1230,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769233.101101"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "668"
-            endingLineNumber = "668"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
             landmarkName = "calculateAndDrowHorizontalChartByMonth()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1246,11 +1246,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769308.737393"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "743"
-            endingLineNumber = "743"
+            startingLineNumber = "763"
+            endingLineNumber = "763"
             landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1262,11 +1262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "489769339.98966"
+            timestampString = "489956872.43696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "591"
-            endingLineNumber = "591"
+            startingLineNumber = "608"
+            endingLineNumber = "608"
             landmarkName = "setLabelCount(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1278,11 +1278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/String.swift"
-            timestampString = "489782411.185135"
+            timestampString = "489960966.723422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "endOfMonth()"
             landmarkType = "5">
             <Locations>
@@ -1326,13 +1326,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/String.swift"
-            timestampString = "489786880.583919"
+            timestampString = "489960966.723422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "endOfMonth()"
-            landmarkType = "5">
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "==(_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1342,13 +1342,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/String.swift"
-            timestampString = "489786917.12299"
+            timestampString = "489960966.723422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "endOfMonth()"
-            landmarkType = "5">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "&lt;(_:_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1390,12 +1390,74 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/String.swift"
-            timestampString = "489786919.472982"
+            timestampString = "489960966.723422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "endOfMonth()"
+            startingLineNumber = "70"
+            endingLineNumber = "70">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489949951.682757"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "dailySmokedToText(_:limit:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
+            timestampString = "489949965.924701"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "dailySmokedToText(_:limit:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489955260.114392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "calculateAdnDrowChartPie()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
+            timestampString = "489956932.704195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
+            landmarkName = "setLabelCount(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
