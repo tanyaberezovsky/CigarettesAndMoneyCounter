@@ -10,14 +10,14 @@ import Foundation
 import QuartzCore
 import UIKit
 
-extension UINavigationController{
-    
-    public override func shouldAutorotate() -> Bool {
-    
-            return false
-    }
-    
-}
+//extension UINavigationController{
+//    
+//    public override func shouldAutorotate() -> Bool {
+//    
+//            return false
+//    }
+//    
+//}
 
 //extension UINavigationControllerDelegate {
 //    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {

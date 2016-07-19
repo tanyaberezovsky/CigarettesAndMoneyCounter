@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CigarettesAndMoneyCounter.xcodeproj">
+      location = "self:/Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter.xcodeproj">
    </FileRef>
 </Workspace>

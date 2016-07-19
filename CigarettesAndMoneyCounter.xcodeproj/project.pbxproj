@@ -160,7 +160,7 @@
 		23802C9D19CC150900387768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23802C9F19CC150900387768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23802CA219CC150900387768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarettesAndMoneyCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23802CA819CC150900387768 /* CigarettesAndMoneyCounter.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarettesAndMoneyCounter.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802CAD19CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802CAE19CC150900387768 /* CigarettesAndMoneyCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigarettesAndMoneyCounterTests.swift; sourceTree = "<group>"; };
 		23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataController.swift; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */,
-				23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */,
+				23802CA819CC150900387768 /* CigarettesAndMoneyCounter.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 			);
 			name = CigarettesAndMoneyCounterTests;
 			productName = CigarettesAndMoneyCounterTests;
-			productReference = 23802CA819CC150900387768 /* CigarettesAndMoneyCounterTests.xctest */;
+			productReference = 23802CA819CC150900387768 /* CigarettesAndMoneyCounter.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -724,8 +724,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Tanya.SmokeCounter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -742,8 +742,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Tanya.SmokeCounter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 			};
@@ -763,7 +763,7 @@
 				);
 				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
 			};
 			name = Debug;
@@ -778,7 +778,7 @@
 				);
 				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
 			};
 			name = Release;
