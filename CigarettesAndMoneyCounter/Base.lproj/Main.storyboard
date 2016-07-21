@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--iSmoke2-->
+        <!--Smokie Stopie-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="iSmoke2" id="vXZ-lx-hvc" customClass="ViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Smokie Stopie" id="vXZ-lx-hvc" customClass="ViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -1032,7 +1032,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="p5b-9D-Mie"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="iSmoke" id="HRj-RK-Cqa"/>
+                    <navigationItem key="navigationItem" title="Smokie Stopie" id="HRj-RK-Cqa"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
@@ -2103,7 +2103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iSmoke" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-nG-Kvq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smokie Stopie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-nG-Kvq">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="LZq-8b-fhm"/>
@@ -3379,10 +3379,10 @@
             </objects>
             <point key="canvasLocation" x="1612.5" y="-251"/>
         </scene>
-        <!--iSmoke-->
+        <!--Smokie Stopie-->
         <scene sceneID="usj-4f-7jo">
             <objects>
-                <viewController title="iSmoke" id="5oj-Hq-SON" customClass="LightMainSceneViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Smokie Stopie" id="5oj-Hq-SON" customClass="LightMainSceneViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pQE-oJ-esq"/>
                         <viewControllerLayoutGuide type="bottom" id="wxo-9j-pqb"/>
@@ -3721,7 +3721,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="iSmoke" id="8M2-zP-Tzx">
+                    <navigationItem key="navigationItem" title="Smokie Stopie" id="8M2-zP-Tzx">
                         <barButtonItem key="backBarButtonItem" title="Back" id="R1f-XV-vYF"/>
                         <barButtonItem key="leftBarButtonItem" image="menu" id="lJE-s8-unr">
                             <connections>
@@ -3760,6 +3760,6 @@
         <image name="smallArrow" width="14" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WUR-5J-QbY"/>
+        <segue reference="xxV-5h-86p"/>
     </inferredMetricsTieBreakers>
 </document>

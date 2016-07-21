@@ -28,6 +28,8 @@
 		230F3DE61CB9345A008983FD /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C61CB7DFF500CEEA47 /* SF-UI-Text-RegularItalic.otf */; };
 		230F3DE71CB9345A008983FD /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C71CB7DFF500CEEA47 /* SF-UI-Text-Semibold.otf */; };
 		230F3DE81CB9345A008983FD /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C81CB7DFF500CEEA47 /* SF-UI-Text-SemiboldItalic.otf */; };
+		231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */; };
+		231DD80A1D41577C00E46B09 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8091D41577C00E46B09 /* Podfile */; };
 		2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */; };
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
 		234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */; };
@@ -120,6 +122,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		231DD8091D41577C00E46B09 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButton.swift; sourceTree = "<group>"; };
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +274,8 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				231DD8091D41577C00E46B09 /* Podfile */,
+				231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */,
 				23A648751C8B1D8C00C67F58 /* Controller */,
 				234E42D61C82206500185D9C /* CircularLoader */,
 				237205991C4970420051ABD8 /* Images */,
@@ -529,6 +535,7 @@
 				230F3DDC1CB9345A008983FD /* SF-UI-Display-Ultralight.otf in Resources */,
 				230F3DDD1CB9345A008983FD /* SF-UI-Text-Bold.otf in Resources */,
 				230F3DDE1CB9345A008983FD /* SF-UI-Text-BoldItalic.otf in Resources */,
+				231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */,
 				230F3DDF1CB9345A008983FD /* SF-UI-Text-Heavy.otf in Resources */,
 				230F3DE01CB9345A008983FD /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				230F3DE11CB9345A008983FD /* SF-UI-Text-Light.otf in Resources */,
@@ -543,6 +550,7 @@
 				23802CA319CC150900387768 /* LaunchScreen.xib in Resources */,
 				23E26ACA1C9F304900D87E8E /* btn_plus.png in Resources */,
 				23802CA019CC150900387768 /* Images.xcassets in Resources */,
+				231DD80A1D41577C00E46B09 /* Podfile in Resources */,
 				23E26ACB1C9F304900D87E8E /* ic_swipup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
