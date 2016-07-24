@@ -32,7 +32,7 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["Boredom", "Thinking", "Working", "Learning", "Gaming", "After sleep", "After coffee", "After eat", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
+let cause = ["Boredom", "Thinking", "Working", "Learning", "Gaming", "After sleeping", "After coffee", "After eating", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
 ,"Self-expression",
     "After Something", "Before Something", "Fear Feeling"
 ,"Fun"
