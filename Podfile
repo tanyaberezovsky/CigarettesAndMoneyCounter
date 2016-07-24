@@ -1,3 +1,7 @@
-platform :ios, '7.0'
-pod 'AFNetworking'
-pod 'GoogleAnalytics-iOS-SDK'
+platform :ios, "8.0"
+use_frameworks!
+
+target 'CigarettesAndMoneyCounter' do
+    pod 'Firebase/Core'
+    pod 'Firebase/AdMob'
+end

@@ -1,0 +1,6 @@
+framework module Pods_CigarettesAndMoneyCounter {
+  umbrella header "Pods-CigarettesAndMoneyCounter-umbrella.h"
+
+  export *
+  module * { export * }
+}

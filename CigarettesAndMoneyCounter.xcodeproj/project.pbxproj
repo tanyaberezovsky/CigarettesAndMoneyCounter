@@ -67,6 +67,7 @@
 		23EDCD601B90782300F96F4A /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5F1B90782300F96F4A /* RGB.swift */; };
 		23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */; };
 		23F97BDC1C0873FA00A10596 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */; };
+		F598B305D9CF861E1BA590A4 /* Pods_CigarettesAndMoneyCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0645463E9ECF3B1EFB43EE0B /* Pods_CigarettesAndMoneyCounter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0645463E9ECF3B1EFB43EE0B /* Pods_CigarettesAndMoneyCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CigarettesAndMoneyCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		231DD8091D41577C00E46B09 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButton.swift; sourceTree = "<group>"; };
@@ -187,6 +189,8 @@
 		23EDCD5F1B90782300F96F4A /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecordManager.swift; sourceTree = "<group>"; };
 		23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		5F7FE6CAC734664607BE4C32 /* Pods-CigarettesAndMoneyCounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarettesAndMoneyCounter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CigarettesAndMoneyCounter/Pods-CigarettesAndMoneyCounter.release.xcconfig"; sourceTree = "<group>"; };
+		67D3D6C315B6D074401E350F /* Pods-CigarettesAndMoneyCounter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarettesAndMoneyCounter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CigarettesAndMoneyCounter/Pods-CigarettesAndMoneyCounter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				235A0DFD1C2D499A00F12DAD /* Charts.framework in Frameworks */,
+				F598B305D9CF861E1BA590A4 /* Pods_CigarettesAndMoneyCounter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +264,8 @@
 				23802C9519CC150900387768 /* CigarettesAndMoneyCounter */,
 				23802CAB19CC150900387768 /* CigarettesAndMoneyCounterTests */,
 				23802C9419CC150900387768 /* Products */,
+				DC0933E9726654FA5123E942 /* Pods */,
+				CDFC6D6209D2874163E50BB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,6 +416,23 @@
 			name = MISC;
 			sourceTree = "<group>";
 		};
+		CDFC6D6209D2874163E50BB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0645463E9ECF3B1EFB43EE0B /* Pods_CigarettesAndMoneyCounter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC0933E9726654FA5123E942 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67D3D6C315B6D074401E350F /* Pods-CigarettesAndMoneyCounter.debug.xcconfig */,
+				5F7FE6CAC734664607BE4C32 /* Pods-CigarettesAndMoneyCounter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,10 +440,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23802CB219CC150900387768 /* Build configuration list for PBXNativeTarget "CigarettesAndMoneyCounter" */;
 			buildPhases = (
+				38C77F68C0ADFE793C2BFEAC /* [CP] Check Pods Manifest.lock */,
 				23802C8F19CC150900387768 /* Sources */,
 				23802C9019CC150900387768 /* Frameworks */,
 				23802C9119CC150900387768 /* Resources */,
 				235A0E011C2D499A00F12DAD /* Embed Frameworks */,
+				3867A2DD0EC93A970658CCB6 /* [CP] Embed Pods Frameworks */,
+				DDAB13ABEB20E1024F4230F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -563,6 +590,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3867A2DD0EC93A970658CCB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CigarettesAndMoneyCounter/Pods-CigarettesAndMoneyCounter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38C77F68C0ADFE793C2BFEAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDAB13ABEB20E1024F4230F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CigarettesAndMoneyCounter/Pods-CigarettesAndMoneyCounter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23802C8F19CC150900387768 /* Sources */ = {
@@ -724,6 +799,7 @@
 		};
 		23802CB319CC150900387768 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67D3D6C315B6D074401E350F /* Pods-CigarettesAndMoneyCounter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -742,6 +818,7 @@
 		};
 		23802CB419CC150900387768 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F7FE6CAC734664607BE4C32 /* Pods-CigarettesAndMoneyCounter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
