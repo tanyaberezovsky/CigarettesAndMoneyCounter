@@ -10,6 +10,7 @@ import Foundation
 
 
 //In order to make an object observable, it adopts the following protocol:
+//2016-07-30
 protocol PropertyObservable {
     typealias PropertyType
     var propertyChanged: Event<PropertyType> { get }
