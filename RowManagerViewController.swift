@@ -111,7 +111,8 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         viewHeader.addSubview(mySegment)
 //        self.tableView.tableHeaderView = mySegment
         mySegment.selectedSegmentIndex = 0
-        mySegment.addTarget(self, action: "segmentAction:", forControlEvents: .ValueChanged)
+        //2016/07-30
+        mySegment.addTarget(self, action: #selector(RowManagerViewController.segmentAction(_:)), forControlEvents: .ValueChanged)
   
         let frame = UIScreen.mainScreen().bounds
         mySegment.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,

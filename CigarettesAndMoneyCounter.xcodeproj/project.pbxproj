@@ -29,7 +29,6 @@
 		230F3DE71CB9345A008983FD /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C71CB7DFF500CEEA47 /* SF-UI-Text-Semibold.otf */; };
 		230F3DE81CB9345A008983FD /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C81CB7DFF500CEEA47 /* SF-UI-Text-SemiboldItalic.otf */; };
 		231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */; };
-		231DD80A1D41577C00E46B09 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8091D41577C00E46B09 /* Podfile */; };
 		2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */; };
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
 		234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */; };
@@ -123,7 +122,6 @@
 
 /* Begin PBXFileReference section */
 		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		231DD8091D41577C00E46B09 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButton.swift; sourceTree = "<group>"; };
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +155,7 @@
 		237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CigarettesAndMoneyCounter-Bridging-Header.h"; sourceTree = "<group>"; };
 		237205881C3FF6E30051ABD8 /* ChartConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartConverter.h; sourceTree = "<group>"; };
 		237205891C3FF70D0051ABD8 /* ChartConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConverter.m; sourceTree = "<group>"; };
-		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23802C9319CC150900387768 /* Smokie Stopie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smokie Stopie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23802C9A19CC150900387768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +263,7 @@
 		23802C9419CC150900387768 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */,
+				23802C9319CC150900387768 /* Smokie Stopie.app */,
 				23802CA819CC150900387768 /* CigarettesAndMoneyCounter.xctest */,
 			);
 			name = Products;
@@ -274,7 +272,6 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
-				231DD8091D41577C00E46B09 /* Podfile */,
 				231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */,
 				23A648751C8B1D8C00C67F58 /* Controller */,
 				234E42D61C82206500185D9C /* CircularLoader */,
@@ -428,7 +425,7 @@
 			);
 			name = CigarettesAndMoneyCounter;
 			productName = CigarettesAndMoneyCounter;
-			productReference = 23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */;
+			productReference = 23802C9319CC150900387768 /* Smokie Stopie.app */;
 			productType = "com.apple.product-type.application";
 		};
 		23802CA719CC150900387768 /* CigarettesAndMoneyCounterTests */ = {
@@ -550,7 +547,6 @@
 				23802CA319CC150900387768 /* LaunchScreen.xib in Resources */,
 				23E26ACA1C9F304900D87E8E /* btn_plus.png in Resources */,
 				23802CA019CC150900387768 /* Images.xcassets in Resources */,
-				231DD80A1D41577C00E46B09 /* Podfile in Resources */,
 				23E26ACB1C9F304900D87E8E /* ic_swipup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,13 +723,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: cokacolata@gmail.com (FBXE88PM82)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
-				PRODUCT_NAME = CigarettesAndMoneyCounter;
+				PRODUCT_NAME = "Smokie Stopie";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -745,13 +741,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tatiana Berezovsky (HS2EBXX3A9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
-				PRODUCT_NAME = CigarettesAndMoneyCounter;
+				PRODUCT_NAME = "Smokie Stopie";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 			};

@@ -22,8 +22,8 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
+       //2016/07-30
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
