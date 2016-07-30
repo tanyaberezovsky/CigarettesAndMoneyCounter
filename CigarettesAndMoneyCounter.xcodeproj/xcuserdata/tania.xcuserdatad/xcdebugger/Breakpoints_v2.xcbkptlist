@@ -1178,7 +1178,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
@@ -1510,7 +1510,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
@@ -1526,7 +1526,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/Segues/FirstCustomSegue.swift"
@@ -1542,7 +1542,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/Segues/FirstCustomSegue.swift"
@@ -1555,14 +1555,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Smokie_Stopie.FirstCustomSegue.__deallocating_deinit"
-                  moduleName = "Smokie Stopie"
+                  symbolName = "CigarettesAndMoneyCounter.FirstCustomSegue.__deallocating_deinit"
+                  moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Segues/FirstCustomSegue.swift"
-                  timestampString = "491574779.914894"
+                  timestampString = "491581457.438669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -1570,14 +1570,14 @@
                   offsetFromSymbolStart = "4">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Smokie_Stopie.FirstCustomSegue.init (identifier : Swift.Optional&lt;Swift.String&gt;, source : __ObjC.UIViewController, destination : __ObjC.UIViewController) -&gt; Smokie_Stopie.FirstCustomSegue"
-                  moduleName = "Smokie Stopie"
+                  symbolName = "CigarettesAndMoneyCounter.FirstCustomSegue.init (identifier : Swift.Optional&lt;Swift.String&gt;, source : __ObjC.UIViewController, destination : __ObjC.UIViewController) -&gt; CigarettesAndMoneyCounter.FirstCustomSegue"
+                  moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Segues/FirstCustomSegue.swift"
-                  timestampString = "491574779.915145"
+                  timestampString = "491581457.439071"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"

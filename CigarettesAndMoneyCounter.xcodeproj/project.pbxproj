@@ -155,7 +155,7 @@
 		237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CigarettesAndMoneyCounter-Bridging-Header.h"; sourceTree = "<group>"; };
 		237205881C3FF6E30051ABD8 /* ChartConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartConverter.h; sourceTree = "<group>"; };
 		237205891C3FF70D0051ABD8 /* ChartConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConverter.m; sourceTree = "<group>"; };
-		23802C9319CC150900387768 /* Smokie Stopie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smokie Stopie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23802C9A19CC150900387768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		23802C9419CC150900387768 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23802C9319CC150900387768 /* Smokie Stopie.app */,
+				23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */,
 				23802CA819CC150900387768 /* CigarettesAndMoneyCounter.xctest */,
 			);
 			name = Products;
@@ -425,7 +425,7 @@
 			);
 			name = CigarettesAndMoneyCounter;
 			productName = CigarettesAndMoneyCounter;
-			productReference = 23802C9319CC150900387768 /* Smokie Stopie.app */;
+			productReference = 23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */;
 			productType = "com.apple.product-type.application";
 		};
 		23802CA719CC150900387768 /* CigarettesAndMoneyCounterTests */ = {
@@ -454,7 +454,7 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Tania Berezovski";
 				TargetAttributes = {
 					23802C9219CC150900387768 = {
@@ -657,6 +657,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: cokacolata@gmail.com (FBXE88PM82)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -700,6 +701,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tatiana Berezovsky (HS2EBXX3A9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -729,7 +731,7 @@
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
-				PRODUCT_NAME = "Smokie Stopie";
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -747,7 +749,7 @@
 				INFOPLIST_FILE = CigarettesAndMoneyCounter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TanyaBerezovsky.SmokieStopie;
-				PRODUCT_NAME = "Smokie Stopie";
+				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CigarettesAndMoneyCounter/CigarettesAndMoneyCounter-Bridging-Header.h";
 			};
@@ -767,6 +769,7 @@
 				);
 				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "krote.dom.tania.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
 			};
@@ -782,6 +785,7 @@
 				);
 				INFOPLIST_FILE = CigarettesAndMoneyCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "krote.dom.tania.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CigarettesAndMoneyCounter;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarettesAndMoneyCounter.app/CigarettesAndMoneyCounter";
 			};
