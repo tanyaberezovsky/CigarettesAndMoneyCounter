@@ -176,7 +176,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         
        //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
-   //     let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")        
+   //     let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
