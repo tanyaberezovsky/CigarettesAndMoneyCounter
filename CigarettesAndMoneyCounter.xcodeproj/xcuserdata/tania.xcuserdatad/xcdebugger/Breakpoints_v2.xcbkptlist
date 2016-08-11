@@ -1166,11 +1166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "492614983.47395"
+            timestampString = "492615318.522186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "returnFromSegueActions(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1484,11 +1484,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "492614983.47395"
+            timestampString = "492615318.522186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "adaptivePresentationStyleForPresentationController(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1532,11 +1532,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "492608150.773295"
+            timestampString = "492615318.522186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "showQuestion1()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1548,11 +1548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "492608691.218462"
+            timestampString = "492615318.522186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "showQuestion1()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1628,11 +1628,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/LightMainSceneViewController.swift"
-            timestampString = "492614983.47395"
+            timestampString = "492615318.522186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "showQuestion1()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1672,7 +1672,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/UserDefaultsDataController.swift"
@@ -1720,7 +1720,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/UserDefaultsDataController.swift"

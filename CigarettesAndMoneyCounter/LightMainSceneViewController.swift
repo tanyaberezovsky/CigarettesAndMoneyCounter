@@ -217,22 +217,9 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                     height: 250)
                 
                 popOverVC.preferredContentSize = CGSize(width: view.frame.width, height: 250)
-                /*
-                 pop.sourceRect = CGRect(
-                 x: 0,
-                 y: self.view.frame.height / 4,
-                 width: popOverVC.view.frame.width,
-                 height: popOverVC.view.frame.height)
-                 
-                 */
+            
             }
-            
-            /*    self.presentViewController(
-             popOverVC,
-             animated: true,
-             completion: nil)
-             */
-            
+           
         }
     }
     
@@ -243,7 +230,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
             
             
-            if userDefaults.showQuestion1 == false {
+            if userDefaults.showQuestion1 == true {
             
                 
                 let popOverVC = storyboard!.instantiateViewControllerWithIdentifier("question1ViewController") as! question1ViewController
