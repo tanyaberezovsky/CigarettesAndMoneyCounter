@@ -66,6 +66,7 @@
 		23EDCD601B90782300F96F4A /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5F1B90782300F96F4A /* RGB.swift */; };
 		23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */; };
 		23F97BDC1C0873FA00A10596 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */; };
+		23FC500A1D58F58300AA1063 /* question1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC50091D58F58300AA1063 /* question1ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		23EDCD5F1B90782300F96F4A /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecordManager.swift; sourceTree = "<group>"; };
 		23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		23FC50091D58F58300AA1063 /* question1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = question1ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 				23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */,
 				23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */,
 				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
+				23FC50091D58F58300AA1063 /* question1ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				23F97BDC1C0873FA00A10596 /* SummaryViewController.swift in Sources */,
 				239C97331B52E7BD0036332C /* CalculatorModal.swift in Sources */,
 				23802C9919CC150900387768 /* AppDelegate.swift in Sources */,
+				23FC500A1D58F58300AA1063 /* question1ViewController.swift in Sources */,
 				23A85D0D1B11657B000740F6 /* Common.swift in Sources */,
 				23B47C5E1BA5935900FB881F /* FirstCustomSegue.swift in Sources */,
 				23B47C5C1BA5911500FB881F /* LightMainSceneViewController.swift in Sources */,

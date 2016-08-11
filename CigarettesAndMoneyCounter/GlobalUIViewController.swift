@@ -17,7 +17,9 @@ class GlobalUIViewController: UIViewController {
 //        return [.Portrait, .PortraitUpsideDown]
 //    }
 
-    
+       
+  
+
     //gradient bar
     override func viewDidLoad() {
         super.viewDidLoad()

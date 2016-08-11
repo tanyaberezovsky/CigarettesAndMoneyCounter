@@ -25,6 +25,7 @@ class UserDefaults{
     var averageCostOfOnePack = 0.0
     var averageCostOfOneCigarett = 0.0
     var amountOfCigarettsInOnePack = 0
+    var showQuestion1: Bool!
 }
 
 class UserDefaultsDataController{
@@ -58,8 +59,11 @@ class UserDefaultsDataController{
  
         defaults.setValue(userDefaults.reason, forKey: "reason")
         
-        defaults.setValue(userDefaults.minimalModeOn, forKey: "minimalModeOn")
+        defaults.setValue(Bool(userDefaults.minimalModeOn), forKey: "minimalModeOn")
         
+        defaults.setBool(Bool(userDefaults.showQuestion1), forKey: "showQuestion1")
+       
+        defaults.synchronize()
     }
     
     @objc  func saveLastAddedCig(lastDateCig: NSDate, todaySmoked: Int) {
@@ -76,6 +80,7 @@ class UserDefaultsDataController{
             defaults.setObject(todaySmoked, forKey: "todaySmoked")
 
             defaults.setObject(lastDateCig, forKey: "dateLastCig")
+            defaults.synchronize()
         }
     }
     
@@ -138,9 +143,11 @@ class UserDefaultsDataController{
             userDefaults.todaySmoked = 0
             userDefaults.reason = defaultReason
             userDefaults.minimalModeOn = false
+            userDefaults.showQuestion1 = true
             saveUserDefaults(userDefaults)
         }
         else{
+            var needSaveFlag:Bool = false
         userDefaults.levelAsNeeded = defaults.integerForKey("levelAsNeeded")
         
         userDefaults.levelOfEnjoyment = defaults.integerForKey("levelOfEnjoyment")
@@ -162,7 +169,7 @@ class UserDefaultsDataController{
             else
             {
                 userDefaults.reason = defaultReason
-                saveUserDefaults(userDefaults)
+                needSaveFlag = true
             }
             if let minimalModeOn = defaults.objectForKey("minimalModeOn") as? Bool{
                 userDefaults.minimalModeOn = minimalModeOn
@@ -170,7 +177,20 @@ class UserDefaultsDataController{
             else
             {
                 userDefaults.minimalModeOn = false
-                saveUserDefaults(userDefaults)
+                needSaveFlag = true
+            }
+            if let showQuestion1 = defaults.objectForKey("showQuestion1") as? Bool{
+                userDefaults.showQuestion1 = showQuestion1
+            }
+            else
+            {
+                userDefaults.showQuestion1 = true
+                needSaveFlag = true
+               
+            }
+            if (needSaveFlag)
+            {
+                 saveUserDefaults(userDefaults)
             }
         }
         return userDefaults

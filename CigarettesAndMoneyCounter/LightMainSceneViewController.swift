@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @IBDesignable
-class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, TableLevelsControllerDelegate {
+class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate {
 
     @IBOutlet weak var txtLastCig: UILabel!
     
@@ -21,6 +21,9 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
     override func viewDidLoad() {
+        
+        showQuestion1()
+        
         super.viewDidLoad()
     //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
@@ -29,12 +32,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
-       
-        
-        //  addSmoke.layoutSubviews()
-
- //self.viewWillAppear(false)
-    }
+       }
     
     @IBAction func addCigarettes(sender: AnyObject) {
         /*
@@ -56,8 +54,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         LoadDefaultValues()
        // circularLoader.setNeedsDisplay()
     }
-
-    
+  
     override func  viewDidAppear(animated: Bool) {
         roundButtonConers()
         LoadDefaultValues()
@@ -162,7 +159,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             //
                 navCtr.pushViewController(secondVC as! UIViewController, animated: false)
             }
-            LoadDefaultValues()
+           // LoadDefaultValues()
         }
     
     override func didReceiveMemoryWarning() {
@@ -196,7 +193,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             popOverVC.view.opaque = false;
             popOverVC.view.alpha = 0.9;
             
-
+            
             
             popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             
@@ -205,7 +202,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 var passthroughViews: [UIView]?
                 passthroughViews = [self.view]
                 
-
+                
                 pop.permittedArrowDirections = .Any
                 //    pop.sourceView = myButton
                 pop.passthroughViews = passthroughViews
@@ -221,23 +218,55 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 
                 popOverVC.preferredContentSize = CGSize(width: view.frame.width, height: 250)
                 /*
-                pop.sourceRect = CGRect(
-                    x: 0,
-                    y: self.view.frame.height / 4,
-                    width: popOverVC.view.frame.width,
-                    height: popOverVC.view.frame.height)
-                
-*/
+                 pop.sourceRect = CGRect(
+                 x: 0,
+                 y: self.view.frame.height / 4,
+                 width: popOverVC.view.frame.width,
+                 height: popOverVC.view.frame.height)
+                 
+                 */
             }
             
             /*    self.presentViewController(
-            popOverVC,
-            animated: true,
-            completion: nil)
-            */
+             popOverVC,
+             animated: true,
+             completion: nil)
+             */
             
         }
     }
+    
+    
+     func showQuestion1() {
+        let defaults = UserDefaultsDataController()
+        //  var userDefaults = UserDefaults()
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+            
+            
+            if userDefaults.showQuestion1 == false {
+            
+                
+                let popOverVC = storyboard!.instantiateViewControllerWithIdentifier("question1ViewController") as! question1ViewController
+        
+                popOverVC.myDelegateQ1 = self
+                
+                popOverVC.view.opaque = false;
+                popOverVC.view.alpha = 1//0.9;
+            
+        
+                popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        
+                presentViewController(popOverVC, animated: true, completion: nil)
+                
+                userDefaults.showQuestion1 = false
+                defaults.saveUserDefaults(userDefaults)
+                
+            }
+        }
+        return
+     
+    }
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }

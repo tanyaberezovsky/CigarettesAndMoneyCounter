@@ -84,36 +84,38 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     
     func SaveDafaultsTouch() {
         let defaults = UserDefaultsDataController()
-        let userDefaults = UserDefaults()
         
-       if isNumeric(averageCost.text!){
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+            
+            if isNumeric(averageCost.text!){
                 userDefaults.averageCostOfOnePack = averageCost.text!.toDouble()!
-        }
+            }
 
         
-        if isNumeric(amountOfCigarettsInOnePack.text!){
+            if isNumeric(amountOfCigarettsInOnePack.text!){
             userDefaults.amountOfCigarettsInOnePack = Int(amountOfCigarettsInOnePack.text!)!
-        }
+            }
 
-        userDefaults.averageCostOfOneCigarett = userDefaults.averageCostOfOnePack / Double(userDefaults.amountOfCigarettsInOnePack)
+            userDefaults.averageCostOfOneCigarett = userDefaults.averageCostOfOnePack / Double(userDefaults.amountOfCigarettsInOnePack)
         
-        if isNumeric(dailyGoal.text!){
-            userDefaults.dailyGoal = Int(dailyGoal.text!)!}
+            if isNumeric(dailyGoal.text!){
+                userDefaults.dailyGoal = Int(dailyGoal.text!)!}
         
 
-            userDefaults.levelOfEnjoyment = levelOfEnjoy.selectedSegmentIndex
+                userDefaults.levelOfEnjoyment = levelOfEnjoy.selectedSegmentIndex
         
-            userDefaults.levelAsNeeded = levelAsNeeded.selectedSegmentIndex
+                userDefaults.levelAsNeeded = levelAsNeeded.selectedSegmentIndex
         
-        if (reasonText != nil)
-        {
-            userDefaults.reason = reasonText
+            if (reasonText != nil)
+            {
+                userDefaults.reason = reasonText
+            }
+            if(minimalModeOn != nil){
+                userDefaults.minimalModeOn = minimalModeOn
+            }
+        
+            defaults.saveUserDefaults(userDefaults)
         }
-        if(minimalModeOn != nil){
-            userDefaults.minimalModeOn = minimalModeOn
-        }
-        
-        defaults.saveUserDefaults(userDefaults)
         
         if(myDelegate != nil){
             myDelegate!.ReloadUserDefaults()
