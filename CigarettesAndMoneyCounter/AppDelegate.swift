@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         //try print("\(files): \(urlForm.resourceValuesForKeys([NSURLIsExcludedFromBackupKey]))")
                         try urlForm.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
                     } catch {
-                        print("can't find key")
+                       // print("can't find key")
                     }
                 }
             } catch {
-                print("can't retrieve contents")
+               // print("can't retrieve contents")
             }
         }
 
