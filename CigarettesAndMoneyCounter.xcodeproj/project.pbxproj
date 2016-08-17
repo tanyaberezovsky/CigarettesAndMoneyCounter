@@ -7,27 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		230F3DD41CB9345A008983FD /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B41CB7DFF500CEEA47 /* SF-UI-Display-Black.otf */; };
-		230F3DD51CB9345A008983FD /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B51CB7DFF500CEEA47 /* SF-UI-Display-Bold.otf */; };
-		230F3DD61CB9345A008983FD /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B61CB7DFF500CEEA47 /* SF-UI-Display-Heavy.otf */; };
-		230F3DD71CB9345A008983FD /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B71CB7DFF500CEEA47 /* SF-UI-Display-Light.otf */; };
-		230F3DD81CB9345A008983FD /* SF-UI-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B81CB7DFF500CEEA47 /* SF-UI-Display-Medium.otf */; };
-		230F3DD91CB9345A008983FD /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7B91CB7DFF500CEEA47 /* SF-UI-Display-Regular.otf */; };
-		230F3DDA1CB9345A008983FD /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BA1CB7DFF500CEEA47 /* SF-UI-Display-Semibold.otf */; };
-		230F3DDB1CB9345A008983FD /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BB1CB7DFF500CEEA47 /* SF-UI-Display-Thin.otf */; };
-		230F3DDC1CB9345A008983FD /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BC1CB7DFF500CEEA47 /* SF-UI-Display-Ultralight.otf */; };
-		230F3DDD1CB9345A008983FD /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BD1CB7DFF500CEEA47 /* SF-UI-Text-Bold.otf */; };
-		230F3DDE1CB9345A008983FD /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BE1CB7DFF500CEEA47 /* SF-UI-Text-BoldItalic.otf */; };
-		230F3DDF1CB9345A008983FD /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7BF1CB7DFF500CEEA47 /* SF-UI-Text-Heavy.otf */; };
-		230F3DE01CB9345A008983FD /* SF-UI-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C01CB7DFF500CEEA47 /* SF-UI-Text-HeavyItalic.otf */; };
-		230F3DE11CB9345A008983FD /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C11CB7DFF500CEEA47 /* SF-UI-Text-Light.otf */; };
-		230F3DE21CB9345A008983FD /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C21CB7DFF500CEEA47 /* SF-UI-Text-LightItalic.otf */; };
-		230F3DE31CB9345A008983FD /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C31CB7DFF500CEEA47 /* SF-UI-Text-Medium.otf */; };
-		230F3DE41CB9345A008983FD /* SF-UI-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C41CB7DFF500CEEA47 /* SF-UI-Text-MediumItalic.otf */; };
-		230F3DE51CB9345A008983FD /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C51CB7DFF500CEEA47 /* SF-UI-Text-Regular.otf */; };
-		230F3DE61CB9345A008983FD /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C61CB7DFF500CEEA47 /* SF-UI-Text-RegularItalic.otf */; };
-		230F3DE71CB9345A008983FD /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C71CB7DFF500CEEA47 /* SF-UI-Text-Semibold.otf */; };
-		230F3DE81CB9345A008983FD /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 235DA7C81CB7DFF500CEEA47 /* SF-UI-Text-SemiboldItalic.otf */; };
 		231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */; };
 		2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */; };
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
@@ -129,27 +108,6 @@
 		234E42D91C82208C00185D9C /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColorTemplates.swift; sourceTree = "<group>"; };
-		235DA7B41CB7DFF500CEEA47 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
-		235DA7B51CB7DFF500CEEA47 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
-		235DA7B61CB7DFF500CEEA47 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
-		235DA7B71CB7DFF500CEEA47 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
-		235DA7B81CB7DFF500CEEA47 /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
-		235DA7B91CB7DFF500CEEA47 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
-		235DA7BA1CB7DFF500CEEA47 /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
-		235DA7BB1CB7DFF500CEEA47 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
-		235DA7BC1CB7DFF500CEEA47 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
-		235DA7BD1CB7DFF500CEEA47 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
-		235DA7BE1CB7DFF500CEEA47 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
-		235DA7BF1CB7DFF500CEEA47 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
-		235DA7C01CB7DFF500CEEA47 /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
-		235DA7C11CB7DFF500CEEA47 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
-		235DA7C21CB7DFF500CEEA47 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
-		235DA7C31CB7DFF500CEEA47 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
-		235DA7C41CB7DFF500CEEA47 /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
-		235DA7C51CB7DFF500CEEA47 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
-		235DA7C61CB7DFF500CEEA47 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
-		235DA7C71CB7DFF500CEEA47 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
-		235DA7C81CB7DFF500CEEA47 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		235E256D1A56AD840050EBAA /* RowManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowManagerViewController.swift; path = ../RowManagerViewController.swift; sourceTree = "<group>"; };
 		23679BC019D5664A003354C7 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		23679BC219D56707003354C7 /* TableLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableLevels.swift; sourceTree = "<group>"; };
@@ -301,27 +259,6 @@
 		23802C9619CC150900387768 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				235DA7B41CB7DFF500CEEA47 /* SF-UI-Display-Black.otf */,
-				235DA7B51CB7DFF500CEEA47 /* SF-UI-Display-Bold.otf */,
-				235DA7B61CB7DFF500CEEA47 /* SF-UI-Display-Heavy.otf */,
-				235DA7B71CB7DFF500CEEA47 /* SF-UI-Display-Light.otf */,
-				235DA7B81CB7DFF500CEEA47 /* SF-UI-Display-Medium.otf */,
-				235DA7B91CB7DFF500CEEA47 /* SF-UI-Display-Regular.otf */,
-				235DA7BA1CB7DFF500CEEA47 /* SF-UI-Display-Semibold.otf */,
-				235DA7BB1CB7DFF500CEEA47 /* SF-UI-Display-Thin.otf */,
-				235DA7BC1CB7DFF500CEEA47 /* SF-UI-Display-Ultralight.otf */,
-				235DA7BD1CB7DFF500CEEA47 /* SF-UI-Text-Bold.otf */,
-				235DA7BE1CB7DFF500CEEA47 /* SF-UI-Text-BoldItalic.otf */,
-				235DA7BF1CB7DFF500CEEA47 /* SF-UI-Text-Heavy.otf */,
-				235DA7C01CB7DFF500CEEA47 /* SF-UI-Text-HeavyItalic.otf */,
-				235DA7C11CB7DFF500CEEA47 /* SF-UI-Text-Light.otf */,
-				235DA7C21CB7DFF500CEEA47 /* SF-UI-Text-LightItalic.otf */,
-				235DA7C31CB7DFF500CEEA47 /* SF-UI-Text-Medium.otf */,
-				235DA7C41CB7DFF500CEEA47 /* SF-UI-Text-MediumItalic.otf */,
-				235DA7C51CB7DFF500CEEA47 /* SF-UI-Text-Regular.otf */,
-				235DA7C61CB7DFF500CEEA47 /* SF-UI-Text-RegularItalic.otf */,
-				235DA7C71CB7DFF500CEEA47 /* SF-UI-Text-Semibold.otf */,
-				235DA7C81CB7DFF500CEEA47 /* SF-UI-Text-SemiboldItalic.otf */,
 				23802C9719CC150900387768 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -524,28 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230F3DD41CB9345A008983FD /* SF-UI-Display-Black.otf in Resources */,
-				230F3DD51CB9345A008983FD /* SF-UI-Display-Bold.otf in Resources */,
-				230F3DD61CB9345A008983FD /* SF-UI-Display-Heavy.otf in Resources */,
-				230F3DD71CB9345A008983FD /* SF-UI-Display-Light.otf in Resources */,
-				230F3DD81CB9345A008983FD /* SF-UI-Display-Medium.otf in Resources */,
-				230F3DD91CB9345A008983FD /* SF-UI-Display-Regular.otf in Resources */,
-				230F3DDA1CB9345A008983FD /* SF-UI-Display-Semibold.otf in Resources */,
-				230F3DDB1CB9345A008983FD /* SF-UI-Display-Thin.otf in Resources */,
-				230F3DDC1CB9345A008983FD /* SF-UI-Display-Ultralight.otf in Resources */,
-				230F3DDD1CB9345A008983FD /* SF-UI-Text-Bold.otf in Resources */,
-				230F3DDE1CB9345A008983FD /* SF-UI-Text-BoldItalic.otf in Resources */,
 				231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */,
-				230F3DDF1CB9345A008983FD /* SF-UI-Text-Heavy.otf in Resources */,
-				230F3DE01CB9345A008983FD /* SF-UI-Text-HeavyItalic.otf in Resources */,
-				230F3DE11CB9345A008983FD /* SF-UI-Text-Light.otf in Resources */,
-				230F3DE21CB9345A008983FD /* SF-UI-Text-LightItalic.otf in Resources */,
-				230F3DE31CB9345A008983FD /* SF-UI-Text-Medium.otf in Resources */,
-				230F3DE41CB9345A008983FD /* SF-UI-Text-MediumItalic.otf in Resources */,
-				230F3DE51CB9345A008983FD /* SF-UI-Text-Regular.otf in Resources */,
-				230F3DE61CB9345A008983FD /* SF-UI-Text-RegularItalic.otf in Resources */,
-				230F3DE71CB9345A008983FD /* SF-UI-Text-Semibold.otf in Resources */,
-				230F3DE81CB9345A008983FD /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				23802C9E19CC150900387768 /* Main.storyboard in Resources */,
 				23802CA319CC150900387768 /* LaunchScreen.xib in Resources */,
 				23E26ACA1C9F304900D87E8E /* btn_plus.png in Resources */,

@@ -18,6 +18,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let directories = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
+        if let documentDirectory = directories.first {
+            do {
+                let documents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(documentDirectory)
+                for files in documents {
+                    let urlForm = NSURL.fileURLWithPath(documentDirectory + "/" + files)
+                    do {
+                        //try print("\(files): \(urlForm.resourceValuesForKeys([NSURLIsExcludedFromBackupKey]))")
+                        try urlForm.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
+                    } catch {
+                        print("can't find key")
+                    }
+                }
+            } catch {
+                print("can't retrieve contents")
+            }
+        }
+
+       // Code to setResourceValue
+        
+       /* 
+         stackoverflow.com/questions/28795975/ios-app-rejection-due-to-2-23-ios-data-storage-guidelines
+         let urlToExclude = NSURL.fileURLWithPath(quoteSavePath!)
+        do {
+            try urlToExclude.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
+        } catch { print("failed to set resource value") }
+*/
         return true
     }
 
