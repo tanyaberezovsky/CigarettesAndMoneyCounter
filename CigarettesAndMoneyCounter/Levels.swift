@@ -32,14 +32,7 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["Boredom", "Concentration", "Working", "Gaming", "Social smoking", "Go out", "Break", "Relax", "Vacation"
-    ,"Reward after"
-    ,"Hunger",
-    "Stress",
-    "Concentration illusion",
-    "Enjoy illusion",
-    "Relax illusion",
-    "Other"].sort { $0 < $1 }
+let cause = ["Boredom", "Concentration", "Social smoking", "Relax", "Stress"].sort { $0 < $1 }
 
 /*let cause = ["Boredom", "Thinking", "Working", "Gaming", "After coffee", "After eating", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
     , "Fear Feeling"
