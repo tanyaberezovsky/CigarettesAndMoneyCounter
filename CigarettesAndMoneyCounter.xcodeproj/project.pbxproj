@@ -103,6 +103,7 @@
 /* Begin PBXFileReference section */
 		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButton.swift; sourceTree = "<group>"; };
+		2333B9991D70C62E00081466 /* CigaretteRecord 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CigaretteRecord 2.xcdatamodel"; sourceTree = "<group>"; };
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
 		234E42D91C82208C00185D9C /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
@@ -166,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2333B99A1D70C6EE00081466 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		233A38A11A34E26A00661CDD /* Extantion */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +241,7 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				2333B99A1D70C6EE00081466 /* CoreData */,
 				231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */,
 				23A648751C8B1D8C00C67F58 /* Controller */,
 				234E42D61C82206500185D9C /* CircularLoader */,
@@ -243,7 +253,6 @@
 				239C972F1B52DC3B0036332C /* Calculator */,
 				23ED1A7C1B3ED1810034F8A2 /* FetchResults */,
 				239232721A45D7EA000714AA /* CigaretteRecord.swift */,
-				2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */,
 				233A38A11A34E26A00661CDD /* Extantion */,
 				23802CB819CDBD0600387768 /* Model */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
@@ -747,9 +756,10 @@
 		2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2333B9991D70C62E00081466 /* CigaretteRecord 2.xcdatamodel */,
 				239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */,
 			);
-			currentVersion = 239232701A45D6F9000714AA /* CigaretteRecord.xcdatamodel */;
+			currentVersion = 2333B9991D70C62E00081466 /* CigaretteRecord 2.xcdatamodel */;
 			path = CigaretteRecord.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
