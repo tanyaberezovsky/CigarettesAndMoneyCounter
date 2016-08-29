@@ -9,7 +9,7 @@
         <attribute name="levelOfEnjoy" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Reasons" syncable="YES">
+    <entity name="Reasons" representedClassName="CigarettesAndMoneyCounter.Reasons" syncable="YES">
         <attribute name="reason" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tmp1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tmp2" optional="YES" attributeType="String" syncable="YES"/>

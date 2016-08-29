@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-
+//not in use now
 class RowManagerViewController: UITableViewController,NSFetchedResultsControllerDelegate {
     
     var segment = 0

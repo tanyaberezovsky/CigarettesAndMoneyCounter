@@ -32,46 +32,7 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["Boredom", "Concentration", "Social smoking", "Relax", "Stress"].sort { $0 < $1 }
-
-/*let cause = ["Boredom", "Thinking", "Working", "Gaming", "After coffee", "After eating", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
-    , "Fear Feeling"
-    ,"Fun"
-    ,"First cigaret"
-    ,"Last cigarette"
-    ,"In car"
-    ,"Reward after"
-    ,"Hunger",
-    "Stress",
-    "Concentration illusion",
-    "Enjoy illusion",
-    "Relax illusion",
-    "Courage illusion", "Other"].sort { $0 < $1 }*/
-
-/*let cause = ["Boredom", "Thinking", "Working", "Learning", "Gaming", "After sleeping", "After coffee", "After eating", "Toilet", "Social smoking", "With friends", "With alcohol", "Go out", "Break", "Relax", "Vacation"
-,"Self-expression",
-    "After Something", "Before Something", "Fear Feeling"
-,"Fun"
-,"First cigaret"
-,"Last cigarette"
-,"In car"
-,"Reward after"
-    ,"Emptiness",
-    "Insecure Feeling",
-    "Hunger",
-    "Stress",
-    "Discomfort",
-    "Panic",
-    "Nerves"
-    ,"Pleasure illusion",
-     "Satisfaction illusion",
-     "Concentration illusion",
-    "Enjoy illusion",
-    "Smell enjoy illusion",
-    "Taste enjoy illusion",
-    "Relax illusion",
-    "State of peace illusion",
-    "Courage illusion", "Other"].sort { $0 < $1 }*/
+let cause = ["boredom", "Concentration", "Social smoking", "Relax", "Stress"].sort { $0 < $1 }
 
 
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3")]

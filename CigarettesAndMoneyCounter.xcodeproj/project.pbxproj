@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		231DD8081D3EB79500E46B09 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */; };
 		2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */; };
+		2333B9A11D71C77D00081466 /* ReasonsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333B9A01D71C77D00081466 /* ReasonsManager.swift */; };
+		2333B9A31D71C82A00081466 /* Reasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333B9A21D71C82A00081466 /* Reasons.swift */; };
+		2333B9A71D749CB700081466 /* ReasonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333B9A61D749CB700081466 /* ReasonsTableViewCell.swift */; };
 		233A38A31A34E34700661CDD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A38A21A34E34700661CDD /* String.swift */; };
 		234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */; };
 		234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D91C82208C00185D9C /* CircularLoaderView.swift */; };
@@ -104,6 +107,9 @@
 		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutSubviewsButton.swift; sourceTree = "<group>"; };
 		2333B9991D70C62E00081466 /* CigaretteRecord 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CigaretteRecord 2.xcdatamodel"; sourceTree = "<group>"; };
+		2333B9A01D71C77D00081466 /* ReasonsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReasonsManager.swift; sourceTree = "<group>"; };
+		2333B9A21D71C82A00081466 /* Reasons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reasons.swift; sourceTree = "<group>"; };
+		2333B9A61D749CB700081466 /* ReasonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReasonsTableViewCell.swift; sourceTree = "<group>"; };
 		233A38A21A34E34700661CDD /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
 		234E42D91C82208C00185D9C /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
@@ -170,9 +176,56 @@
 		2333B99A1D70C6EE00081466 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */,
+				2333B9A51D71C88900081466 /* DataModel */,
+				2333B9A41D71C83300081466 /* EntitiesDefinition */,
+				23ED1A7C1B3ED1810034F8A2 /* FetchResults */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		2333B99D1D71931600081466 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2333B99E1D719CEB00081466 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */,
+				2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */,
+				234E42D61C82206500185D9C /* CircularLoader */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2333B99F1D719D3100081466 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				239C972F1B52DC3B0036332C /* Calculator */,
+				23B47C611BA593A500FB881F /* Segues */,
+				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2333B9A41D71C83300081466 /* EntitiesDefinition */ = {
+			isa = PBXGroup;
+			children = (
+				239232721A45D7EA000714AA /* CigaretteRecord.swift */,
+				2333B9A21D71C82A00081466 /* Reasons.swift */,
+			);
+			name = EntitiesDefinition;
+			sourceTree = "<group>";
+		};
+		2333B9A51D71C88900081466 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2392326F1A45D6F9000714AA /* CigaretteRecord.xcdatamodeld */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 		233A38A11A34E26A00661CDD /* Extantion */ = {
@@ -241,20 +294,16 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
+				2333B99F1D719D3100081466 /* Models */,
+				2333B99E1D719CEB00081466 /* Views */,
+				2333B99D1D71931600081466 /* UserDefaults */,
 				2333B99A1D70C6EE00081466 /* CoreData */,
 				231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */,
-				23A648751C8B1D8C00C67F58 /* Controller */,
-				234E42D61C82206500185D9C /* CircularLoader */,
+				23A648751C8B1D8C00C67F58 /* Controllers */,
 				237205991C4970420051ABD8 /* Images */,
-				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
 				235A0DF11C29F2D600F12DAD /* Charts.xcodeproj */,
-				23B47C611BA593A500FB881F /* Segues */,
 				23EDCD5C1B9076C900F96F4A /* MISC */,
-				239C972F1B52DC3B0036332C /* Calculator */,
-				23ED1A7C1B3ED1810034F8A2 /* FetchResults */,
-				239232721A45D7EA000714AA /* CigaretteRecord.swift */,
 				233A38A11A34E26A00661CDD /* Extantion */,
-				23802CB819CDBD0600387768 /* Model */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
 				23A85D0C1B11657B000740F6 /* Common.swift */,
 				23802C9C19CC150900387768 /* Main.storyboard */,
@@ -290,28 +339,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		23802CB819CDBD0600387768 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */,
-				238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		239C972F1B52DC3B0036332C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				239C97301B52DCA80036332C /* CalculatorViewController.swift */,
 				239C97321B52E7BD0036332C /* CalculatorModal.swift */,
 				23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */,
 			);
 			name = Calculator;
 			sourceTree = "<group>";
 		};
-		23A648751C8B1D8C00C67F58 /* Controller */ = {
+		23A648751C8B1D8C00C67F58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				235E256D1A56AD840050EBAA /* RowManagerViewController.swift */,
+				239C97301B52DCA80036332C /* CalculatorViewController.swift */,
 				23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */,
 				23679BC219D56707003354C7 /* TableLevels.swift */,
 				23E0285E1B4857E9009FA6D6 /* NavViewController.swift */,
@@ -321,10 +362,10 @@
 				234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */,
 				23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */,
 				23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */,
-				23802CB919CDBD2600387768 /* UserDefaultsDataController.swift */,
 				23FC50091D58F58300AA1063 /* question1ViewController.swift */,
+				2333B9A61D749CB700081466 /* ReasonsTableViewCell.swift */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		23B47C611BA593A500FB881F /* Segues */ = {
@@ -338,8 +379,8 @@
 		23ED1A7C1B3ED1810034F8A2 /* FetchResults */ = {
 			isa = PBXGroup;
 			children = (
-				235E256D1A56AD840050EBAA /* RowManagerViewController.swift */,
 				23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */,
+				2333B9A01D71C77D00081466 /* ReasonsManager.swift */,
 			);
 			name = FetchResults;
 			sourceTree = "<group>";
@@ -496,6 +537,7 @@
 				23EDCD601B90782300F96F4A /* RGB.swift in Sources */,
 				23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */,
 				23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */,
+				2333B9A31D71C82A00081466 /* Reasons.swift in Sources */,
 				23802C9B19CC150900387768 /* ViewController.swift in Sources */,
 				23679BC119D5664A003354C7 /* Levels.swift in Sources */,
 				23F97BDC1C0873FA00A10596 /* SummaryViewController.swift in Sources */,
@@ -521,6 +563,8 @@
 				234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */,
 				235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */,
 				23A648701C8752CC00C67F58 /* popOverViewController.swift in Sources */,
+				2333B9A11D71C77D00081466 /* ReasonsManager.swift in Sources */,
+				2333B9A71D749CB700081466 /* ReasonsTableViewCell.swift in Sources */,
 				2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 			);

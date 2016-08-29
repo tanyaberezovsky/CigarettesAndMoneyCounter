@@ -26,6 +26,8 @@ class UserDefaults{
     var averageCostOfOneCigarett = 0.0
     var amountOfCigarettsInOnePack = 0
     var showQuestion1: Bool!
+    var coreDataReasonsEntityInited: Bool!
+    
 }
 
 class UserDefaultsDataController{
@@ -62,8 +64,9 @@ class UserDefaultsDataController{
         defaults.setValue(Bool(userDefaults.minimalModeOn), forKey: "minimalModeOn")
         
         defaults.setBool(Bool(userDefaults.showQuestion1), forKey: "showQuestion1")
+        defaults.setBool(Bool(userDefaults.coreDataReasonsEntityInited), forKey: "coreDataReasonsEntityInited")
        
-        defaults.synchronize()
+       // defaults.synchronize()
     }
     
     @objc  func saveLastAddedCig(lastDateCig: NSDate, todaySmoked: Int) {
@@ -80,7 +83,7 @@ class UserDefaultsDataController{
             defaults.setObject(todaySmoked, forKey: "todaySmoked")
 
             defaults.setObject(lastDateCig, forKey: "dateLastCig")
-            defaults.synchronize()
+         //   defaults.synchronize()
         }
     }
     
@@ -144,6 +147,7 @@ class UserDefaultsDataController{
             userDefaults.reason = defaultReason
             userDefaults.minimalModeOn = false
             userDefaults.showQuestion1 = true
+            userDefaults.coreDataReasonsEntityInited = false
             saveUserDefaults(userDefaults)
         }
         else{
@@ -188,6 +192,17 @@ class UserDefaultsDataController{
                 needSaveFlag = true
                
             }
+            if let coreDataReasonsEntityInited = defaults.objectForKey("coreDataReasonsEntityInited") as? Bool{
+                userDefaults.coreDataReasonsEntityInited = coreDataReasonsEntityInited
+            }
+            else
+            {
+                userDefaults.coreDataReasonsEntityInited = false
+                needSaveFlag = true
+                
+            }
+            
+            
             if (needSaveFlag)
             {
                  saveUserDefaults(userDefaults)

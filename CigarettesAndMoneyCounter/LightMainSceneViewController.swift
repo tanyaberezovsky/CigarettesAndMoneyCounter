@@ -20,9 +20,13 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
+    private let defaults = UserDefaultsDataController()
+    
     override func viewDidLoad() {
-        
-        showQuestion1()
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+            showQuestion1(userDefaults)
+            coreDataReasonsEntityInit(userDefaults)
+        }
         
         super.viewDidLoad()
     //2016-07-30
@@ -223,13 +227,20 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         }
     }
     
+    func coreDataReasonsEntityInit(userDefaults:UserDefaults){
+        if userDefaults.coreDataReasonsEntityInited == false {
+            
+            let reasonsManager = ReasonsManager()
+            reasonsManager.coreDataReasonsEntityInit()
+            
+            userDefaults.coreDataReasonsEntityInited = true
+            defaults.saveUserDefaults(userDefaults)
+            
+        }
+    }
     
-     func showQuestion1() {
-        let defaults = UserDefaultsDataController()
-        //  var userDefaults = UserDefaults()
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-            
-            
+     func showQuestion1(userDefaults:UserDefaults) {
+        
             if userDefaults.showQuestion1 == true {
             
                 
@@ -249,7 +260,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 defaults.saveUserDefaults(userDefaults)
                 
             }
-        }
+        
         return
      
     }
