@@ -25,7 +25,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     override func viewDidLoad() {
         if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
             showQuestion1(userDefaults)
-            coreDataReasonsEntityInit(userDefaults)
+            //coreDataReasonsEntityInit(userDefaults)
         }
         
         super.viewDidLoad()
@@ -226,19 +226,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
            
         }
     }
-    
-    func coreDataReasonsEntityInit(userDefaults:UserDefaults){
-        if userDefaults.coreDataReasonsEntityInited == false {
-            
-            let reasonsManager = ReasonsManager()
-            reasonsManager.coreDataReasonsEntityInit()
-            
-            userDefaults.coreDataReasonsEntityInited = true
-            defaults.saveUserDefaults(userDefaults)
-            
-        }
-    }
-    
+      
      func showQuestion1(userDefaults:UserDefaults) {
         
             if userDefaults.showQuestion1 == true {

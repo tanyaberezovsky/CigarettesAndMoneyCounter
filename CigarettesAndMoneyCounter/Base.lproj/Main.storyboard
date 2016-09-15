@@ -2859,20 +2859,20 @@
             </objects>
             <point key="canvasLocation" x="3403.5" y="-315"/>
         </scene>
-        <!--Level of enjoyment-->
+        <!--Table Lavels-->
         <scene sceneID="Wlw-kF-LaV">
             <objects>
                 <tableViewController id="kgl-ea-dWM" customClass="TableLavels" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s1P-jq-bn5">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="300" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reasonCellId" id="btz-hq-rVd" customClass="ReasonsTableViewCell" customModule="CigarettesAndMoneyCounter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="96" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="btz-hq-rVd" id="ZsT-Bk-OsV">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reason text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTg-Cz-EM4">
@@ -2906,11 +2906,22 @@
                             <outlet property="delegate" destination="kgl-ea-dWM" id="HWR-oP-zC1"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Level of enjoyment" id="B99-fz-8X8">
-                        <barButtonItem key="backBarButtonItem" title="Save" id="d5r-es-LEy"/>
+                    <navigationItem key="navigationItem" id="B99-fz-8X8">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="d5r-es-LEy"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="w2c-jf-hF8">
+                            <color key="tintColor" red="0.79607844350000001" green="0.71764707569999997" blue="0.83137255909999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="BackButtonClick:" destination="kgl-ea-dWM" id="XTz-Hd-SL7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="joi-wG-HrN">
+                            <color key="tintColor" red="0.79607844350000001" green="0.71764707569999997" blue="0.83137255909999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addNewReasonBottonClick:" destination="kgl-ea-dWM" id="y7o-ze-YjW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="navigationHeader" destination="B99-fz-8X8" id="fxa-YH-hKk"/>
@@ -2919,7 +2930,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy4-kp-iiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416.5" y="912"/>
+            <point key="canvasLocation" x="2650.5" y="993"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pHF-Ez-NZe">
+            <objects>
+                <navigationController id="8ss-wI-eJw" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7hW-gg-c4A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kgl-ea-dWM" kind="relationship" relationship="rootViewController" id="96w-2Y-vQG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNC-dI-Tr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013" y="1219"/>
         </scene>
         <!--Row Manager View Controller-->
         <scene sceneID="bPO-cS-j5v">
@@ -3337,7 +3365,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kgl-ea-dWM" kind="showDetail" identifier="segueCauseOfSmoking" action="showViewController:sender:" id="4w5-XB-VXb"/>
+                                    <segue destination="8ss-wI-eJw" kind="show" id="9Y7-3G-r2x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqs-hM-gvQ">
@@ -3541,7 +3569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0G-td-pIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970.5" y="755"/>
+            <point key="canvasLocation" x="2013" y="807"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="eyk-Se-OYy">

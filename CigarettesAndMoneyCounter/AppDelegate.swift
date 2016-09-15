@@ -14,7 +14,9 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+   
+    private let defaults = UserDefaultsDataController()
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -32,22 +34,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             } catch {
-               // print("can't retrieve contents")
             }
         }
 
-       // Code to setResourceValue
         
-       /* 
-         stackoverflow.com/questions/28795975/ios-app-rejection-due-to-2-23-ios-data-storage-guidelines
-         let urlToExclude = NSURL.fileURLWithPath(quoteSavePath!)
-        do {
-            try urlToExclude.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
-        } catch { print("failed to set resource value") }
-*/
+        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+             coreDataReasonsEntityInit(userDefaults)
+        }
+        
         return true
     }
 
+    
+    
+        func coreDataReasonsEntityInit(userDefaults:UserDefaults){
+            if userDefaults.coreDataReasonsEntityInited == false {
+    
+                let reasonsManager = ReasonsManager()
+                reasonsManager.coreDataReasonsEntityInit()
+    
+                userDefaults.coreDataReasonsEntityInited = true
+                defaults.saveUserDefaults(userDefaults)
+    
+            }
+        }
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

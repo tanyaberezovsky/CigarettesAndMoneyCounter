@@ -16,20 +16,20 @@ class ReasonsManager{
     //var managedObjectContext : NSManagedObjectContext?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    lazy var reason: Reasons? =
-        {
-            
-            if let context = self.managedObjectContext
-            {
-            //    return NSEntityDescription.insertNewObjectForEntityForName("Reasons", inManagedObjectContext: context) as? Reasons
-                
-                let entityDescripition = NSEntityDescription.entityForName("Reasons", inManagedObjectContext: context)
-                
-                return  Reasons(entity: entityDescripition!, insertIntoManagedObjectContext:  context)
-                
-            }
-            return .None
-    }()
+//    lazy var reason: Reasons? =
+//        {
+//            
+//            if let context = self.managedObjectContext
+//            {
+//            //    return NSEntityDescription.insertNewObjectForEntityForName("Reasons", inManagedObjectContext: context) as? Reasons
+//                
+//                let entityDescripition = NSEntityDescription.entityForName("Reasons", inManagedObjectContext: context)
+//                
+//                return  Reasons(entity: entityDescripition!, insertIntoManagedObjectContext:  context)
+//                
+//            }
+//            return .None
+//    }()
     
     func saveReason(newReason : String)
     {
@@ -44,6 +44,9 @@ class ReasonsManager{
     
     func reasonExist( newReason : String )->Bool
     {
+        if((newReason ?? "").isEmpty){
+            return false
+        }
         
         //where condition
         let predicate = NSPredicate(format:"reason =[cd] %@", newReason)
@@ -76,24 +79,23 @@ class ReasonsManager{
 
     func performSaveReason(newReason : String)
     {
-
         
-        reason!.reason = newReason
-       
-        if let managedObjectContext = managedObjectContext {
-            do {
-                try  managedObjectContext.save()
-            }
-            catch let error as NSError {
-                print("Error saving \(error)", terminator: "")
-            }
+        let entityDescripition = NSEntityDescription.entityForName("Reasons", inManagedObjectContext: managedObjectContext!)
+        
+        let reason1 = Reasons(entity: entityDescripition!, insertIntoManagedObjectContext:  managedObjectContext)
+        
+        
+        reason1.reason = newReason
+        
+        do {
+            try managedObjectContext?.save()
+            managedObjectContext?.reset()
+        } catch _ {
         }
+
     }
 
     func coreDataReasonsEntityInit(){
-        for reason: String in cause
-        {
-            saveReason(reason)
-        }
+        cause.forEach{ saveReason($0) }
     }
 }

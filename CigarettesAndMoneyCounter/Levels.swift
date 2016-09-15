@@ -32,7 +32,7 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["boredom", "Concentration", "Social smoking", "Relax", "Stress"].sort { $0 < $1 }
+let cause = ["Boredom", "Concentration", "Courage illusion", "Social smoking", "After eating", "Go out", "Relax", "Stress"].sort { $0 < $1 }
 
 
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3")]

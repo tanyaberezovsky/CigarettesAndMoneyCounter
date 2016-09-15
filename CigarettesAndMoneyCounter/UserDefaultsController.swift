@@ -224,7 +224,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     */
     func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
         
-        if segueName == segueNames.segueCauseOfSmoking{
+        if segueName == segueNames.segueCauseOfSmoking && !text.isEmpty {
             reasonText = text;
            // print(text)
             reason.setTitle(reasonText, forState: UIControlState.Normal)
