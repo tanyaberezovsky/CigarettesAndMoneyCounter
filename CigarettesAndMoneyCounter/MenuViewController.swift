@@ -16,16 +16,6 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func calculatorTouch(sender: AnyObject) {
-
-       
-/*
-        let secondVC: AnyObject = CalculatorViewController()
-        let navCtr  = sender.parentmodalViewController .navigationController as UINavigationController!
-        
-        sender.parentViewController.
-        //
-        //
-        navCtr.pushViewController(secondVC as! UIViewController, animated: false)*/
         
     }
     
