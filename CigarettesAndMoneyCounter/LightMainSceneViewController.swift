@@ -131,18 +131,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         
         circularLoader.toValue = CGFloat( circileAngle);
         }
-//        if (circileAngle <= 50)
-//        {
-//            circularLoader.fillColor = UIColor.whiteColor()
-//        }
-//        else   if (circileAngle > 100)
-//        {
-//            circularLoader.fillColor = UIColors.CircleLoaderColors.red
-//        }
-//        else
-//        {
-//            circularLoader.fillColor = UIColors.CircleLoaderColors.yellow
-//        }
+
     
     }
     
@@ -225,7 +214,10 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
             }
            
         }
+    
     }
+
+
       
      func showQuestion1(userDefaults:UserDefaults) {
         
@@ -256,41 +248,13 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
     
     @IBAction func returnFromSegueActions(sender: UIStoryboardSegue){
-//        if sender.identifier == "idFirstSegueUnwind" {
-//            let originalColor = self.view.backgroundColor
-//            self.view.backgroundColor = UIColor.redColor()
-//            
-//            UIView.animateWithDuration(1.0, animations: { () -> Void in
-//                self.view.backgroundColor = originalColor
-//            })
-//        }
         circularLoader.setNeedsDisplay()
     }
     
-   /* override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue {
-        if let id = identifier{
-            if id == "idFirstSegueUnwind" {
-                let unwindSegue = FirstCustomSegueUnwind(identifier: id, source: fromViewController, destination: toViewController, performHandler: { () -> Void in
-                    
-                })
-                return unwindSegue
-            }
-        }
-        
-        return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
-    }
-    */
+ 
     
     /*
     delegated function from TableLavels.swift
