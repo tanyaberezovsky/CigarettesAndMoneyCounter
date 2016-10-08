@@ -19,7 +19,7 @@ class UserDefaults{
     var levelOfEnjoyment = 0
     var dailyGoal = 0
     var todaySmoked = 0
-    var dateLastCig: NSDate!
+    var dateLastCig: Date!
     var reason: String!
     var minimalModeOn: Bool!
     var averageCostOfOnePack = 0.0
@@ -39,72 +39,68 @@ class UserDefaultsDataController{
     //++++++++++++++++++++++++++++++++++++
     //  will save user defaults
     //++++++++++++++++++++++++++++++++++++
-      func saveUserDefaults(userDefaults: UserDefaults) {
+      func saveUserDefaults(_ userDefaults: UserDefaults) {
         
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = Foundation.UserDefaults.standard
         
   //      userDefaults.levelAsNeeded = 10
         
-        defaults.setInteger(userDefaults.levelAsNeeded, forKey: "levelAsNeeded")
+        defaults.set(userDefaults.levelAsNeeded, forKey: "levelAsNeeded")
         
-        defaults.setInteger(userDefaults.levelOfEnjoyment, forKey: "levelOfEnjoyment")
+        defaults.set(userDefaults.levelOfEnjoyment, forKey: "levelOfEnjoyment")
     
-        defaults.setInteger(userDefaults.dailyGoal, forKey: "dailyGoal")
+        defaults.set(userDefaults.dailyGoal, forKey: "dailyGoal")
     
-        defaults.setDouble(userDefaults.averageCostOfOnePack, forKey: "averageCostOfOnePack")
+        defaults.set(userDefaults.averageCostOfOnePack, forKey: "averageCostOfOnePack")
         
-        defaults.setDouble(userDefaults.averageCostOfOneCigarett, forKey: "averageCostOfOneCigarett")
+        defaults.set(userDefaults.averageCostOfOneCigarett, forKey: "averageCostOfOneCigarett")
  
         
-        defaults.setInteger(userDefaults.amountOfCigarettsInOnePack, forKey: "amountOfCigarettsInOnePack")
+        defaults.set(userDefaults.amountOfCigarettsInOnePack, forKey: "amountOfCigarettsInOnePack")
  
         defaults.setValue(userDefaults.reason, forKey: "reason")
         
         defaults.setValue(Bool(userDefaults.minimalModeOn), forKey: "minimalModeOn")
         
-        defaults.setBool(Bool(userDefaults.showQuestion1), forKey: "showQuestion1")
-        defaults.setBool(Bool(userDefaults.coreDataReasonsEntityInited), forKey: "coreDataReasonsEntityInited")
+        defaults.set(Bool(userDefaults.showQuestion1), forKey: "showQuestion1")
+        defaults.set(Bool(userDefaults.coreDataReasonsEntityInited), forKey: "coreDataReasonsEntityInited")
        
        // defaults.synchronize()
     }
     
-    @objc  func saveLastAddedCig(lastDateCig: NSDate, todaySmoked: Int) {
+    @objc  func saveLastAddedCig(_ lastDateCig: Date, todaySmoked: Int) {
         
-        if lastDateCig.timeIntervalSinceNow.isSignMinus {
+        if lastDateCig.timeIntervalSinceNow.sign == .minus {
             //myDate is earlier than Now (date and time)
         } else {
             //myDate is equal or after than Now (date and time)
         }
         if newDateIsToday(lastDateCig){
 
-            let defaults = NSUserDefaults.standardUserDefaults()
+            let defaults = Foundation.UserDefaults.standard
         
-            defaults.setObject(todaySmoked, forKey: "todaySmoked")
+            defaults.set(todaySmoked, forKey: "todaySmoked")
 
-            defaults.setObject(lastDateCig, forKey: "dateLastCig")
+            defaults.set(lastDateCig, forKey: "dateLastCig")
          //   defaults.synchronize()
         }
     }
     
-    func newDateIsToday(newDate: NSDate) -> Bool
+    func newDateIsToday(_ newDate: Date) -> Bool
     {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = Calendar.current
         return calendar.isDateInToday(newDate)
     }
     
-    func newDateIsLatest(newDate: NSDate) -> Bool
+    func newDateIsLatest(_ newDate: Date) -> Bool
     {
         //Get Current Date/Time
-        let currentDateTime = NSDate()
+        let currentDateTime = Date()
 
         var ret = false;
-        let defaults = UserDefaultsDataController()
-       // var userDefaults = UserDefaults()
         
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-        
-        
+        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
         
         if let lastDateOfCig = userDefaults.dateLastCig{
             if newDate >= lastDateOfCig && newDate <= currentDateTime {
@@ -116,9 +112,7 @@ class UserDefaultsDataController{
             if newDate <= currentDateTime {
                 ret = true
             }
-            }
         }
-        
         
         return ret;
     }
@@ -130,11 +124,11 @@ class UserDefaultsDataController{
         
         let userDefaults = UserDefaults()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = Foundation.UserDefaults.standard
        // println(defaults)
         //println(defaults.integerForKey("levelAsNeeded"))
         
-        if (defaults.objectForKey("levelAsNeeded") == nil) {
+        if (defaults.object(forKey: "levelAsNeeded") == nil) {
            //then it loads for the first time
             //init defaults values for start up
             userDefaults.dailyGoal = 20
@@ -152,22 +146,22 @@ class UserDefaultsDataController{
         }
         else{
             var needSaveFlag:Bool = false
-        userDefaults.levelAsNeeded = defaults.integerForKey("levelAsNeeded")
+        userDefaults.levelAsNeeded = defaults.integer(forKey: "levelAsNeeded")
         
-        userDefaults.levelOfEnjoyment = defaults.integerForKey("levelOfEnjoyment")
-        userDefaults.dailyGoal = defaults.integerForKey("dailyGoal")
-        userDefaults.averageCostOfOnePack = defaults.doubleForKey("averageCostOfOnePack")
+        userDefaults.levelOfEnjoyment = defaults.integer(forKey: "levelOfEnjoyment")
+        userDefaults.dailyGoal = defaults.integer(forKey: "dailyGoal")
+        userDefaults.averageCostOfOnePack = defaults.double(forKey: "averageCostOfOnePack")
        
-            userDefaults.amountOfCigarettsInOnePack = defaults.integerForKey("amountOfCigarettsInOnePack")
-            userDefaults.averageCostOfOneCigarett = defaults.doubleForKey("averageCostOfOneCigarett")
+            userDefaults.amountOfCigarettsInOnePack = defaults.integer(forKey: "amountOfCigarettsInOnePack")
+            userDefaults.averageCostOfOneCigarett = defaults.double(forKey: "averageCostOfOneCigarett")
                 
-            userDefaults.todaySmoked = defaults.integerForKey("todaySmoked")
+            userDefaults.todaySmoked = defaults.integer(forKey: "todaySmoked")
             
-            if let d:NSDate = defaults.objectForKey("dateLastCig") as? NSDate{
+            if let d:Date = defaults.object(forKey: "dateLastCig") as? Date{
                 userDefaults.dateLastCig = d
             }
             
-            if let reason = defaults.objectForKey("reason") as? String{
+            if let reason = defaults.object(forKey: "reason") as? String{
                 userDefaults.reason = reason
             }
             else
@@ -175,7 +169,7 @@ class UserDefaultsDataController{
                 userDefaults.reason = defaultReason
                 needSaveFlag = true
             }
-            if let minimalModeOn = defaults.objectForKey("minimalModeOn") as? Bool{
+            if let minimalModeOn = defaults.object(forKey: "minimalModeOn") as? Bool{
                 userDefaults.minimalModeOn = minimalModeOn
             }
             else
@@ -183,7 +177,7 @@ class UserDefaultsDataController{
                 userDefaults.minimalModeOn = false
                 needSaveFlag = true
             }
-            if let showQuestion1 = defaults.objectForKey("showQuestion1") as? Bool{
+            if let showQuestion1 = defaults.object(forKey: "showQuestion1") as? Bool{
                 userDefaults.showQuestion1 = showQuestion1
             }
             else
@@ -192,7 +186,7 @@ class UserDefaultsDataController{
                 needSaveFlag = true
                
             }
-            if let coreDataReasonsEntityInited = defaults.objectForKey("coreDataReasonsEntityInited") as? Bool{
+            if let coreDataReasonsEntityInited = defaults.object(forKey: "coreDataReasonsEntityInited") as? Bool{
                 userDefaults.coreDataReasonsEntityInited = coreDataReasonsEntityInited
             }
             else

@@ -18,12 +18,13 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
    // @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    var fetchedResultControllerDaily: NSFetchedResultsController = NSFetchedResultsController()
     
-    var fetchedResultControllerMonthly: NSFetchedResultsController = NSFetchedResultsController()
     
+    var fetchedResultControllerDaily: NSFetchedResultsController<CigaretteRecord> = NSFetchedResultsController<CigaretteRecord>()
+    
+    var fetchedResultControllerMonthly:  NSFetchedResultsController<CigaretteRecord> = NSFetchedResultsController<CigaretteRecord>()
     var sortedKeysResultsYearly: NSArray!
    
     var fetchDictResultsYearly: [String: NSNumber]!
@@ -62,15 +63,15 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             
             for index in 0..<objCount - 1
             {
-                    let ind = NSIndexPath(forRow: index, inSection: selection)
-                let task = fetchedResultControllerDaily.objectAtIndexPath(ind) as! CigaretteRecord
+                    let ind = IndexPath(row: index, section: selection)
+                let task = fetchedResultControllerDaily.object(at: ind) as! CigaretteRecord
                 let yearMonth:String = task.yearMonth()
                 
                 if let cigsSum = fetchDictResultsMonthly[yearMonth]{
                     
                     var calculatedSum:NSNumber = NSNumber()
                     
-                        calculatedSum = cigsSum.integerValue + task.cigarettes.integerValue  as NSNumber
+                        calculatedSum = cigsSum.intValue + task.cigarettes.intValue  as NSNumber
                     
                     fetchDictResultsMonthly.updateValue(calculatedSum, forKey: yearMonth)
                     
@@ -84,7 +85,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                     
                     var calculatedSum:NSNumber = NSNumber()
                     
-                    calculatedSum = cigsSum.integerValue + task.cigarettes.integerValue  as NSNumber
+                    calculatedSum = cigsSum.intValue + task.cigarettes.intValue  as NSNumber
                     
                     fetchDictResultsYearly.updateValue(calculatedSum, forKey: year)
                     
@@ -93,8 +94,8 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                 }
             }
         }
-        sortedKeysResultsMonthly = Array(fetchDictResultsMonthly.keys)
-        sortedKeysResultsYearly = Array(fetchDictResultsYearly.keys)
+        sortedKeysResultsMonthly = Array(fetchDictResultsMonthly.keys) as NSArray!
+        sortedKeysResultsYearly = Array(fetchDictResultsYearly.keys) as NSArray!
         
         creteSegmentOnHeader()
     
@@ -103,7 +104,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     func creteSegmentOnHeader()
     {
         
-        let screenSize:CGRect = UIScreen.mainScreen().bounds
+        let screenSize:CGRect = UIScreen.main.bounds
         viewHeader.frame.size.height = screenSize.height * 0.30
 
         let mySegment = UISegmentedControl(items: ["Daily","Monthly", "Yearly"])
@@ -113,12 +114,12 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         mySegment.selectedSegmentIndex = 0
 
         //2016-07-30
-        mySegment.addTarget(self, action: #selector(RowManagerViewController.segmentAction(_:)), forControlEvents: .ValueChanged)
+        mySegment.addTarget(self, action: #selector(RowManagerViewController.segmentAction(_:)), for: .valueChanged)
         //   mySegment.addTarget(self, action: "segmentAction:", forControlEvents: .ValueChanged)
 
-        let frame = UIScreen.mainScreen().bounds
-        mySegment.frame = CGRectMake(viewHeader.frame.minX, viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
-            frame.width , viewHeader.frame.height*0.15)
+        let frame = UIScreen.main.bounds
+        mySegment.frame = CGRect(x: viewHeader.frame.minX, y: viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
+            width: frame.width , height: viewHeader.frame.height*0.15)
        
         mySegment.layer.cornerRadius = 5.0  // Don't let background bleed
         
@@ -129,18 +130,20 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
 
     }
 
-    
-    func getFetchedResultControllerDaily() -> NSFetchedResultsController {
-        fetchedResultControllerDaily = NSFetchedResultsController(fetchRequest: taskFetchRequestDaily(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+    //let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
+
+    func getFetchedResultControllerDaily() -> NSFetchedResultsController<CigaretteRecord> {
+        fetchedResultControllerDaily = NSFetchedResultsController<CigaretteRecord>(fetchRequest: taskFetchRequestDaily()  , managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultControllerDaily
     }
     
-    func taskFetchRequestDaily() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+    func taskFetchRequestDaily() -> NSFetchRequest<CigaretteRecord> {
+    //    let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
         //fetchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
         let sortDescriptor = NSSortDescriptor(key: "cigarettes", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        return fetchRequest
+        return fetchRequest as! NSFetchRequest<CigaretteRecord>
     }
   
 
@@ -151,12 +154,12 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     // #pragma mark - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         let numberOfSections = fetchedResultControllerDaily.sections?.count
         return numberOfSections!
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRowsInSection: Int!// = fetchedResultController.sections?[section].numberOfObjects
         
         switch segment {
@@ -175,7 +178,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell!
         var textLable:String=""
@@ -183,20 +186,20 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         switch segment {
             case 0:
                 
-                cell = tableView.dequeueReusableCellWithIdentifier("CellDaily", forIndexPath: indexPath) 
+                cell = tableView.dequeueReusableCell(withIdentifier: "CellDaily", for: indexPath) 
                 
-                let task = fetchedResultControllerDaily.objectAtIndexPath(indexPath) as! CigaretteRecord
+                let task = fetchedResultControllerDaily.object(at: indexPath) as! CigaretteRecord
                 let s:String = task.yearMonth()
                 //print(s)
                 cell.textLabel?.text = task.cigarettes.stringValue + "; " + task.levelAsNeeded.stringValue + "; CellDaily " + getStringDate(task.addDate) + " " + s
                 
             case 1:
                 
-                cell = tableView.dequeueReusableCellWithIdentifier("CellMonthly", forIndexPath: indexPath) 
+                cell = tableView.dequeueReusableCell(withIdentifier: "CellMonthly", for: indexPath) 
                
-                let yearMonth:String = sortedKeysResultsMonthly[indexPath.row] as! String
+                let yearMonth:String = sortedKeysResultsMonthly[(indexPath as NSIndexPath).row] as! String
                 
-                if let cigsSum: NSNumber! = fetchDictResultsMonthly[yearMonth]{
+                if let cigsSum: NSNumber? = fetchDictResultsMonthly[yearMonth]{
                     
                     
                     textLable = String(format:"%.1f", cigsSum!.doubleValue * averageCostOfOneCigarette)
@@ -209,11 +212,11 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             
             
             case 2:
-                cell = tableView.dequeueReusableCellWithIdentifier("CellYearly", forIndexPath: indexPath) 
+                cell = tableView.dequeueReusableCell(withIdentifier: "CellYearly", for: indexPath) 
                 
-                let year:String = sortedKeysResultsYearly[indexPath.row] as! String
+                let year:String = sortedKeysResultsYearly[(indexPath as NSIndexPath).row] as! String
                 
-                if let cigsSum: NSNumber! = fetchDictResultsYearly[year]{
+                if let cigsSum: NSNumber? = fetchDictResultsYearly[year]{
                     
                     
                     textLable = String(format:"%.1f", cigsSum!.doubleValue * averageCostOfOneCigarette)
@@ -235,17 +238,17 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     
     
-    func getStringDate(dDate: NSDate)->String
+    func getStringDate(_ dDate: Date)->String
     {
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
-            return dateFormatter.stringFromDate(dDate)
+            return dateFormatter.string(from: dDate)
 
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let managedObject:NSManagedObject = fetchedResultControllerDaily.objectAtIndexPath(indexPath) as! NSManagedObject
-        managedObjectContext?.deleteObject(managedObject)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let managedObject:NSManagedObject = fetchedResultControllerDaily.object(at: indexPath) as! NSManagedObject
+        managedObjectContext?.delete(managedObject)
         do {
             try managedObjectContext?.save()
             managedObjectContext?.reset()
@@ -253,11 +256,11 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         }
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
     }
     
-    func segmentAction(sender: UISegmentedControl) {
+    func segmentAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             segment = 0

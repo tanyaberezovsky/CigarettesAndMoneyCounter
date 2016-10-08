@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-public class ColorTemplates{
+open class ColorTemplates{
  
 
     
-    public class func chartPieColors() -> [UIColor]
+    open class func chartPieColors() -> [UIColor]
     {
         return [
             //green
@@ -107,21 +107,21 @@ public class ColorTemplates{
      976EA8
      2A2E4F
      */
-    public  class func purpleGrayCGColor() -> [CGColor]
+    open  class func purpleGrayCGColor() -> [CGColor]
     {
         return [
             
-            UIColor(red: 68/255, green: 69/255, blue: 121/255, alpha: 1).CGColor,
-            UIColor(red: 138/255, green: 102/255, blue: 163/255, alpha: 1).CGColor,
-            UIColor(red: 151/255, green: 110/255, blue: 168/255, alpha: 1).CGColor,
-            UIColor(red: 42/255, green: 46/255, blue: 79/255, alpha: 1).CGColor
+            UIColor(red: 68/255, green: 69/255, blue: 121/255, alpha: 1).cgColor,
+            UIColor(red: 138/255, green: 102/255, blue: 163/255, alpha: 1).cgColor,
+            UIColor(red: 151/255, green: 110/255, blue: 168/255, alpha: 1).cgColor,
+            UIColor(red: 42/255, green: 46/255, blue: 79/255, alpha: 1).cgColor
             
             
         ]
        
     }
     
-    public class func purpleGray() -> [UIColor]
+    open class func purpleGray() -> [UIColor]
     {
         return [
             
@@ -135,7 +135,7 @@ public class ColorTemplates{
         
     }
     
-    public class func HorizontalBarChartColor () -> [UIColor]
+    open class func HorizontalBarChartColor () -> [UIColor]
     {
         return [
             //blue
@@ -143,14 +143,14 @@ public class ColorTemplates{
         ]
     }
     
-    public class func Enjoyment () -> [UIColor]
+    open class func Enjoyment () -> [UIColor]
     {
         return [
                 UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0)
         ]
     }
     
-    public class func Needed () -> [UIColor]
+    open class func Needed () -> [UIColor]
     {
         return [
             UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0)

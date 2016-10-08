@@ -14,13 +14,16 @@ import CoreData
 //UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate
 
 class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    lazy var reasons : NSFetchedResultsController = {
-        let request = NSFetchRequest(entityName: "Reasons")
+    lazy var reasons : NSFetchedResultsController<CigaretteRecord> = {
+   
+         let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+        
+        //     let request = NSFetchRequest<CigaretteRecord>(entityName: "Reasons")
         request.sortDescriptors = [NSSortDescriptor(key: "reason", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))]
 
-        let reasons = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        let reasons = NSFetchedResultsController<CigaretteRecord>(fetchRequest: request as! NSFetchRequest<CigaretteRecord>, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         reasons.delegate = self
             
         
@@ -40,7 +43,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var tblLevels: UITableView!
     
     
-    override func viewWillAppear(animated: Bool){
+    override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         do {
             try reasons.performFetch()
@@ -80,12 +83,12 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var levelSelected = String()
         //= dataList.textValue(indexPath.row)  //+ " " + dataList.detailText(indexPath.row)//levels[indexPath.row].nameNum
         if let objects = reasons.fetchedObjects
         {
-            levelSelected = ((objects[indexPath.row] as? Reasons)?.reason)!
+            levelSelected = ((objects[(indexPath as NSIndexPath).row] as? Reasons)?.reason)!
         }
 
         
@@ -100,10 +103,10 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
             {
                 let vc = self.presentingViewController
                      as? popOverViewController
-                vc!.causeOfSmoking.setTitle(levelSelected, forState: UIControlState.Normal)
+                vc!.causeOfSmoking.setTitle(levelSelected, for: UIControlState())
                 
             }
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
 
         }
         
@@ -116,7 +119,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     //    
 
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        /* let objects = reasons.fetchedObjects
         return objects?.count ?? 0*/
         if let sections = reasons.sections {
@@ -128,15 +131,15 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
 
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("reasonCellId", forIndexPath: indexPath) as? ReasonsTableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "reasonCellId", for: indexPath) as? ReasonsTableViewCell {
             if let objects = reasons.fetchedObjects
             {
                /* if let rsn = objects[indexPath.row] as? Reasons
                 {
                     cell.reason = rsn
                 }*/
-                cell.reason = objects[indexPath.row] as? Reasons
+                cell.reason = objects[(indexPath as NSIndexPath).row] as? Reasons
             }
             return cell
         }
@@ -147,25 +150,25 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     //////////////////          UIAlertController   area
     var tField: UITextField!
     
-    func configurationTextField(textField: UITextField!)
+    func configurationTextField(_ textField: UITextField!)
     {
         //print("generating the TextField")
         textField.placeholder = "Enter an item"
         tField = textField
     }
     
-    func handleCancel(alertView: UIAlertAction!)
+    func handleCancel(_ alertView: UIAlertAction!)
     {
         //print("Cancelled !!")
     }
     
-    @IBAction func addNewReasonBottonClick(sender: UIBarButtonItem) {
-            let alert = UIAlertController(title: "Enter reason", message: "", preferredStyle: .Alert)
+    @IBAction func addNewReasonBottonClick(_ sender: UIBarButtonItem) {
+            let alert = UIAlertController(title: "Enter reason", message: "", preferredStyle: .alert)
             let reasonsManager = ReasonsManager()
         
-            alert.addTextFieldWithConfigurationHandler(configurationTextField)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler:handleCancel))
-            alert.addAction(UIAlertAction(title: "Add", style: .Default, handler:{ (UIAlertAction) in
+            alert.addTextField(configurationHandler: configurationTextField)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:handleCancel))
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
             //print("Done !!")
             print("Item : \(self.tField.text)")
                 reasonsManager.saveReason(self.tField.text!)
@@ -184,20 +187,20 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
                 self.tableView.reloadData()
 
             }))
-            self.presentViewController(alert, animated: true, completion: {
+            self.present(alert, animated: true, completion: {
             print("completion block")
             })
     }
 
     //////////////////          end UIAlertController area
-    @IBAction func BackButtonClick(sender: UIBarButtonItem) {
+    @IBAction func BackButtonClick(_ sender: UIBarButtonItem) {
         if(myDelegate != nil){
             
             myDelegate!.myColumnDidSelected(self, text: "",segueName: segueSourceName!)
             
         }
         else{
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         }
     }
     
@@ -205,5 +208,5 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
 
 
 protocol TableLevelsControllerDelegate{
-    func myColumnDidSelected(controller:TableLavels,text:String, segueName:String)
+    func myColumnDidSelected(_ controller:TableLavels,text:String, segueName:String)
 }

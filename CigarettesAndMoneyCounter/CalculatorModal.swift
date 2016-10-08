@@ -12,13 +12,13 @@ import Foundation
 //In order to make an object observable, it adopts the following protocol:
 //2016-07-30
 protocol PropertyObservable {
-    typealias PropertyType
+    associatedtype PropertyType
     var propertyChanged: Event<PropertyType> { get }
 }
 
 
 enum CalculatorProperty {
-    case PackCost, CigsPerPack, TotalCiggarets, Segment// totalCost
+    case packCost, cigsPerPack, totalCiggarets, segment// totalCost
 }
 
 //model
@@ -33,18 +33,18 @@ class Calculator{
             if segment != oldValue
             {
                 totalCiggarets = dailyCiggarets * segmentToDays(segment)
-                propertyChanged.raise(.TotalCiggarets)
+                propertyChanged.raise(.totalCiggarets)
 
             }
         }
     }
     
-    dynamic private var dailyCiggarets: Double = 1
+    dynamic fileprivate var dailyCiggarets: Double = 1
         {
         didSet {
             if self.dailyCiggarets != oldValue
             {
-                propertyChanged.raise(.TotalCiggarets)
+                propertyChanged.raise(.totalCiggarets)
             }
         }
     }
@@ -67,7 +67,7 @@ class Calculator{
         didSet {
            // if packCost != oldValue
             //{
-                propertyChanged.raise(.PackCost)
+                propertyChanged.raise(.packCost)
             //}
         }
     }
@@ -77,7 +77,7 @@ class Calculator{
         didSet {
             // if packCost != oldValue
             //{
-            propertyChanged.raise(.CigsPerPack)
+            propertyChanged.raise(.cigsPerPack)
             //}
         }
     }
@@ -90,7 +90,7 @@ class Calculator{
     }
    
 
-    internal func a(a1: Double) -> Double
+    internal func a(_ a1: Double) -> Double
     {
         return 2
     }

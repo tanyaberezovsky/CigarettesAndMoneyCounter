@@ -9,6 +9,26 @@
 
 import UIKit
 import CoreData
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 import Charts
 
 class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPickerViewDelegate, NSFetchedResultsControllerDelegate
@@ -20,8 +40,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     var datePickerView  : UIDatePicker = UIDatePicker()
     var monthPicker: UIPickerView = UIPickerView()
     var yearPicker: UIPickerView = UIPickerView()
-    var curentDate:NSDate = NSDate()
-    var toDate:NSDate = NSDate()
+    var curentDate:Date = Date()
+    var toDate:Date = Date()
     
     @IBOutlet weak var smokedLabel: UILabel!
     @IBOutlet weak var smoked: UILabel!
@@ -63,19 +83,19 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     func initBarChartUI()
     {
         barChart.descriptionText = ""
-        barChart.backgroundColor = UIColor.clearColor()
-        barChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
+        barChart.backgroundColor = UIColor.clear
+        barChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
         barChart.xAxis.drawGridLinesEnabled = false
-        barChart.gridBackgroundColor = UIColor.clearColor()
-        barChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
-        barChart.legend.textColor = UIColor.whiteColor()
+        barChart.gridBackgroundColor = UIColor.clear
+        barChart.legend.position = Legend.Position.aboveChartLeft
+        barChart.legend.textColor = UIColor.white
         
-        barChart.xAxis.labelTextColor = UIColor.whiteColor()
-        barChart.leftAxis.valueFormatter = NSNumberFormatter()
-        barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
-        barChart.leftAxis.customAxisMin = 0
-        barChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        barChart.xAxis.labelTextColor = UIColor.white
+        ///!barChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
+        ///barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
+        barChart.leftAxis.axisMinimum = 0///.customAxisMin = 0
+        barChart.leftAxis.labelTextColor = UIColor.white
         barChart.leftAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawAxisLineEnabled = false
@@ -89,30 +109,31 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     {
         
         horizontChart.descriptionText = ""
-        horizontChart.backgroundColor = UIColor.clearColor()
-        horizontChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
+        horizontChart.backgroundColor = UIColor.clear
+        horizontChart.xAxis.labelPosition =  XAxis.LabelPosition.bottom
+
         
         horizontChart.xAxis.drawGridLinesEnabled = false
-        horizontChart.gridBackgroundColor = UIColor.clearColor()
-        horizontChart.legend.position = ChartLegend.ChartLegendPosition.AboveChartLeft
-        horizontChart.legend.textColor = UIColor.whiteColor()
-        horizontChart.rightAxis.labelTextColor = UIColor.whiteColor()
+        horizontChart.gridBackgroundColor = UIColor.clear
+        horizontChart.legend.position = Legend.Position.aboveChartLeft
+        horizontChart.legend.textColor = UIColor.white
+        horizontChart.rightAxis.labelTextColor = UIColor.white
        
-        horizontChart.infoTextColor = UIColor.whiteColor()
-       horizontChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
-        horizontChart.xAxis.labelTextColor = UIColor.whiteColor()
-        horizontChart.xAxis.axisLineColor = UIColor.whiteColor()
-        horizontChart.leftAxis.valueFormatter = NSNumberFormatter()
-        horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
-        horizontChart.leftAxis.customAxisMin = 0
-        horizontChart.leftAxis.labelTextColor = UIColor.whiteColor()
+        ///horizontChart.infoTextColor = UIColor.white
+        horizontChart.xAxis.labelPosition =  XAxis.LabelPosition.bottom
+        horizontChart.xAxis.labelTextColor = UIColor.white
+        horizontChart.xAxis.axisLineColor = UIColor.white
+        ///!horizontChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
+       /// horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
+        horizontChart.leftAxis.axisMinimum = 0 //.customAxisMin = 0
+        horizontChart.leftAxis.labelTextColor = UIColor.white
         
-        horizontChart.leftAxis.axisLineColor = UIColor.whiteColor()
+        horizontChart.leftAxis.axisLineColor = UIColor.white
         horizontChart.leftAxis.drawGridLinesEnabled = false
         horizontChart.rightAxis.drawGridLinesEnabled = false
         horizontChart.rightAxis.drawAxisLineEnabled = false
         horizontChart.rightAxis.drawLabelsEnabled = false
-        horizontChart.hidden = true
+        horizontChart.isHidden = true
         
     }
     
@@ -123,44 +144,44 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         //pieChart.noDataTextDescription = "Have five"
         pieChart.noDataText = "you don't smoke at this period"
         
-        pieChart.backgroundColor = UIColor.clearColor()
+        pieChart.backgroundColor = UIColor.clear
        
         pieChart.holeColor = ColorTemplates.purpleGray()[1]
         
         pieChart.legend.labels = ["why"]
-        pieChart.legend.textColor = UIColor.whiteColor()
+        pieChart.legend.textColor = UIColor.white
         
-        pieChart.legend.position = ChartLegend.ChartLegendPosition.LeftOfChart
+        pieChart.legend.position = Legend.Position.leftOfChart
         
-        pieChart.hidden = true
+        pieChart.isHidden = true
         
         
     }
     
-    @IBAction func graphTypeChanged(sender: UISegmentedControl) {
+    @IBAction func graphTypeChanged(_ sender: UISegmentedControl) {
         
         showChartBySegmntIndex(sender.selectedSegmentIndex)
     }
     
-    func  showChartBySegmntIndex(index: Int = 0)
+    func  showChartBySegmntIndex(_ index: Int = 0)
     {
         drawChart()
         
-        barChart.hidden = true
-        pieChart.hidden = true
-        horizontChart.hidden = true
+        barChart.isHidden = true
+        pieChart.isHidden = true
+        horizontChart.isHidden = true
 
         if (index == 0)
         {
-            pieChart.hidden = false
+            pieChart.isHidden = false
         }
         else if (index == 1)
         {
-            barChart.hidden = false
+            barChart.isHidden = false
         }
         else  if (index == 2)
         {
-            horizontChart.hidden = false
+            horizontChart.isHidden = false
         }
         
     }
@@ -179,28 +200,28 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         pickerYearData = arrYear
     }
 
-    @IBAction func shiftBtnDateSubOnTouch(sender: UIButton) {
+    @IBAction func shiftBtnDateSubOnTouch(_ sender: UIButton) {
         calculateSelectedDate(-1)
     }
     
-    @IBAction func shiftBtnDateAddOnTouch(sender: UIButton) {
+    @IBAction func shiftBtnDateAddOnTouch(_ sender: UIButton) {
         calculateSelectedDate(1)
     }
     
-    @IBAction func selectedDateTouchDown(sender: UITextField) {
+    @IBAction func selectedDateTouchDown(_ sender: UITextField) {
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.month:
-            monthPicker.hidden = false
-            yearPicker.hidden = true
+            monthPicker.isHidden = false
+            yearPicker.isHidden = true
         case Constants.SegmentDateType.year:
-            monthPicker.hidden = true
-            yearPicker.hidden = false
+            monthPicker.isHidden = true
+            yearPicker.isHidden = false
         default:
             return
         }
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.month:
             return pickerData.count
@@ -211,7 +232,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         }
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.month:
             return pickerData[component].count
@@ -222,7 +243,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.month:
             return pickerData[component][row]
@@ -233,12 +254,12 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateLabel()
     }
     //MARK -Instance Methods
     func updateLabel(){
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         var currentDateStr:String
         var month:String
@@ -246,36 +267,36 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.month:
-            month = pickerData[0][monthPicker.selectedRowInComponent(0)]
-            year = pickerData[1][monthPicker.selectedRowInComponent(1)]
+            month = pickerData[0][monthPicker.selectedRow(inComponent: 0)]
+            year = pickerData[1][monthPicker.selectedRow(inComponent: 1)]
             selectedDate.text =   String(format: "%@ %@", month, year)
-            currentDateStr = String(format: "%d-01-%@", monthPicker.selectedRowInComponent(0) + 1, year)
+            currentDateStr = String(format: "%d-01-%@", monthPicker.selectedRow(inComponent: 0) + 1, year)
         case Constants.SegmentDateType.year:
-            year = pickerYearData[yearPicker.selectedRowInComponent(0)]
+            year = pickerYearData[yearPicker.selectedRow(inComponent: 0)]
             selectedDate.text =  year
             currentDateStr = String(format: "01-01-%@", year)
         default:
             return;
         }
-        curentDate = dateFormatter.dateFromString(currentDateStr)!
+        curentDate = dateFormatter.date(from: currentDateStr)!
         calculateSelectedDate(0)
         
     }
     
-    @IBAction func segmentDateTypeChanged(sender: UISegmentedControl) {
+    @IBAction func segmentDateTypeChanged(_ sender: UISegmentedControl) {
         
-        currentSegmentDateType = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!.lowercaseString
+        currentSegmentDateType = sender.titleForSegment(at: sender.selectedSegmentIndex)!.lowercased()
         
         closeAllKeyboards()
         
-        curentDate = NSDate()
+        curentDate = Date()
         calculateSelectedDate(0)
        
     }
     
     
     func drawSelectedDate(){
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
      
         
         switch(currentSegmentDateType){
@@ -284,13 +305,13 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             showSelectedDate(curentDate, dateFormat: Constants.dateFormat.day)
             datePickerView.date = curentDate
         case Constants.SegmentDateType.month://month
-            let indexOfYear =  pickerData[1].indexOf(String(components.year))
+            let indexOfYear =  pickerData[1].index(of: String(describing: components.year!))
             self.selectedDate.inputView = monthPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.month)
-            monthPicker.selectRow(components.month - 1, inComponent: 0, animated: true)
+            monthPicker.selectRow(components.month! - 1, inComponent: 0, animated: true)
             monthPicker.selectRow(indexOfYear!, inComponent: 1, animated: true)
         case Constants.SegmentDateType.year:
-            let indexOfYear =  pickerYearData.indexOf(String(components.year))
+            let indexOfYear =  pickerYearData.index(of: String(describing: components.year!))
             self.selectedDate.inputView = yearPicker
             selectedDate.text = self.getStringDate(curentDate, currentDateFormat: Constants.dateFormat.year)
             yearPicker.selectRow(indexOfYear!, inComponent: 0, animated: true)
@@ -302,43 +323,43 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     
     
-    func calculateSelectedDate(shiftFactor: Int = 0){
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
-        let userCalendar = NSCalendar.currentCalendar()
-        let dateComponents = NSDateComponents()
+    func calculateSelectedDate(_ shiftFactor: Int = 0){
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
+        let userCalendar = Calendar.current
+        var dateComponents = DateComponents()
         
-        var unitDate : NSCalendarUnit = NSCalendarUnit.Day
+        var unitDate : NSCalendar.Unit = NSCalendar.Unit.day
         
         switch(currentSegmentDateType){
         case Constants.SegmentDateType.year:
-            unitDate = NSCalendarUnit.Year
+            unitDate = NSCalendar.Unit.year
             dateComponents.month = 1
             dateComponents.day = 1
         case Constants.SegmentDateType.month://month
-            unitDate = NSCalendarUnit.Month
+            unitDate = NSCalendar.Unit.month
             dateComponents.month = components.month
             dateComponents.day = 1
         default:
-            unitDate = NSCalendarUnit.Day
+            unitDate = NSCalendar.Unit.day
             dateComponents.month = components.month
             dateComponents.day = components.day
  
         }
         
         dateComponents.year = components.year
-        curentDate = userCalendar.dateFromComponents(dateComponents)!
+        curentDate = userCalendar.date(from: dateComponents)!
         
-        curentDate = NSCalendar.currentCalendar().dateByAddingUnit(
-            unitDate,
+        curentDate = (Calendar.current as NSCalendar).date(
+            byAdding: unitDate,
             value: shiftFactor,
-            toDate: curentDate,
-            options: NSCalendarOptions(rawValue: 0))!
+            to: curentDate,
+            options: NSCalendar.Options(rawValue: 0))!
 
-        toDate = NSCalendar.currentCalendar().dateByAddingUnit(
-            unitDate,
+        toDate = (Calendar.current as NSCalendar).date(
+            byAdding: unitDate,
             value: 1,
-            toDate: curentDate,
-            options: NSCalendarOptions(rawValue: 0))!
+            to: curentDate,
+            options: NSCalendar.Options(rawValue: 0))!
         //print(curentDate)
         //print(toDate)
         
@@ -394,18 +415,18 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         var sumOfCigs = [Double]()
         var cigsTotal:Int
         
-        var arrReason = arrReason2.sortedArrayUsingComparator {
-            (obj1, obj2) -> NSComparisonResult in
+        var arrReason = arrReason2.sortedArray (comparator: {
+            (obj1, obj2) -> ComparisonResult in
             
             let first = Double(((obj1 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
             let second = Double(((obj2 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
             
             if (first < second) {
-                return NSComparisonResult.OrderedDescending;
+                return ComparisonResult.orderedDescending;
             } else {
-                return NSComparisonResult.OrderedAscending;
+                return ComparisonResult.orderedAscending;
             }
-        }
+        })
 
         
         if arrReason.count > 0 {
@@ -432,22 +453,24 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
 
 
 //load data
-func setChartPie(dataPoints: [String], values: [Double]) {
+func setChartPie(_ dataPoints: [String], values: [Double]) {
     
     var dataEntries: [ChartDataEntry] = []
     
     for i in 0..<dataPoints.count {
-        let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-        dataEntries.append(dataEntry)
+        ///        let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+        let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+      dataEntries.append(dataEntry)
     }
     
-    let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+    let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
     
     
     pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
+    ///   let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
     
-    let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-    
+    let pieChartData = PieChartData(dataSet: pieChartDataSet)
+    //pieChartData.init xVals =  dataPoints
     
     pieChart.data = pieChartData
     
@@ -475,7 +498,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
                     
-                    if(desc == j){
+                    if(desc.intValue == j){
                         if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                             sumOfCigsEnjoy.append(Double(cigs))
                         }
@@ -501,7 +524,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
                     
-                    if(desc == k){
+                    if(desc.intValue == k){
                         if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                             sumOfCigsNeed.append(Double(cigs))
                         }
@@ -542,37 +565,37 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         var dataStringStart:String
         var dataStringEnd:String
-        let dateFormatterStart = NSDateFormatter()
+        let dateFormatterStart = DateFormatter()
         dateFormatterStart.dateFormat = "MM-dd-yyyy HH:mm"
         
         // convert string into date
-        var dateValueStart:NSDate?
-        var dateValueEnd:NSDate?
+        var dateValueStart:Date?
+        var dateValueEnd:Date?
         
         var monthSymbol: String
         //print(months.count)
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
         
         var description = [String]()
         var sumOfCigs = [Double]()
         
-        let currenDate = NSDate()
+        let currenDate = Date()
         
         var evens = [Int]()
         
-        for (_,i) in (0...23).reverse().enumerate() {
+        for (_,i) in (0...23).reversed().enumerated() {
             evens.append(i)
             //monthSymbol = months[components.month] // month - from your date components
-            dataStringStart = String(format: "%d-%d-%d %d:00", components.month, components.day ,components.year, i)
-            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            dataStringStart = String(format: "%d-%d-%d %d:00", components.month!, components.day! ,components.year!, i)
+            dateValueStart = dateFormatterStart.date(from: dataStringStart)
             
             if dateValueStart > currenDate {
                 continue
             }
             
-            dataStringEnd = String(format: "%d-%d-%d %d:59", components.month, components.day ,components.year, i)
-            dateValueEnd = dateFormatterStart.dateFromString(dataStringEnd)
+            dataStringEnd = String(format: "%d-%d-%d %d:59", components.month!, components.day! ,components.year!, i)
+            dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
             //print("month")
             //print(monthSymbol)
             monthSymbol = String(format: "%d:00", i)
@@ -595,7 +618,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         }
         
         //setMaxMilAxisElement
-        if let maxVal = sumOfCigs.maxElement(){
+        if let maxVal = sumOfCigs.max(){
             setLabelCount(maxVal)
         }
         
@@ -604,7 +627,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
     }
     
-    func setLabelCount(val:Double){
+    func setLabelCount(_ val:Double){
         
         var maxVal = val
         var labelCount = maxVal
@@ -612,7 +635,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             maxVal = maxVal + (maxVal / 100 * 1.5)
         }
         
-        horizontChart.leftAxis.customAxisMax = maxVal + 1
+        horizontChart.leftAxis.axisMaximum = maxVal + 1 ///.customAxisMax = maxVal + 1
         horizontChart.leftAxis.labelCount = Int(labelCount)
     }
 
@@ -624,49 +647,49 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         var dataStringStart:String
         var dataStringEnd:String
-        let dateFormatterStart = NSDateFormatter()
+        let dateFormatterStart = DateFormatter()
         dateFormatterStart.dateFormat = "MM-dd-yyyy HH:mm"
         
         // convert string into date
-        var dateValueStart:NSDate?
-        var dateValueEnd:NSDate?
+        var dateValueStart:Date?
+        var dateValueEnd:Date?
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
         let months = dateFormatter.shortMonthSymbols
         var monthSymbol: String
         //print(months.count)
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
         
         var description = [String]()
         var sumOfCigs = [Double]()
       
-        let currenDate = NSDate()
+        let currenDate = Date()
         
         var evens = [Int]()
 
         //let range = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: date)
         // Swift 1.2:
-        let range = NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: curentDate)
+        let range = (Calendar.current as NSCalendar).range(of: NSCalendar.Unit.day, in: NSCalendar.Unit.month, for: curentDate)
         
         let numDays = range.length
 
-        for (_,i) in (1...numDays).reverse().enumerate() {
+        for (_,i) in (1...numDays).reversed().enumerated() {
             evens.append(i)
             //monthSymbol = months[components.month] // month - from your date components
-            dataStringStart = String(format: "%d-%d-%d 00:00", components.month, i ,components.year)
-            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            dataStringStart = String(format: "%d-%d-%d 00:00", components.month!, i ,components.year!)
+            dateValueStart = dateFormatterStart.date(from: dataStringStart)
             
             if dateValueStart > currenDate {
                 continue
             }
             
-            dataStringEnd = String(format: "%d-%d-%d 23:59", components.month, i ,components.year)
-            dateValueEnd = dateFormatterStart.dateFromString(dataStringEnd)
+            dataStringEnd = String(format: "%d-%d-%d 23:59", components.month!, i ,components.year!)
+            dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
             //print("month")
             //print(monthSymbol)
-            monthSymbol = String(format: "%@ %d", months[components.month], i)
+            monthSymbol = String(format: "%@ %d", (months?[components.month!])!, i)
             
             let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
             for i in 0..<arrCiggs.count
@@ -686,7 +709,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         }
         
         //setMaxMilAxisElement
-        if let maxVal = sumOfCigs.maxElement(){
+        if let maxVal = sumOfCigs.max(){
             setLabelCount(maxVal)
         }
         
@@ -702,20 +725,20 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         let cigRecord = CigaretteRecordManager()
         
         var dataStringStart:String
-        let dateFormatterStart = NSDateFormatter()
+        let dateFormatterStart = DateFormatter()
         dateFormatterStart.dateFormat = "MM-dd-yyyy"
         
         // convert string into date
-        var dateValueStart:NSDate? //= dateFormatterStart.dateFromString(dataStringStart)
-        var dateValueEnd:NSDate? //= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueStart:Date? //= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueEnd:Date? //= dateFormatterStart.dateFromString(dataStringStart)
 
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
         let months = dateFormatter.shortMonthSymbols
         var monthSymbol: String
         //print(months.count)
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: curentDate)
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
         
         var description = [String]()
@@ -723,14 +746,14 @@ func setChartPie(dataPoints: [String], values: [Double]) {
        /* for (index, number) in (0...10).reverse().enumerate() {
             //print("index \(index) , number \(number)")
         }*/
-        let currenDate = NSDate()
+        let currenDate = Date()
         
       //  var evens = [Int]()
-        for (_,i) in (0...11).reverse().enumerate() {
+        for (_,i) in (0...11).reversed().enumerated() {
           //  evens.append(i)
-            monthSymbol = months[i] // month - from your date components
-            dataStringStart = String(format: "%d-01-%d", i+1, components.year)
-            dateValueStart = dateFormatterStart.dateFromString(dataStringStart)
+            monthSymbol = (months?[i])! // month - from your date components
+            dataStringStart = String(format: "%d-01-%d", i+1, components.year!)
+            dateValueStart = dateFormatterStart.date(from: dataStringStart)
             
             if dateValueStart > currenDate {
                 continue
@@ -758,8 +781,8 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         }
         
         //setMaxMilAxisElement
-        if let maxVal = sumOfCigs.maxElement(){
-            horizontChart.leftAxis.customAxisMax = maxVal + 10
+        if let maxVal = sumOfCigs.max(){
+            horizontChart.leftAxis.axisMaximum = maxVal + 10
             setLabelCount(maxVal)
         }
         
@@ -767,9 +790,9 @@ func setChartPie(dataPoints: [String], values: [Double]) {
  
     }
     
-    func setMaxMilAxisElementBarChart( values: [Double], values2: [Double])
+    func setMaxMilAxisElementBarChart( _ values: [Double], values2: [Double])
     {
-        guard let number1 = values.maxElement(), number2 = values2.maxElement() else { return }
+        guard let number1 = values.max(), let number2 = values2.max() else { return }
 
         
         var maxVal = max(number1, number2)
@@ -779,51 +802,58 @@ func setChartPie(dataPoints: [String], values: [Double]) {
             maxVal = maxVal + (maxVal / 100 * 1.5)
         }
         
-        barChart.leftAxis.customAxisMax = maxVal + 1
+        barChart.leftAxis.axisMaximum = maxVal + 1
         barChart.leftAxis.labelCount = Int(labelCount)
 
     }
     
     
     
-    func setHorizontalChartData( values: [Double], xVals: [String])
+    func setHorizontalChartData( _ values: [Double], xVals: [String])
     {
         
         barChart.noDataText = "You need to provide data for the chart."
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<xVals.count {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            ///let dataEntry0 = BarChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
+            
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
         chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
-        chartDataSet.valueTextColor = UIColor.whiteColor()// ColorTemplates.HorizontalBarChartColor()[0]
-        let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
-        chartData.groupSpace = 1
+        chartDataSet.valueTextColor = UIColor.white// ColorTemplates.HorizontalBarChartColor()[0]
+    ///    let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
+        let chartData = BarChartData(dataSet: chartDataSet)
+       /// chartData.groupSpace = 1
         horizontChart.data = chartData
     }
     
     
     
-    func setMultiBarChart( values: [Double], values2: [Double], xVals: NSMutableArray)
+    func setMultiBarChart( _ values: [Double], values2: [Double], xVals: NSMutableArray)
     {
         
         barChart.noDataText = "You need to provide data for the chart."
         var dataEntries1: [BarChartDataEntry] = []
         var dataEntries2: [BarChartDataEntry] = []
+        var dataEntry1: BarChartDataEntry
+        var dataEntry2: BarChartDataEntry
         
         for i in 0..<xVals.count {
-            let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]])
+            dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]])
+            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
             
-            let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
+            ///let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
             dataEntries1.append(dataEntry1)
             dataEntries2.append(dataEntry2)
         }
         
-        let chartDataSet1 = BarChartDataSet(yVals: dataEntries1, label: "Enjoyment")
-        let chartDataSet2 = BarChartDataSet(yVals: dataEntries2, label: "Needed")
+        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
+        let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
         chartDataSet1.colors = ColorTemplates.Enjoyment()
         chartDataSet2.colors = ColorTemplates.Needed()
         chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
@@ -833,7 +863,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
 
      //setDrawValueAboveBar
-        chartData.groupSpace = 1
+    ///    chartData.groupSpace = 1
  //       chartData.setDrawValues(true)
         barChart.data = chartData
     }
@@ -844,13 +874,13 @@ func setChartPie(dataPoints: [String], values: [Double]) {
     }
 
     
-    func getStringDate(dDate: NSDate, currentDateFormat: String)->String
+    func getStringDate(_ dDate: Date, currentDateFormat: String)->String
     {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = currentDateFormat
     
-        return dateFormatter.stringFromDate(dDate)
+        return dateFormatter.string(from: dDate)
     }
     
     func loadScreenGraphics()
@@ -862,21 +892,21 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         
         
         monthPicker.delegate = self
-        monthPicker.hidden = true
+        monthPicker.isHidden = true
         
         yearPicker.delegate = self
-        yearPicker.hidden = true
+        yearPicker.isHidden = true
         
         segmentDateType.selectedSegmentIndex = 1
         
-        datePickerView.datePickerMode = UIDatePickerMode.Date
+        datePickerView.datePickerMode = UIDatePickerMode.date
         selectedDate.inputView = datePickerView
      
         //set selected date to text field
      //   datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
-                                 forControlEvents: UIControlEvents.ValueChanged)
+                                 for: UIControlEvents.valueChanged)
      //todo
         //set init value
     //    showSelectedDate(NSDate(), dateFormat: Constants.dateFormat.day)
@@ -898,29 +928,29 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         layerLevelAsNeeded = selectedDate.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = segmentDateType.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = segmentGraphType.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
     }
     
     //set selected date to text field
-    func handleDatePicker(sender: UIDatePicker) {
+    func handleDatePicker(_ sender: UIDatePicker) {
         showSelectedDate(sender.date, dateFormat: Constants.dateFormat.day)
         curentDate = sender.date
         calculateSelectedDate(0)
     }
 
-    func showSelectedDate(date: NSDate, dateFormat: String){
+    func showSelectedDate(_ date: Date, dateFormat: String){
         selectedDate.text = self.getStringDate(date, currentDateFormat: dateFormat)
     }
     
@@ -929,7 +959,7 @@ func setChartPie(dataPoints: [String], values: [Double]) {
         self.view.endEditing(true)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeAllKeyboards()
     }
     

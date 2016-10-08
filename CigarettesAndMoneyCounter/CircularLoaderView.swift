@@ -9,13 +9,13 @@
 import UIKit
 
 //@IBDesignable
-class CircularLoaderView: UIView {
+class CircularLoaderView: UIView , CAAnimationDelegate{
     let circlePathLayer = CAShapeLayer()
     let circlePathUpperLayer = CAShapeLayer()
     
-    @IBInspectable var fillColor:UIColor = UIColor.greenColor()
+    @IBInspectable var fillColor:UIColor = UIColor.green
     
-    @IBInspectable var borderColor:UIColor = UIColor.blackColor()
+    @IBInspectable var borderColor:UIColor = UIColor.black
     
     @IBInspectable var circleRadius:CGFloat = 90.0
 
@@ -37,28 +37,28 @@ class CircularLoaderView: UIView {
         }
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         borderColor.setFill()
         
         circleRadius = self.frame.height / 2
         
-        configure(circlePathLayer, layerColor: borderColor.CGColor)
+        configure(circlePathLayer, layerColor: borderColor.cgColor)
         
-        configure(circlePathUpperLayer, layerColor: fillColor.CGColor)
+        configure(circlePathUpperLayer, layerColor: fillColor.cgColor)
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
-    func configure(circleLayer: CAShapeLayer, layerColor: CGColor) {
+    func configure(_ circleLayer: CAShapeLayer, layerColor: CGColor) {
         circleLayer.frame = bounds
         circleLayer.lineWidth = 4
-        circleLayer.fillColor = UIColor.clearColor().CGColor
+        circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.strokeColor = layerColor
         layer.addSublayer(circleLayer)
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         
         circleLayer.frame = bounds
-        circleLayer.path = circlePath().CGPath
+        circleLayer.path = circlePath().cgPath
         progress = 0
         
         animateProgressView()
@@ -71,17 +71,17 @@ class CircularLoaderView: UIView {
         animation.toValue = CGFloat(toValue / 100)
         animation.duration = 0.5
         animation.delegate = self
-        animation.removedOnCompletion = false
-        animation.additive = true
+        animation.isRemovedOnCompletion = false
+        animation.isAdditive = true
         animation.fillMode = kCAFillModeForwards
-        circlePathUpperLayer.addAnimation(animation, forKey: "strokeEnd")
+        circlePathUpperLayer.add(animation, forKey: "strokeEnd")
     }
     
     
     func circlePath() -> UIBezierPath {
         
         /*draw  circle*/
-        let bezierPath = UIBezierPath(arcCenter:CGPointMake( CGRectGetMidX(circlePathLayer.bounds),  CGRectGetMidY(circlePathLayer.bounds)), radius: circleRadius, startAngle: CGFloat(M_PI_2) * 3.0, endAngle:CGFloat(M_PI_2) * 3.0 + CGFloat(M_PI) * 2.0, clockwise: true)
+        let bezierPath = UIBezierPath(arcCenter:CGPoint( x: circlePathLayer.bounds.midX,  y: circlePathLayer.bounds.midY), radius: circleRadius, startAngle: CGFloat(M_PI_2) * 3.0, endAngle:CGFloat(M_PI_2) * 3.0 + CGFloat(M_PI) * 2.0, clockwise: true)
         
         return bezierPath
     }

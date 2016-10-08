@@ -11,47 +11,36 @@ import CoreData
 
 class CigaretteRecordManager {
     
-    let MyManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let MyManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-  /*  func saveCigaretteRecordEntityFromDefaultsValues() {
+ 
+    
+    func saveCigaretteRecordEntity(_ levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String) {
         let defaults = UserDefaultsDataController()
-        var userDefaults = UserDefaults()
-        userDefaults = defaults.loadUserDefaults()
-        
-        saveCigaretteRecordEntity(userDefaults.levelOfEnjoyment, levelAsNeeded: userDefaults.levelAsNeeded, reason: userDefaults.reason, userDefaults: userDefaults)
-    }*/
     
-    func saveCigaretteRecordEntity(levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String) {
-        let defaults = UserDefaultsDataController()
-    //    var userDefaults = UserDefaults()
-      if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
-      /*  saveCigaretteRecordEntity(levelOfEnjoyment, levelAsNeeded: levelAsNeeded, reason: reason, userDefaults: userDefaults)
-
-    }
-    
-    func saveCigaretteRecordEntity(levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String, userDefaults:UserDefaults) {
-    */
+   
         
        let addedCigs = 1
         
-        let entityDescripition = NSEntityDescription.entityForName("CigaretteRecord", inManagedObjectContext: MyManagedObjectContext!)
+        let entityDescripition = NSEntityDescription.entity(forEntityName: "CigaretteRecord", in: MyManagedObjectContext!)
         
-        let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
+        let task = CigaretteRecord(entity: entityDescripition!, insertInto:  MyManagedObjectContext)
         
         
         //2015-12-16 into cigarettes save the cost of ciggarets
-        task.cigarettes = addedCigs
+        task.cigarettes = NSNumber(value: addedCigs)
         
         task.cost = userDefaults.averageCostOfOneCigarett
 
-        task.levelOfEnjoy = levelOfEnjoyment
-        task.levelAsNeeded  = levelAsNeeded
+        task.levelOfEnjoy = NSNumber(value: levelOfEnjoyment)
+        task.levelAsNeeded  = NSNumber(value: levelAsNeeded)
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
         
-        let nowDate = NSDate()
+        let nowDate = Date()
         task.addDate = nowDate
         task.reason = reason
         
@@ -71,16 +60,16 @@ class CigaretteRecordManager {
             }
         }
         defaults.saveLastAddedCig(nowDate, todaySmoked: todaySmoked)
-        }
+        
     
     }
 
     
     
-    func  calculateAmountAndCost(fromDate: NSDate, toDate: NSDate) -> (smoked:Int, cost: Double)
+    func  calculateAmountAndCost(_ fromDate: Date, toDate: Date) -> (smoked:Int, cost: Double)
     {
         //where condition
-        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
+        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate as CVarArg, fromDate as CVarArg)
         
         var smoked:Int = 0
         var cost:Double = 0
@@ -89,38 +78,38 @@ class CigaretteRecordManager {
         expressionSumCigarettes.name = "sumOftotalCigarettes"
         expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
             arguments:[NSExpression(forKeyPath: "cigarettes")])
-        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
+        expressionSumCigarettes.expressionResultType = .integer32AttributeType
       
         
         let expressionSumCost = NSExpressionDescription()
         expressionSumCost.name = "sumCost"
         expressionSumCost.expression = NSExpression(forFunction: "sum:",
             arguments:[NSExpression(forKeyPath: "cost")])
-        expressionSumCost.expressionResultType = .DoubleAttributeType
+        expressionSumCost.expressionResultType = .doubleAttributeType
         
         
         let expresionCount = NSExpressionDescription()
         expresionCount.name = "countLines"
         expresionCount.expression = NSExpression(forFunction: "count:", arguments: [NSExpression.expressionForEvaluatedObject()])
-        expresionCount.expressionResultType = .Integer32AttributeType
+        expresionCount.expressionResultType = .integer32AttributeType
         
 //    and then a fetch request which fetches only this sum:
-        
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+       let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+    //    let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [expressionSumCigarettes, expressionSumCost, expresionCount]
-        fetchRequest.resultType = .DictionaryResultType
+        fetchRequest.resultType = .dictionaryResultType
         
        fetchRequest.predicate = predicate
         
         
         do {
-            let result:NSArray = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest) //as! [DictionaryResultType]
+            let result:NSArray = try self.MyManagedObjectContext!.fetch(fetchRequest) as NSArray //as! [DictionaryResultType]
 
             
             if (result.count > 0) {
              
                 
-                if let a = result[0].valueForKey("sumOftotalCigarettes") as? NSNumber {
+                if let a = (result[0] as AnyObject).value(forKey: "sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
                     smoked = Int(aString)!
                     //print(aString) // -1
@@ -129,7 +118,7 @@ class CigaretteRecordManager {
                 }
 
                 
-                if let a = result[0].valueForKey("sumCost") as? NSNumber {
+                if let a = (result[0] as AnyObject).value(forKey: "sumCost") as? NSNumber {
                     let aString = a.stringValue
                     cost = Double(aString)!
                     //print(aString) // -1
@@ -149,24 +138,25 @@ class CigaretteRecordManager {
     
     
     //field name = reason/
-    func  calculateGraphDataByFieldName(fromDate: NSDate, toDate: NSDate, fieldName: String, orderByField: String = "cigarettes") -> NSArray
+    func  calculateGraphDataByFieldName(_ fromDate: Date, toDate: Date, fieldName: String, orderByField: String = "cigarettes") -> NSArray
     {
         //where condition
-        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
+        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate as CVarArg, fromDate as CVarArg)
         
         
         let expressionSumCigarettes = NSExpressionDescription()
         expressionSumCigarettes.name = "sumOftotalCigarettes"
         expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
             arguments:[NSExpression(forKeyPath: "cigarettes")])
-        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
-        
+        expressionSumCigarettes.expressionResultType = .integer32AttributeType
+       
         
                 //    and then a fetch request which fetches only this sum:
         
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+//let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [ fieldName, expressionSumCigarettes]
-        fetchRequest.resultType = .DictionaryResultType
+        fetchRequest.resultType = .dictionaryResultType
         
         fetchRequest.predicate = predicate
         
@@ -178,7 +168,7 @@ class CigaretteRecordManager {
         var result:NSArray = NSArray()
         
         do {
-            result = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest)
+            result = try self.MyManagedObjectContext!.fetch(fetchRequest ) as NSArray
             
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -188,24 +178,25 @@ class CigaretteRecordManager {
         
     }
     //field name = reason/
-    func  calculateGraphDataByExpresion(fromDate: NSDate, toDate: NSDate, orderByField: String = "cigarettes") -> NSArray
+    func  calculateGraphDataByExpresion(_ fromDate: Date, toDate: Date, orderByField: String = "cigarettes") -> NSArray
     {
         //where condition
-        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate, fromDate)
+        let predicate = NSPredicate(format:"%@ >= addDate AND %@ <= addDate", toDate as CVarArg, fromDate as CVarArg)
         
         
         let expressionSumCigarettes = NSExpressionDescription()
         expressionSumCigarettes.name = "sumOftotalCigarettes"
         expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
                                                           arguments:[NSExpression(forKeyPath: "cigarettes")])
-        expressionSumCigarettes.expressionResultType = .Integer32AttributeType
+        expressionSumCigarettes.expressionResultType = .integer32AttributeType
         
         
         //    and then a fetch request which fetches only this sum:
-        
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+        //CigaretteRecord.fetchRequest()
+    let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+        //     let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [ expressionSumCigarettes]
-        fetchRequest.resultType = .DictionaryResultType
+        fetchRequest.resultType = .dictionaryResultType
         
         fetchRequest.predicate = predicate
         
@@ -217,7 +208,7 @@ class CigaretteRecordManager {
         var result:NSArray = NSArray()
         
         do {
-            result = try self.MyManagedObjectContext!.executeFetchRequest(fetchRequest)
+            result = try self.MyManagedObjectContext!.fetch(fetchRequest) as NSArray
             
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -230,7 +221,7 @@ class CigaretteRecordManager {
     
     
     //field name = reason/
-    func  calculateHorizontalGraphDataByFieldName(fromDate: NSDate, toDate: NSDate, fieldName: String, orderByField: String = "cigarettes") -> NSArray
+    func  calculateHorizontalGraphDataByFieldName(_ fromDate: Date, toDate: Date, fieldName: String, orderByField: String = "cigarettes") -> NSArray
     {
         
         let cigRec:CigaretteRecord = CigaretteRecord()

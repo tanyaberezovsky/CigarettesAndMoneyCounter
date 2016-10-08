@@ -10,20 +10,20 @@ import Foundation
 import CoreData
 
 /*record that will fetched from coredata*/
-public class CigaretteRecord: NSManagedObject {
+open class CigaretteRecord: NSManagedObject {
 
     @NSManaged var cigarettes: NSNumber
     @NSManaged var levelAsNeeded: NSNumber
     @NSManaged var levelOfEnjoy: NSNumber
-    @NSManaged var addDate: NSDate
+    @NSManaged var addDate: Date
     @NSManaged var reason: String
     @NSManaged var cost: Double
     
     func yearMonth()-> String{
     //    var txtMonthYear: String
         
-        let components = NSCalendar.currentCalendar().components(
-            [.Month, .Year], fromDate: addDate)
+        let components = (Calendar.current as NSCalendar).components(
+            [.month, .year], from: addDate)
         
         var strMonthYear:String
         strMonthYear = "\(components.year)-\(components.month)"
@@ -36,8 +36,8 @@ public class CigaretteRecord: NSManagedObject {
     func year()-> String{
       //  var txtMonthYear: String
         
-        let components = NSCalendar.currentCalendar().components(
-             .Year, fromDate: addDate)
+        let components = (Calendar.current as NSCalendar).components(
+             .year, from: addDate)
         
         
         return "\(components.year)"
@@ -45,18 +45,19 @@ public class CigaretteRecord: NSManagedObject {
     }
     
   
-   public var groupByMonth: String{
+   open var groupByMonth: String{
         get{
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM"
-            return dateFormatter.stringFromDate(self.addDate)
+            return dateFormatter.string(from: self.addDate)
         }
     }
     
     
-   public var fetchedResultsController: NSFetchedResultsController = {
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        
+   open var fetchedResultsController: NSFetchedResultsController<CigaretteRecord> = {
+        //let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+    
         let sort = NSSortDescriptor(key: "addDate", ascending: false)
         fetchRequest.sortDescriptors = [sort]
         
@@ -66,15 +67,18 @@ public class CigaretteRecord: NSManagedObject {
     expressionSumCigarettes.name = "sumOftotalCigarettes"
     expressionSumCigarettes.expression = NSExpression(forFunction: "sum:",
                                                       arguments:[NSExpression(forKeyPath: "cigarettes")])
-    expressionSumCigarettes.expressionResultType = .Integer32AttributeType
+    expressionSumCigarettes.expressionResultType = .integer32AttributeType
     
     fetchRequest.propertiesToFetch = [expressionSumCigarettes]
-    fetchRequest.resultType = .DictionaryResultType
+    fetchRequest.resultType = .dictionaryResultType
     
     
-        let result = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
+//        let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest, managedObjectContext: self.(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
         //result.delegate = self
-        
+    
+        let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
+    
+
         return result
     }()
 }

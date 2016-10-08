@@ -32,7 +32,7 @@ public let descriptionEnjoyed = ["Nothing",
 
 let defaultReason = "Social smoking"
 //cause of smoking
-let cause = ["Boredom", "Concentration", "Courage illusion", "Social smoking", "After eating", "Go out", "Relax", "Stress"].sort { $0 < $1 }
+let cause = ["Boredom", "Concentration", "Courage illusion", "Social smoking", "After eating", "Go out", "Relax", "Stress"].sorted { $0 < $1 }
 
 
 var levels : [Levels] = [Levels(nameLvl:"Level 0", nameNum: "0"),Levels(nameLvl:"Level 1", nameNum: "1"),Levels(nameLvl:"Level 2", nameNum: "2"),Levels(nameLvl:"Level 3", nameNum: "3")]
@@ -43,11 +43,11 @@ protocol selectionList: class {
 
     func rowCount()->Int
     
-    func text(indexArr: Int)->String
+    func text(_ indexArr: Int)->String
     
-    func textValue(indexArr: Int)->String
+    func textValue(_ indexArr: Int)->String
   
-    func detailText(indexArr: Int)->String
+    func detailText(_ indexArr: Int)->String
 }
 
 class enjoyedList:selectionList {
@@ -57,14 +57,14 @@ class enjoyedList:selectionList {
     func rowCount()->Int{
         return levels.count;
     }
-    func text(indexArr: Int)->String{
+    func text(_ indexArr: Int)->String{
         levels[indexArr].nameNum
         return levels[indexArr].nameLvl;
     }
-    func textValue(indexArr: Int) -> String {
+    func textValue(_ indexArr: Int) -> String {
         return levels[indexArr].nameNum
     }
-    func detailText(indexArr: Int)->String{
+    func detailText(_ indexArr: Int)->String{
         return descriptionEnjoyed[indexArr];
     }
 }
@@ -79,13 +79,13 @@ class neededList:selectionList {
     func rowCount()->Int{
         return levels.count;
     }
-    func text(indexArr: Int)->String{
+    func text(_ indexArr: Int)->String{
         return levels[indexArr].nameLvl;
     }
-    func textValue(indexArr: Int) -> String {
+    func textValue(_ indexArr: Int) -> String {
         return levels[indexArr].nameNum
     }
-    func detailText(indexArr: Int)->String{
+    func detailText(_ indexArr: Int)->String{
         return descriptionNeeded[indexArr];
     }
 }
@@ -98,13 +98,13 @@ class causeList:selectionList {
     func rowCount()->Int{
         return cause.count
     }
-    func text(indexArr: Int)->String{
+    func text(_ indexArr: Int)->String{
         return cause[indexArr]
     }
-    func textValue(indexArr: Int) -> String {
+    func textValue(_ indexArr: Int) -> String {
         return text(indexArr)
     }
-    func detailText(indexArr: Int)->String{
+    func detailText(_ indexArr: Int)->String{
         return ""
     }
 }

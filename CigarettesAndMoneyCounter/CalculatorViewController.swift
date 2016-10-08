@@ -31,60 +31,60 @@ class CalculatorViewController: GlobalUIViewController {
 
    
     
-    @IBAction func cigarettsEditingEnd(sender: UITextField) {
+    @IBAction func cigarettsEditingEnd(_ sender: UITextField) {
         if (ciggarets.text == "")
         {
         ciggarets.text = tempValue
         }
     }
     
-    @IBAction func cigarettsEditingBegin(sender: AnyObject) {
+    @IBAction func cigarettsEditingBegin(_ sender: AnyObject) {
         tempValue = ciggarets.text
         ciggarets.text = ""
     }
     
-    @IBAction func cigsPerPackEditingBegin(sender: AnyObject) {
+    @IBAction func cigsPerPackEditingBegin(_ sender: AnyObject) {
         tempValue = cigsPerPack.text
         cigsPerPack.text = ""
     }
     
-    @IBAction func cigsPerPackEditingEnd(sender: AnyObject) {
+    @IBAction func cigsPerPackEditingEnd(_ sender: AnyObject) {
         if (cigsPerPack.text == "")
         {
             cigsPerPack.text = tempValue
         }
     }
     
-    @IBAction func cigsPerPackChanged(sender: AnyObject) {
+    @IBAction func cigsPerPackChanged(_ sender: AnyObject) {
         if isNumeric(cigsPerPack.text!){
             calc.cigsPerPack = Int( cigsPerPack.text!)!
         }
     }
     
-    @IBAction func packCostEditingBegin(sender: UITextField) {
+    @IBAction func packCostEditingBegin(_ sender: UITextField) {
         tempValue = packCost.text
         packCost.text = ""
     }
-    @IBAction func packCostEditingEnd(sender: UITextField) {
+    @IBAction func packCostEditingEnd(_ sender: UITextField) {
         if (packCost.text == "")
         {
             packCost.text = tempValue
         }
     }
     
-    @IBAction func packCostChanged(sender: AnyObject) {
+    @IBAction func packCostChanged(_ sender: AnyObject) {
         if isNumeric(packCost.text!){
             calc.packCost = packCost.text!.toDouble()!
         }
     }
     
-    @IBAction func ciggaretsChanged(sender: UITextField) {
+    @IBAction func ciggaretsChanged(_ sender: UITextField) {
         if isNumeric(ciggarets.text!){
             calc.totalCiggarets = ciggarets.text!.toDouble()!
         }
     }
     
-    @IBAction func segmentChanged(sender: UISegmentedControl) {
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         
         segment = sender.selectedSegmentIndex
         //print("segment=\(segment)")
@@ -136,7 +136,7 @@ class CalculatorViewController: GlobalUIViewController {
     
     
     
-    func onPropertyChanged(property: CalculatorProperty) {
+    func onPropertyChanged(_ property: CalculatorProperty) {
         //print("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
         
         ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
@@ -153,7 +153,7 @@ class CalculatorViewController: GlobalUIViewController {
          smokingTime.attributedText = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
 
-    private func calculateCost() -> Double
+    fileprivate func calculateCost() -> Double
     {
         
         return  calc.totalCiggarets * (calc.packCost / Double( calc.cigsPerPack))
@@ -164,7 +164,7 @@ class CalculatorViewController: GlobalUIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeAllKeyboards()
     }
     
@@ -185,34 +185,33 @@ class CalculatorViewController: GlobalUIViewController {
         layerLevelAsNeeded = packCost.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = cigsPerPack.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = ciggarets.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = segmentPeriod.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
     }
     
     //++++++++++++++++++++++++++++++++++++
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let defaults = UserDefaultsDataController()
-    //    var userDefaults = UserDefaults()
-      if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        
+        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
         
        calc.totalCiggarets = Double(userDefaults.dailyGoal)
     
@@ -225,7 +224,7 @@ class CalculatorViewController: GlobalUIViewController {
        packCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)
        
        cigsPerPack.text = String(userDefaults.amountOfCigarettsInOnePack)
-        }
+    
     }
 
     /*

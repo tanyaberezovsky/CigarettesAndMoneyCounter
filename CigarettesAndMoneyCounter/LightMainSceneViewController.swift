@@ -20,25 +20,22 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
-    private let defaults = UserDefaultsDataController()
+    fileprivate let defaults = UserDefaultsDataController()
     
     override func viewDidLoad() {
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-            showQuestion1(userDefaults)
-            //coreDataReasonsEntityInit(userDefaults)
-        }
-        
+        showQuestion1(defaults.loadUserDefaults())
+            
         super.viewDidLoad()
     //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
         //      let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
 
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
        }
     
-    @IBAction func addCigarettes(sender: AnyObject) {
+    @IBAction func addCigarettes(_ sender: AnyObject) {
         /*
         let cigRecord = CigaretteRecordManager()
         cigRecord.saveCigaretteRecordEntityFromDefaultsValues()
@@ -59,7 +56,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
        // circularLoader.setNeedsDisplay()
     }
   
-    override func  viewDidAppear(animated: Bool) {
+    override func  viewDidAppear(_ animated: Bool) {
         roundButtonConers()
         LoadDefaultValues()
 
@@ -70,9 +67,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let defaults = UserDefaultsDataController()
-      //  var userDefaults = UserDefaults()
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
         
         var todaySmoked = 0
 
@@ -93,16 +88,16 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         roundButtonConers()
       
         if let lastCig = userDefaults.dateLastCig{
-            if(NSCalendar.currentCalendar().isDateInToday(lastCig)){
+            if(Calendar.current.isDateInToday(lastCig as Date)){
                 loadCircularLoader(userDefaults.todaySmoked, dailyLimit: userDefaults.dailyGoal)
             }
         }
-        }
+        
          circularLoader.setNeedsDisplay()
     }
 
     
-    func dailySmokedToText(totalSigs: Int, limit: Int) -> NSMutableAttributedString{
+    func dailySmokedToText(_ totalSigs: Int, limit: Int) -> NSMutableAttributedString{
         var myMutableString = NSMutableAttributedString()
         
         let remainder: Int = limit - totalSigs > 0 ? limit - totalSigs: 0
@@ -114,17 +109,17 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         
         
         myMutableString.addAttribute(NSFontAttributeName,
-                                     value: UIFont.systemFontOfSize(13.0),
+                                     value: UIFont.systemFont(ofSize: 13.0),
                                      range: NSRange(location: 0, length: 4))
         
         myMutableString.addAttribute(NSFontAttributeName,
-                                     value: UIFont.systemFontOfSize(13.0),
+                                     value: UIFont.systemFont(ofSize: 13.0),
                                      range: NSRange(location:String(totalSigs).characters.count+4, length: String(remainder).characters.count+2))
         return myMutableString;
     }
     
     
-    func loadCircularLoader(todaySmoked: Int, dailyLimit: Int)
+    func loadCircularLoader(_ todaySmoked: Int, dailyLimit: Int)
     {
         if(todaySmoked>0){
         let circileAngle: Double = Double(todaySmoked) / Double(dailyLimit) * 100;
@@ -140,17 +135,17 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
        // addSmoke.backgroundColor = UIColor.clearColor()
         addSmoke.layer.cornerRadius = addSmoke.layer.bounds.height / 2
         addSmoke.layer.borderWidth = 1
-        addSmoke.layer.borderColor = addSmoke.backgroundColor?.CGColor
+        addSmoke.layer.borderColor = addSmoke.backgroundColor?.cgColor
     }
     
-        override func viewWillAppear(animated: Bool) {
+        override func viewWillAppear(_ animated: Bool) {
             if self.childViewControllers.count > 0 {
 
             let secondVC: AnyObject = childViewControllers[0]
                  let navCtr  = self.navigationController as UINavigationController!
             //
             //
-                navCtr.pushViewController(secondVC as! UIViewController, animated: false)
+                navCtr?.pushViewController(secondVC as! UIViewController, animated: false)
             }
            // LoadDefaultValues()
         }
@@ -161,16 +156,16 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     }
     
     func showSecondViewController() {
-        self.performSegueWithIdentifier("idFirstSegue", sender: self)
+        self.performSegue(withIdentifier: "idFirstSegue", sender: self)
     }
     
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMenu" {
-            let popOverVC = segue.destinationViewController
-            popOverVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            let popOverVC = segue.destination
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.popover
             popOverVC.popoverPresentationController!.delegate = self
         }
         
@@ -178,17 +173,17 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         
         if segue.identifier == "showPopForm"{
             
-            let popOverVC = segue.destinationViewController as! popOverViewController
+            let popOverVC = segue.destination as! popOverViewController
             popOverVC.myDelegate = self
             
-            popOverVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.popover
             
-            popOverVC.view.opaque = false;
+            popOverVC.view.isOpaque = false;
             popOverVC.view.alpha = 0.9;
             
             
             
-            popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            popOverVC.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
             
             if let pop = popOverVC.popoverPresentationController {
                 
@@ -196,7 +191,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 passthroughViews = [self.view]
                 
                 
-                pop.permittedArrowDirections = .Any
+                pop.permittedArrowDirections = .any
                 //    pop.sourceView = myButton
                 pop.passthroughViews = passthroughViews
                 
@@ -219,22 +214,22 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
 
 
       
-     func showQuestion1(userDefaults:UserDefaults) {
+     func showQuestion1(_ userDefaults:UserDefaults) {
         
             if userDefaults.showQuestion1 == true {
             
                 
-                let popOverVC = storyboard!.instantiateViewControllerWithIdentifier("question1ViewController") as! question1ViewController
+                let popOverVC = storyboard!.instantiateViewController(withIdentifier: "question1ViewController") as! question1ViewController
         
                 popOverVC.myDelegateQ1 = self
                 
-                popOverVC.view.opaque = false;
+                popOverVC.view.isOpaque = false;
                 popOverVC.view.alpha = 1//0.9;
             
         
-                popOverVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+                popOverVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         
-                presentViewController(popOverVC, animated: true, completion: nil)
+                present(popOverVC, animated: true, completion: nil)
                 
                 userDefaults.showQuestion1 = false
                 defaults.saveUserDefaults(userDefaults)
@@ -245,12 +240,12 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
      
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
  
     
-    @IBAction func returnFromSegueActions(sender: UIStoryboardSegue){
+    @IBAction func returnFromSegueActions(_ sender: UIStoryboardSegue){
         circularLoader.setNeedsDisplay()
     }
     
@@ -260,20 +255,11 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     delegated function from TableLavels.swift
     received selected row value from TableLevels and set it to apropriate field
     */
-    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+    func myColumnDidSelected(_ controller: TableLavels, text: String, segueName: String) {
         
-        if segueName == segueNames.segueCauseOfSmoking{
-           //reasonText = text;
-            // print(text)
-            // reason.setTitle(reasonText, forState: UIControlState.Normal)
-        }
-        self.performSegueWithIdentifier("showPopForm", sender: self)
+        self.performSegue(withIdentifier: "showPopForm", sender: self)
         
-        controller.navigationController?.popViewControllerAnimated(true)
-        
-        // println(segueName)
-        //     self.presentingViewController(self, animated: true, completion: nil)
-        //       self.presentingViewController(self,) // (true, completion: nil)
-    }
+        _ = controller.navigationController?.popViewController(animated: true)
+     }
 
 }

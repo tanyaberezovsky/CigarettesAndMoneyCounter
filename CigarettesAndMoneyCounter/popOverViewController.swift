@@ -40,29 +40,29 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         layerLevelAsNeeded = levelOfEnjoy.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColor.lightGray.cgColor
         
         layerLevelAsNeeded = levelAsNeeded.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColor.lightGray.cgColor
         
         
         layerLevelAsNeeded = causeOfSmoking.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
+        layerLevelAsNeeded.borderColor = UIColor.lightGray.cgColor
         
     }
     
     func roundButtonConers(){
         done.layer.cornerRadius = done.layer.bounds.height / 2
         done.layer.borderWidth = 1
-        done.layer.borderColor = done.backgroundColor?.CGColor
+        done.layer.borderColor = done.backgroundColor?.cgColor
         
         cancel.layer.cornerRadius = cancel.layer.bounds.height / 2
         cancel.layer.borderWidth = 1
-        cancel.layer.borderColor = UIColor.whiteColor().CGColor //cancel.backgroundColor?.CGColor
+        cancel.layer.borderColor = UIColor.white.cgColor //cancel.backgroundColor?.CGColor
         
     }
     
@@ -72,10 +72,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let defaults = UserDefaultsDataController()
-      //  var userDefaults = UserDefaults()
-     if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-        
+        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
         
         levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
         
@@ -85,16 +82,16 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         
         reasonText = String(userDefaults.reason)
         
-        causeOfSmoking.setTitle(reasonText, forState: UIControlState.Normal)
+        causeOfSmoking.setTitle(reasonText, for: UIControlState())
         
-        }
+        
     }
 
-    @IBAction func cancelTouch(sender: AnyObject) {
-          self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func cancelTouch(_ sender: AnyObject) {
+          self.dismiss(animated: false, completion: nil)
     }
    
-    @IBAction func finishTouch(sender: AnyObject) {
+    @IBAction func finishTouch(_ sender: AnyObject) {
         let cigRecord = CigaretteRecordManager()
         cigRecord.saveCigaretteRecordEntity(levelOfEnjoy.selectedSegmentIndex, levelAsNeeded: levelAsNeeded.selectedSegmentIndex, reason: causeOfSmoking.currentTitle!)
         
@@ -103,7 +100,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
             myDelegate!.dataReloadAfterSave()
         }
         
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
 
@@ -117,14 +114,14 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         }
     }*/
     
-    func navigateToRoot(viewController: UIViewController, toViewController: TableLavels)
+    func navigateToRoot(_ viewController: UIViewController, toViewController: TableLavels)
     {
         var nc = viewController.navigationController
         
         // If this is a normal view with NavigationController, then we just pop to root.
         if nc != nil
         {
-            nc?.popToRootViewControllerAnimated(true)
+            nc?.popToRootViewController(animated: true)
         }
         
         // Most likely we are in Modal view, so we will need to search for a view with NavigationController.
@@ -137,7 +134,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         
         if nc == nil
         {
-            nc = viewController.parentViewController?.navigationController
+            nc = viewController.parent?.navigationController
         }
         
         if vc is UINavigationController
@@ -147,7 +144,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         
         if nc != nil
         {
-            viewController.dismissViewControllerAnimated(false, completion:nil)
+            viewController.dismiss(animated: false, completion:nil)
             //nc!.pushViewController(destinationViewController , animated: false)
             let fromViewController: LightMainSceneViewController = (nc?.viewControllers[0]) as! LightMainSceneViewController//.parentViewController!
             
@@ -155,20 +152,20 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
             
             let fromView = fromViewController.view as UIView!
             let toView: UIView = toViewController.view as UIView!
-            if let containerView = fromView.superview {
-                let initialFrame = fromView.frame
+            if let containerView = fromView?.superview {
+                let initialFrame = fromView?.frame
                 var offscreenRect = initialFrame
-                offscreenRect.origin.y += CGRectGetHeight(initialFrame)
-                toView.frame = offscreenRect
+                offscreenRect?.origin.y += (initialFrame?.height)!
+                toView.frame = offscreenRect!
                 containerView.addSubview(toView)
                 
                 
                 // Being explicit with the types NSTimeInterval and CGFloat are important
                 // otherwise the swift compiler will complain
-                let duration: NSTimeInterval = 0.4
+                let duration: TimeInterval = 0.4
                 
-                UIView.animateWithDuration(duration, animations: {
-                    toView.frame = initialFrame
+                UIView.animate(withDuration: duration, animations: {
+                    toView.frame = initialFrame!
                     }, completion: { finished in
                             nc!.viewControllers.append(toViewController)
                   
@@ -185,18 +182,14 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     delegated function from TableLavels.swift
     received selected row value from TableLevels and set it to apropriate field
     */
-    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+    func myColumnDidSelected(_ controller: TableLavels, text: String, segueName: String) {
         
         if segueName == segueNames.segueCauseOfSmoking && !text.isEmpty {
             reasonText = text;
-            // print(text)
-           // reason.setTitle(reasonText, forState: UIControlState.Normal)
         }
         
-        controller.navigationController?.popViewControllerAnimated(true)
-        // println(segueName)
-   //     self.presentingViewController(self, animated: true, completion: nil)
- //       self.presentingViewController(self,) // (true, completion: nil)
+      _ =  controller.navigationController?.popViewController(animated: true)
+      
     }
     
 }

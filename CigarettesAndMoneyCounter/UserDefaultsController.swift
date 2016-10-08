@@ -37,33 +37,33 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     }
     
     override func gradientBackgroundRegular() {
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clear
         let gradient : CAGradientLayer = CAGradientLayer()
         gradient.frame = view.bounds
         
         
         gradient.colors = ColorTemplates.purpleGrayCGColor()
         
-        view.layer.insertSublayer(gradient, atIndex: 0)
+        view.layer.insertSublayer(gradient, at: 0)
     }
     
-    @IBAction func costPack(sender: UITextField) {
+    @IBAction func costPack(_ sender: UITextField) {
         tempValue = sender.text
         sender.text = ""
     }
     
-    @IBAction func costPackEditingEnd(sender: UITextField) {
+    @IBAction func costPackEditingEnd(_ sender: UITextField) {
         if (sender.text == "")
         {
             sender.text = tempValue
         }
     }
     
-    @IBAction func dailyLimitEditingBegin(sender: UITextField) {
+    @IBAction func dailyLimitEditingBegin(_ sender: UITextField) {
         tempValue = sender.text
         sender.text = ""
     }
-    @IBAction func dailyLimitEditingEnd(sender: UITextField) {
+    @IBAction func dailyLimitEditingEnd(_ sender: UITextField) {
         if (sender.text == "")
         {
             sender.text = tempValue
@@ -71,11 +71,11 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     }
     
     
-    @IBAction func switchOnChange(sender: UISwitch) {
-        minimalModeOn = sender.on
+    @IBAction func switchOnChange(_ sender: UISwitch) {
+        minimalModeOn = sender.isOn
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
+    override func didMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
             SaveDafaultsTouch()
         }
@@ -85,8 +85,8 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     func SaveDafaultsTouch() {
         let defaults = UserDefaultsDataController()
         
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-            
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
+        
             if isNumeric(averageCost.text!){
                 userDefaults.averageCostOfOnePack = averageCost.text!.toDouble()!
             }
@@ -115,7 +115,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
             }
         
             defaults.saveUserDefaults(userDefaults)
-        }
+        
         
         if(myDelegate != nil){
             myDelegate!.ReloadUserDefaults()
@@ -129,15 +129,15 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
     
     
     //init variable and set segueid into it
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == segueNames.segueCauseOfSmoking{
-            let vc = segue.destinationViewController as! TableLavels
+            let vc = segue.destination as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
         }
@@ -158,39 +158,39 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         layerLevelAsNeeded = reason.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = levelOfEnjoy.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = levelAsNeeded.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         
         layerLevelAsNeeded = dailyGoal.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = amountOfCigarettsInOnePack.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         
         layerLevelAsNeeded = averageCost.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
     }
     
     //++++++++++++++++++++++++++++++++++++
@@ -212,7 +212,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         reasonText = String(userDefaults.reason)
         
-        reason.setTitle(reasonText, forState: UIControlState.Normal)
+        reason.setTitle(reasonText, for: UIControlState())
         
         //minimalMode.on = userDefaults.minimalModeOn
         
@@ -222,16 +222,16 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     delegated function from TableLavels.swift
     received selected row value from TableLevels and set it to apropriate field
     */
-    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+    func myColumnDidSelected(_ controller: TableLavels, text: String, segueName: String) {
         
         if segueName == segueNames.segueCauseOfSmoking && !text.isEmpty {
             reasonText = text;
            // print(text)
-            reason.setTitle(reasonText, forState: UIControlState.Normal)
+            reason.setTitle(reasonText, for: UIControlState())
         }
         
       
-        controller.navigationController?.popViewControllerAnimated(true)
+        _ = controller.navigationController?.popViewController(animated: true)
         // println(segueName)
     }
     

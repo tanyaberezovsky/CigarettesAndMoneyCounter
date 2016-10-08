@@ -14,7 +14,7 @@ import CoreData
 class ReasonsManager{
     
     //var managedObjectContext : NSManagedObjectContext?
-   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+   let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
 //    lazy var reason: Reasons? =
 //        {
@@ -31,7 +31,7 @@ class ReasonsManager{
 //            return .None
 //    }()
     
-    func saveReason(newReason : String)
+    func saveReason(_ newReason : String)
     {
         if(!reasonExist(newReason)){
             
@@ -42,9 +42,9 @@ class ReasonsManager{
 
     
     
-    func reasonExist( newReason : String )->Bool
+    func reasonExist( _ newReason : String )->Bool
     {
-        if((newReason ?? "").isEmpty){
+        if((newReason ).isEmpty){
             return false
         }
         
@@ -52,15 +52,16 @@ class ReasonsManager{
         let predicate = NSPredicate(format:"reason =[cd] %@", newReason)
         
         //    and then a fetch request
-        let fetchRequest = NSFetchRequest(entityName: "Reasons")
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Reasons")
+       // let fetchRequest = NSFetchRequest(entityName: "Reasons")
         fetchRequest.propertiesToFetch = ["reason"]
-        fetchRequest.resultType = .DictionaryResultType
+        fetchRequest.resultType = .dictionaryResultType
         
         fetchRequest.predicate = predicate
         
         
         do {
-            let result:NSArray = try self.managedObjectContext!.executeFetchRequest(fetchRequest) //as! [DictionaryResultType]
+            let result:NSArray = try self.managedObjectContext!.fetch(fetchRequest) as NSArray //as! [DictionaryResultType]
             
             
             if (result.count == 0) {
@@ -77,12 +78,12 @@ class ReasonsManager{
         
     }
 
-    func performSaveReason(newReason : String)
+    func performSaveReason(_ newReason : String)
     {
         
-        let entityDescripition = NSEntityDescription.entityForName("Reasons", inManagedObjectContext: managedObjectContext!)
+        let entityDescripition = NSEntityDescription.entity(forEntityName: "Reasons", in: managedObjectContext!)
         
-        let reason1 = Reasons(entity: entityDescripition!, insertIntoManagedObjectContext:  managedObjectContext)
+        let reason1 = Reasons(entity: entityDescripition!, insertInto:  managedObjectContext)
         
         
         reason1.reason = newReason

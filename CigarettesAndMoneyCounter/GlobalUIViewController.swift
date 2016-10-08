@@ -28,14 +28,14 @@ class GlobalUIViewController: UIViewController {
     }
     
     func gradientBackgroundRegular() {
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clear
         let gradient : CAGradientLayer = CAGradientLayer()
         gradient.frame = view.bounds
         
         
         gradient.colors = ColorTemplates.purpleGrayCGColor()
         
-        view.layer.insertSublayer(gradient, atIndex: 0)
+        view.layer.insertSublayer(gradient, at: 0)
     }
     
 }

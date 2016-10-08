@@ -22,63 +22,63 @@ class NavViewController: UINavigationController {
     func opacityBar() {
 
        // UINavigationBar.appearance().barTintColor = colorNavigationBarBlack
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().isTranslucent = true
         //UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.9)
 
         // Status bar white font
-        self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.tintColor = UIColor.lightGrayColor()
+        self.navigationBar.barStyle = UIBarStyle.black
+        self.navigationBar.tintColor = UIColor.lightGray
     }
     //colorNavigationBarDarkPurpleGray
     //black bar
     func perpleBar() {
         
         UINavigationBar.appearance().barTintColor = colorNavigationBarDarkPurpleGray
-        UINavigationBar.appearance().translucent = false
-        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        UINavigationBar.appearance().isTranslucent = false
+        UIBarButtonItem.appearance().tintColor = UIColor.white
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
         // Status bar white font
-        self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.tintColor = UIColor.lightGrayColor()
+        self.navigationBar.barStyle = UIBarStyle.black
+        self.navigationBar.tintColor = UIColor.lightGray
     }
 
     //black bar
     func blackBar() {
         
         UINavigationBar.appearance().barTintColor = colorNavigationBarBlack
-        UINavigationBar.appearance().translucent = false
-        UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        UINavigationBar.appearance().isTranslucent = false
+        UIBarButtonItem.appearance().tintColor = UIColor.lightGray
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
         // Status bar white font
-        self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.tintColor = UIColor.lightGrayColor()
+        self.navigationBar.barStyle = UIBarStyle.black
+        self.navigationBar.tintColor = UIColor.lightGray
     }
     
     func gradientBar(){
       //  super.viewDidLoad()
-        self.navigationBar.translucent = false
-        self.navigationBar.tintColor = UIColor.whiteColor()
-        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.whiteColor() ]
+        self.navigationBar.isTranslucent = false
+        self.navigationBar.tintColor = UIColor.white
+        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.white ]
         self.navigationBar.titleTextAttributes = fontDictionary
-        self.navigationBar.setBackgroundImage(imageLayerForGradientBackground(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationBar.setBackgroundImage(imageLayerForGradientBackground(), for: UIBarMetrics.default)
         //colored the iphone upper font bar to white
-        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.barStyle = UIBarStyle.black
     }
     
-    private func imageLayerForGradientBackground() -> UIImage {
+    fileprivate func imageLayerForGradientBackground() -> UIImage {
         var updatedFrame = self.navigationBar.bounds
         // take into account the status bar
         updatedFrame.size.height += 20
         let layer = CAGradientLayer.gradientLayerForBounds(updatedFrame)
         UIGraphicsBeginImageContext(layer.bounds.size)
-        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,27 +86,27 @@ class NavViewController: UINavigationController {
     }
     
     
-    override func segueForUnwindingToViewController(toViewController: UIViewController,
-        fromViewController: UIViewController,
+    override func segueForUnwinding(to toViewController: UIViewController,
+        from fromViewController: UIViewController,
         identifier: String?) -> UIStoryboardSegue {
             return UIStoryboardSegue(identifier: identifier, source: fromViewController, destination: toViewController) {
                 let fromView = fromViewController.view
                 let toView = toViewController.view
-                if let containerView = fromView.superview {
-                    let initialFrame = fromView.frame
+                if let containerView = fromView?.superview {
+                    let initialFrame = fromView?.frame
                     var offscreenRect = initialFrame
                   //  offscreenRect.origin.x -= CGRectGetWidth(initialFrame)
-                    offscreenRect.origin.y -= CGRectGetHeight(initialFrame)
-                    toView.frame = offscreenRect
-                    containerView.addSubview(toView)
+                    offscreenRect?.origin.y -= (initialFrame?.height)!
+                    toView?.frame = offscreenRect!
+                    containerView.addSubview(toView!)
                     // Being explicit with the types NSTimeInterval and CGFloat are important
                     // otherwise the swift compiler will complain
-                    var duration: NSTimeInterval = 0.4
+                    var duration: TimeInterval = 0.4
                    
-                    UIView.animateWithDuration(duration, animations: {
-                            toView.frame = initialFrame
+                    UIView.animate(withDuration: duration, animations: {
+                            toView?.frame = initialFrame!
                         }, completion: { finished in
-                            toView.removeFromSuperview()
+                            toView?.removeFromSuperview()
                             if let navController = toViewController.navigationController {
                                 navController.popToViewController(toViewController, animated: false)
                             }

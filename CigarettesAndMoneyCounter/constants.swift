@@ -9,33 +9,33 @@
 import Foundation
 import UIKit
 
-let colorNavigationBarTop = RGB(41, 128, 185, alpha: 1)
-let colorNavigationBarBottom = RGB(34, 160, 145, alpha: 1)
+let colorNavigationBarTop = UIColor(r: 41, g: 128, b: 185, alpha: 1)
+let colorNavigationBarBottom = UIColor(r: 34, g: 160, b: 145, alpha: 1)
 
-let colorNavigationBarBlack = RGB(24, 25, 35, alpha: 1)
+let colorNavigationBarBlack = UIColor(r: 24,g: 25,b: 35, alpha: 1)
 
-let colorNavigationBarDarkPurpleGray = RGB(65, 62, 75, alpha: 1)
+let colorNavigationBarDarkPurpleGray = UIColor(r: 65, g: 62, b: 75, alpha: 1)
 
 
-let colorSegmentTint = RGB(239, 239, 244, alpha: 1)
+let colorSegmentTint = UIColor(r: 239, g: 239,b: 244, alpha: 1)
 
-let colorSegmentBackground = RGB(0 , 184, 156, alpha: 1)
+let colorSegmentBackground = UIColor(r: 0 ,g: 184,b: 156, alpha: 1)
 
 struct UIColors{
     struct  CircleLoaderColors {
-        static  let yellow = RGB(234 , 240, 142, alpha: 1)
-        static  let red = RGB(234 , 97, 157, alpha: 1)
-        static  let red1 = RGB(246 , 0, 62, alpha: 1)
+        static  let yellow = UIColor(r: 234 ,g: 240,b: 142, alpha: 1)
+        static  let red = UIColor(r: 234 ,g: 97,b: 157, alpha: 1)
+        static  let red1 = UIColor(r: 246 ,g: 0,b: 62, alpha: 1)
 
     }
     
     struct Segment {
-        static  let selected = RGB(66 , 62, 76, alpha: 1)
+        static  let selected = UIColor(r: 66 ,g: 62,b: 76, alpha: 1)
     }
     
     
     struct GreenAddButton {
-        static  let green = RGB(41 , 215, 134, alpha: 1)
+        static  let green = UIColor(r: 41 ,g: 215,b: 134, alpha: 1)
     }
     
     

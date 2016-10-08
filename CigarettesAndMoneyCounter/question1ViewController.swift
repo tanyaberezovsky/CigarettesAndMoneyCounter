@@ -16,8 +16,13 @@ class question1ViewController: GlobalUIViewController
     @IBOutlet weak var smokedPerDay: UITextField!
     @IBOutlet weak var skip: UIButton!
     
-    @IBOutlet weak var next: UIButton!
+   // @IBOutlet weak var next: UIButton!
+    
+   // @IBOutlet var next: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
+    
     var tempValue:String!
+   
     
     override func viewDidLoad() {
         
@@ -44,7 +49,7 @@ class question1ViewController: GlobalUIViewController
         layerLevelAsNeeded = smokedPerDay.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
     }
@@ -52,19 +57,19 @@ class question1ViewController: GlobalUIViewController
     func roundButtonConers(){
         skip.layer.cornerRadius = skip.layer.bounds.height / 2
         skip.layer.borderWidth = 1
-        skip.layer.borderColor =  skip.backgroundColor?.CGColor//UIColor.whiteColor().CGColor
+        skip.layer.borderColor =  skip.backgroundColor?.cgColor//UIColor.whiteColor().CGColor
         
-        next.layer.cornerRadius = next.layer.bounds.height / 2
-        next.layer.borderWidth = 1
-        next.layer.borderColor = next.backgroundColor?.CGColor
+        nextBtn.layer.cornerRadius = nextBtn.layer.bounds.height / 2
+        nextBtn.layer.borderWidth = 1
+        nextBtn.layer.borderColor = nextBtn.backgroundColor?.cgColor
         
     }
     
-    @IBAction func cigsLimitEditingBegin(sender: UITextField) {
+    @IBAction func cigsLimitEditingBegin(_ sender: UITextField) {
         tempValue = sender.text
         sender.text = ""
     }
-    @IBAction func cigsLimitEditingEnd(sender: UITextField) {
+    @IBAction func cigsLimitEditingEnd(_ sender: UITextField) {
         if (sender.text == "")
         {
             sender.text = tempValue
@@ -87,18 +92,18 @@ class question1ViewController: GlobalUIViewController
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func skip(sender: UIButton) {
-          self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func skip(_ sender: UIButton) {
+          self.dismiss(animated: false, completion: nil)
     }
 
-    @IBAction func next(sender: UIButton) {
+    @IBAction func next(_ sender: UIButton) {
        
         saveDailyLimit()
         if(myDelegateQ1 != nil){
             myDelegateQ1!.dataReloadAfterSave()
         }
         
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     
@@ -106,16 +111,9 @@ class question1ViewController: GlobalUIViewController
     
     func loadDailyLimit() {
         
-            let defaults = UserDefaultsDataController()
-            //  var userDefaults = UserDefaults()
-            if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
-                
-                if let cigLimit:Int = Int(userDefaults.dailyGoal){
-                    
-                 smokedPerDay.text!  = String( cigLimit)
-                
-            }
-        }
+        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+        
+        smokedPerDay.text!  = String( userDefaults.dailyGoal)
         
         return
         
@@ -125,15 +123,13 @@ class question1ViewController: GlobalUIViewController
         if let cigLimit:Int = Int( smokedPerDay.text! ){
         
         let defaults = UserDefaultsDataController()
-        //  var userDefaults = UserDefaults()
-        if let userDefaults:UserDefaults = defaults.loadUserDefaults(){
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
             
-         
                 userDefaults.dailyGoal = cigLimit
                 defaults.saveUserDefaults(userDefaults)
                 
             
-        }
+        
         }
         
         return

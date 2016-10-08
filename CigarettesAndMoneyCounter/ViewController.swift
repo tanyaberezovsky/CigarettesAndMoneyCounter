@@ -11,7 +11,7 @@ import CoreData
 
 class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, UserDefaultsControllerDelegate {
 
-    let MyManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let MyManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
     
     var datePickerView  : UIDatePicker = UIDatePicker()
@@ -36,18 +36,18 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     @IBOutlet weak var ciggaretsSlider: UISlider!
     @IBOutlet var btnAdd: UIButton!
     
-    var arrNumbers = [];
+   // var arrNumbers = []
    
     var reasonText:String!
     
     var todaySmoked=0
     
-    @IBAction func cigarettsSliderValueChanged(sender: AnyObject) {
+    @IBAction func cigarettsSliderValueChanged(_ sender: AnyObject) {
         txtCigarette.text = String(Int32( ciggaretsSlider.value))
         
     }
     
-    @IBAction func addCigarettes(sender: AnyObject) {
+    @IBAction func addCigarettes(_ sender: AnyObject) {
         closeAllKeyboards()
         saveCigaretteRecordEntity()
         //usleep(500000)
@@ -55,7 +55,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         LoadDefaultValues()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       //  self.navigationController?.setNavigationBarHidden(false, animated: false)
         roundButtonConers()
     }
@@ -69,26 +69,26 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         layerLevelAsNeeded = levelOfEnjoy.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
 
         
         layerLevelAsNeeded = levelAsNeeded.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
 
         
         
         layerLevelAsNeeded = causeOfSmoking.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
         layerLevelAsNeeded = AddDate.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.CGColor
+        layerLevelAsNeeded.borderColor = UIColors.Segment.selected.cgColor
         
         
     }
@@ -97,7 +97,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     func roundButtonConers(){
         btnAdd.layer.cornerRadius = btnAdd.layer.bounds.height / 2
         btnAdd.layer.borderWidth = 1
-        btnAdd.layer.borderColor = btnAdd.backgroundColor?.CGColor
+        btnAdd.layer.borderColor = btnAdd.backgroundColor?.cgColor
     }
     
     func closeAllKeyboards()
@@ -118,24 +118,23 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         }
 
         
-        let entityDescripition = NSEntityDescription.entityForName("CigaretteRecord", inManagedObjectContext: MyManagedObjectContext!)
+        let entityDescripition = NSEntityDescription.entity(forEntityName: "CigaretteRecord", in: MyManagedObjectContext!)
         
-        let task = CigaretteRecord(entity: entityDescripition!, insertIntoManagedObjectContext:  MyManagedObjectContext)
+        let task = CigaretteRecord(entity: entityDescripition!, insertInto:  MyManagedObjectContext)
         
-        task.cigarettes = Int(self.txtCigarette.text!)!
+        task.cigarettes = NumberFormatter().number(from: self.txtCigarette.text!)!
         todaySmoked = todaySmoked + Int(self.txtCigarette.text!)!
         
-        task.levelOfEnjoy = self.levelOfEnjoy.selectedSegmentIndex
+        task.levelOfEnjoy = NSNumber(value: self.levelOfEnjoy.selectedSegmentIndex)
+        
+        task.levelAsNeeded = NSNumber(value: levelAsNeeded.selectedSegmentIndex)
         
         
-        task.levelAsNeeded = levelAsNeeded.selectedSegmentIndex
-        
-        
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
 
         let dateString:String = AddDate.text!
-        let dateValue:NSDate?=dateFormatter.dateFromString(dateString)
+        let dateValue:Date?=dateFormatter.date(from: dateString)
         task.addDate = dateValue!
         task.reason = reasonText
       
@@ -155,15 +154,15 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
 
     
-    func AlertError(message: String){
+    func AlertError(_ message: String){
         let alert = UIAlertView()
         alert.title = "Error"
         alert.message = message
-        alert.addButtonWithTitle("OK")
+        alert.addButton(withTitle: "OK")
         alert.show()
     }
     
-    @IBAction func TapGesture(sender: AnyObject) {
+    @IBAction func TapGesture(_ sender: AnyObject) {
     }
     
     override func viewDidLoad() {
@@ -177,7 +176,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
        //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
    //     let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
      
@@ -185,7 +184,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
     
     func showFirstViewController() {
-        self.performSegueWithIdentifier("idFirstSegueUnwind", sender: self)
+        self.performSegue(withIdentifier: "idFirstSegueUnwind", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -193,20 +192,20 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         // Dispose of any resources that can be recreated.
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeAllKeyboards()
     }
     
-    func getStringDate(dDate: NSDate)->String
+    func getStringDate(_ dDate: Date)->String
     {
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
-        return dateFormatter.stringFromDate(dDate)
+        return dateFormatter.string(from: dDate)
     }
     
     func setNowDate(){
-        let curentDate = NSDate()
+        let curentDate = Date()
         AddDate.text = self.getStringDate(curentDate)
         datePickerView.date = curentDate
     }
@@ -222,13 +221,13 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     func loadScreenGraphics()
     {
         
-        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
         //datePickerView.addTarget(self, action: Selector("handleDatePicker:"), //forControlEvents: UIControlEvents.ValueChanged)
         
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
-                         forControlEvents: UIControlEvents.ValueChanged)
+                         for: UIControlEvents.valueChanged)
         
       roundSegmentConers()
         
@@ -253,7 +252,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         
         reasonText = String(userDefaults.reason)
         
-        causeOfSmoking.setTitle(reasonText, forState: UIControlState.Normal)
+        causeOfSmoking.setTitle(reasonText, for: UIControlState())
         
         if let lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
@@ -280,7 +279,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
     
     //set selected date to text field
-    func handleDatePicker(sender: UIDatePicker) {
+    func handleDatePicker(_ sender: UIDatePicker) {
         AddDate.text = self.getStringDate(sender.date)
     }
 
@@ -289,14 +288,14 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     delegated function from TableLavels.swift
     received selected row value from TableLevels and set it to apropriate field
     */
-    func myColumnDidSelected(controller: TableLavels, text: String, segueName: String) {
+    func myColumnDidSelected(_ controller: TableLavels, text: String, segueName: String) {
        
         if segueName == segueNames.segueCauseOfSmoking  && !text.isEmpty {
             reasonText = text;
-            causeOfSmoking.setTitle(text, forState: UIControlState.Normal)
+            causeOfSmoking.setTitle(text, for: UIControlState())
         }
         
-        controller.navigationController?.popViewControllerAnimated(true)
+        _ = controller.navigationController?.popViewController(animated: true)
        // println(segueName)
     }
     
@@ -309,20 +308,20 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
     
     //init variable and set segueid into it
-    override func prepareForSegue(segue: UIStoryboardSegue,
-        sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue,
+        sender: Any?) {
             
         closeAllKeyboards()
             
             //print(segue.identifier)
             
         if  segue.identifier == segueNames.segueCauseOfSmoking{
-            let vc = segue.destinationViewController as! TableLavels
+            let vc = segue.destination as! TableLavels
             vc.segueSourceName = segue.identifier
             vc.myDelegate = self
         }
         else if (segue.identifier == segueNames.userDefaults){
-            let vc = segue.destinationViewController as! UserDefaultsController
+            let vc = segue.destination as! UserDefaultsController
             vc.myDelegate = self
         }
       
