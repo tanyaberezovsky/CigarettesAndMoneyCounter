@@ -56,11 +56,11 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     }
     
     func roundButtonConers(){
-        done.layer.cornerRadius = done.layer.bounds.height / 2
+        done.layer.cornerRadius = 33/2//done.layer.bounds.height / 2
         done.layer.borderWidth = 1
         done.layer.borderColor = done.backgroundColor?.cgColor
         
-        cancel.layer.cornerRadius = cancel.layer.bounds.height / 2
+       cancel.layer.cornerRadius = 33/2//cancel.layer.bounds.height / 2
         cancel.layer.borderWidth = 1
         cancel.layer.borderColor = UIColor.white.cgColor //cancel.backgroundColor?.CGColor
         
