@@ -1792,12 +1792,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/AppDelegate.swift"
-                  timestampString = "497620400.843074"
+                  timestampString = "497625173.646572"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
                   endingLineNumber = "145"
-                  offsetFromSymbolStart = "22">
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1807,7 +1807,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/AppDelegate.swift"
-                  timestampString = "497620400.846769"
+                  timestampString = "497625173.649862"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -2206,12 +2206,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/popOverViewController.swift"
-                  timestampString = "497620400.860974"
+                  timestampString = "497625173.661907"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
                   endingLineNumber = "119"
-                  offsetFromSymbolStart = "86">
+                  offsetFromSymbolStart = "114">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2221,12 +2221,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/popOverViewController.swift"
-                  timestampString = "497620400.864433"
+                  timestampString = "497625173.664719"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
                   endingLineNumber = "119"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "33">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2762,7 +2762,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/question1ViewController.swift"
@@ -2778,7 +2778,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/question1ViewController.swift"
@@ -2794,7 +2794,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/question1ViewController.swift"
