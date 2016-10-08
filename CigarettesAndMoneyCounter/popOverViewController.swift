@@ -121,7 +121,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         // If this is a normal view with NavigationController, then we just pop to root.
         if nc != nil
         {
-            nc?.popToRootViewController(animated: true)
+            _ = nc?.popToRootViewController(animated: true)
         }
         
         // Most likely we are in Modal view, so we will need to search for a view with NavigationController.

@@ -95,7 +95,7 @@ class CalculatorViewController: GlobalUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
+       _ = calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
         loadGraphicsSettings()
         
         LoadDefaultValues()

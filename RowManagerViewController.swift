@@ -64,7 +64,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             for index in 0..<objCount - 1
             {
                     let ind = IndexPath(row: index, section: selection)
-                let task = fetchedResultControllerDaily.object(at: ind) as! CigaretteRecord
+                let task = fetchedResultControllerDaily.object(at: ind) 
                 let yearMonth:String = task.yearMonth()
                 
                 if let cigsSum = fetchDictResultsMonthly[yearMonth]{
@@ -188,7 +188,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                 
                 cell = tableView.dequeueReusableCell(withIdentifier: "CellDaily", for: indexPath) 
                 
-                let task = fetchedResultControllerDaily.object(at: indexPath) as! CigaretteRecord
+                let task = fetchedResultControllerDaily.object(at: indexPath)
                 let s:String = task.yearMonth()
                 //print(s)
                 cell.textLabel?.text = task.cigarettes.stringValue + "; " + task.levelAsNeeded.stringValue + "; CellDaily " + getStringDate(task.addDate) + " " + s
@@ -199,12 +199,12 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                
                 let yearMonth:String = sortedKeysResultsMonthly[(indexPath as NSIndexPath).row] as! String
                 
-                if let cigsSum: NSNumber? = fetchDictResultsMonthly[yearMonth]{
+                if let cigsSum: NSNumber = fetchDictResultsMonthly[yearMonth]{
                     
                     
-                    textLable = String(format:"%.1f", cigsSum!.doubleValue * averageCostOfOneCigarette)
+                    textLable = String(format:"%.1f", cigsSum.doubleValue * averageCostOfOneCigarette)
                     
-                    textLable = yearMonth + " sigs: " + cigsSum!.stringValue + " Cost: " + textLable
+                    textLable = yearMonth + " sigs: " + cigsSum.stringValue + " Cost: " + textLable
 
                 }
                 
@@ -216,12 +216,12 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
                 
                 let year:String = sortedKeysResultsYearly[(indexPath as NSIndexPath).row] as! String
                 
-                if let cigsSum: NSNumber? = fetchDictResultsYearly[year]{
+                if let cigsSum: NSNumber = fetchDictResultsYearly[year]{
                     
                     
-                    textLable = String(format:"%.1f", cigsSum!.doubleValue * averageCostOfOneCigarette)
+                    textLable = String(format:"%.1f", cigsSum.doubleValue * averageCostOfOneCigarette)
                     
-                    textLable = year + " sigs: " + cigsSum!.stringValue + " Cost: " + textLable
+                    textLable = year + " sigs: " + cigsSum.stringValue + " Cost: " + textLable
 
                 }
                 
@@ -247,7 +247,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let managedObject:NSManagedObject = fetchedResultControllerDaily.object(at: indexPath) as! NSManagedObject
+        let managedObject:NSManagedObject = fetchedResultControllerDaily.object(at: indexPath) as NSManagedObject
         managedObjectContext?.delete(managedObject)
         do {
             try managedObjectContext?.save()

@@ -16,14 +16,14 @@ import CoreData
 class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    lazy var reasons : NSFetchedResultsController<CigaretteRecord> = {
+    lazy var reasons : NSFetchedResultsController<Reasons> = {
    
-         let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
+         let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Reasons")
         
         //     let request = NSFetchRequest<CigaretteRecord>(entityName: "Reasons")
         request.sortDescriptors = [NSSortDescriptor(key: "reason", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))]
 
-        let reasons = NSFetchedResultsController<CigaretteRecord>(fetchRequest: request as! NSFetchRequest<CigaretteRecord>, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        let reasons = NSFetchedResultsController<Reasons>(fetchRequest: request as! NSFetchRequest<Reasons>, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         reasons.delegate = self
             
         
@@ -67,14 +67,8 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     
     func initView(){
-      //+   dataList = causeList()
     }
-    
-/*  init()
-    { eshlej medison
-        dataList = selectionList()
-    }*/
-
+  
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,7 +82,8 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         //= dataList.textValue(indexPath.row)  //+ " " + dataList.detailText(indexPath.row)//levels[indexPath.row].nameNum
         if let objects = reasons.fetchedObjects
         {
-            levelSelected = ((objects[(indexPath as NSIndexPath).row] as? Reasons)?.reason)!
+            
+            levelSelected = ((objects[(indexPath as NSIndexPath).row] as Reasons).reason)!
         }
 
         
@@ -112,12 +107,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         
     }
  
-    
-    //+    override func  tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return dataList!.rowCount()
-    //    }
-    //    
-
+  
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        /* let objects = reasons.fetchedObjects
@@ -135,11 +125,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "reasonCellId", for: indexPath) as? ReasonsTableViewCell {
             if let objects = reasons.fetchedObjects
             {
-               /* if let rsn = objects[indexPath.row] as? Reasons
-                {
-                    cell.reason = rsn
-                }*/
-                cell.reason = objects[(indexPath as NSIndexPath).row] as? Reasons
+                cell.reason = objects[(indexPath as NSIndexPath).row] as Reasons
             }
             return cell
         }
@@ -177,13 +163,6 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
                 } catch let error as NSError {
                     print("Error fetching data \(error)")
                 }
-//                // tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//                
-//                self.tblLevels.performSelectorOnMainThread(#selector(UITableView.reloadData), withObject: nil, waitUntilDone: true)
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    self.tableView.reloadData()
-//                })
-//                
                 self.tableView.reloadData()
 
             }))

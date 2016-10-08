@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Reasons : NSManagedObject
+open class Reasons : NSManagedObject
 {
     @NSManaged var reason : String!
     @NSManaged var tmp1 : String!

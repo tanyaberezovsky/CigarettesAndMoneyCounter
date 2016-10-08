@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
         func coreDataReasonsEntityInit(_ userDefaults:UserDefaults){
-         ///~   if userDefaults.coreDataReasonsEntityInited == false {
+            if userDefaults.coreDataReasonsEntityInited == false {
     
                 let reasonsManager = ReasonsManager()
                 reasonsManager.coreDataReasonsEntityInit()
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 userDefaults.coreDataReasonsEntityInited = true
                 defaults.saveUserDefaults(userDefaults)
     
-       ///~     }
+            }
         }
     
     
