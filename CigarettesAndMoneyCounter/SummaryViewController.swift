@@ -82,18 +82,29 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     func initBarChartUI()
     {
-        barChart.descriptionText = ""
+       // barChart.descriptionText = ""
+        barChart.chartDescription?.text = ""
         barChart.backgroundColor = UIColor.clear
         barChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.gridBackgroundColor = UIColor.clear
-        barChart.legend.position = Legend.Position.aboveChartLeft
+        
+     ///   barChart.legend.position = Legend.Position.aboveChartLeft
+       //'Position' is deprecated: Use `horizontalAlignment`, `verticalAlignment`, `orientation`, `drawInside`, `direction`.
+        barChart.legend.verticalAlignment = Legend.VerticalAlignment.top
+        barChart.legend.orientation = Legend.Orientation.horizontal
+        barChart.legend.direction = Legend.Direction.leftToRight
+        
         barChart.legend.textColor = UIColor.white
         
         barChart.xAxis.labelTextColor = UIColor.white
+        
         ///!barChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
         ///barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
+        barChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+        barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+        
         barChart.leftAxis.axisMinimum = 0///.customAxisMin = 0
         barChart.leftAxis.labelTextColor = UIColor.white
         barChart.leftAxis.drawGridLinesEnabled = false
@@ -108,14 +119,18 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     func initHorizontalChartUI()
     {
         
-        horizontChart.descriptionText = ""
+        horizontChart.chartDescription?.text = ""
         horizontChart.backgroundColor = UIColor.clear
         horizontChart.xAxis.labelPosition =  XAxis.LabelPosition.bottom
 
         
         horizontChart.xAxis.drawGridLinesEnabled = false
         horizontChart.gridBackgroundColor = UIColor.clear
-        horizontChart.legend.position = Legend.Position.aboveChartLeft
+       /// horizontChart.legend.position = Legend.Position.aboveChartLeft
+        horizontChart.legend.verticalAlignment = Legend.VerticalAlignment.top
+        horizontChart.legend.orientation = Legend.Orientation.horizontal
+        horizontChart.legend.direction = Legend.Direction.leftToRight
+        
         horizontChart.legend.textColor = UIColor.white
         horizontChart.rightAxis.labelTextColor = UIColor.white
        
@@ -125,7 +140,11 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         horizontChart.xAxis.axisLineColor = UIColor.white
         ///!horizontChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
        /// horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
-        horizontChart.leftAxis.axisMinimum = 0 //.customAxisMin = 0
+        horizontChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+        horizontChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+        horizontChart.rightAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+        
+        //horizontChart.leftAxis.axisMinimum = 0 //.customAxisMin = 0
         horizontChart.leftAxis.labelTextColor = UIColor.white
         
         horizontChart.leftAxis.axisLineColor = UIColor.white
@@ -139,7 +158,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     func initPieChartUI()
     {
-        pieChart.descriptionText = ""
+        pieChart.chartDescription?.text = ""
         
         //pieChart.noDataTextDescription = "Have five"
         pieChart.noDataText = "you don't smoke at this period"
@@ -148,11 +167,19 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
        
         pieChart.holeColor = ColorTemplates.purpleGray()[1]
         
-        pieChart.legend.labels = ["why"]
+        ///pieChart.legend..labels = ["why"]
+        ///'labels' is deprecated: Use `entries`.
         pieChart.legend.textColor = UIColor.white
-        
-        pieChart.legend.position = Legend.Position.leftOfChart
-        
+        ///pieChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+
+       /// pieChart.legend.position = Legend.Position.leftOfChart
+        pieChart.legend.verticalAlignment = Legend.VerticalAlignment.top
+        pieChart.legend.orientation = Legend.Orientation.vertical
+        pieChart.legend.direction = Legend.Direction.leftToRight
+        pieChart.legend.drawInside = true
+        pieChart.legend.textColor = UIColor.white
+       // pieChart.usePercentValuesEnabled = true
+        pieChart.drawEntryLabelsEnabled = false
         pieChart.isHidden = true
         
         
@@ -378,7 +405,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         smoked.text  = String(smokeAndCost.smoked)
         cost.text = decimalFormatToCurency(smokeAndCost.cost)
- smokedLabel.text = cigarettesToPackDescription(smokeAndCost.smoked, sufix: "SMOKED")
+        smokedLabel.text = cigarettesToPackDescription(smokeAndCost.smoked, sufix: "SMOKED")
     }
     
     
@@ -441,6 +468,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                     cigsTotal = 0}
                 
                 if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
+                   // description.append(desc)
                     description.append(String(format: "%d-%@", cigsTotal, desc))
                 }
             }
@@ -453,30 +481,45 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
 
 
 //load data
-func setChartPie(_ dataPoints: [String], values: [Double]) {
-    
-    var dataEntries: [ChartDataEntry] = []
-    
-    for i in 0..<dataPoints.count {
-        ///        let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-        let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-      dataEntries.append(dataEntry)
+    func setChartPie(_ dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [PieChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            ///        let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i]) //(x: Double(i), y: values[i])
+            
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        
+        pieChartDataSet.yValuePosition = .insideSlice
+        
+        pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
+        //   let pieChartData1 = PieChartData(xVals: dataPoints, dataSets: pieChartDataSet)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.generatesDecimalNumbers = false
+        
+        
+        //pieChartDataSet.valueFormatter =  IValueFormatter(formatter: numberFormatter)
+
+        
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        //pieChartData.init xVals =  dataPoints
+        //DefaultAxisValueFormatter(formatter: NumberFormatter())
+
+//        let numFormtPercents: NumberFormatter = NumberFormatter()
+//        numFormtPercents.numberStyle = .percent
+//        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: numFormtPercents))
+        pieChartData.setDrawValues(false)
+        
+        pieChart.data = pieChartData
+        
+        
     }
-    
-    let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
-    
-    
-    pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
-    ///   let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-    
-    let pieChartData = PieChartData(dataSet: pieChartDataSet)
-    //pieChartData.init xVals =  dataPoints
-    
-    pieChart.data = pieChartData
-    
-   
-}
-    
+
     
     func calculateAdnDrowChartMultiBar()
     {
@@ -572,7 +615,7 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         var dateValueStart:Date?
         var dateValueEnd:Date?
         
-        var monthSymbol: String
+        var monthSymbol: String = String()
         //print(months.count)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
@@ -616,11 +659,13 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
                 
             }
         }
+        //description.append(monthSymbol)
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
             setLabelCount(maxVal)
         }
+        //print(description)
         
         setHorizontalChartData(sumOfCigs, xVals: description)
 
@@ -636,7 +681,7 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         }
         
         horizontChart.leftAxis.axisMaximum = maxVal + 1 ///.customAxisMax = maxVal + 1
-        horizontChart.leftAxis.labelCount = Int(labelCount)
+        horizontChart.leftAxis.labelCount = Int(labelCount) / 2 + 2
     }
 
     
@@ -657,7 +702,7 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         let dateFormatter = DateFormatter()
         
         let months = dateFormatter.shortMonthSymbols
-        var monthSymbol: String
+        var monthSymbol: String = String()
         //print(months.count)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
@@ -689,7 +734,7 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
             dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
             //print("month")
             //print(monthSymbol)
-            monthSymbol = String(format: "%@ %d", (months?[components.month!])!, i)
+            monthSymbol = String(format: "%@ %d", (months?[components.month! - 1])!, i)
             
             let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
             for i in 0..<arrCiggs.count
@@ -707,6 +752,7 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
                 
             }
         }
+        //description.append(monthSymbol)
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
@@ -726,17 +772,17 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         
         var dataStringStart:String
         let dateFormatterStart = DateFormatter()
-        dateFormatterStart.dateFormat = "MM-dd-yyyy"
+        dateFormatterStart.dateFormat = "yyyy-MM-dd"
         
         // convert string into date
-        var dateValueStart:Date? //= dateFormatterStart.dateFromString(dataStringStart)
-        var dateValueEnd:Date? //= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueStart:Date! //= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueEnd:Date!//= dateFormatterStart.dateFromString(dataStringStart)
 
         
         let dateFormatter = DateFormatter()
         
         let months = dateFormatter.shortMonthSymbols
-        var monthSymbol: String
+        var monthSymbol: String = String()
         //print(months.count)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
@@ -752,22 +798,25 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         for (_,i) in (0...11).reversed().enumerated() {
           //  evens.append(i)
             monthSymbol = (months?[i])! // month - from your date components
-            dataStringStart = String(format: "%d-01-%d", i+1, components.year!)
-            dateValueStart = dateFormatterStart.date(from: dataStringStart)
+            dataStringStart = String(format: "%d-%d-01", components.year!, i+1)
+            dateValueStart = dateFormatterStart.date(from: dataStringStart)!
             
             if dateValueStart > currenDate {
                 continue
             }
             
-            dateValueEnd = dateValueStart!.endOfMonth()
-            //print("month")
-            //print(monthSymbol)
+            dateValueEnd = dateFormatterStart.date(from:  String(format: "%d-%d-15", components.year!, i+1))!.endOfMonth()!
+            dateValueEnd = dateValueEnd.endOfMonth()!
             
-            let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
-            for i in 0..<arrCiggs.count
+            print(currenDate)
+            print(dateValueStart)
+            print(dateValueEnd)
+            
+            let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart, toDate: dateValueEnd)
+            for k in 0..<arrCiggs.count
             {
             
-                        if let cigs = (arrCiggs[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
+                        if let cigs = (arrCiggs[k] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
                             sumOfCigs.append(Double(cigs))
                             description.append(monthSymbol)
                         }
@@ -779,12 +828,14 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
                   
             }
         }
+       // description.append(monthSymbol)
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
             horizontChart.leftAxis.axisMaximum = maxVal + 10
             setLabelCount(maxVal)
         }
+        
         
         setHorizontalChartData(sumOfCigs, xVals: description)
  
@@ -803,71 +854,202 @@ func setChartPie(_ dataPoints: [String], values: [Double]) {
         }
         
         barChart.leftAxis.axisMaximum = maxVal + 1
-        barChart.leftAxis.labelCount = Int(labelCount)
+        barChart.leftAxis.labelCount = Int(labelCount) / 2 + 2
+        
+        
 
     }
     
     
     
-    func setHorizontalChartData( _ values: [Double], xVals: [String])
+    func setHorizontalChartData( _ values: [Double],  xVals: [String])
     {
+        if(xVals.count == 0){
+            horizontChart.clear()
+            horizontChart.clearValues()
+            return
+        }
+        
+         var newxVals: [String] = xVals
+    
+        //add "" becouse of component index bug
+        newxVals.append("")
+        
+        let labelCount = newxVals.count - 1 > 10 ? 10 : newxVals.count - 1
+        
+        horizontChart.xAxis.labelCount = labelCount
+        horizontChart.xAxis.axisMinimum = 0
+        horizontChart.xAxis.axisMaximum = Double(newxVals.count - 1)
         
         barChart.noDataText = "You need to provide data for the chart."
         var dataEntries: [BarChartDataEntry] = []
+        let formato:HorizontalBarChartFormatter = HorizontalBarChartFormatter()
         
-        for i in 0..<xVals.count {
+        formato.months = newxVals
+        
+        let xaxis:XAxis = XAxis()
+  
+        for i in 0..<newxVals.count - 1 {
             ///let dataEntry0 = BarChartDataEntry(value: values[i], xIndex: i)
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             
             dataEntries.append(dataEntry)
+            
+            _ = formato.stringForValue(Double(i), axis: xaxis)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+        xaxis.valueFormatter = formato
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Smoked cigarettes")
         chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
         chartDataSet.valueTextColor = UIColor.white// ColorTemplates.HorizontalBarChartColor()[0]
     ///    let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
+        
         let chartData = BarChartData(dataSet: chartDataSet)
+        chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
+        
+        horizontChart.xAxis.valueFormatter = xaxis.valueFormatter
        /// chartData.groupSpace = 1
         horizontChart.data = chartData
     }
     
     
-    
     func setMultiBarChart( _ values: [Double], values2: [Double], xVals: NSMutableArray)
     {
+        let formato:BarChartFormatter = BarChartFormatter()
+        let xaxis:XAxis = XAxis()
+        
+        var dataSets: [ChartDataSet] = [ChartDataSet]()
         
         barChart.noDataText = "You need to provide data for the chart."
         var dataEntries1: [BarChartDataEntry] = []
-        var dataEntries2: [BarChartDataEntry] = []
+     //   var dataEntries2: [BarChartDataEntry] = []
         var dataEntry1: BarChartDataEntry
-        var dataEntry2: BarChartDataEntry
+       // var dataEntry2: BarChartDataEntry
         
         for i in 0..<xVals.count {
-            dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]])
-            dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]])
-            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
+            //            let dataEntry = BarChartDataEntry(x: Double(i+2), y:values[i], data: xVals )
+            //    1        dataEntry1 = BarChartDataEntry(x: Double(i+2), yValues:values, label:  xVals[i] as! String )
+            //     1       dataEntry2 = BarChartDataEntry(x: Double(i+2), yValues:values2, label:  xVals[i] as! String )
+            
+            dataEntry1 = BarChartDataEntry(x: Double(i), yValues:[values[i] ])
+        //    dataEntry2 = BarChartDataEntry(x: Double(i), y:values2[i] )
+            //
+            //        3    dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]], label: xVals[i] as! String)
+            //        3    dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]], label: xVals[i] as! String)
+            //            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
             
             ///let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
             dataEntries1.append(dataEntry1)
-            dataEntries2.append(dataEntry2)
-        }
-        
-        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
-        let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
-        chartDataSet1.colors = ColorTemplates.Enjoyment()
-        chartDataSet2.colors = ColorTemplates.Needed()
-        chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
-        chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
-        
-        let t = ChartConverter()
-        let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
+         //   dataEntries2.append(dataEntry2)
+            
+            //4    let dataEntry = BarChartDataEntry.init(x: Double(i), yValues: [values[i],values2[i]])//, data: xVals[i] as! String)
+            //4  dataEntries1.append(dataEntry1)
+            
+            _ =  formato.stringForValue(Double(i), axis: xaxis)
+            xaxis.valueFormatter = formato
+            
+            let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
+       //     let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
+            chartDataSet1.colors = [ UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0), UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0)]
 
-     //setDrawValueAboveBar
-    ///    chartData.groupSpace = 1
- //       chartData.setDrawValues(true)
+            //chartDataSet2.colors = ColorTemplates.Needed()
+            chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
+          //  chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
+            
+            // let t = ChartConverter()
+            //let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
+            
+            //NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+            dataSets.append(chartDataSet1)
+       //     dataSets.append(chartDataSet2)
+            
+        }
+       
+        let chartData: BarChartData = BarChartData.init( dataSets: dataSets)
+        ///BarChartData *data = [[BarChartData alloc] initWithX:xVals dataSets:dataSets];
+        //     BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
+        
+        //setDrawValueAboveBar
+        ///    chartData.groupSpace = 1
+        //       chartData.setDrawValues(true)
+        chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
+        
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.data = chartData
+        
     }
     
+    
+    
+//    
+//    
+//    func setMultiBarChart( _ values: [Double], values2: [Double], xVals: NSMutableArray)
+//    {
+//        let formato:BarChartFormatter = BarChartFormatter()
+//        let xaxis:XAxis = XAxis()
+//        
+//        
+//        barChart.noDataText = "You need to provide data for the chart."
+//        var dataEntries1: [BarChartDataEntry] = []
+//        var dataEntries2: [BarChartDataEntry] = []
+//        var dataEntry1: BarChartDataEntry
+//        var dataEntry2: BarChartDataEntry
+//        
+//        for i in 0..<xVals.count {
+////            let dataEntry = BarChartDataEntry(x: Double(i+2), y:values[i], data: xVals )
+////    1        dataEntry1 = BarChartDataEntry(x: Double(i+2), yValues:values, label:  xVals[i] as! String )
+////     1       dataEntry2 = BarChartDataEntry(x: Double(i+2), yValues:values2, label:  xVals[i] as! String )
+//
+//           dataEntry1 = BarChartDataEntry(x: Double(i), y:values[i] )
+//           dataEntry2 = BarChartDataEntry(x: Double(i), y:values2[i] )
+////            
+////        3    dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]], label: xVals[i] as! String)
+////        3    dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]], label: xVals[i] as! String)
+////            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
+//            
+//            ///let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
+//            dataEntries1.append(dataEntry1)
+//           dataEntries2.append(dataEntry2)
+//      
+//        //4    let dataEntry = BarChartDataEntry.init(x: Double(i), yValues: [values[i],values2[i]])//, data: xVals[i] as! String)
+//          //4  dataEntries1.append(dataEntry1)
+//
+//           _ =  formato.stringForValue(Double(i), axis: xaxis)
+//
+//        }
+//        xaxis.valueFormatter = formato
+//        
+//        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
+//        let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
+//        chartDataSet1.colors = ColorTemplates.Enjoyment()
+//        chartDataSet2.colors = ColorTemplates.Needed()
+//        chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
+//        chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
+//        
+//       // let t = ChartConverter()
+//        //let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
+//
+//        //NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+//        var dataSets: [ChartDataSet] = [ChartDataSet]()
+//        dataSets.append(chartDataSet1)
+//        dataSets.append(chartDataSet2)
+//  
+//        let chartData: BarChartData = BarChartData.init( dataSets: dataSets)
+//        ///BarChartData *data = [[BarChartData alloc] initWithX:xVals dataSets:dataSets];
+//   //     BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
+//        
+//     //setDrawValueAboveBar
+//    ///    chartData.groupSpace = 1
+// //       chartData.setDrawValues(true)
+//        chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
+//        
+//        barChart.xAxis.valueFormatter = xaxis.valueFormatter
+//        barChart.data = chartData
+//    }
+//    
+//    
+//    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

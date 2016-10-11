@@ -5,9 +5,11 @@
 //  Created by Tania on 08/01/2016.
 //  Copyright © 2016 Tania Berezovski. All rights reserved.
 //
-
-#import <Charts/Charts.h>
 #import <UIKit/UIKit.h>
+
+#import "ChartConverter.h"
+
+@import Charts;
 
 #ifndef ChartConverter_h
 #define ChartConverter_h

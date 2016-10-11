@@ -20,6 +20,8 @@
 		23679BC119D5664A003354C7 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC019D5664A003354C7 /* Levels.swift */; };
 		23679BC319D56707003354C7 /* TableLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC219D56707003354C7 /* TableLevels.swift */; };
 		2372058A1C3FF70D0051ABD8 /* ChartConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 237205891C3FF70D0051ABD8 /* ChartConverter.m */; };
+		2378D5A11DABA85F0036DC9B /* BarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378D5A01DABA85F0036DC9B /* BarChartFormatter.swift */; };
+		2378D5A31DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378D5A21DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift */; };
 		23802C9919CC150900387768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9819CC150900387768 /* AppDelegate.swift */; };
 		23802C9B19CC150900387768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23802C9A19CC150900387768 /* ViewController.swift */; };
 		23802C9E19CC150900387768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23802C9C19CC150900387768 /* Main.storyboard */; };
@@ -120,6 +122,8 @@
 		237205841C3FF6A30051ABD8 /* CigarettesAndMoneyCounter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CigarettesAndMoneyCounter-Bridging-Header.h"; sourceTree = "<group>"; };
 		237205881C3FF6E30051ABD8 /* ChartConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartConverter.h; sourceTree = "<group>"; };
 		237205891C3FF70D0051ABD8 /* ChartConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConverter.m; sourceTree = "<group>"; };
+		2378D5A01DABA85F0036DC9B /* BarChartFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartFormatter.swift; sourceTree = "<group>"; };
+		2378D5A21DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarChartFormatter.swift; sourceTree = "<group>"; };
 		23802C9319CC150900387768 /* CigarettesAndMoneyCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarettesAndMoneyCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23802C9719CC150900387768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23802C9819CC150900387768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 		2333B99F1D719D3100081466 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2378D59D1DABA8430036DC9B /* Charts */,
 				239C972F1B52DC3B0036332C /* Calculator */,
 				23B47C611BA593A500FB881F /* Segues */,
 				237205811C3FF67E0051ABD8 /* ObjectiveCLib */,
@@ -261,6 +266,15 @@
 				23E26AC91C9F304900D87E8E /* ic_swipup.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		2378D59D1DABA8430036DC9B /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				2378D5A01DABA85F0036DC9B /* BarChartFormatter.swift */,
+				2378D5A21DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift */,
+			);
+			name = Charts;
 			sourceTree = "<group>";
 		};
 		23802C8A19CC150900387768 = {
@@ -563,12 +577,14 @@
 				234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */,
 				23A648741C8AFC6300C67F58 /* MenuViewController.swift in Sources */,
 				234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */,
+				2378D5A11DABA85F0036DC9B /* BarChartFormatter.swift in Sources */,
 				235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */,
 				23A648701C8752CC00C67F58 /* popOverViewController.swift in Sources */,
 				2333B9A11D71C77D00081466 /* ReasonsManager.swift in Sources */,
 				2333B9A71D749CB700081466 /* ReasonsTableViewCell.swift in Sources */,
 				2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
+				2378D5A31DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

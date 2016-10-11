@@ -53,8 +53,9 @@ func calculateLastCigaretTime(_ earlierDate: Date)  -> (txtLastCig: String, bLas
     retStr = ""
     var counter = 0;
     
+    
     if components.year!>0 {
-        arrStrDate.append(createSmokeText(components.year!, unitName:"EARS")); bLastCigWasToday=false;
+        arrStrDate.append(createSmokeText(components.year!, unitName:"YEARS")); bLastCigWasToday=false;
         if components.month!>0 {arrStrDate.append(createSmokeText(components.month!, unitName:"MONTHS")); bLastCigWasToday=false;}
         counter += 1
     }
@@ -66,11 +67,10 @@ func calculateLastCigaretTime(_ earlierDate: Date)  -> (txtLastCig: String, bLas
     }
     else{
         if components.hour!>0 {arrStrDate.append(createSmokeText(components.hour!, unitName:"HOURS"))
-         if components.minute!>0 {arrStrDate.append(" \(components.minute) MIN")}
+         if components.minute!>0 {arrStrDate.append(" \(components.minute!) MIN")}
         }
         else if components.minute!>0 {arrStrDate.append(createSmokeText(components.minute!, unitName:"MINUTES"))}
     }
-    
     if arrStrDate.count == 0
     {retStr = "JUST SMOKED A CIGARETTE"}
     else

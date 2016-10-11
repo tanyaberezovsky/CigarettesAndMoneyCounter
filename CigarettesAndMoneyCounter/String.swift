@@ -52,14 +52,16 @@ extension Date {
         return strMonthYear
     }
     
+    func startOfMonth() -> Date? {
+        let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .hour], from: Calendar.current.startOfDay(for: self))
+        return Calendar.current.date(from: comp)!
+    }
+    
     func endOfMonth() -> Date? {
-        let components: DateComponents = DateComponents()
-        (components as NSDateComponents).setValue(-1, forComponent: NSCalendar.Unit.day);
-        (components as NSDateComponents).setValue(1, forComponent: NSCalendar.Unit.month);
-        
-        let expirationDate = (Calendar.current as NSCalendar).date(byAdding: components, to: self, options: NSCalendar.Options(rawValue: 0))
-        return expirationDate
-        
+        var comp: DateComponents = Calendar.current.dateComponents([.month, .day, .hour], from: Calendar.current.startOfDay(for: self))
+        comp.month = 1
+        comp.day = -1
+        return Calendar.current.date(byAdding: comp, to: self.startOfMonth()!)
     }
   
     
