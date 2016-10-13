@@ -10,23 +10,6 @@ import Foundation
 import QuartzCore
 import UIKit
 
-//extension UINavigationController{
-//    
-//    public override func shouldAutorotate() -> Bool {
-//    
-//            return false
-//    }
-//    
-//}
-
-//extension UINavigationControllerDelegate {
-//    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-//        return [UIInterfaceOrientationMask.Portrait, .PortraitUpsideDown]
-//    }
-//    
-//    
-//}
-
         
 extension String {
     func toDouble() -> Double? {
@@ -39,7 +22,6 @@ extension String {
 
 extension Date {
     func monthAndYear(_ addDate1: Date) -> String {
-    //    var txtMonthYear: String
         
         let components = (Calendar.current as NSCalendar).components(
             [.month, .year], from: addDate1)
@@ -47,7 +29,6 @@ extension Date {
         var strMonthYear:String
         strMonthYear = "\(components.month)-\(components.year)"
         
-        //print(strMonthYear)
         
         return strMonthYear
     }
@@ -75,7 +56,6 @@ public func <(lhs: Date, rhs: Date) -> Bool {
     return lhs.compare(rhs) == .orderedAscending
 }
 
-//extension Date { }
 
 
 

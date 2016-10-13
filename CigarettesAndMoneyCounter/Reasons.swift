@@ -17,9 +17,4 @@ open class Reasons : NSManagedObject
     @NSManaged var tmp1 : String!
     @NSManaged var tmp2 : String!
     
-   /* override func awakeFromInsert()
-    {
-        super.awakeFromInsert()
-      //  dateCreated = NSDate()
-    }*/
 }

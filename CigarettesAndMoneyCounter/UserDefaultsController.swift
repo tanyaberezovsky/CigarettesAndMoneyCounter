@@ -30,7 +30,6 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     override func viewDidLoad() {
         loadGraphicsSettings()
         LoadDefaultValues()
-        //  self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "barButtonItemClicked:"), animated: true)
         
         gradientBackgroundRegular()
         
@@ -214,7 +213,6 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         reason.setTitle(reasonText, for: UIControlState())
         
-        //minimalMode.on = userDefaults.minimalModeOn
         
     }
     
@@ -226,13 +224,11 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         if segueName == segueNames.segueCauseOfSmoking && !text.isEmpty {
             reasonText = text;
-           // print(text)
             reason.setTitle(reasonText, for: UIControlState())
         }
         
       
         _ = controller.navigationController?.popViewController(animated: true)
-        // println(segueName)
     }
     
 }

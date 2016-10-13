@@ -26,9 +26,6 @@ class CalculatorViewController: GlobalUIViewController {
     var segment = 0
     var calc=Calculator()
     var tempValue:String!
-    
-//    calc = Calculator()
-
    
     
     @IBAction func cigarettsEditingEnd(_ sender: UITextField) {
@@ -111,8 +108,7 @@ class CalculatorViewController: GlobalUIViewController {
         layerLevelAsNeeded = segmentPeriod.layer
         layerLevelAsNeeded.cornerRadius = 5
         layerLevelAsNeeded.borderWidth = 0.5
-       // layerLevelAsNeeded.borderColor = UIColor.lightGrayColor().CGColor
-        
+ 
         
     }
 
@@ -137,7 +133,6 @@ class CalculatorViewController: GlobalUIViewController {
     
     
     func onPropertyChanged(_ property: CalculatorProperty) {
-        //print("A calculator property changed! totalCiggarets = \(calc.totalCiggarets); sigment=\(calc.segment); packCost=\(calc.packCost)")
         
         ciggarets.text = decimalFormatToString(calc.totalCiggarets)//String(format: "%.1f", calc.totalCiggarets)
         
@@ -149,7 +144,6 @@ class CalculatorViewController: GlobalUIViewController {
         
         totalCost.text = decimalFormatToCurency(cost)
         
-//
          smokingTime.attributedText = AverageOfSmokingTimeDescription(calc.totalCiggarets, segment: segment)
     }
 
@@ -227,14 +221,6 @@ class CalculatorViewController: GlobalUIViewController {
     
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

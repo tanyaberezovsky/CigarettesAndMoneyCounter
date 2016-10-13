@@ -9,7 +9,6 @@
 import UIKit
 
 class layoutSubviewsButton: UIButton {
-  //  override func wi
     
     override func layoutSubviews()
     {
@@ -21,24 +20,13 @@ class layoutSubviewsButton: UIButton {
         
         if var imageFrame = imageFrame
         {
-             //   imageFrame.origin.x = self.frame.origin.x + self.frame.width - imageFrame.width - (imageFrame.width/2) // - inset
-            
             imageFrame.origin.x =  self.frame.width - imageFrame.width - inset//- (imageFrame.width/2)
             imageFrame.origin.y  = (self.titleLabel?.frame.origin.y)!
             
             self.imageView?.frame = CGRect(x: imageFrame.origin.x  , y: imageFrame.origin.y, width: 35, height: 35)
             
-
-            //self.imageView?.frame = imageFrame
-                
             
         }
     }
-   /* override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    //    layoutSubviews()
-    }
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-//layoutSubviews()
-    }*/
+  
 }

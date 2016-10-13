@@ -13,23 +13,8 @@ import CoreData
 
 class ReasonsManager{
     
-    //var managedObjectContext : NSManagedObjectContext?
    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
-    
-//    lazy var reason: Reasons? =
-//        {
-//            
-//            if let context = self.managedObjectContext
-//            {
-//            //    return NSEntityDescription.insertNewObjectForEntityForName("Reasons", inManagedObjectContext: context) as? Reasons
-//                
-//                let entityDescripition = NSEntityDescription.entityForName("Reasons", inManagedObjectContext: context)
-//                
-//                return  Reasons(entity: entityDescripition!, insertIntoManagedObjectContext:  context)
-//                
-//            }
-//            return .None
-//    }()
+
     
     func saveReason(_ newReason : String)
     {
@@ -53,7 +38,6 @@ class ReasonsManager{
         
         //    and then a fetch request
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Reasons")
-       // let fetchRequest = NSFetchRequest(entityName: "Reasons")
         fetchRequest.propertiesToFetch = ["reason"]
         fetchRequest.resultType = .dictionaryResultType
         
@@ -61,7 +45,7 @@ class ReasonsManager{
         
         
         do {
-            let result:NSArray = try self.managedObjectContext!.fetch(fetchRequest) as NSArray //as! [DictionaryResultType]
+            let result:NSArray = try self.managedObjectContext!.fetch(fetchRequest) as NSArray 
             
             
             if (result.count == 0) {

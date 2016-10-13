@@ -20,7 +20,6 @@ open class CigaretteRecord: NSManagedObject {
     @NSManaged var cost: Double
     
     func yearMonth()-> String{
-    //    var txtMonthYear: String
         
         let components = (Calendar.current as NSCalendar).components(
             [.month, .year], from: addDate)
@@ -28,13 +27,11 @@ open class CigaretteRecord: NSManagedObject {
         var strMonthYear:String
         strMonthYear = "\(components.year)-\(components.month)"
         
-        //print(strMonthYear)
         
         return strMonthYear
     }
     
     func year()-> String{
-      //  var txtMonthYear: String
         
         let components = (Calendar.current as NSCalendar).components(
              .year, from: addDate)
@@ -72,10 +69,6 @@ open class CigaretteRecord: NSManagedObject {
     fetchRequest.propertiesToFetch = [expressionSumCigarettes]
     fetchRequest.resultType = .dictionaryResultType
     
-    
-//        let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest, managedObjectContext: self.(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
-        //result.delegate = self
-    
         let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
     
 
@@ -84,18 +77,4 @@ open class CigaretteRecord: NSManagedObject {
 }
 
 //http://stackoverflow.com/questions/32776375/grouping-core-data-with-nsfetchedresultscontroller-in-swift   
-  /* var fetchedResultsController: NSFetchedResultsController = {
-        let fetchRequest = NSFetchRequest(entityName: "CigaretteRecord")
-        
-        let sort = NSSortDescriptor(key: "dateAdded", ascending: false)
-        fetchRequest.sortDescriptors = [sort]
-        
-        fetchRequest.fetchBatchSize = 20
-        
-        let result = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: AppDelegate.childManagedObjectContext!, sectionNameKeyPath: CigaretteRecord.groupByMonth, cacheName: nil)
-        result.delegate = self
-        
-        return result
-    }()*/
-
-
+ 

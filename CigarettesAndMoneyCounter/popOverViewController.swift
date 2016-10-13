@@ -32,7 +32,6 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     
     func loadScreenGraphics()
     {
-    //    view.frame.width = super.parentViewController?.view.frame.width
         
         //set button look like text field
         var layerLevelAsNeeded: CALayer
@@ -104,16 +103,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     }
     
 
-  /*  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == segueNames.segueCauseOfSmoking {
-            
-            let toViewController = segue.destinationViewController as! TableLavels
-            toViewController.segueSourceName = segue.identifier
-            
-            navigateToRoot(self, toViewController: toViewController)
-        }
-    }*/
-    
+
     func navigateToRoot(_ viewController: UIViewController, toViewController: TableLavels)
     {
         var nc = viewController.navigationController
@@ -145,7 +135,6 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         if nc != nil
         {
             viewController.dismiss(animated: false, completion:nil)
-            //nc!.pushViewController(destinationViewController , animated: false)
             let fromViewController: LightMainSceneViewController = (nc?.viewControllers[0]) as! LightMainSceneViewController//.parentViewController!
             
             toViewController.myDelegate = fromViewController

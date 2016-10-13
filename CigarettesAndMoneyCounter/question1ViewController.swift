@@ -16,9 +16,6 @@ class question1ViewController: GlobalUIViewController
     @IBOutlet weak var smokedPerDay: UITextField!
     @IBOutlet weak var skip: UIButton!
     
-   // @IBOutlet weak var next: UIButton!
-    
-   // @IBOutlet var next: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
     var tempValue:String!
@@ -28,7 +25,6 @@ class question1ViewController: GlobalUIViewController
         
         super.viewDidLoad()
             loadScreenGraphics()
-       // roundButtonConers()
             loadDailyLimit()
     
             //Looks for single or multiple taps.
@@ -57,7 +53,7 @@ class question1ViewController: GlobalUIViewController
     func roundButtonConers(){
         skip.layer.cornerRadius = skip.layer.bounds.height / 2
         skip.layer.borderWidth = 1
-        skip.layer.borderColor =  skip.backgroundColor?.cgColor//UIColor.whiteColor().CGColor
+        skip.layer.borderColor =  skip.backgroundColor?.cgColor
         
         nextBtn.layer.cornerRadius = nextBtn.layer.bounds.height / 2
         nextBtn.layer.borderWidth = 1

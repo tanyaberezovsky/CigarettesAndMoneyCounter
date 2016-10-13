@@ -26,23 +26,15 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         showQuestion1(defaults.loadUserDefaults())
             
         super.viewDidLoad()
-    //2016-07-30
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
-        //      let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSecondViewController")
-
+         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
+ 
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
        }
     
     @IBAction func addCigarettes(_ sender: AnyObject) {
-        /*
-        let cigRecord = CigaretteRecordManager()
-        cigRecord.saveCigaretteRecordEntityFromDefaultsValues()
-        
-        LoadDefaultValues()
-        circularLoader.setNeedsDisplay()
-*/
+   
        
     }
     
@@ -53,7 +45,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     called while pressinf save button in defautls settings screen    */
     func dataReloadAfterSave(){
         LoadDefaultValues()
-       // circularLoader.setNeedsDisplay()
     }
   
     override func  viewDidAppear(_ animated: Bool) {
@@ -82,7 +73,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         else{
             txtLastCig.text = "TIME SINCE LAST CIGARETTE"// "How long has it been since last cigarette"//"Do not smoke at all"  "Free of smoking time"
         }
-       // dailySmokedCigs.text = String(Int(todaySmoked))
             dailySmokedCigs.attributedText = dailySmokedToText(Int(todaySmoked), limit: userDefaults.dailyGoal)
             
         roundButtonConers()

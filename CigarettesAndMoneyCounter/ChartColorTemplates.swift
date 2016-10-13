@@ -101,12 +101,6 @@ open class ColorTemplates{
         ]
     }
     
-    /*
-     444579
-     8A66A3
-     976EA8
-     2A2E4F
-     */
     open  class func purpleGrayCGColor() -> [CGColor]
     {
         return [

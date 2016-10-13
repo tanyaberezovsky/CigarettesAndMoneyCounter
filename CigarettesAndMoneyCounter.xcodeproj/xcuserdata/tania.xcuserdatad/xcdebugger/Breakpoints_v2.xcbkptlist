@@ -327,8 +327,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "767"
             endingLineNumber = "767"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "calculateAndDrowHorizontalChartByMonth()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -375,7 +375,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "400"
             endingLineNumber = "400"
-            landmarkName = "drawCostAndSmoked()"
+            landmarkName = "calculateSelectedDate(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -439,7 +439,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "414"
             endingLineNumber = "414"
-            landmarkName = "drawChart()"
+            landmarkName = "calculateSelectedDate(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -455,7 +455,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "433"
             endingLineNumber = "433"
-            landmarkName = "calculateAdnDrowChartPie()"
+            landmarkName = "drawChart()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -503,8 +503,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
             endingLineNumber = "352"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "drawSelectedDate()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -551,7 +551,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
             endingLineNumber = "239"
-            landmarkName = "selectedDateTouchDown(_:)"
+            landmarkName = "createYearArr()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -567,8 +567,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "283"
             endingLineNumber = "283"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "pickerView(_:numberOfRowsInComponent:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -583,8 +583,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "272"
             endingLineNumber = "272"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "numberOfComponents(in:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -599,8 +599,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "261"
             endingLineNumber = "261"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "selectedDateTouchDown(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -615,7 +615,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "249"
             endingLineNumber = "249"
-            landmarkName = "selectedDateTouchDown(_:)"
+            landmarkName = "shiftBtnDateSubOnTouch(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -631,7 +631,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1106"
             endingLineNumber = "1106"
-            landmarkName = "loadGraphicsSettings()"
+            landmarkName = "loadScreenGraphics()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -647,7 +647,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1140"
             endingLineNumber = "1140"
-            landmarkName = "closeAllKeyboards()"
+            landmarkName = "loadGraphicsSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -662,7 +662,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1155"
-            endingLineNumber = "1155">
+            endingLineNumber = "1155"
+            landmarkName = "loadGraphicsSettings()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -773,7 +775,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "326"
             endingLineNumber = "326"
-            landmarkName = "drawSelectedDate()"
+            landmarkName = "updateLabel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -789,8 +791,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "250"
             endingLineNumber = "250"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "shiftBtnDateSubOnTouch(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -805,8 +807,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "251"
             endingLineNumber = "251"
-            landmarkName = "numberOfComponents(in:)"
-            landmarkType = "7">
+            landmarkName = "SummaryViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -821,7 +823,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "271"
             endingLineNumber = "271"
-            landmarkName = "pickerView(_:numberOfRowsInComponent:)"
+            landmarkName = "numberOfComponents(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -837,7 +839,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "293"
             endingLineNumber = "293"
-            landmarkName = "updateLabel()"
+            landmarkName = "pickerView(_:titleForRow:forComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2449,7 +2451,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "357"
             endingLineNumber = "357"
-            landmarkName = "calculateSelectedDate(_:)"
+            landmarkName = "drawSelectedDate()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2497,7 +2499,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "359"
             endingLineNumber = "359"
-            landmarkName = "calculateSelectedDate(_:)"
+            landmarkName = "drawSelectedDate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2513,7 +2515,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "353"
             endingLineNumber = "353"
-            landmarkName = "calculateSelectedDate(_:)"
+            landmarkName = "drawSelectedDate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2849,7 +2851,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "488"
             endingLineNumber = "488"
-            landmarkName = "setChartPie(_:values:)"
+            landmarkName = "calculateAdnDrowChartPie()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2961,7 +2963,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
             endingLineNumber = "191"
-            landmarkName = "graphTypeChanged(_:)"
+            landmarkName = "initPieChartUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3009,7 +3011,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "874"
             endingLineNumber = "874"
-            landmarkName = "setHorizontalChartData(_:xVals:)"
+            landmarkName = "setMaxMilAxisElementBarChart(_:values2:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3025,8 +3027,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1058"
             endingLineNumber = "1058"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "setMultiBarChart(_:values2:xVals:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3041,7 +3043,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "701"
             endingLineNumber = "701"
-            landmarkName = "calculateAndDrowHorizontalChartByMonth()"
+            landmarkName = "setLabelCount(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3057,7 +3059,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "853"
             endingLineNumber = "853"
-            landmarkName = "setMaxMilAxisElementBarChart(_:values2:)"
+            landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3073,7 +3075,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "920"
             endingLineNumber = "920"
-            landmarkName = "setMultiBarChart(_:values2:xVals:)"
+            landmarkName = "setHorizontalChartData(_:xVals:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3089,7 +3091,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "922"
             endingLineNumber = "922"
-            landmarkName = "setMultiBarChart(_:values2:xVals:)"
+            landmarkName = "setHorizontalChartData(_:xVals:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3105,7 +3107,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "858"
             endingLineNumber = "858"
-            landmarkName = "setMaxMilAxisElementBarChart(_:values2:)"
+            landmarkName = "calculateAndDrowHorizontalChartByYear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3121,7 +3123,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "919"
             endingLineNumber = "919"
-            landmarkName = "setMultiBarChart(_:values2:xVals:)"
+            landmarkName = "setHorizontalChartData(_:xVals:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3373,7 +3375,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "initPieChartUI()"
+            landmarkName = "initHorizontalChartUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

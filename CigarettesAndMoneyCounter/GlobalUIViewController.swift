@@ -9,15 +9,7 @@
 import UIKit
 
 class GlobalUIViewController: UIViewController {
-//    override func shouldAutorotate() -> Bool {
-//        return false
-//    }
-//    
-//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//        return [.Portrait, .PortraitUpsideDown]
-//    }
-
-       
+ 
   
 
     //gradient bar

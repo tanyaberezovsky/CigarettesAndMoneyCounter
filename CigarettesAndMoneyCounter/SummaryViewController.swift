@@ -82,7 +82,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     func initBarChartUI()
     {
-       // barChart.descriptionText = ""
         barChart.chartDescription?.text = ""
         barChart.backgroundColor = UIColor.clear
         barChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
@@ -90,8 +89,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         barChart.xAxis.drawGridLinesEnabled = false
         barChart.gridBackgroundColor = UIColor.clear
         
-     ///   barChart.legend.position = Legend.Position.aboveChartLeft
-       //'Position' is deprecated: Use `horizontalAlignment`, `verticalAlignment`, `orientation`, `drawInside`, `direction`.
         barChart.legend.verticalAlignment = Legend.VerticalAlignment.top
         barChart.legend.orientation = Legend.Orientation.horizontal
         barChart.legend.direction = Legend.Direction.leftToRight
@@ -99,19 +96,26 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         barChart.legend.textColor = UIColor.white
         
         barChart.xAxis.labelTextColor = UIColor.white
+        barChart.xAxis.granularity = 1
+      //try to centralized
+//      barChart.xAxis.labelCount = 4  
+//        barChart.xAxis.forceLabelsEnabled = true
+//        barChart.xAxis.entries = [3]
+//        
+//        barChart.xAxis.centeredEntries = [3]
+//       barChart.xAxis.centerAxisLabelsEnabled = true
+//    //end try to centralized
         
-        ///!barChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
-        ///barChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
         barChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
         barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
         
-        barChart.leftAxis.axisMinimum = 0///.customAxisMin = 0
+        barChart.leftAxis.axisMinimum = 0
         barChart.leftAxis.labelTextColor = UIColor.white
         barChart.leftAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawAxisLineEnabled = false
         barChart.rightAxis.drawLabelsEnabled = false
-        
+        barChart.pinchZoomEnabled = false
         
     }
     
@@ -126,7 +130,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         horizontChart.xAxis.drawGridLinesEnabled = false
         horizontChart.gridBackgroundColor = UIColor.clear
-       /// horizontChart.legend.position = Legend.Position.aboveChartLeft
         horizontChart.legend.verticalAlignment = Legend.VerticalAlignment.top
         horizontChart.legend.orientation = Legend.Orientation.horizontal
         horizontChart.legend.direction = Legend.Direction.leftToRight
@@ -134,17 +137,13 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         horizontChart.legend.textColor = UIColor.white
         horizontChart.rightAxis.labelTextColor = UIColor.white
        
-        ///horizontChart.infoTextColor = UIColor.white
         horizontChart.xAxis.labelPosition =  XAxis.LabelPosition.bottom
         horizontChart.xAxis.labelTextColor = UIColor.white
         horizontChart.xAxis.axisLineColor = UIColor.white
-        ///!horizontChart.leftAxis.valueFormatter = (NumberFormatter() as! IAxisValueFormatter)
-       /// horizontChart.leftAxis.valueFormatter?.generatesDecimalNumbers = false
         horizontChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
         horizontChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
         horizontChart.rightAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
         
-        //horizontChart.leftAxis.axisMinimum = 0 //.customAxisMin = 0
         horizontChart.leftAxis.labelTextColor = UIColor.white
         
         horizontChart.leftAxis.axisLineColor = UIColor.white
@@ -160,25 +159,18 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     {
         pieChart.chartDescription?.text = ""
         
-        //pieChart.noDataTextDescription = "Have five"
         pieChart.noDataText = "you don't smoke at this period"
         
         pieChart.backgroundColor = UIColor.clear
        
         pieChart.holeColor = ColorTemplates.purpleGray()[1]
-        
-        ///pieChart.legend..labels = ["why"]
         ///'labels' is deprecated: Use `entries`.
         pieChart.legend.textColor = UIColor.white
-        ///pieChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
-
-       /// pieChart.legend.position = Legend.Position.leftOfChart
         pieChart.legend.verticalAlignment = Legend.VerticalAlignment.top
         pieChart.legend.orientation = Legend.Orientation.vertical
         pieChart.legend.direction = Legend.Direction.leftToRight
         pieChart.legend.drawInside = true
         pieChart.legend.textColor = UIColor.white
-       // pieChart.usePercentValuesEnabled = true
         pieChart.drawEntryLabelsEnabled = false
         pieChart.isHidden = true
         
@@ -387,8 +379,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             value: 1,
             to: curentDate,
             options: NSCalendar.Options(rawValue: 0))!
-        //print(curentDate)
-        //print(toDate)
         
         drawSelectedDate()
         drawCostAndSmoked()
@@ -486,9 +476,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         var dataEntries: [PieChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            ///        let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i]) //(x: Double(i), y: values[i])
-            
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
         
@@ -497,22 +485,11 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         pieChartDataSet.yValuePosition = .insideSlice
         
         pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
-        //   let pieChartData1 = PieChartData(xVals: dataPoints, dataSets: pieChartDataSet)
         
         let numberFormatter = NumberFormatter()
         numberFormatter.generatesDecimalNumbers = false
         
-        
-        //pieChartDataSet.valueFormatter =  IValueFormatter(formatter: numberFormatter)
-
-        
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        //pieChartData.init xVals =  dataPoints
-        //DefaultAxisValueFormatter(formatter: NumberFormatter())
-
-//        let numFormtPercents: NumberFormatter = NumberFormatter()
-//        numFormtPercents.numberStyle = .percent
-//        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: numFormtPercents))
         pieChartData.setDrawValues(false)
         
         pieChart.data = pieChartData
@@ -529,14 +506,12 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         var arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
-        let description: NSMutableArray = ["Level 0", "Level 1", "Level 2", "Level 3"]
+        let description: [String]! = LevelsDescription//["Level 0", "Level 1", "Level 2", "Level 3"]
         var sumOfCigsEnjoy = [Double]()
         var sumOfCigsNeed = [Double]()
         
-        // for var j = 0; j < description.count; j++
         for j in 0..<description.count
         {
-            // for var i = 0; i < arrReason.count; i++
             for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
@@ -558,11 +533,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         arrReason = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
         for k in 0..<description.count  {
-            
-            //}
-            
-            //for var k = 0; k < description.count; k++
-            //{
             for i in 0..<arrReason.count
             {
                 if let desc = (arrReason[i] as! NSDictionary)[fieldName] as? NSNumber {
@@ -616,7 +586,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         var dateValueEnd:Date?
         
         var monthSymbol: String = String()
-        //print(months.count)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
         
@@ -629,7 +598,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         for (_,i) in (0...23).reversed().enumerated() {
             evens.append(i)
-            //monthSymbol = months[components.month] // month - from your date components
             dataStringStart = String(format: "%d-%d-%d %d:00", components.month!, components.day! ,components.year!, i)
             dateValueStart = dateFormatterStart.date(from: dataStringStart)
             
@@ -639,8 +607,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             
             dataStringEnd = String(format: "%d-%d-%d %d:59", components.month!, components.day! ,components.year!, i)
             dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
-            //print("month")
-            //print(monthSymbol)
             monthSymbol = String(format: "%d:00", i)
             
             let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
@@ -659,13 +625,11 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 
             }
         }
-        //description.append(monthSymbol)
         
         //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
             setLabelCount(maxVal)
         }
-        //print(description)
         
         setHorizontalChartData(sumOfCigs, xVals: description)
 
@@ -679,8 +643,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         if maxVal > 15 {labelCount = 15
             maxVal = maxVal + (maxVal / 100 * 1.5)
         }
-        
-        horizontChart.leftAxis.axisMaximum = maxVal + 1 ///.customAxisMax = maxVal + 1
+        horizontChart.leftAxis.axisMaximum = maxVal + 1
         horizontChart.leftAxis.labelCount = Int(labelCount) / 2 + 2
     }
 
@@ -722,7 +685,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
 
         for (_,i) in (1...numDays).reversed().enumerated() {
             evens.append(i)
-            //monthSymbol = months[components.month] // month - from your date components
             dataStringStart = String(format: "%d-%d-%d 00:00", components.month!, i ,components.year!)
             dateValueStart = dateFormatterStart.date(from: dataStringStart)
             
@@ -732,8 +694,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             
             dataStringEnd = String(format: "%d-%d-%d 23:59", components.month!, i ,components.year!)
             dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
-            //print("month")
-            //print(monthSymbol)
             monthSymbol = String(format: "%@ %d", (months?[components.month! - 1])!, i)
             
             let arrCiggs:NSArray = cigRecord.calculateGraphDataByExpresion(dateValueStart!, toDate: dateValueEnd!)
@@ -752,9 +712,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 
             }
         }
-        //description.append(monthSymbol)
-        
-        //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
             setLabelCount(maxVal)
         }
@@ -775,28 +732,22 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         dateFormatterStart.dateFormat = "yyyy-MM-dd"
         
         // convert string into date
-        var dateValueStart:Date! //= dateFormatterStart.dateFromString(dataStringStart)
-        var dateValueEnd:Date!//= dateFormatterStart.dateFromString(dataStringStart)
+        var dateValueStart:Date!
+        var dateValueEnd:Date!
 
         
         let dateFormatter = DateFormatter()
         
         let months = dateFormatter.shortMonthSymbols
         var monthSymbol: String = String()
-        //print(months.count)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: curentDate)
         
         
         var description = [String]()
         var sumOfCigs = [Double]()
-       /* for (index, number) in (0...10).reverse().enumerate() {
-            //print("index \(index) , number \(number)")
-        }*/
         let currenDate = Date()
         
-      //  var evens = [Int]()
         for (_,i) in (0...11).reversed().enumerated() {
-          //  evens.append(i)
             monthSymbol = (months?[i])! // month - from your date components
             dataStringStart = String(format: "%d-%d-01", components.year!, i+1)
             dateValueStart = dateFormatterStart.date(from: dataStringStart)!
@@ -828,9 +779,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                   
             }
         }
-       // description.append(monthSymbol)
-        
-        //setMaxMilAxisElement
         if let maxVal = sumOfCigs.max(){
             horizontChart.leftAxis.axisMaximum = maxVal + 10
             setLabelCount(maxVal)
@@ -852,10 +800,11 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         if maxVal > 15 {labelCount = 15
             maxVal = maxVal + (maxVal / 100 * 1.5)
         }
-        
+        barChart.leftAxis.axisMinimum = 0
         barChart.leftAxis.axisMaximum = maxVal + 1
         barChart.leftAxis.labelCount = Int(labelCount) / 2 + 2
         
+        barChart.xAxis.axisMinimum = 0
         
 
     }
@@ -890,7 +839,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let xaxis:XAxis = XAxis()
   
         for i in 0..<newxVals.count - 1 {
-            ///let dataEntry0 = BarChartDataEntry(value: values[i], xIndex: i)
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             
             dataEntries.append(dataEntry)
@@ -903,153 +851,67 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Smoked cigarettes")
         chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
         chartDataSet.valueTextColor = UIColor.white// ColorTemplates.HorizontalBarChartColor()[0]
-    ///    let chartData = BarChartData(xVals: xVals, dataSet: chartDataSet)
         
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
         
         horizontChart.xAxis.valueFormatter = xaxis.valueFormatter
-       /// chartData.groupSpace = 1
         horizontChart.data = chartData
     }
     
+
     
-    func setMultiBarChart( _ values: [Double], values2: [Double], xVals: NSMutableArray)
+    
+    func setMultiBarChart( _ values: [Double], values2: [Double], xVals: [String]!)
     {
         let formato:BarChartFormatter = BarChartFormatter()
         let xaxis:XAxis = XAxis()
         
-        var dataSets: [ChartDataSet] = [ChartDataSet]()
         
         barChart.noDataText = "You need to provide data for the chart."
         var dataEntries1: [BarChartDataEntry] = []
-     //   var dataEntries2: [BarChartDataEntry] = []
+        var dataEntries2: [BarChartDataEntry] = []
         var dataEntry1: BarChartDataEntry
-       // var dataEntry2: BarChartDataEntry
+        var dataEntry2: BarChartDataEntry
         
         for i in 0..<xVals.count {
-            //            let dataEntry = BarChartDataEntry(x: Double(i+2), y:values[i], data: xVals )
-            //    1        dataEntry1 = BarChartDataEntry(x: Double(i+2), yValues:values, label:  xVals[i] as! String )
-            //     1       dataEntry2 = BarChartDataEntry(x: Double(i+2), yValues:values2, label:  xVals[i] as! String )
-            
-            dataEntry1 = BarChartDataEntry(x: Double(i), yValues:[values[i] ])
-        //    dataEntry2 = BarChartDataEntry(x: Double(i), y:values2[i] )
-            //
-            //        3    dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]], label: xVals[i] as! String)
-            //        3    dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]], label: xVals[i] as! String)
-            //            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
-            
-            ///let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
-            dataEntries1.append(dataEntry1)
-         //   dataEntries2.append(dataEntry2)
-            
-            //4    let dataEntry = BarChartDataEntry.init(x: Double(i), yValues: [values[i],values2[i]])//, data: xVals[i] as! String)
-            //4  dataEntries1.append(dataEntry1)
-            
-            _ =  formato.stringForValue(Double(i), axis: xaxis)
-            xaxis.valueFormatter = formato
-            
-            let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
-       //     let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
-            chartDataSet1.colors = [ UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0), UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0)]
 
-            //chartDataSet2.colors = ColorTemplates.Needed()
-            chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
-          //  chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
-            
-            // let t = ChartConverter()
-            //let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
-            
-            //NSMutableArray *dataSets = [[NSMutableArray alloc] init];
-            dataSets.append(chartDataSet1)
-       //     dataSets.append(chartDataSet2)
-            
+           dataEntry1 = BarChartDataEntry(x: Double(i), y:values[i] )
+           dataEntry2 = BarChartDataEntry(x: Double(i), y:values2[i] )
+            dataEntries1.append(dataEntry1)
+           dataEntries2.append(dataEntry2)
+      
+
+           _ =  formato.stringForValue(Double(i), axis: xaxis)
+
         }
-       
+        xaxis.valueFormatter = formato
+        
+        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
+        let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
+        chartDataSet1.colors = ColorTemplates.Enjoyment()
+        chartDataSet2.colors = ColorTemplates.Needed()
+        chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
+        chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
+        
+        var dataSets: [ChartDataSet] = [ChartDataSet]()
+        dataSets.append(chartDataSet1)
+        dataSets.append(chartDataSet2)
+  
         let chartData: BarChartData = BarChartData.init( dataSets: dataSets)
-        ///BarChartData *data = [[BarChartData alloc] initWithX:xVals dataSets:dataSets];
-        //     BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-        
-        //setDrawValueAboveBar
-        ///    chartData.groupSpace = 1
-        //       chartData.setDrawValues(true)
         chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
+        let groupSpace = 0.16
+        let barSpace = 0.02
+        let barWidth = 0.3
         
+        chartData.barWidth = barWidth
+        chartData.groupBars(fromX: 0, groupSpace: groupSpace, barSpace: barSpace)
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.data = chartData
-        
     }
     
     
     
-//    
-//    
-//    func setMultiBarChart( _ values: [Double], values2: [Double], xVals: NSMutableArray)
-//    {
-//        let formato:BarChartFormatter = BarChartFormatter()
-//        let xaxis:XAxis = XAxis()
-//        
-//        
-//        barChart.noDataText = "You need to provide data for the chart."
-//        var dataEntries1: [BarChartDataEntry] = []
-//        var dataEntries2: [BarChartDataEntry] = []
-//        var dataEntry1: BarChartDataEntry
-//        var dataEntry2: BarChartDataEntry
-//        
-//        for i in 0..<xVals.count {
-////            let dataEntry = BarChartDataEntry(x: Double(i+2), y:values[i], data: xVals )
-////    1        dataEntry1 = BarChartDataEntry(x: Double(i+2), yValues:values, label:  xVals[i] as! String )
-////     1       dataEntry2 = BarChartDataEntry(x: Double(i+2), yValues:values2, label:  xVals[i] as! String )
-//
-//           dataEntry1 = BarChartDataEntry(x: Double(i), y:values[i] )
-//           dataEntry2 = BarChartDataEntry(x: Double(i), y:values2[i] )
-////            
-////        3    dataEntry1 = BarChartDataEntry(x: Double(i), yValues: [values[i]], label: xVals[i] as! String)
-////        3    dataEntry2 = BarChartDataEntry(x: Double(i), yValues: [values2[i]], label: xVals[i] as! String)
-////            ///let dataEntry1 = BarChartDataEntry(value: values[i], xIndex: i)
-//            
-//            ///let dataEntry2 = BarChartDataEntry(value: values2[i], xIndex: i)
-//            dataEntries1.append(dataEntry1)
-//           dataEntries2.append(dataEntry2)
-//      
-//        //4    let dataEntry = BarChartDataEntry.init(x: Double(i), yValues: [values[i],values2[i]])//, data: xVals[i] as! String)
-//          //4  dataEntries1.append(dataEntry1)
-//
-//           _ =  formato.stringForValue(Double(i), axis: xaxis)
-//
-//        }
-//        xaxis.valueFormatter = formato
-//        
-//        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Enjoyment")
-//        let chartDataSet2 = BarChartDataSet(values: dataEntries2, label: "Needed")
-//        chartDataSet1.colors = ColorTemplates.Enjoyment()
-//        chartDataSet2.colors = ColorTemplates.Needed()
-//        chartDataSet1.valueTextColor = ColorTemplates.Enjoyment()[0]
-//        chartDataSet2.valueTextColor = ColorTemplates.Needed()[0]
-//        
-//       // let t = ChartConverter()
-//        //let chartData:BarChartData = t.setData(chartDataSet1, set2: chartDataSet2, xVals: xVals)
-//
-//        //NSMutableArray *dataSets = [[NSMutableArray alloc] init];
-//        var dataSets: [ChartDataSet] = [ChartDataSet]()
-//        dataSets.append(chartDataSet1)
-//        dataSets.append(chartDataSet2)
-//  
-//        let chartData: BarChartData = BarChartData.init( dataSets: dataSets)
-//        ///BarChartData *data = [[BarChartData alloc] initWithX:xVals dataSets:dataSets];
-//   //     BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-//        
-//     //setDrawValueAboveBar
-//    ///    chartData.groupSpace = 1
-// //       chartData.setDrawValues(true)
-//        chartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter()))
-//        
-//        barChart.xAxis.valueFormatter = xaxis.valueFormatter
-//        barChart.data = chartData
-//    }
-//    
-//    
-//    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -1085,14 +947,10 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         selectedDate.inputView = datePickerView
      
         //set selected date to text field
-     //   datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
                                  for: UIControlEvents.valueChanged)
-     //todo
         //set init value
-    //    showSelectedDate(NSDate(), dateFormat: Constants.dateFormat.day)
-        
         calculateSelectedDate(0)
         
         

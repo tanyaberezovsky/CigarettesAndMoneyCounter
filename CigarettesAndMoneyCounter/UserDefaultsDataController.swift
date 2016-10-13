@@ -125,8 +125,6 @@ class UserDefaultsDataController{
         let userDefaults = UserDefaults()
         
         let defaults = Foundation.UserDefaults.standard
-       // println(defaults)
-        //println(defaults.integerForKey("levelAsNeeded"))
         
         if (defaults.object(forKey: "levelAsNeeded") == nil) {
            //then it loads for the first time
