@@ -57,8 +57,7 @@ class MenuViewController: UIViewController {
         if nc != nil
         {
             viewController.dismiss(animated: false, completion:nil)
-//nc!.pushViewController(destinationViewController , animated: false)
-            let fromViewController: AnyObject = (nc?.viewControllers[0])!//.parentViewController!
+            let fromViewController: AnyObject = (nc?.viewControllers[0])!
 
             
             let fromView = fromViewController.view as UIView!

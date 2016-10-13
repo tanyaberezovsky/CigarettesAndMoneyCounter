@@ -16,7 +16,6 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
 
     @IBOutlet weak var viewHeader: UIView!
     
-   // @IBOutlet weak var segmentControl: UISegmentedControl!
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
@@ -110,19 +109,15 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         let mySegment = UISegmentedControl(items: ["Daily","Monthly", "Yearly"])
      
         viewHeader.addSubview(mySegment)
-//        self.tableView.tableHeaderView = mySegment
         mySegment.selectedSegmentIndex = 0
 
-        //2016-07-30
-        mySegment.addTarget(self, action: #selector(RowManagerViewController.segmentAction(_:)), for: .valueChanged)
-        //   mySegment.addTarget(self, action: "segmentAction:", forControlEvents: .ValueChanged)
+         mySegment.addTarget(self, action: #selector(RowManagerViewController.segmentAction(_:)), for: .valueChanged)
 
         let frame = UIScreen.main.bounds
         mySegment.frame = CGRect(x: viewHeader.frame.minX, y: viewHeader.frame.maxY - (viewHeader.frame.height*0.15) ,
             width: frame.width , height: viewHeader.frame.height*0.15)
        
-        mySegment.layer.cornerRadius = 5.0  // Don't let background bleed
-        
+        mySegment.layer.cornerRadius = 5.0
         
         mySegment.backgroundColor =  colorSegmentBackground
         mySegment.tintColor = colorSegmentTint
@@ -130,17 +125,14 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
 
     }
 
-    //let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
-
+  
     func getFetchedResultControllerDaily() -> NSFetchedResultsController<CigaretteRecord> {
         fetchedResultControllerDaily = NSFetchedResultsController<CigaretteRecord>(fetchRequest: taskFetchRequestDaily()  , managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultControllerDaily
     }
     
     func taskFetchRequestDaily() -> NSFetchRequest<CigaretteRecord> {
-    //    let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
-        //fetchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
         let sortDescriptor = NSSortDescriptor(key: "cigarettes", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest as! NSFetchRequest<CigaretteRecord>
@@ -160,7 +152,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsInSection: Int!// = fetchedResultController.sections?[section].numberOfObjects
+        let numberOfRowsInSection: Int!
         
         switch segment {
         case 0:
@@ -229,10 +221,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
             default:
                 break
             }
-            //print(segment)
-            
         
-      //  }
         return cell
     }
     
@@ -271,7 +260,6 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         default:
             break
         }
-        //print(segment)
 
         tableView.reloadData()
     }

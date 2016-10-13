@@ -95,7 +95,6 @@ class CigaretteRecordManager {
         
 //    and then a fetch request which fetches only this sum:
        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
-    //    let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [expressionSumCigarettes, expressionSumCost, expresionCount]
         fetchRequest.resultType = .dictionaryResultType
         
@@ -112,7 +111,6 @@ class CigaretteRecordManager {
                 if let a = (result[0] as AnyObject).value(forKey: "sumOftotalCigarettes") as? NSNumber {
                     let aString = a.stringValue
                     smoked = Int(aString)!
-                    //print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
@@ -121,7 +119,6 @@ class CigaretteRecordManager {
                 if let a = (result[0] as AnyObject).value(forKey: "sumCost") as? NSNumber {
                     let aString = a.stringValue
                     cost = Double(aString)!
-                    //print(aString) // -1
                 } else {
                     // either d doesn't have a value for the key "a", or d does but the value is not an NSNumber
                 }
@@ -154,7 +151,6 @@ class CigaretteRecordManager {
                 //    and then a fetch request which fetches only this sum:
         
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
-//let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [ fieldName, expressionSumCigarettes]
         fetchRequest.resultType = .dictionaryResultType
         
@@ -192,15 +188,12 @@ class CigaretteRecordManager {
         
         
         //    and then a fetch request which fetches only this sum:
-        //CigaretteRecord.fetchRequest()
     let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CigaretteRecord")
-        //     let fetchRequest = NSFetchRequest<CigaretteRecord>(entityName: "CigaretteRecord")
         fetchRequest.propertiesToFetch = [ expressionSumCigarettes]
         fetchRequest.resultType = .dictionaryResultType
         
         fetchRequest.predicate = predicate
         
-        //fetchRequest.propertiesToGroupBy = [fieldName]
         
         let sort = NSSortDescriptor(key: orderByField, ascending: false)
         fetchRequest.sortDescriptors = [sort]

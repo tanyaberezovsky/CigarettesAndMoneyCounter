@@ -36,7 +36,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     @IBOutlet weak var ciggaretsSlider: UISlider!
     @IBOutlet var btnAdd: UIButton!
     
-   // var arrNumbers = []
    
     var reasonText:String!
     
@@ -50,13 +49,11 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     @IBAction func addCigarettes(_ sender: AnyObject) {
         closeAllKeyboards()
         saveCigaretteRecordEntity()
-        //usleep(500000)
         loadInitiatedValues()
         LoadDefaultValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      //  self.navigationController?.setNavigationBarHidden(false, animated: false)
         roundButtonConers()
     }
     
@@ -175,7 +172,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         
        //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
-   //     let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showFirstViewController")
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
@@ -224,8 +220,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
-        //datePickerView.addTarget(self, action: Selector("handleDatePicker:"), //forControlEvents: UIControlEvents.ValueChanged)
-        
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
                          for: UIControlEvents.valueChanged)
         
@@ -296,7 +290,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         }
         
         _ = controller.navigationController?.popViewController(animated: true)
-       // println(segueName)
     }
     
     
@@ -312,9 +305,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         sender: Any?) {
             
         closeAllKeyboards()
-            
-            //print(segue.identifier)
-            
+        
         if  segue.identifier == segueNames.segueCauseOfSmoking{
             let vc = segue.destination as! TableLavels
             vc.segueSourceName = segue.identifier

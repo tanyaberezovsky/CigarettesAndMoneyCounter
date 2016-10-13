@@ -10,8 +10,6 @@ import Foundation
 
 
 struct segueNames {
-  //  static let segueLvlOfNeeded = "segueLvlOfNeeded"
-  //  static let segueLvlOfEnjoy = "segueLvlOfEnjoy"
     static let segueCauseOfSmoking = "segueCauseOfSmoking"
     static let userDefaults = "userDefaults"
 }
@@ -58,7 +56,7 @@ class enjoyedList:selectionList {
         return levels.count;
     }
     func text(_ indexArr: Int)->String{
-        levels[indexArr].nameNum
+       _ = levels[indexArr].nameNum
         return levels[indexArr].nameLvl;
     }
     func textValue(_ indexArr: Int) -> String {

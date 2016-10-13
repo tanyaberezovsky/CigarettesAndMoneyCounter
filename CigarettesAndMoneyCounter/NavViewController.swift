@@ -21,12 +21,9 @@ class NavViewController: UINavigationController {
     
     func opacityBar() {
 
-       // UINavigationBar.appearance().barTintColor = colorNavigationBarBlack
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
-        //UIBarButtonItem.appearance().tintColor = UIColor.lightGrayColor()
-        //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.9)
 
         // Status bar white font
@@ -59,7 +56,6 @@ class NavViewController: UINavigationController {
     }
     
     func gradientBar(){
-      //  super.viewDidLoad()
         self.navigationBar.isTranslucent = false
         self.navigationBar.tintColor = UIColor.white
         let fontDictionary = [ NSForegroundColorAttributeName:UIColor.white ]
@@ -113,19 +109,6 @@ class NavViewController: UINavigationController {
                     })
                     
                     duration = 1.0
-//                    let delay: NSTimeInterval = 0.0
-//                    let options = UIViewAnimationOptions.CurveEaseInOut
-//                    let damping: CGFloat = 0.5
-//                    let velocity: CGFloat = 4.0
-//                    UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping,
-//                        initialSpringVelocity: velocity, options: options, animations: {
-//                            toView.frame = initialFrame
-//                        }, completion: { finished in
-//                            toView.removeFromSuperview()
-//                            if let navController = toViewController.navigationController {
-//                                navController.popToViewController(toViewController, animated: false)
-//                            }
-//                    })
                 }
             }
     }

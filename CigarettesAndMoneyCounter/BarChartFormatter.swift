@@ -10,15 +10,17 @@ import UIKit
 import Foundation
 import Charts
 
+var LevelsDescription: [String]! = ["            Level 0", "Level 1", "Level 2", "Level 3  "]
+
+
 @objc(BarChartFormatter)
 public class BarChartFormatter: NSObject, IAxisValueFormatter{
     
-    var months: [String]! = ["Level 0", "Level 1", "Level 2", "Level 3"]
     
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         
-        return months[Int(value)]
+        return LevelsDescription[Int(value)]
     }
 }
 

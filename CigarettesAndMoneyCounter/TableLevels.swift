@@ -6,12 +6,10 @@
 //  Copyright (c) 2014 Tania Berezovski. All rights reserved.
 //
 
-//import Foundation
 
 
 import UIKit
 import CoreData
-//UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate
 
 class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -20,7 +18,6 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
    
          let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Reasons")
         
-        //     let request = NSFetchRequest<CigaretteRecord>(entityName: "Reasons")
         request.sortDescriptors = [NSSortDescriptor(key: "reason", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))]
 
         let reasons = NSFetchedResultsController<Reasons>(fetchRequest: request as! NSFetchRequest<Reasons>, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
@@ -38,7 +35,6 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var segueSourceName: String?
   
-//    var dataList: selectionList!
     
     @IBOutlet var tblLevels: UITableView!
     
@@ -50,7 +46,6 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         } catch let error as NSError {
             print("Error fetching data \(error)")
         }
-      //+  tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -59,11 +54,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-       //+ initView()
-     //+   navigationHeader.title = dataList?.title
-        //tableView.scrollEnabled = true
-
+ 
     }
     
     func initView(){
@@ -79,7 +70,6 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var levelSelected = String()
-        //= dataList.textValue(indexPath.row)  //+ " " + dataList.detailText(indexPath.row)//levels[indexPath.row].nameNum
         if let objects = reasons.fetchedObjects
         {
             
@@ -138,14 +128,12 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
     
     func configurationTextField(_ textField: UITextField!)
     {
-        //print("generating the TextField")
         textField.placeholder = "Enter an item"
         tField = textField
     }
     
     func handleCancel(_ alertView: UIAlertAction!)
     {
-        //print("Cancelled !!")
     }
     
     @IBAction func addNewReasonBottonClick(_ sender: UIBarButtonItem) {
@@ -155,8 +143,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
             alert.addTextField(configurationHandler: configurationTextField)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:handleCancel))
             alert.addAction(UIAlertAction(title: "Add", style: .default, handler:{ (UIAlertAction) in
-            //print("Done !!")
-            print("Item : \(self.tField.text)")
+             print("Item : \(self.tField.text)")
                 reasonsManager.saveReason(self.tField.text!)
                 do {
                     try self.reasons.performFetch()
