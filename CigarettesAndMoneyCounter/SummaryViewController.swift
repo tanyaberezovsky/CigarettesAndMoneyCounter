@@ -154,28 +154,42 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         horizontChart.isHidden = true
         
     }
-    
+    //MARK: INIT PIE
     func initPieChartUI()
     {
-        pieChart.chartDescription?.text = ""
-        
-        pieChart.noDataText = "you don't smoke at this period"
+        pieChart.chartDescription?.text = "Reasons Analysis"
+        pieChart.chartDescription?.textColor = UIColor.white
+        pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14.0)
+        pieChart.chartDescription?.yOffset = -10
+        pieChart.chartDescription?.xOffset = 165
+        //pieChart.chartDescription?.position
+        pieChart.noDataText = "you don't spend at this period"
+        pieChart.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 10)//View setExtraOffsetsWithLeft:30 top:0 right:30 bottom:0
         
         pieChart.backgroundColor = UIColor.clear
-       
+        
         pieChart.holeColor = ColorTemplates.purpleGray()[1]
         ///'labels' is deprecated: Use `entries`.
         pieChart.legend.textColor = UIColor.white
         pieChart.legend.verticalAlignment = Legend.VerticalAlignment.top
-        pieChart.legend.orientation = Legend.Orientation.vertical
+        pieChart.legend.orientation = Legend.Orientation.horizontal
         pieChart.legend.direction = Legend.Direction.leftToRight
-        pieChart.legend.drawInside = true
+        pieChart.legend.drawInside = false
+        pieChart.legend.form  = .circle
         pieChart.legend.textColor = UIColor.white
+        pieChart.legend.font = NSUIFont.systemFont(ofSize: 12.0)
+        
+        pieChart.usePercentValuesEnabled = true
         pieChart.drawEntryLabelsEnabled = false
+        //   pieChart.dragDecelerationEnabled = true
         pieChart.isHidden = true
+        pieChart.holeRadiusPercent = 0.7
+        //   pieChart.drawHoleEnabled = false
+        
         
         
     }
+
     
     @IBAction func graphTypeChanged(_ sender: UISegmentedControl) {
         
@@ -419,58 +433,57 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     
+    //MARK: drow PIE
+    
     func  calculateAdnDrowChartPie()
     {
         
         let cigRecord = CigaretteRecordManager()
         
         let fieldName = "reason"
-        let arrReason2:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName)//.sort {return $0 < $1}
-
-
+        let arrReason2:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName)
+        
+        
         var description = [String]()
         var sumOfCigs = [Double]()
-        var cigsTotal:Int
+        var cigsTotal:Double = 0
         
-        var arrReason = arrReason2.sortedArray (comparator: {
-            (obj1, obj2) -> ComparisonResult in
-            
-            let first = Double(((obj1 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
-            let second = Double(((obj2 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
-            
-            if (first < second) {
-                return ComparisonResult.orderedDescending;
-            } else {
-                return ComparisonResult.orderedAscending;
-            }
+        
+        //optimized
+        let arrReason = arrReason2.sorted(by: {
+            let first = Double((($0 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
+            let second = Double((($1 as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber)!)
+            return first > second
         })
-
         
-        if arrReason.count > 0 {
-            
-            for i in 0..<arrReason.count
-            {
-                if let cigs = (arrReason[i] as! NSDictionary)["sumOftotalCigarettes"] as? NSNumber {
-                    sumOfCigs.append(Double(cigs))
-                    cigsTotal = Int(cigs)
-                }
-                else{
-                    cigsTotal = 0}
-                
-                if let desc:String = (arrReason[i] as! NSDictionary)[fieldName] as? String {
-                   // description.append(desc)
-                    description.append(String(format: "%d-%@", cigsTotal, desc))
-                }
+        
+        //was for i in 0..<arrReason.count
+        //optimized
+        sumOfCigs = arrReason.reduce([Double](), {(sumOfCigs:[Double], obj:NSFastEnumerationIterator.Element) -> [Double] in
+            var sumOfCigs = sumOfCigs
+            if let cigs = (obj as! NSDictionary)["sumOftotalCigarettes"] as? Double {
+                sumOfCigs.append(cigs)
             }
-            
-        }
+            return sumOfCigs
+        })
+        print(sumOfCigs.count)
+        //cigsTotal = sumOfCigs.reduce(Double(), {return $0 + $1})
+        
+        description = arrReason.reduce([String](), {(arrDesc:[String], obj:NSFastEnumerationIterator.Element) -> [String] in
+            var arrDesc = arrDesc
+            if let desc:String = (obj as! NSDictionary)[fieldName] as? String {
+                arrDesc.append(String(format: "%d-%@", Int(sumOfCigs[arrDesc.count]), desc))
+            }
+            return arrDesc
+        })
+        
         setChartPie(description, values: sumOfCigs)//(months, values: unitsSoldPie)
-
+        
     }
     
 
-
-//load data
+    //MARK: SET PIE
+    //load data
     func setChartPie(_ dataPoints: [String], values: [Double]) {
         
         var dataEntries: [PieChartDataEntry] = []
@@ -479,18 +492,43 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
+        /*
+         dataEntries = dataPoints.reduce([PieChartDataEntry](),{(dataEntries: [PieChartDataEntry] , obj:String ) -> [PieChartDataEntry] in
+         var dataEntries: [PieChartDataEntry] = dataEntries
+         let dataEntry = PieChartDataEntry(value: values[dataEntries.count - 1], label: obj)
+         dataEntries.append(dataEntry)
+         return dataEntries
+         })*/
         
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         
-        pieChartDataSet.yValuePosition = .insideSlice
+        pieChartDataSet.yValuePosition = .outsideSlice
         
         pieChartDataSet.colors = ColorTemplates.chartPieColors()// ChartColorTemplates.joyful()
+        pieChartDataSet.sliceSpace = 3
+        pieChartDataSet.selectionShift = 8//
+        pieChartDataSet.xValuePosition = .insideSlice
+        pieChartDataSet.yValuePosition = .outsideSlice
+        
+        
+        pieChartDataSet.valueLinePart1OffsetPercentage = 0.85
+        pieChartDataSet.valueLinePart1Length = 0.3
+        pieChartDataSet.valueLinePart2Length = 0.1
+        pieChartDataSet.valueLineWidth = 1
+        pieChartDataSet.valueLineColor = UIColor.white
+        
         
         let numberFormatter = NumberFormatter()
         numberFormatter.generatesDecimalNumbers = false
+        numberFormatter.maximumFractionDigits = 0
+        numberFormatter.numberStyle    = .percent
+        numberFormatter.multiplier     = 1.00
+        //numberFormatter.multiplier = @1.f
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartData.setDrawValues(false)
+        pieChartData.setDrawValues(true)
+        
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: numberFormatter))
         
         pieChart.data = pieChartData
         
@@ -755,9 +793,16 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             if dateValueStart > currenDate {
                 continue
             }
-            
-            dateValueEnd = dateFormatterStart.date(from:  String(format: "%d-%d-15", components.year!, i+1))!.endOfMonth()!
-            dateValueEnd = dateValueEnd.endOfMonth()!
+//            
+//            dateValueEnd = dateFormatterStart.date(from:  String(format: "%d-%d-15", components.year!, i+1))!.endOfMonth()!
+//            dateValueEnd = dateValueEnd.endOfMonth()!
+            if i == 11 {
+                dataStringStart = String(format: "%d-%d-01", components.year! + 1, 1)
+            }
+            else {
+                dataStringStart = String(format: "%d-%d-01", components.year!, i+2)
+            }
+            dateValueEnd = dateFormatterStart.date(from: dataStringStart)!
             
             print(currenDate)
             print(dateValueStart)

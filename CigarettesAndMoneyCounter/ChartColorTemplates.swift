@@ -12,7 +12,6 @@ import UIKit
 open class ColorTemplates{
  
 
-    
     open class func chartPieColors() -> [UIColor]
     {
         return [
@@ -28,7 +27,7 @@ open class ColorTemplates{
             UIColor(red: 196/255.0, green: 152/255.0, blue: 235/255.0, alpha: 1.0),
             //red
             UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0),
-        
+            
             
             UIColor(red: 217/255.0, green: 80/255.0, blue: 138/255.0, alpha: 1.0),
             UIColor(red: 254/255.0, green: 149/255.0, blue: 7/255.0, alpha: 1.0),
@@ -40,7 +39,7 @@ open class ColorTemplates{
             UIColor(red: 64/255.0, green: 89/255.0, blue: 128/255.0, alpha: 1.0),
             UIColor(red: 149/255.0, green: 165/255.0, blue: 124/255.0, alpha: 1.0),
             UIColor(red: 207/255.0, green: 248/255.0, blue: 246/255.0, alpha: 1.0),
-        
+            
             UIColor(red: 217/255.0, green: 184/255.0, blue: 162/255.0, alpha: 1.0),
             UIColor(red: 191/255.0, green: 134/255.0, blue: 134/255.0, alpha: 1.0),
             UIColor(red: 148/255.0, green: 212/255.0, blue: 212/255.0, alpha: 1.0),
@@ -103,30 +102,13 @@ open class ColorTemplates{
     
     open  class func purpleGrayCGColor() -> [CGColor]
     {
-        return [
-            
-            UIColor(red: 68/255, green: 69/255, blue: 121/255, alpha: 1).cgColor,
-            UIColor(red: 138/255, green: 102/255, blue: 163/255, alpha: 1).cgColor,
-            UIColor(red: 151/255, green: 110/255, blue: 168/255, alpha: 1).cgColor,
-            UIColor(red: 42/255, green: 46/255, blue: 79/255, alpha: 1).cgColor
-            
-            
-        ]
+        //optimized
+        return purpleGray().map({$0.cgColor})
+        
        
     }
    
-    open  class func greenDarkBlueBackgroundGradientCGColor() -> [CGColor]
-    {
-        return [
-            
-            UIColor(red: 9/255, green: 11/255, blue: 46/255, alpha: 1).cgColor,
-            UIColor(red: 3/255, green: 149/255, blue: 45/255, alpha: 1).cgColor
-            
-            
-        ]
-        
-    }
-
+    
     open class func purpleGray() -> [UIColor]
     {
         return [

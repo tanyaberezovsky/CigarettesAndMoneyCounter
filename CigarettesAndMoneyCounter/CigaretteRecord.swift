@@ -68,9 +68,15 @@ open class CigaretteRecord: NSManagedObject {
     
     fetchRequest.propertiesToFetch = [expressionSumCigarettes]
     fetchRequest.resultType = .dictionaryResultType
+  
+    let delegate = delegateApplication
     
-        let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
     
+    let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: delegate.managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
+    
+  
+//        let result = NSFetchedResultsController<CigaretteRecord>(fetchRequest: fetchRequest as! NSFetchRequest<CigaretteRecord>, managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!, sectionNameKeyPath: "groupByMonth", cacheName: nil)
+//    
 
         return result
     }()

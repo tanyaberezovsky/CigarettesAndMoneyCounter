@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ENSwiftSideMenu
 
 @IBDesignable
 class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate {
@@ -38,6 +39,16 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
        
     }
     
+    //MARK: menu pizza clik
+    @IBAction func MenuClick(_ sender: UIBarButtonItem) {
+        let menuVC = storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+       let menu = ENSideMenu(sourceView: self.view, menuViewController: menuVC, menuPosition:.left)
+        // show the navigation bar over the side menu view
+        menu.showSideMenu()
+        
+        view.bringSubview(toFront: (self.navigationController?.view)!)
+    }
     
     
     /*

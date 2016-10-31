@@ -25,7 +25,7 @@ class GlobalUIViewController: UIViewController {
         gradient.frame = view.bounds
         
         
-        gradient.colors = ColorTemplates.greenDarkBlueBackgroundGradientCGColor()
+        gradient.colors = ColorTemplates.purpleGrayCGColor()
         
         view.layer.insertSublayer(gradient, at: 0)
     }

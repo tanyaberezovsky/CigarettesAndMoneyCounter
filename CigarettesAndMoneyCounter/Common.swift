@@ -10,6 +10,8 @@ import Foundation
 
 import UIKit
 
+let delegateApplication = UIApplication.shared.delegate as! AppDelegate
+
 func isNumeric(_ a: String) -> Bool {
     return Int(a) != nil
 }
