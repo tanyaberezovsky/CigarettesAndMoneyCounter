@@ -846,6 +846,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             _ = formato.stringForValue(Double(i), axis: xaxis)
         }
         
+        
         xaxis.valueFormatter = formato
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Smoked cigarettes")

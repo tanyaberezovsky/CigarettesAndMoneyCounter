@@ -41,7 +41,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         gradient.frame = view.bounds
         
         
-        gradient.colors = ColorTemplates.purpleGrayCGColor()
+        gradient.colors = ColorTemplates.greenDarkBlueBackgroundGradientCGColor()
         
         view.layer.insertSublayer(gradient, at: 0)
     }

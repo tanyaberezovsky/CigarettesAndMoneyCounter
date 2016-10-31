@@ -114,7 +114,19 @@ open class ColorTemplates{
         ]
        
     }
-    
+   
+    open  class func greenDarkBlueBackgroundGradientCGColor() -> [CGColor]
+    {
+        return [
+            
+            UIColor(red: 9/255, green: 11/255, blue: 46/255, alpha: 1).cgColor,
+            UIColor(red: 3/255, green: 149/255, blue: 45/255, alpha: 1).cgColor
+            
+            
+        ]
+        
+    }
+
     open class func purpleGray() -> [UIColor]
     {
         return [

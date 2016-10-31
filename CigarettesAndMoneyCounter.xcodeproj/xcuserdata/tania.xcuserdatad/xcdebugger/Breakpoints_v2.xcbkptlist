@@ -877,8 +877,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "LightMainSceneViewController"
-            landmarkType = "3">
+            landmarkName = "LoadDefaultValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -941,8 +941,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "loadCircularLoader(_:dailyLimit:)"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -973,8 +973,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "LightMainSceneViewController"
-            landmarkType = "3">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1021,8 +1021,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "dataReloadAfterSave()"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1037,7 +1037,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "addCigarettes(_:)"
+            landmarkName = "dataReloadAfterSave()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1101,7 +1101,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "viewDidAppear(_:)"
+            landmarkName = "LoadDefaultValues()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1323,7 +1323,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
-            landmarkName = "dailySmokedToText(_:limit:)"
+            landmarkName = "loadCircularLoader(_:dailyLimit:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1339,8 +1339,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "dailySmokedToText(_:limit:)"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1419,8 +1419,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "243"
             endingLineNumber = "243"
-            landmarkName = "adaptivePresentationStyle(for:)"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1435,8 +1435,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
             endingLineNumber = "142"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1467,7 +1467,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
             endingLineNumber = "150"
-            landmarkName = "viewWillAppear(_:)"
+            landmarkName = "showSecondViewController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1483,8 +1483,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "dataReloadAfterSave()"
-            landmarkType = "7">
+            landmarkName = "LightMainSceneViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1499,7 +1499,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
             endingLineNumber = "61"
-            landmarkName = "viewDidAppear(_:)"
+            landmarkName = "LoadDefaultValues()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2152,9 +2152,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "myColumnDidSelected(_:text:segueName:)"
-            landmarkType = "7">
+            endingLineNumber = "259">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3111,8 +3109,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "919"
             endingLineNumber = "919"
-            landmarkName = "SummaryViewController"
-            landmarkType = "3">
+            landmarkName = "didReceiveMemoryWarning()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3296,7 +3294,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "498147237.163904"
+                  timestampString = "499609073.84624"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3311,7 +3309,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "498147237.166766"
+                  timestampString = "499609073.848978"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3326,7 +3324,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "498147237.16886"
+                  timestampString = "499609073.851791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -3341,7 +3339,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "498147237.17103"
+                  timestampString = "499609073.85452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
