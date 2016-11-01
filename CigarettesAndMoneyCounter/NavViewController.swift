@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ENSwiftSideMenu
 
-class NavViewController: UINavigationController {
+class NavViewController:  ENSideMenuNavigationController, ENSideMenuDelegate {
 
  
     
@@ -17,6 +18,17 @@ class NavViewController: UINavigationController {
         super.viewDidLoad()
        // gradientBar()
        perpleBar()
+        //MyMenuTableViewController
+          //var menuVC:MenuViewController?
+        
+           //menuVC = storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: MyMenuTableViewController(), menuPosition:.left)
+        //sideMenu?.delegate = self //optional
+        sideMenu?.menuWidth = 135.0 // optional, default is 160
+        //sideMenu?.bouncingEnabled = false
+        //sideMenu?.allowPanGesture = false
+        // make navigation bar showing over side menu
+        view.bringSubview(toFront: navigationBar)
     }
     
     func opacityBar() {

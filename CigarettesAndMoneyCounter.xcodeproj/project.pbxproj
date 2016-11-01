@@ -17,6 +17,7 @@
 		234E42D21C81CEF600185D9C /* GlobalUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */; };
 		234E42DA1C82208C00185D9C /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E42D91C82208C00185D9C /* CircularLoaderView.swift */; };
 		235A0E061C381BF400F12DAD /* ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */; };
+		235A9C5D1DC8B6D500F90530 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A9C5C1DC8B6D500F90530 /* MyMenuTableViewController.swift */; };
 		235E256E1A56AD840050EBAA /* RowManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235E256D1A56AD840050EBAA /* RowManagerViewController.swift */; };
 		23679BC119D5664A003354C7 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC019D5664A003354C7 /* Levels.swift */; };
 		23679BC319D56707003354C7 /* TableLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679BC219D56707003354C7 /* TableLevels.swift */; };
@@ -116,6 +117,7 @@
 		234E42D11C81CEF600185D9C /* GlobalUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUIViewController.swift; sourceTree = "<group>"; };
 		234E42D91C82208C00185D9C /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
 		235A0E051C381BF400F12DAD /* ChartColorTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColorTemplates.swift; sourceTree = "<group>"; };
+		235A9C5C1DC8B6D500F90530 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
 		235E256D1A56AD840050EBAA /* RowManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowManagerViewController.swift; path = ../RowManagerViewController.swift; sourceTree = "<group>"; };
 		23679BC019D5664A003354C7 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		23679BC219D56707003354C7 /* TableLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableLevels.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */,
 				23FC50091D58F58300AA1063 /* question1ViewController.swift */,
 				2333B9A61D749CB700081466 /* ReasonsTableViewCell.swift */,
+				235A9C5C1DC8B6D500F90530 /* MyMenuTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				23802C9919CC150900387768 /* AppDelegate.swift in Sources */,
 				23FC500A1D58F58300AA1063 /* question1ViewController.swift in Sources */,
 				23A85D0D1B11657B000740F6 /* Common.swift in Sources */,
+				235A9C5D1DC8B6D500F90530 /* MyMenuTableViewController.swift in Sources */,
 				23B47C5E1BA5935900FB881F /* FirstCustomSegue.swift in Sources */,
 				23B47C5C1BA5911500FB881F /* LightMainSceneViewController.swift in Sources */,
 				239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */,

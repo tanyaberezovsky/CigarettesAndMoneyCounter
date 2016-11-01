@@ -97,10 +97,6 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         btnAdd.layer.borderColor = btnAdd.backgroundColor?.cgColor
     }
     
-    func closeAllKeyboards()
-    {
-        self.view.endEditing(true)
-    }
     
     func saveCigaretteRecordEntity() {
         if let addedCigs = Int(self.txtCigarette.text!){
@@ -190,6 +186,11 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeAllKeyboards()
+    }
+    
+    func closeAllKeyboards()
+    {
+        self.view.endEditing(true)
     }
     
     func getStringDate(_ dDate: Date)->String

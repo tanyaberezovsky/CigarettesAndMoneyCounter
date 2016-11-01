@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cp5-gu-9dN">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1524,7 +1523,9 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Calculator" id="Byz-rF-8ut"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="Byz-rF-8ut">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="drO-oC-J3y"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="ciggarets" destination="TFQ-F1-nRF" id="KKy-A7-ynt"/>
@@ -2025,7 +2026,7 @@
         <!--About-->
         <scene sceneID="TtF-Bc-8lP">
             <objects>
-                <viewController title="About" id="0iZ-vW-iwr" customClass="GlobalUIViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" title="About" id="0iZ-vW-iwr" customClass="GlobalUIViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s9D-J9-jIo"/>
                         <viewControllerLayoutGuide type="bottom" id="DJy-eh-I27"/>
@@ -2150,12 +2151,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sB7-uq-Ds8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349" y="-567"/>
+            <point key="canvasLocation" x="2713" y="-582"/>
         </scene>
         <!--Settings-->
         <scene sceneID="j1j-3N-kY4">
             <objects>
-                <viewController title="Settings" id="mbO-FQ-nFC" customClass="UserDefaultsController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDefaultsController" title="Settings" id="mbO-FQ-nFC" customClass="UserDefaultsController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vjw-MH-fKD"/>
                         <viewControllerLayoutGuide type="bottom" id="uIm-9o-6Ep"/>
@@ -3369,13 +3370,13 @@
         <!--Menu View Controller-->
         <scene sceneID="eyk-Se-OYy">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" hidesBottomBarWhenPushed="YES" id="ry5-Uy-2Ol" customClass="MenuViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="ry5-Uy-2Ol" customClass="MenuViewController" customModule="CigarettesAndMoneyCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tU8-JG-kDy"/>
                         <viewControllerLayoutGuide type="bottom" id="6zl-NQ-cDc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rEs-zg-pNL">
-                        <rect key="frame" x="0.0" y="0.0" width="120" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW7-4R-e2z">
@@ -3467,14 +3468,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="120" height="130"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="120" height="130"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3t-ds-Ahd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612.5" y="-251"/>
+            <point key="canvasLocation" x="1908" y="-637"/>
         </scene>
         <!--Smokie Stopie-->
         <scene sceneID="usj-4f-7jo">
@@ -3839,6 +3836,6 @@
         <image name="smallArrow" width="14" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xxV-5h-86p"/>
+        <segue reference="WUR-5J-QbY"/>
     </inferredMetricsTieBreakers>
 </document>

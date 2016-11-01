@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import  ENSwiftSideMenu
 
-
-class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate {
+class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate, ENSideMenuDelegate {
     @IBOutlet weak var reason: UIButton!
     
     @IBOutlet var averageCost: UITextField!
@@ -28,6 +28,8 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     var myDelegate:UserDefaultsControllerDelegate? = nil
     
     override func viewDidLoad() {
+        self.sideMenuController()?.sideMenu?.delegate = self
+        
         loadGraphicsSettings()
         LoadDefaultValues()
         

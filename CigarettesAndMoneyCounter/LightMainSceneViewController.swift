@@ -11,8 +11,9 @@ import CoreData
 import ENSwiftSideMenu
 
 @IBDesignable
-class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate {
+class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate, ENSideMenuDelegate {
 
+    
     @IBOutlet weak var txtLastCig: UILabel!
     
     @IBOutlet weak var circularLoader: CircularLoaderView!
@@ -22,17 +23,26 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
     fileprivate let defaults = UserDefaultsDataController()
+//    var menu:ENSideMenu?
+
+  //  var menuVC:MenuViewController?
+    
     
     override func viewDidLoad() {
         showQuestion1(defaults.loadUserDefaults())
             
         super.viewDidLoad()
+        
          let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
  
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
-       }
+        //   menuVC = storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+      //  menu = ENSideMenu(sourceView: self.view, menuViewController: menuVC!, menuPosition:.left)
+        self.sideMenuController()?.sideMenu?.delegate = self
+
+    }
     
     @IBAction func addCigarettes(_ sender: AnyObject) {
    
@@ -41,13 +51,26 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     //MARK: menu pizza clik
     @IBAction func MenuClick(_ sender: UIBarButtonItem) {
-        let menuVC = storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        toggleSideMenuView()
+     /*   // show the navigation bar over the side menu view
+       // self.view.insertSubview((menuVC?.view)!, aboveSubview: self.view)
+      //  self.navigationController?.view.sendSubview(toBack: self.view)
+      //  view.sendSubview(toBack: self.addSmoke)
+      //  menuVC?.view.sendSubview(toBack: self.view)// .bringSubview(toback: self.view)
+        menuVC?.view.bringSubview(toFront: self.addSmoke)
+        menu!.toggleMenu()
         
-       let menu = ENSideMenu(sourceView: self.view, menuViewController: menuVC, menuPosition:.left)
-        // show the navigation bar over the side menu view
-        menu.showSideMenu()
+        //view.bringSubview(toFront: (self.menuVC?.view)!)
+     //view.sendSubview(toBack: self.view)
+        //self.bringSubviewToFront(self.grandchildview.superview!)
+        //self.grandchildview.superview!.bringSubviewToFront(self.grandchildview)
         
-        view.bringSubview(toFront: (self.navigationController?.view)!)
+        view.bringSubview(toFront: (self.navigationController?.view)!)*/
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       // menu!.hideSideMenu()
+        hideSideMenuView()
     }
     
     
@@ -164,6 +187,8 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        hideSideMenuView()
+        
         if segue.identifier == "showMenu" {
             let popOverVC = segue.destination
             popOverVC.modalPresentationStyle = UIModalPresentationStyle.popover

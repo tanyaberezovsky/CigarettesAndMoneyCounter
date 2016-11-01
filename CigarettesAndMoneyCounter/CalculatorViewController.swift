@@ -8,8 +8,9 @@
 // google: shir
 
 import UIKit
+import ENSwiftSideMenu
 
-class CalculatorViewController: GlobalUIViewController {
+class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
 
     @IBOutlet weak var ciggarets: UITextField!
     @IBOutlet weak var packCost: UITextField!
@@ -92,6 +93,9 @@ class CalculatorViewController: GlobalUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //Move next line to viewWillAppear functon if you store your view controllers
+        self.sideMenuController()?.sideMenu?.delegate = self
+        
        _ = calc.propertyChanged.addHandler(self, handler: CalculatorViewController.onPropertyChanged)
         loadGraphicsSettings()
         
