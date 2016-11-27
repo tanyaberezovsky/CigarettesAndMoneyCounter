@@ -100,6 +100,27 @@ open class ColorTemplates{
         ]
     }
     
+    
+    open class func chartPieLevelsColors() -> [UIColor]
+    {
+        return [
+            /*
+             lvl0 = 819DC0          ,
+             lvl1 = A4B690  +        ,6D8784
+             lvl2 = F8C892/F5A445   ,E6BF62 +
+             lvl3 = E76C7E +         ,E96266
+             */
+            
+            UIColor(red: 129/255, green: 157/255, blue: 192/255, alpha: 1),
+            UIColor(red: 164/255, green: 182/255, blue: 144/255, alpha: 1),
+            UIColor(red: 230/255, green: 191/255, blue: 98/255, alpha: 1),
+            UIColor(red: 231/255, green: 108/255, blue: 126/255, alpha: 1)
+            
+        ]
+        
+    }
+    
+    
     open  class func purpleGrayCGColor() -> [CGColor]
     {
         //optimized

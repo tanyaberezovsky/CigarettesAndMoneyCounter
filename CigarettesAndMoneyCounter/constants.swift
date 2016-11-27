@@ -38,9 +38,6 @@ struct UIColors{
         static  let green = UIColor(r: 41 ,g: 215,b: 134, alpha: 1)
     }
     
-    
-    
-
 }
 
 struct Constants{

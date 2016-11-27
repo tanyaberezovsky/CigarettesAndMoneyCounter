@@ -70,8 +70,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
+    
+    
         initBarChartUI()
         initHorizontalChartUI()
         initPieChartUI()
@@ -161,7 +161,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         pieChart.chartDescription?.textColor = UIColor.white
         pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14.0)
         pieChart.chartDescription?.yOffset = -10
-        pieChart.chartDescription?.xOffset = 165
+        pieChart.chartDescription?.xOffset = 0
+        
         //pieChart.chartDescription?.position
         pieChart.noDataText = "you don't spend at this period"
         pieChart.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 10)//View setExtraOffsetsWithLeft:30 top:0 right:30 bottom:0
@@ -185,10 +186,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         pieChart.isHidden = true
         pieChart.holeRadiusPercent = 0.7
         //   pieChart.drawHoleEnabled = false
-        
-        
-        
-    }
+     }
 
     
     @IBAction func graphTypeChanged(_ sender: UISegmentedControl) {
@@ -512,7 +510,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         
         pieChartDataSet.valueLinePart1OffsetPercentage = 0.85
-        pieChartDataSet.valueLinePart1Length = 0.3
+        pieChartDataSet.valueLinePart1Length = 0.2
         pieChartDataSet.valueLinePart2Length = 0.1
         pieChartDataSet.valueLineWidth = 1
         pieChartDataSet.valueLineColor = UIColor.white

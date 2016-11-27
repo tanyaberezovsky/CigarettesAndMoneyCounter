@@ -50,6 +50,7 @@
 		23EDCD5E1B9076E500F96F4A /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5D1B9076E500F96F4A /* constants.swift */; };
 		23EDCD601B90782300F96F4A /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5F1B90782300F96F4A /* RGB.swift */; };
 		23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */; };
+		23F262E81DEB31DF00F5F763 /* LevelsPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F262E71DEB31DF00F5F763 /* LevelsPieChartView.swift */; };
 		23F97BDC1C0873FA00A10596 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */; };
 		23FC500A1D58F58300AA1063 /* question1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC50091D58F58300AA1063 /* question1ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -153,6 +154,7 @@
 		23EDCD5D1B9076E500F96F4A /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		23EDCD5F1B90782300F96F4A /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecordManager.swift; sourceTree = "<group>"; };
+		23F262E71DEB31DF00F5F763 /* LevelsPieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsPieChartView.swift; sourceTree = "<group>"; };
 		23F97BDB1C0873FA00A10596 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		23FC50091D58F58300AA1063 /* question1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = question1ViewController.swift; sourceTree = "<group>"; };
 		4F7688D8294720F9BFE5F862 /* Pods-CigarettesAndMoneyCounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarettesAndMoneyCounter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CigarettesAndMoneyCounter/Pods-CigarettesAndMoneyCounter.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				2378D5A01DABA85F0036DC9B /* BarChartFormatter.swift */,
 				2378D5A21DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift */,
+				23F262E71DEB31DF00F5F763 /* LevelsPieChartView.swift */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EDCD601B90782300F96F4A /* RGB.swift in Sources */,
+				23F262E81DEB31DF00F5F763 /* LevelsPieChartView.swift in Sources */,
 				23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */,
 				23802CBA19CDBD2600387768 /* UserDefaultsDataController.swift in Sources */,
 				2333B9A31D71C82A00081466 /* Reasons.swift in Sources */,
