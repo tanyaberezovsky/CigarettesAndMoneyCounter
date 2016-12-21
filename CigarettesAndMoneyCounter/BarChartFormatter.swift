@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import Charts
 
-var LevelsDescription: [String]! = ["            Level 0", "Level 1", "Level 2", "Level 3  "]
+var LevelsDescription: [String]! = ["Level0 - Lowest", "Level1", "Level2", "Level3 - Highest"]
 
 
 @objc(BarChartFormatter)
