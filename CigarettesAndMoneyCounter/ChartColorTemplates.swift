@@ -15,7 +15,7 @@ open class ColorTemplates{
     open class func chartPieColors() -> [UIColor]
     {
         return [
-            //green
+            //green 152,235, 196
             UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0),
             //yellow
             UIColor(red: 233/255.0, green: 235/255.0, blue: 152/255.0, alpha: 1.0),
@@ -104,13 +104,19 @@ open class ColorTemplates{
     open class func chartPieLevelsColors() -> [UIColor]
     {
         return [
-            /*
-             lvl0 = 819DC0          ,
-             lvl1 = A4B690  +        ,6D8784
-             lvl2 = F8C892/F5A445   ,E6BF62 +
-             lvl3 = E76C7E +         ,E96266
-             */
-            
+            //blue
+            UIColor(red: 152/255.0, green: 191/255.0, blue: 235/255.0, alpha: 1.0),
+            //green 152,235, 196
+            UIColor(red: 152/255.0, green: 235/255.0, blue: 196/255.0, alpha: 1.0),
+            //yellow
+           // UIColor(red: 233/255.0, green: 235/255.0, blue: 152/255.0, alpha: 1.0),
+            //orange
+            UIColor(red: 235/255.0, green: 196/255.0, blue: 152/255.0, alpha: 1.0),
+            //purple
+            //UIColor(red: 196/255.0, green: 152/255.0, blue: 235/255.0, alpha: 1.0),
+            //red
+            UIColor(red: 235/255.0, green: 155/255.0, blue: 152/255.0, alpha: 1.0),
+       //old colors
             UIColor(red: 129/255, green: 157/255, blue: 192/255, alpha: 1),
             UIColor(red: 164/255, green: 182/255, blue: 144/255, alpha: 1),
             UIColor(red: 230/255, green: 191/255, blue: 98/255, alpha: 1),

@@ -209,7 +209,7 @@ class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
         
-        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+        let userDefaults:UserDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
         
        calc.totalCiggarets = Double(userDefaults.dailyGoal)
     

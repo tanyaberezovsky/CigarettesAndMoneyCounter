@@ -35,6 +35,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
 {
    // @IBOutlet weak var barChartView: HorizontalBarChartView!
 
+    fileprivate let userDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
+    
     var currentSegmentDateType  = Constants.SegmentDateType.month
     
     var datePickerView  : UIDatePicker = UIDatePicker()
@@ -48,7 +50,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     @IBOutlet weak var cost: UILabel!
     
     @IBOutlet weak var pieChart: PieChartView!
-    @IBOutlet weak var horizontChart: HorizontalBarChartView!
+    @IBOutlet weak var horizontChart: BarChartView!// HorizontalBarChartView!
    
     @IBOutlet weak var segmentDateType: UISegmentedControl!
     @IBOutlet weak var selectedDate: UITextField!
@@ -149,6 +151,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         horizontChart.leftAxis.labelTextColor = UIColor.white
         
+        horizontChart.xAxis.labelRotationAngle = 60
+        
         horizontChart.leftAxis.axisLineColor = UIColor.white
         horizontChart.leftAxis.drawGridLinesEnabled = false
         horizontChart.rightAxis.drawGridLinesEnabled = false
@@ -157,12 +161,14 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         horizontChart.isHidden = true
         
     }
+    
+    
     //MARK: INIT PIE
     func initPieChartUI()
     {
         pieChart.chartDescription?.text = "Reasons Analysis"
         pieChart.chartDescription?.textColor = UIColor.white
-        pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14.0)
+        pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: 0.1)
         pieChart.chartDescription?.yOffset = -10
         pieChart.chartDescription?.xOffset = 0
         
@@ -449,6 +455,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         let cigRecord = CigaretteRecordManager()
         
         let fieldName = "reason"
+        print("fromDate = \(curentDate)")
+        print("toDate = \(toDate)")
         let arrReason2:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName)
         
         
@@ -535,7 +543,6 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         pieChart.data = pieChartData
         
-        
     }
 
     //MARK: Levels chart show
@@ -547,8 +554,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         var arrReason:NSArray = cigRecord.calculateGraphDataByFieldName(curentDate, toDate: toDate, fieldName: fieldName, orderByField: fieldName)
         
-        var dataPointsEnjoy: [String]! = LevelsDescription
-        var dataPointsNeed: [String]! = LevelsDescription
+        let dataPointsEnjoy: [String]! = LevelsDescription
+        let dataPointsNeed: [String]! = LevelsDescription
         var sumOfCigsEnjoy = [Double]()
         var sumOfCigsNeed = [Double]()
         
@@ -566,7 +573,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 }
             }
             if(sumOfCigsEnjoy.count <= j ){
-                sumOfCigsEnjoy.append(0.3)
+                sumOfCigsEnjoy.append(0.00000001)
             }
        //     dataPointsEnjoy[j] = "\(Int(sumOfCigsEnjoy[j])) - \(dataPointsEnjoy[j])"
         }
@@ -588,7 +595,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 }
             }
             if(sumOfCigsNeed.count <= k){
-                sumOfCigsNeed.append(0.3)
+                sumOfCigsNeed.append(0.00000001)
             }
             //dataPointsNeed[k] = "\(Int(sumOfCigsNeed[k])) - \(dataPointsNeed[k])"
             
@@ -601,22 +608,23 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         self.view.addSubview(lvlChart1)
     //    lvlChart1.bounds = barChart.bounds
-        lvlChart1.frame =   pieChart.frame
-        lvlChart1.frame.size = CGSize(width: pieChart.frame.width-(pieChart.frame.width*0.6), height: pieChart.frame.height)
+        let height = pieChart.frame.height - 3;
+        lvlChart1.frame =  pieChart.frame
+        lvlChart1.frame.size = CGSize(width: pieChart.frame.width-(pieChart.frame.width*0.5), height: height)
         
         
         lvlChart2.setChart(dataPoints: dataPointsNeed, values: sumOfCigsNeed, description: "Needed Analysis")
-        lvlChart2.legend.enabled = false
+       // lvlChart2.legend.enabled = false
         
         self.view.addSubview(lvlChart2)
     //    lvlChart2.bounds = barChart.bounds
-        lvlChart2.frame  = CGRect(x: pieChart.frame.origin.x + pieChart.frame.width/2, y: pieChart.frame.origin.y, width: pieChart.frame.width-(pieChart.frame.width*0.6), height: pieChart.frame.height)  //  levelsView.frame
+        lvlChart2.frame  = CGRect(x: pieChart.frame.origin.x + pieChart.frame.width/2, y: pieChart.frame.origin.y, width: pieChart.frame.width-(pieChart.frame.width*0.5), height: height)  //  levelsView.frame
         
         
     }
     
     
-    
+    //MAKR: calculate And Drow HorizontalChart
     func   calculateAndDrowHorizontalChart()
     {
         switch(currentSegmentDateType){
@@ -629,9 +637,9 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         default:
             return
         }
-    
     }
     
+    //MARK: calculate And Drow HorizontalChartByDay
     func   calculateAndDrowHorizontalChartByDay()
     {
         
@@ -658,7 +666,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         var evens = [Int]()
         
-        for (_,i) in (0...23).reversed().enumerated() {
+        for (_,i) in (0...22).reversed().enumerated() {
             evens.append(i)
             dataStringStart = String(format: "%d-%d-%d %d:00", components.month!, components.day! ,components.year!, i)
             dateValueStart = dateFormatterStart.date(from: dataStringStart)
@@ -667,7 +675,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
                 continue
             }
             
-            dataStringEnd = String(format: "%d-%d-%d %d:59", components.month!, components.day! ,components.year!, i)
+            dataStringEnd = String(format: "%d-%d-%d %d:00", components.month!, components.day! ,components.year!, i+1)
             dateValueEnd = dateFormatterStart.date(from: dataStringEnd)
             monthSymbol = String(format: "%d:00", i)
             
@@ -695,7 +703,8 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         setHorizontalChartData(sumOfCigs, xVals: description)
 
-        
+        horizontChart.rightAxis.removeAllLimitLines()
+    
     }
     
     func setLabelCount(_ val:Double){
@@ -780,6 +789,13 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         setHorizontalChartData(sumOfCigs, xVals: description)
         
+        let ll = ChartLimitLine(limit: Double(userDefaults.dailyGoal), label: "Limit")
+        ll.valueTextColor = UIColor.white
+        ll.lineColor = UIColor.orange
+        horizontChart.rightAxis.removeAllLimitLines()
+        horizontChart.rightAxis.addLimitLine(ll)
+        
+        
     }
     
 
@@ -855,7 +871,12 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         
         setHorizontalChartData(sumOfCigs, xVals: description)
- 
+        
+        let ll = ChartLimitLine(limit: Double(userDefaults.dailyGoal) * 30, label: "Limit")
+        ll.valueTextColor = UIColor.white
+        ll.lineColor = UIColor.orange
+        horizontChart.rightAxis.removeAllLimitLines()
+        horizontChart.rightAxis.addLimitLine(ll)
     }
     
 //    func setMaxMilAxisElementBarChart( _ values: [Double], values2: [Double])

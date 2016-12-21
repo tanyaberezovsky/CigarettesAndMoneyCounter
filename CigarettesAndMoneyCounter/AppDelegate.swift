@@ -16,11 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
    
-    fileprivate let defaults = UserDefaultsDataController()
+    //fileprivate let defaults = UserDefaultsDataController()
+    fileprivate let defaults:UserDefaultsDataController  = UserDefaultsDataController.sharedInstance
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         let directories = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
         if let documentDirectory = directories.first {
             do {

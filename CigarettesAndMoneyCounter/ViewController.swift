@@ -132,7 +132,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         task.reason = reasonText
       
         
-        let defaults = UserDefaultsDataController()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
         let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         task.cost = userDefaults.averageCostOfOneCigarett * Double(task.cigarettes)
@@ -232,7 +232,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let defaults = UserDefaultsDataController()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
         let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         dailyCost.text = "0"

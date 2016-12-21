@@ -16,7 +16,7 @@ class CigaretteRecordManager {
  
     
     func saveCigaretteRecordEntity(_ levelOfEnjoyment:Int, levelAsNeeded:Int, reason:String) {
-        let defaults = UserDefaultsDataController()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
     
         let userDefaults:UserDefaults = defaults.loadUserDefaults()
         

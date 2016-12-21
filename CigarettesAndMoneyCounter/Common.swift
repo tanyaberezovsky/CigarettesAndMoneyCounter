@@ -121,7 +121,8 @@ public func cigarettesToPackDescription(_ cigs: Int, sufix: String) -> String
 { 
 
     var ret = sufix
-    let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+    let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
+    let userDefaults:UserDefaults = defaults.loadUserDefaults()
     
     let cigsInPack = userDefaults.amountOfCigarettsInOnePack
         

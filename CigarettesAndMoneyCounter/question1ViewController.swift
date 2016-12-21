@@ -107,7 +107,8 @@ class question1ViewController: GlobalUIViewController
     
     func loadDailyLimit() {
         
-        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         smokedPerDay.text!  = String( userDefaults.dailyGoal)
         
@@ -118,7 +119,7 @@ class question1ViewController: GlobalUIViewController
     func saveDailyLimit() {
         if let cigLimit:Int = Int( smokedPerDay.text! ){
         
-        let defaults = UserDefaultsDataController()
+        let defaults = UserDefaultsDataController.sharedInstance
         let userDefaults:UserDefaults = defaults.loadUserDefaults()
             
                 userDefaults.dailyGoal = cigLimit

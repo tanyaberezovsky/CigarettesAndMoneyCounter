@@ -84,9 +84,12 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
 
     
     func SaveDafaultsTouch() {
-        let defaults = UserDefaultsDataController()
+      
+       // let userDefaults:UserDefaults = defaults.loadUserDefaults()
+        let defaults = UserDefaultsDataController.sharedInstance
         
-        let userDefaults:UserDefaults = defaults.loadUserDefaults()
+        let userDefaults:UserDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
+  
         
             if isNumeric(averageCost.text!){
                 userDefaults.averageCostOfOnePack = averageCost.text!.toDouble()!
@@ -198,7 +201,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let defaults = UserDefaultsDataController()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
         let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         averageCost.text = decimalFormatToCurency(userDefaults.averageCostOfOnePack)

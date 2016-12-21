@@ -22,7 +22,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
-    fileprivate let defaults = UserDefaultsDataController()
+    fileprivate let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
 //    var menu:ENSideMenu?
 
   //  var menuVC:MenuViewController?
@@ -92,7 +92,8 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+       // let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
+        let userDefaults:UserDefaults = defaults.loadUserDefaults()
         
         var todaySmoked = 0
 

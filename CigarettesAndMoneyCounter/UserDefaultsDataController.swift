@@ -31,10 +31,13 @@ class UserDefaults{
 }
 
 class UserDefaultsDataController{
-    
-    class func newInstance() -> UserDefaultsDataController {
-        return UserDefaultsDataController();
-    }
+
+    static let sharedInstance = UserDefaultsDataController()
+    private init() {} //This prevents others from using the default '()' initializer for this class.
+
+    //    class func newInstance() -> UserDefaultsDataController {
+//        return UserDefaultsDataController();
+//    }
   
     //++++++++++++++++++++++++++++++++++++
     //  will save user defaults

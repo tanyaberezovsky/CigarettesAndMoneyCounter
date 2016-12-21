@@ -44,7 +44,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
     
     func createControls()
     {
-        let defaults = UserDefaultsDataController()
+        let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
         let userDefaults = defaults.loadUserDefaults()
         averageCostOfOneCigarette = userDefaults.averageCostOfOnePack / Double( userDefaults.amountOfCigarettsInOnePack)
       

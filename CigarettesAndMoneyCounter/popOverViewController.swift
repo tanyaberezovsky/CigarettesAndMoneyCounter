@@ -71,7 +71,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
     //  Load Default Values from controller
     //++++++++++++++++++++++++++++++++++++
     func LoadDefaultValues(){
-        let userDefaults:UserDefaults = UserDefaultsDataController().loadUserDefaults()
+        let userDefaults:UserDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
         
         levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
         
