@@ -2378,12 +2378,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "504027027.254783"
+                  timestampString = "504391630.196045"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "9">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2393,12 +2393,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "504027027.258198"
+                  timestampString = "504391630.199906"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "9">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2408,12 +2408,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "504027027.260337"
+                  timestampString = "504391630.204555"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "27">
+                  offsetFromSymbolStart = "32">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2423,12 +2423,12 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "504027027.262705"
+                  timestampString = "504391630.207931"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "3">
                </Location>
             </Locations>
          </BreakpointContent>
