@@ -210,7 +210,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         levelOfEnjoy.selectedSegmentIndex = userDefaults.levelOfEnjoyment
         
-        
+        amountOfCigarettsInOnePack.text = String( userDefaults.amountOfCigarettsInOnePack)
         levelAsNeeded.selectedSegmentIndex = userDefaults.levelAsNeeded 
     
         

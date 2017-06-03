@@ -23,9 +23,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     @IBOutlet weak var dailySmokedCigs: UILabel!
     
     fileprivate let defaults:UserDefaultsDataController = UserDefaultsDataController.sharedInstance
-//    var menu:ENSideMenu?
-
-  //  var menuVC:MenuViewController?
     
     
     override func viewDidLoad() {
@@ -38,8 +35,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
-        //   menuVC = storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
-      //  menu = ENSideMenu(sourceView: self.view, menuViewController: menuVC!, menuPosition:.left)
         self.sideMenuController()?.sideMenu?.delegate = self
 
     }
@@ -52,20 +47,6 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     //MARK: menu pizza clik
     @IBAction func MenuClick(_ sender: UIBarButtonItem) {
         toggleSideMenuView()
-     /*   // show the navigation bar over the side menu view
-       // self.view.insertSubview((menuVC?.view)!, aboveSubview: self.view)
-      //  self.navigationController?.view.sendSubview(toBack: self.view)
-      //  view.sendSubview(toBack: self.addSmoke)
-      //  menuVC?.view.sendSubview(toBack: self.view)// .bringSubview(toback: self.view)
-        menuVC?.view.bringSubview(toFront: self.addSmoke)
-        menu!.toggleMenu()
-        
-        //view.bringSubview(toFront: (self.menuVC?.view)!)
-     //view.sendSubview(toBack: self.view)
-        //self.bringSubviewToFront(self.grandchildview.superview!)
-        //self.grandchildview.superview!.bringSubviewToFront(self.grandchildview)
-        
-        view.bringSubview(toFront: (self.navigationController?.view)!)*/
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -45,8 +45,6 @@
 		23E0285F1B4857E9009FA6D6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0285E1B4857E9009FA6D6 /* NavViewController.swift */; };
 		23E26ACA1C9F304900D87E8E /* btn_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E26AC81C9F304900D87E8E /* btn_plus.png */; };
 		23E26ACB1C9F304900D87E8E /* ic_swipup.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E26AC91C9F304900D87E8E /* ic_swipup.png */; };
-		23EACC2F1DC7E09F00BBE9E5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D406261DA538D100DCC33A /* Charts.framework */; };
-		23EACC301DC7E09F00BBE9E5 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23D406261DA538D100DCC33A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23EDCD5E1B9076E500F96F4A /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5D1B9076E500F96F4A /* constants.swift */; };
 		23EDCD601B90782300F96F4A /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCD5F1B90782300F96F4A /* RGB.swift */; };
 		23EF88D51BEA904E006C4EB3 /* CigaretteRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF88D41BEA904E006C4EB3 /* CigaretteRecordManager.swift */; };
@@ -63,49 +61,7 @@
 			remoteGlobalIDString = 23802C9219CC150900387768;
 			remoteInfo = CigarettesAndMoneyCounter;
 		};
-		23D406251DA538D100DCC33A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23D4061F1DA538D000DCC33A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F241D8110E600722320;
-			remoteInfo = Charts;
-		};
-		23D406271DA538D100DCC33A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23D4061F1DA538D000DCC33A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06B120D51D811E6200D14B02;
-			remoteInfo = ChartsRealm;
-		};
-		23D406291DA538D100DCC33A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23D4061F1DA538D000DCC33A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F2E1D8110E600722320;
-			remoteInfo = ChartsTests;
-		};
-		23EACC311DC7E09F00BBE9E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23D4061F1DA538D000DCC33A /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 06165F231D8110E600722320;
-			remoteInfo = Charts;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		23EACC331DC7E09F00BBE9E5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				23EACC301DC7E09F00BBE9E5 /* Charts.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		231DD8071D3EB79500E46B09 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -147,7 +103,6 @@
 		23B46BE619E6DE5600CA8984 /* UserDefaultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		23B47C5B1BA5911500FB881F /* LightMainSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightMainSceneViewController.swift; sourceTree = "<group>"; };
 		23B47C5D1BA5935900FB881F /* FirstCustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstCustomSegue.swift; path = Segues/FirstCustomSegue.swift; sourceTree = "<group>"; };
-		23D4061F1DA538D000DCC33A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		23E0285E1B4857E9009FA6D6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		23E26AC81C9F304900D87E8E /* btn_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_plus.png; sourceTree = "<group>"; };
 		23E26AC91C9F304900D87E8E /* ic_swipup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_swipup.png; sourceTree = "<group>"; };
@@ -168,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B26602689E0380255C304A /* Pods_CigarettesAndMoneyCounter.framework in Frameworks */,
-				23EACC2F1DC7E09F00BBE9E5 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +157,7 @@
 		2333B99E1D719CEB00081466 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				23802C9C19CC150900387768 /* Main.storyboard */,
 				238798721CAE9D6100131663 /* layoutSubviewsButtonArrow.swift */,
 				2321B1871CA536F6003F8D35 /* layoutSubviewsButton.swift */,
 				234E42D61C82206500185D9C /* CircularLoader */,
@@ -295,7 +250,6 @@
 		23802C9519CC150900387768 /* CigarettesAndMoneyCounter */ = {
 			isa = PBXGroup;
 			children = (
-				23D4061F1DA538D000DCC33A /* Charts.xcodeproj */,
 				2333B99F1D719D3100081466 /* Models */,
 				2333B99E1D719CEB00081466 /* Views */,
 				2333B99D1D71931600081466 /* UserDefaults */,
@@ -307,7 +261,6 @@
 				233A38A11A34E26A00661CDD /* Extantion */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
 				23A85D0C1B11657B000740F6 /* Common.swift */,
-				23802C9C19CC150900387768 /* Main.storyboard */,
 				23802C9F19CC150900387768 /* Images.xcassets */,
 				23802CA119CC150900387768 /* LaunchScreen.xib */,
 				23802C9619CC150900387768 /* Supporting Files */,
@@ -378,16 +331,6 @@
 			name = Segues;
 			sourceTree = "<group>";
 		};
-		23D406201DA538D000DCC33A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				23D406261DA538D100DCC33A /* Charts.framework */,
-				23D406281DA538D100DCC33A /* ChartsRealm.framework */,
-				23D4062A1DA538D100DCC33A /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		23ED1A7C1B3ED1810034F8A2 /* FetchResults */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,12 +381,11 @@
 				23802C9119CC150900387768 /* Resources */,
 				963BEFA42D31BC3799365629 /* [CP] Embed Pods Frameworks */,
 				9EAA4E0CD6B7590D8BDEC6B2 /* [CP] Copy Pods Resources */,
-				23EACC331DC7E09F00BBE9E5 /* Embed Frameworks */,
+				23A2452F1EDDA05900E3A3E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				23EACC321DC7E09F00BBE9E5 /* PBXTargetDependency */,
 			);
 			name = CigarettesAndMoneyCounter;
 			productName = CigarettesAndMoneyCounter;
@@ -502,12 +444,6 @@
 			mainGroup = 23802C8A19CC150900387768;
 			productRefGroup = 23802C9419CC150900387768 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 23D406201DA538D000DCC33A /* Products */;
-					ProjectRef = 23D4061F1DA538D000DCC33A /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				23802C9219CC150900387768 /* CigarettesAndMoneyCounter */,
@@ -515,30 +451,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		23D406261DA538D100DCC33A /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 23D406251DA538D100DCC33A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		23D406281DA538D100DCC33A /* ChartsRealm.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ChartsRealm.framework;
-			remoteRef = 23D406271DA538D100DCC33A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		23D4062A1DA538D100DCC33A /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 23D406291DA538D100DCC33A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23802C9119CC150900387768 /* Resources */ = {
@@ -564,6 +476,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		23A2452F1EDDA05900E3A3E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a3ff416515082c8987a11071e39ed8df72df43b2 fbcd4c28f6ebe5c5676cc2632e6cdfa90affc098854319c0bfcd5b7d9960befc";
+		};
 		671F24D61B80C235EBA9F178 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,7 +501,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		963BEFA42D31BC3799365629 /* [CP] Embed Pods Frameworks */ = {
@@ -670,11 +595,6 @@
 			isa = PBXTargetDependency;
 			target = 23802C9219CC150900387768 /* CigarettesAndMoneyCounter */;
 			targetProxy = 23802CA919CC150900387768 /* PBXContainerItemProxy */;
-		};
-		23EACC321DC7E09F00BBE9E5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = 23EACC311DC7E09F00BBE9E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -789,7 +709,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2C035D806C75D0DB9BCB81C /* Pods-CigarettesAndMoneyCounter.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: cokacolata@gmail.com (FBXE88PM82)";
@@ -809,7 +728,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F7688D8294720F9BFE5F862 /* Pods-CigarettesAndMoneyCounter.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tatiana Berezovsky (HS2EBXX3A9)";
