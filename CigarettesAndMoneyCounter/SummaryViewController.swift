@@ -9,6 +9,9 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
+import Charts
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -29,12 +32,12 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-import Charts
 
 class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPickerViewDelegate, NSFetchedResultsControllerDelegate
 {
    // @IBOutlet weak var barChartView: HorizontalBarChartView!
 
+    @IBOutlet weak var adView: UIView!
     fileprivate let userDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
     
     var currentSegmentDateType  = Constants.SegmentDateType.month
