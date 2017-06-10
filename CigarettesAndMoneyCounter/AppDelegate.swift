@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //admob - Use Firebase library to configure APIs.
         FirebaseApp.configure()
         // Initialize the Google Mobile Ads SDK.
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-3657971113705104~2831849870")
+        GADMobileAds.configure(withApplicationID: Keys.adMob.applicationID)
 
         let directories = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
         if let documentDirectory = directories.first {

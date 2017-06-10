@@ -8,6 +8,7 @@
 
 import UIKit
 import  ENSwiftSideMenu
+import GoogleMobileAds
 
 class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate, ENSideMenuDelegate {
     @IBOutlet weak var reason: UIButton!
@@ -18,6 +19,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     var reasonText:String!
     var tempValue:String!
     
+    @IBOutlet weak var adBannerView: GADBannerView!
 
     @IBOutlet weak var levelOfEnjoy: UISegmentedControl!
     @IBOutlet weak var amountOfCigarettsInOnePack: UITextField!
@@ -29,12 +31,18 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     
     override func viewDidLoad() {
         self.sideMenuController()?.sideMenu?.delegate = self
-        
+        initAd()
         loadGraphicsSettings()
         LoadDefaultValues()
         
         gradientBackgroundRegular()
-        
+    }
+    
+    func initAd(){
+        adBannerView.adUnitID = Keys.adMob.unitID
+        adBannerView.rootViewController = self
+        //request the ad
+        adBannerView.load(GADRequest())
     }
     
     override func gradientBackgroundRegular() {

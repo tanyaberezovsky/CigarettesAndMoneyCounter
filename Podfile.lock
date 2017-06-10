@@ -31,6 +31,7 @@ DEPENDENCIES:
   - ENSwiftSideMenu
   - Fabric
   - Firebase/AdMob
+  - Firebase/Core
 
 SPEC CHECKSUMS:
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
@@ -44,6 +45,6 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
 
-PODFILE CHECKSUM: c7b78146498fb72781450384202f9632ddf5f2e5
+PODFILE CHECKSUM: 78b4859beb5f711ca4b3bf29e8fc7cc84bdab458
 
 COCOAPODS: 1.2.0

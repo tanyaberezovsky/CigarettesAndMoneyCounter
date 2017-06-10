@@ -41,7 +41,7 @@ struct UIColors{
 }
 
 struct Constants{
-
+   
     struct SegmentDateType
     {
         static let day = "day"

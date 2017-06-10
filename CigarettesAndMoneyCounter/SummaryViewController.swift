@@ -35,9 +35,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPickerViewDelegate, NSFetchedResultsControllerDelegate
 {
-   // @IBOutlet weak var barChartView: HorizontalBarChartView!
-
-    @IBOutlet weak var adView: UIView!
+    @IBOutlet weak var adBannerView: GADBannerView!
     fileprivate let userDefaults = UserDefaultsDataController.sharedInstance.loadUserDefaults()
     
     var currentSegmentDateType  = Constants.SegmentDateType.month
@@ -79,8 +77,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     override func viewDidLoad() {
         super.viewDidLoad()
     
-    
-       // initBarChartUI()
+        initAd()
         initHorizontalChartUI()
         initPieChartUI()
         createYearArr()
@@ -88,45 +85,12 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
 
     }
     
-//    func initBarChartUI()
-//    {
-//        barChart.chartDescription?.text = ""
-//        barChart.backgroundColor = UIColor.clear
-//        barChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
-//        
-//        barChart.xAxis.drawGridLinesEnabled = false
-//        barChart.gridBackgroundColor = UIColor.clear
-//        
-//        barChart.legend.verticalAlignment = Legend.VerticalAlignment.top
-//        barChart.legend.orientation = Legend.Orientation.horizontal
-//        barChart.legend.direction = Legend.Direction.leftToRight
-//        
-//        barChart.legend.textColor = UIColor.white
-//        
-//        barChart.xAxis.labelTextColor = UIColor.white
-//        barChart.xAxis.granularity = 1
-//      //try to centralized
-////      barChart.xAxis.labelCount = 4  
-////        barChart.xAxis.forceLabelsEnabled = true
-////        barChart.xAxis.entries = [3]
-////        
-////        barChart.xAxis.centeredEntries = [3]
-////       barChart.xAxis.centerAxisLabelsEnabled = true
-////    //end try to centralized
-//        
-//        barChart.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
-//        barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
-//        
-//        barChart.leftAxis.axisMinimum = 0
-//        barChart.leftAxis.labelTextColor = UIColor.white
-//        barChart.leftAxis.drawGridLinesEnabled = false
-//        barChart.rightAxis.drawGridLinesEnabled = false
-//        barChart.rightAxis.drawAxisLineEnabled = false
-//        barChart.rightAxis.drawLabelsEnabled = false
-//        barChart.pinchZoomEnabled = false
-//        
-//    }
-//    
+    func initAd(){
+        adBannerView.adUnitID = Keys.adMob.unitID
+        adBannerView.rootViewController = self
+        //request the ad
+        adBannerView.load(GADRequest())
+    }
     
     func initHorizontalChartUI()
     {

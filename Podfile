@@ -9,6 +9,7 @@ target 'CigarettesAndMoneyCounter' do
     use_frameworks!
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'Firebase/Core'
     pod 'Firebase/AdMob'
 end
 

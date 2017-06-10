@@ -382,11 +382,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1204"
-            endingLineNumber = "1204">
+            startingLineNumber = "1168"
+            endingLineNumber = "1168">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -396,11 +396,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1238"
-            endingLineNumber = "1238">
+            startingLineNumber = "1202"
+            endingLineNumber = "1202">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1253"
-            endingLineNumber = "1253">
+            startingLineNumber = "1217"
+            endingLineNumber = "1217">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1500,11 +1500,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/UserDefaultsController.swift"
-            timestampString = "504024933.434301"
+            timestampString = "518792741.667204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1532,11 +1532,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/UserDefaultsController.swift"
-            timestampString = "504024933.434301"
+            timestampString = "518792741.667204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "myColumnDidSelected(_:text:segueName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1814,11 +1814,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/CalculatorViewController.swift"
-            timestampString = "499697266.13973"
+            timestampString = "518792741.667204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "LoadDefaultValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1910,11 +1910,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/UserDefaultsController.swift"
-            timestampString = "504024933.434301"
+            timestampString = "518792741.667204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "SaveDafaultsTouch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2164,11 +2164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "972"
-            endingLineNumber = "972"
+            startingLineNumber = "936"
+            endingLineNumber = "936"
             landmarkName = "SummaryViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2180,11 +2180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1156"
-            endingLineNumber = "1156">
+            startingLineNumber = "1120"
+            endingLineNumber = "1120">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2194,11 +2194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1018"
-            endingLineNumber = "1018"
+            startingLineNumber = "982"
+            endingLineNumber = "982"
             landmarkName = "getStringDate(_:currentDateFormat:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2210,11 +2210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1020"
-            endingLineNumber = "1020"
+            startingLineNumber = "984"
+            endingLineNumber = "984"
             landmarkName = "getStringDate(_:currentDateFormat:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2226,11 +2226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1017"
-            endingLineNumber = "1017"
+            startingLineNumber = "981"
+            endingLineNumber = "981"
             landmarkName = "getStringDate(_:currentDateFormat:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2242,11 +2242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CigarettesAndMoneyCounter/SummaryViewController.swift"
-            timestampString = "518193314.14226"
+            timestampString = "518788155.908033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "999"
-            endingLineNumber = "999"
+            startingLineNumber = "963"
+            endingLineNumber = "963"
             landmarkName = "SummaryViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2354,7 +2354,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "518206404.796667"
+                  timestampString = "518792743.492227"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2369,7 +2369,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "518206404.799558"
+                  timestampString = "518792743.495365"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2384,7 +2384,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "518206404.802548"
+                  timestampString = "518792743.498663"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -2399,7 +2399,7 @@
                   moduleName = "CigarettesAndMoneyCounter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tania/Projects/xcode6/CigarettesAndMoneyCounter/CigarettesAndMoneyCounter/Levels.swift"
-                  timestampString = "518206404.805459"
+                  timestampString = "518792743.501807"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"

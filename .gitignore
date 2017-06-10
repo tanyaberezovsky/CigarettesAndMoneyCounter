@@ -1,3 +1,5 @@
 .idea
 .DS_Store
 Charts/*
+Keys.swift
+CigarettesAndMoneyCounter/Keys.swift

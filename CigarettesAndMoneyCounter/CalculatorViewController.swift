@@ -9,6 +9,7 @@
 
 import UIKit
 import ENSwiftSideMenu
+import GoogleMobileAds
 
 class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
 
@@ -21,6 +22,7 @@ class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
     @IBOutlet weak var cigsDesc: UILabel!
     
     @IBOutlet weak var cigsPerPack: UITextField!
+    @IBOutlet weak var adBannerView: GADBannerView!
 
     @IBOutlet weak var segmentPeriod: UISegmentedControl!
     @IBOutlet weak var smokingTime: UILabel!
@@ -92,6 +94,7 @@ class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initAd()
         // Do any additional setup after loading the view.
         //Move next line to viewWillAppear functon if you store your view controllers
         self.sideMenuController()?.sideMenu?.delegate = self
@@ -101,6 +104,13 @@ class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
         
         LoadDefaultValues()
        
+    }
+    
+    func initAd(){
+        adBannerView.adUnitID = Keys.adMob.unitID
+        adBannerView.rootViewController = self
+        //request the ad
+        adBannerView.load(GADRequest())
     }
     
     func roundSegmentConers()
