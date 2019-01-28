@@ -94,7 +94,7 @@ class CalculatorViewController: GlobalUIViewController, ENSideMenuDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initAd()
+       // initAd()
         // Do any additional setup after loading the view.
         //Move next line to viewWillAppear functon if you store your view controllers
         self.sideMenuController()?.sideMenu?.delegate = self

@@ -77,7 +77,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        initAd()
+    //    initAd()
         initHorizontalChartUI()
         initPieChartUI()
         createYearArr()
@@ -133,7 +133,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     //MARK: INIT PIE
     func initPieChartUI()
     {
-        pieChart.chartDescription?.text = "Reasons Analysis"
+        pieChart.chartDescription?.text = ""//Reasons Analysis"
         pieChart.chartDescription?.textColor = UIColor.white
         pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: 0.1)
         pieChart.chartDescription?.yOffset = -10
@@ -571,7 +571,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
      //   setMaxMilAxisElementBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed)
         
      //   setMultiBarChart(sumOfCigsEnjoy, values2: sumOfCigsNeed, xVals: description)
-        lvlChart1.setChart(dataPoints: dataPointsEnjoy, values: sumOfCigsEnjoy, description: "Enjoy Analysis")
+        lvlChart1.setChart(dataPoints: dataPointsEnjoy, values: sumOfCigsEnjoy, description: "Enjoy")
         
         self.view.addSubview(lvlChart1)
     //    lvlChart1.bounds = barChart.bounds
@@ -580,7 +580,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         lvlChart1.frame.size = CGSize(width: pieChart.frame.width-(pieChart.frame.width*0.5), height: height)
         
         
-        lvlChart2.setChart(dataPoints: dataPointsNeed, values: sumOfCigsNeed, description: "Needed Analysis")
+        lvlChart2.setChart(dataPoints: dataPointsNeed, values: sumOfCigsNeed, description: "Needed")
        // lvlChart2.legend.enabled = false
         
         self.view.addSubview(lvlChart2)

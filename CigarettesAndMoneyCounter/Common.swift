@@ -13,7 +13,11 @@ import UIKit
 let delegateApplication = UIApplication.shared.delegate as! AppDelegate
 
 func isNumeric(_ a: String) -> Bool {
-    return Int(a) != nil
+    if (Int(a) != nil) == true {
+        return true
+    } else {
+        return Double(a) != nil
+    }
 }
 
 

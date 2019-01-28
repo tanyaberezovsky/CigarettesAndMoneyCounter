@@ -194,12 +194,12 @@
 			name = DataModel;
 			sourceTree = "<group>";
 		};
-		233A38A11A34E26A00661CDD /* Extantion */ = {
+		233A38A11A34E26A00661CDD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				233A38A21A34E34700661CDD /* String.swift */,
 			);
-			name = Extantion;
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		234E42D61C82206500185D9C /* CircularLoader */ = {
@@ -260,7 +260,7 @@
 				23A648751C8B1D8C00C67F58 /* Controllers */,
 				237205991C4970420051ABD8 /* Images */,
 				23EDCD5C1B9076C900F96F4A /* MISC */,
-				233A38A11A34E26A00661CDD /* Extantion */,
+				233A38A11A34E26A00661CDD /* Extension */,
 				23802C9819CC150900387768 /* AppDelegate.swift */,
 				23A85D0C1B11657B000740F6 /* Common.swift */,
 				23802C9F19CC150900387768 /* Images.xcassets */,

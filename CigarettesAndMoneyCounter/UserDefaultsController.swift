@@ -31,7 +31,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     
     override func viewDidLoad() {
         self.sideMenuController()?.sideMenu?.delegate = self
-        initAd()
+       // initAd()
         loadGraphicsSettings()
         LoadDefaultValues()
         
