@@ -35,6 +35,7 @@
 		239232731A45D7EA000714AA /* CigaretteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239232721A45D7EA000714AA /* CigaretteRecord.swift */; };
 		239C97311B52DCA80036332C /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97301B52DCA80036332C /* CalculatorViewController.swift */; };
 		239C97331B52E7BD0036332C /* CalculatorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C97321B52E7BD0036332C /* CalculatorModal.swift */; };
+		239FC9032208CC1A0066F429 /* Double+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FC9022208CC1A0066F429 /* Double+Extention.swift */; };
 		23A3CDEA1B5C1396009CF8D3 /* SwiftEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */; };
 		23A648701C8752CC00C67F58 /* popOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6486F1C8752CC00C67F58 /* popOverViewController.swift */; };
 		23A648741C8AFC6300C67F58 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A648731C8AFC6300C67F58 /* MenuViewController.swift */; };
@@ -97,6 +98,7 @@
 		239232721A45D7EA000714AA /* CigaretteRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CigaretteRecord.swift; sourceTree = "<group>"; };
 		239C97301B52DCA80036332C /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		239C97321B52E7BD0036332C /* CalculatorModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModal.swift; sourceTree = "<group>"; };
+		239FC9022208CC1A0066F429 /* Double+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extention.swift"; sourceTree = "<group>"; };
 		23A3CDE91B5C1396009CF8D3 /* SwiftEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEvent.swift; sourceTree = "<group>"; };
 		23A6486F1C8752CC00C67F58 /* popOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popOverViewController.swift; sourceTree = "<group>"; };
 		23A648731C8AFC6300C67F58 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				233A38A21A34E34700661CDD /* String.swift */,
+				239FC9022208CC1A0066F429 /* Double+Extention.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				2333B9A11D71C77D00081466 /* ReasonsManager.swift in Sources */,
 				2333B9A71D749CB700081466 /* ReasonsTableViewCell.swift in Sources */,
 				2321B1881CA536F6003F8D35 /* layoutSubviewsButton.swift in Sources */,
+				239FC9032208CC1A0066F429 /* Double+Extention.swift in Sources */,
 				23679BC319D56707003354C7 /* TableLevels.swift in Sources */,
 				2378D5A31DABB5BA0036DC9B /* HorizontalBarChartFormatter.swift in Sources */,
 			);

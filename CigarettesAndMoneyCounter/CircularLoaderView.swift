@@ -36,17 +36,16 @@ class CircularLoaderView: UIView , CAAnimationDelegate{
             }
         }
     }
-    
     override func draw(_ rect: CGRect) {
-        borderColor.setFill()
-        
-        circleRadius = self.frame.height / 2
-        
-        configure(circlePathLayer, layerColor: borderColor.cgColor)
-        
-        configure(circlePathUpperLayer, layerColor: fillColor.cgColor)
-        
-        self.backgroundColor = UIColor.clear
+            borderColor.setFill()
+            
+            circleRadius = self.frame.height / 2
+            
+            configure(circlePathLayer, layerColor: borderColor.cgColor)
+            
+            configure(circlePathUpperLayer, layerColor: fillColor.cgColor)
+            
+            self.backgroundColor = UIColor.clear
     }
     
     func configure(_ circleLayer: CAShapeLayer, layerColor: CGColor) {

@@ -109,14 +109,16 @@ func decimalIsInteger(_ num: Double) -> Bool{
     }
 }
 
-func decimalFormatToCurency(_ num: Double) -> String{
+func decimalFormatToCurency( _ num: Double) -> String {
+    let roundedNum = num.rounded(toPlaces: 2)
+    
     let unitedStatesLocale = Locale(identifier: "en_US")
 
     let numberFormatter = NumberFormatter()
     numberFormatter.numberStyle = NumberFormatter.Style.decimal
     
     numberFormatter.locale = unitedStatesLocale
-    return    numberFormatter.string(from: NSNumber(value: num))!
+    return numberFormatter.string(from: NSNumber(value: roundedNum))!
 
 
 }

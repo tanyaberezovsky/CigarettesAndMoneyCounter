@@ -19,8 +19,6 @@ struct Levels {
     let nameNum : String
 }
 
-
-
 let descriptionNeeded = ["Not need at all",
     "Could avoid","Desired","Must have", "Absolutely necessary"]
 
@@ -67,9 +65,6 @@ class enjoyedList:selectionList {
     }
 }
 
-
-
-
 class neededList:selectionList {
     
     var title: String = "Levels of needed";
@@ -88,7 +83,6 @@ class neededList:selectionList {
     }
 }
 
-
 class causeList:selectionList {
     
     var title: String = "Reasons of smoking";
@@ -102,7 +96,7 @@ class causeList:selectionList {
     func textValue(_ indexArr: Int) -> String {
         return text(indexArr)
     }
-    func detailText(_ indexArr: Int)->String{
+    func detailText(_ indexArr: Int)->String {
         return ""
     }
 }
