@@ -224,7 +224,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
       
      func showQuestion1(_ userDefaults:UserDefaults) {
         
-          //  if userDefaults.showQuestion1 == true {
+        if userDefaults.showQuestion1 == true {
             
                 
                 let popOverVC = storyboard!.instantiateViewController(withIdentifier: "question1ViewController") as! question1ViewController
@@ -242,7 +242,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
                 userDefaults.showQuestion1 = false
                 defaults.saveUserDefaults(userDefaults)
                 
-          //  }
+          }
         
         return
      
