@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate let defaults:UserDefaultsDataController  = UserDefaultsDataController.sharedInstance
     
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         //crash logs
         Fabric.with([Crashlytics.self])
@@ -31,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //admob - Use Firebase library to configure APIs.
         FirebaseApp.configure()
         // Initialize the Google Mobile Ads SDK.
-        GADMobileAds.configure(withApplicationID: Keys.adMob.applicationID)
+       // GADMobileAds.configure(withApplicationID: Keys.adMob.applicationID)
+//'configure(withApplicationID:)' is deprecated: Use [GADMobileAds.sharedInstance startWithCompletionHandler:]
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let directories = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
         if let documentDirectory = directories.first {

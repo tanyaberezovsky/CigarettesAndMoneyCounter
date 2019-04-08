@@ -18,7 +18,7 @@ class LevelsPieChartView: PieChartView {
     {
         self.chartDescription?.text = description
         self.chartDescription?.textColor = UIColor.white
-        self.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: 0.1)
+        self.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 0.1))
         self.chartDescription?.yOffset = -10
         self.chartDescription?.xOffset = 0
         
@@ -53,7 +53,7 @@ class LevelsPieChartView: PieChartView {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
    
         pieChartDataSet.colors = ColorTemplates.chartPieLevelsColors()
    //     pieChartDataSet.sliceSpace = 3

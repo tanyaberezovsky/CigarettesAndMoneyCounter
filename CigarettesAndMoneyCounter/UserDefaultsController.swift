@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import  ENSwiftSideMenu
+//import  ENSwiftSideMenu
 import GoogleMobileAds
 
-class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate, ENSideMenuDelegate {
+class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelegate  {
     @IBOutlet weak var reason: UIButton!
     
     @IBOutlet var averageCost: UITextField!
@@ -31,7 +31,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
     
     override func viewDidLoad() {
         self.sideMenuController()?.sideMenu?.delegate = self
-       // initAd()
+        initAd()
         loadGraphicsSettings()
         LoadDefaultValues()
         
@@ -84,7 +84,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         minimalModeOn = sender.isOn
     }
     
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         if parent == nil {
             SaveDafaultsTouch()
         }
@@ -224,7 +224,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         reasonText = String(userDefaults.reason)
         
-        reason.setTitle(reasonText, for: UIControlState())
+        reason.setTitle(reasonText, for: UIControl.State())
         
         
     }
@@ -237,7 +237,7 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
         
         if segueName == segueNames.segueCauseOfSmoking && !text.isEmpty {
             reasonText = text;
-            reason.setTitle(reasonText, for: UIControlState())
+            reason.setTitle(reasonText, for: UIControl.State())
         }
         
       
@@ -249,4 +249,27 @@ class UserDefaultsController: GlobalUIViewController,TableLevelsControllerDelega
 
 protocol UserDefaultsControllerDelegate{
     func ReloadUserDefaults()
+}
+
+
+extension UserDefaultsController: ENSideMenuDelegate {
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
 }

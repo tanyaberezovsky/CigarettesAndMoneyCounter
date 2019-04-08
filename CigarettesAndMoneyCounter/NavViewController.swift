@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import ENSwiftSideMenu
+//import ENSwiftSideMenu
 
-class NavViewController:  ENSideMenuNavigationController, ENSideMenuDelegate {
+class NavViewController:  ENSideMenuNavigationController {
 
  
     
@@ -28,7 +28,7 @@ class NavViewController:  ENSideMenuNavigationController, ENSideMenuDelegate {
         //sideMenu?.bouncingEnabled = false
         //sideMenu?.allowPanGesture = false
         // make navigation bar showing over side menu
-        view.bringSubview(toFront: navigationBar)
+        view.bringSubviewToFront(navigationBar)
     }
     
     func opacityBar() {
@@ -70,7 +70,7 @@ class NavViewController:  ENSideMenuNavigationController, ENSideMenuDelegate {
     func gradientBar(){
         self.navigationBar.isTranslucent = false
         self.navigationBar.tintColor = UIColor.white
-        let fontDictionary = [ NSForegroundColorAttributeName:UIColor.white ]
+        let fontDictionary = [ NSAttributedString.Key.foregroundColor:UIColor.white ]
         self.navigationBar.titleTextAttributes = fontDictionary
         self.navigationBar.setBackgroundImage(imageLayerForGradientBackground(), for: UIBarMetrics.default)
         //colored the iphone upper font bar to white
@@ -125,4 +125,26 @@ class NavViewController:  ENSideMenuNavigationController, ENSideMenuDelegate {
             }
     }
 
+}
+
+extension NavViewController: ENSideMenuDelegate {
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
 }

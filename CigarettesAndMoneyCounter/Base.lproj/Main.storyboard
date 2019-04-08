@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cp5-gu-9dN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cp5-gu-9dN">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1043,7 +1043,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3022.5" y="177"/>
+            <point key="canvasLocation" x="2749" y="146"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="EMC-Qp-Snc">
@@ -1590,7 +1590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwR-4z-rfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060.8695652173915" y="271.46739130434787"/>
+            <point key="canvasLocation" x="2022" y="284"/>
         </scene>
         <!--Totals-->
         <scene sceneID="tCc-Fl-gv6">
@@ -3481,7 +3481,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="50F-oe-K5A" kind="showDetail" identifier="showCalc" id="eTP-3c-BxC"/>
+                                    <segue destination="50F-oe-K5A" kind="push" identifier="showCalc" id="eTP-3c-BxC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-5C-Ney">
@@ -3933,8 +3933,8 @@
     </scenes>
     <resources>
         <image name="btn_plus.png" width="54" height="54"/>
-        <image name="graph" width="66" height="66"/>
-        <image name="menu" width="66" height="66"/>
+        <image name="graph" width="33" height="33"/>
+        <image name="menu" width="33" height="33"/>
         <image name="plus" width="54" height="54"/>
         <image name="smallArrow" width="14" height="23"/>
     </resources>

@@ -4,8 +4,8 @@ use_frameworks!
 
 
 target 'CigarettesAndMoneyCounter' do
-    pod 'ENSwiftSideMenu'
-	pod 'Charts'
+   # pod 'ENSwiftSideMenu'
+   # pod 'Charts'
     use_frameworks!
     pod 'Fabric'
     pod 'Crashlytics'

@@ -8,10 +8,10 @@
 
 import UIKit
 import CoreData
-import ENSwiftSideMenu
+//import ENSideMenu
 
 @IBDesignable
-class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate, ENSideMenuDelegate {
+class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate {
 
     
     @IBOutlet weak var txtLastCig: UILabel!
@@ -32,7 +32,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         
          let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LightMainSceneViewController.showSecondViewController))
  
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizer.Direction.up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
         self.sideMenuController()?.sideMenu?.delegate = self
@@ -114,11 +114,11 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         
         
         
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedString.Key.font,
                                      value: UIFont.systemFont(ofSize: 13.0),
                                      range: NSRange(location: 0, length: 4))
         
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedString.Key.font,
                                      value: UIFont.systemFont(ofSize: 13.0),
                                      range: NSRange(location:String(totalSigs).characters.count+4, length: String(remainder).characters.count+2))
         return myMutableString;
@@ -145,9 +145,9 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
     }
     
         override func viewWillAppear(_ animated: Bool) {
-            if self.childViewControllers.count > 0 {
+            if self.children.count > 0 {
 
-            let secondVC: AnyObject = childViewControllers[0]
+                let secondVC: AnyObject = children[0]
                  let navCtr  = self.navigationController as UINavigationController!
             //
             //
@@ -161,7 +161,7 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         // Dispose of any resources that can be recreated.
     }
     
-    func showSecondViewController() {
+    @objc func showSecondViewController() {
         self.performSegue(withIdentifier: "idFirstSegue", sender: self)
     }
     
@@ -270,4 +270,26 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         _ = controller.navigationController?.popViewController(animated: true)
      }
 
+}
+
+extension LightMainSceneViewController: ENSideMenuDelegate {
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
 }

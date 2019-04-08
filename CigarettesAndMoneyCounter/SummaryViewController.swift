@@ -77,7 +77,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     override func viewDidLoad() {
         super.viewDidLoad()
     
-    //    initAd()
+        initAd()
         initHorizontalChartUI()
         initPieChartUI()
         createYearArr()
@@ -86,10 +86,14 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     func initAd(){
-        adBannerView.adUnitID = Keys.adMob.unitID
+//        adBannerView.adUnitID = Keys.adMob.unitID
         adBannerView.rootViewController = self
-        //request the ad
-        adBannerView.load(GADRequest())
+//        //request the ad
+//        adBannerView.load(GADRequest())
+        let request: GADRequest = GADRequest()
+        request.testDevices = [Keys.adMob.unitID, kGADSimulatorID]
+        adBannerView.load(request)
+
     }
     
     func initHorizontalChartUI()
@@ -135,7 +139,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     {
         pieChart.chartDescription?.text = ""//Reasons Analysis"
         pieChart.chartDescription?.textColor = UIColor.white
-        pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: 0.1)
+        pieChart.chartDescription?.font = NSUIFont.systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 0.1))
         pieChart.chartDescription?.yOffset = -10
         pieChart.chartDescription?.xOffset = 0
         
@@ -476,7 +480,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
         
         pieChartDataSet.yValuePosition = .outsideSlice
         
@@ -906,7 +910,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         xaxis.valueFormatter = formato
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Smoked cigarettes")
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Smoked cigarettes")
         chartDataSet.colors = ColorTemplates.HorizontalBarChartColor()
         chartDataSet.valueTextColor = UIColor.white// ColorTemplates.HorizontalBarChartColor()[0]
         
@@ -1001,13 +1005,13 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
         
         segmentDateType.selectedSegmentIndex = 1
         
-        datePickerView.datePickerMode = UIDatePickerMode.date
+        datePickerView.datePickerMode = UIDatePicker.Mode.date
         selectedDate.inputView = datePickerView
      
         //set selected date to text field
         
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
-                                 for: UIControlEvents.valueChanged)
+                                 for: UIControl.Event.valueChanged)
         //set init value
         calculateSelectedDate(0)
         
@@ -1042,7 +1046,7 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     //set selected date to text field
-    func handleDatePicker(_ sender: UIDatePicker) {
+    @objc func handleDatePicker(_ sender: UIDatePicker) {
         showSelectedDate(sender.date, dateFormat: Constants.dateFormat.day)
         curentDate = sender.date
         calculateSelectedDate(0)

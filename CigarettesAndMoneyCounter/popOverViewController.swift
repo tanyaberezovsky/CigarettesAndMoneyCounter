@@ -81,7 +81,7 @@ class popOverViewController: UIViewController, TableLevelsControllerDelegate
         
         reasonText = String(userDefaults.reason)
         
-        causeOfSmoking.setTitle(reasonText, for: UIControlState())
+        causeOfSmoking.setTitle(reasonText, for: UIControl.State())
         
         
     }

@@ -72,7 +72,7 @@ class CircularLoaderView: UIView , CAAnimationDelegate{
         animation.delegate = self
         animation.isRemovedOnCompletion = false
         animation.isAdditive = true
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         circlePathUpperLayer.add(animation, forKey: "strokeEnd")
     }
     

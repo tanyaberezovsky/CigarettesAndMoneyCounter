@@ -27,7 +27,7 @@ class Calculator{
     typealias PropertyType = CalculatorProperty
     let propertyChanged = Event<CalculatorProperty>()
     
-    dynamic var segment: Int = 0
+    @objc dynamic var segment: Int = 0
     {
         didSet {
             if segment != oldValue
@@ -39,7 +39,7 @@ class Calculator{
         }
     }
     
-    dynamic fileprivate var dailyCiggarets: Double = 1
+    @objc dynamic fileprivate var dailyCiggarets: Double = 1
         {
         didSet {
             if self.dailyCiggarets != oldValue
@@ -49,7 +49,7 @@ class Calculator{
         }
     }
     
-    dynamic var totalCiggarets: Double = 1
+    @objc dynamic var totalCiggarets: Double = 1
     {
         didSet {
             if self.totalCiggarets != oldValue
@@ -62,7 +62,7 @@ class Calculator{
         }
     }
     
-    dynamic var packCost: Double = 1.0
+    @objc dynamic var packCost: Double = 1.0
         {
         didSet {
            // if packCost != oldValue
@@ -72,7 +72,7 @@ class Calculator{
         }
     }
 
-    dynamic var cigsPerPack: Int = 1
+    @objc dynamic var cigsPerPack: Int = 1
         {
         didSet {
             // if packCost != oldValue

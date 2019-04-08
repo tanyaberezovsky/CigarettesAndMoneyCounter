@@ -53,7 +53,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.estimatedRowHeight = 68.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
  
     }
     
@@ -88,7 +88,7 @@ class TableLavels: UITableViewController, NSFetchedResultsControllerDelegate {
             {
                 let vc = self.presentingViewController
                      as? popOverViewController
-                vc!.causeOfSmoking.setTitle(levelSelected, for: UIControlState())
+                vc!.causeOfSmoking.setTitle(levelSelected, for: UIControl.State())
                 
             }
             self.dismiss(animated: false, completion: nil)

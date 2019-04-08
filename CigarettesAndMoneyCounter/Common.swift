@@ -196,7 +196,7 @@ func AverageOfSmokingTimeDescription(_ totalSigs: Double, segment: Int) -> NSMut
     
     myMutableString = NSMutableAttributedString(string: text)
     
-    myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.green, range: NSRange(location:13, length: text.characters.count - 13))
+    myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location:13, length: text.characters.count - 13))
 
     return myMutableString;
 }

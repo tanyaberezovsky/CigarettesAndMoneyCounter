@@ -168,14 +168,14 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         
        //2016-07-30
         let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.down
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
      
 
     }
     
-    func showFirstViewController() {
+    @objc func showFirstViewController() {
         self.performSegue(withIdentifier: "idFirstSegueUnwind", sender: self)
     }
 
@@ -218,11 +218,11 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     func loadScreenGraphics()
     {
         
-        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
+        datePickerView.datePickerMode = UIDatePicker.Mode.dateAndTime
         AddDate.inputView = datePickerView
         //set selected date to text field
         datePickerView.addTarget(self, action: #selector(self.handleDatePicker(_:)),
-                         for: UIControlEvents.valueChanged)
+                                 for: UIControl.Event.valueChanged)
         
       roundSegmentConers()
         
@@ -247,7 +247,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         
         reasonText = String(userDefaults.reason)
         
-        causeOfSmoking.setTitle(reasonText, for: UIControlState())
+        causeOfSmoking.setTitle(reasonText, for: UIControl.State())
         
         if let lastCig = userDefaults.dateLastCig{
             let calcRet = calculateLastCigaretTime(lastCig)
@@ -274,7 +274,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     }
     
     //set selected date to text field
-    func handleDatePicker(_ sender: UIDatePicker) {
+    @objc func handleDatePicker(_ sender: UIDatePicker) {
         AddDate.text = self.getStringDate(sender.date)
     }
 
@@ -287,7 +287,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
        
         if segueName == segueNames.segueCauseOfSmoking  && !text.isEmpty {
             reasonText = text;
-            causeOfSmoking.setTitle(text, for: UIControlState())
+            causeOfSmoking.setTitle(text, for: UIControl.State())
         }
         
         _ = controller.navigationController?.popViewController(animated: true)

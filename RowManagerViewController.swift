@@ -235,7 +235,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
 
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let managedObject:NSManagedObject = fetchedResultControllerDaily.object(at: indexPath) as NSManagedObject
         managedObjectContext?.delete(managedObject)
         do {
@@ -249,7 +249,7 @@ class RowManagerViewController: UITableViewController,NSFetchedResultsController
         tableView.reloadData()
     }
     
-    func segmentAction(_ sender: UISegmentedControl) {
+    @objc func segmentAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             segment = 0
