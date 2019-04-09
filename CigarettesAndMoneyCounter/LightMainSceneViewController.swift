@@ -38,7 +38,9 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         self.sideMenuController()?.sideMenu?.delegate = self
 
     }
-    
+    deinit {
+        print("LightMainSceneViewController deinited")
+    }
     @IBAction func addCigarettes(_ sender: AnyObject) {
    
        
