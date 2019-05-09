@@ -86,13 +86,12 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     }
     
     func initAd(){
-//        adBannerView.adUnitID = Keys.adMob.unitID
+        adBannerView.adUnitID = Keys.adMob.unitID
         adBannerView.rootViewController = self
-//        //request the ad
-//        adBannerView.load(GADRequest())
-        let request: GADRequest = GADRequest()
-        request.testDevices = [Keys.adMob.unitID, kGADSimulatorID]
-        adBannerView.load(request)
+        adBannerView.load(GADRequest())
+//        let request: GADRequest = GADRequest()
+//        request.testDevices = [Keys.adMob.unitID, kGADSimulatorID]
+//        adBannerView.load(request)
 
     }
     

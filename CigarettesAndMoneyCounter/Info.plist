@@ -22,8 +22,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>GADApplicationIdentifier</key>
-    <string>ca-app-pub-3940256099942544~1458002511</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3657971113705104~2831849870</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
