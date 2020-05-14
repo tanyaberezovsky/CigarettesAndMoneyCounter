@@ -88,11 +88,9 @@ class SummaryViewController: GlobalUIViewController, UIPickerViewDataSource,UIPi
     func initAd(){
         adBannerView.adUnitID = Keys.adMob.unitID
         adBannerView.rootViewController = self
-        adBannerView.load(GADRequest())
-//        let request: GADRequest = GADRequest()
-//        request.testDevices = [Keys.adMob.unitID, kGADSimulatorID]
-//        adBannerView.load(request)
-
+        let request: GADRequest = GADRequest()
+//        request.testDevices = ["ec37ad21dae76e2ff5163880a284e77b"]
+        adBannerView.load(request)
     }
     
     func initHorizontalChartUI()

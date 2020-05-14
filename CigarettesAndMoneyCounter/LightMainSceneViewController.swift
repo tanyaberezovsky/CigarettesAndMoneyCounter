@@ -9,10 +9,12 @@
 import UIKit
 import CoreData
 //import ENSideMenu
+import GoogleMobileAds
 
 @IBDesignable
 class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentationControllerDelegate, popOverControllerDelegate, question1ViewControllerDelegate, TableLevelsControllerDelegate {
 
+    @IBOutlet weak var adBannerView: GADBannerView!
     
     @IBOutlet weak var txtLastCig: UILabel!
     
@@ -36,8 +38,18 @@ class LightMainSceneViewController: GlobalUIViewController, UIPopoverPresentatio
         self.view.addGestureRecognizer(swipeGestureRecognizer)
         
         self.sideMenuController()?.sideMenu?.delegate = self
+        
+        initAd()
 
     }
+    
+    func initAd(){
+               adBannerView.adUnitID = Keys.adMob.unitID
+               adBannerView.rootViewController = self
+               let request: GADRequest = GADRequest()
+               //request.testDevices = ["ec37ad21dae76e2ff5163880a284e77b"]
+               adBannerView.load(request)
+       }
     deinit {
         print("LightMainSceneViewController deinited")
     }

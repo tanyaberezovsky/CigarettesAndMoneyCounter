@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, UserDefaultsControllerDelegate {
 
     let MyManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
     
+    @IBOutlet weak var adBannerView: GADBannerView!
     var datePickerView  : UIDatePicker = UIDatePicker()
     
     @IBOutlet weak var txtCigarette: UILabel!
@@ -52,9 +54,34 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
         loadInitiatedValues()
         LoadDefaultValues()
     }
+    override func viewDidLoad() {
+          super.viewDidLoad()
+          // Do any additional setup after loading the view, typically from a nib.
+          loadScreenGraphics()
+          loadInitiatedValues()
+          LoadDefaultValues()
+          
+          
+         //2016-07-30
+          let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
+          swipeGestureRecognizer.direction = UISwipeGestureRecognizer.Direction.down
+          self.view.addGestureRecognizer(swipeGestureRecognizer)
+          
+       initAd()
+         
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         roundButtonConers()
+    }
+    
+    func initAd(){
+            adBannerView.adUnitID = Keys.adMob.unitID
+            adBannerView.rootViewController = self
+            let request: GADRequest = GADRequest()
+            //request.testDevices = ["ec37ad21dae76e2ff5163880a284e77b"]
+            adBannerView.load(request)
     }
     
     func roundSegmentConers()
@@ -158,22 +185,7 @@ class ViewController: GlobalUIViewController, TableLevelsControllerDelegate, Use
     @IBAction func TapGesture(_ sender: AnyObject) {
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        loadScreenGraphics()
-        loadInitiatedValues()
-        LoadDefaultValues()
-        
-        
-       //2016-07-30
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.showFirstViewController))
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizer.Direction.down
-        self.view.addGestureRecognizer(swipeGestureRecognizer)
-        
-     
-
-    }
+  
     
     @objc func showFirstViewController() {
         self.performSegue(withIdentifier: "idFirstSegueUnwind", sender: self)
